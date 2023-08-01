@@ -1,0 +1,134 @@
+[
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f292"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f293"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f294"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f295"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f296"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f297"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f298"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f299"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f29a"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f29b"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  },
+  {
+    "product_id": {
+      "$oid": "64c5c349cc0b7ede8fa2f29c"
+    },
+    "status": true,
+    "createdAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-29T07:56:23.922Z"
+    }
+  }
+]
