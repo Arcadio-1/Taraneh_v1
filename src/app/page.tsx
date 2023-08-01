@@ -1,34 +1,31 @@
 import { prisma } from "@/lib/db/prisma";
 import { price_format } from "@/lib/util/price_formt";
-import { AdWithProductsAndProduct_statistics } from "@/types/type";
-import { Prisma, products, product_ad } from "@prisma/client";
+import {
+  AdWithProductWithStatistics,
+  ProductWithStatistics,
+} from "@/types/type";
+import { Prisma } from "@prisma/client";
 
-type AdWithProducts = Prisma.product_adGetPayload<{
-  include: {};
-}>;
 export default async function Home() {
-  const statistics = await prisma.product_ad.findMany({
-    include: {
-      product: {
-        include: { statisctics: true },
-      },
-    },
+  const statistics: AdWithProductWithStatistics[] = await prisma.ad.findMany({
+    include: { product: { include: { statisctics: true } } },
   });
   // const products = await prisma.products.findMany({
   //   orderBy: { id: "desc" },
   // });
-  // const products_ad = await prisma.product_statistics.findMany({
-  //   include: {
-  //     product: { include: { product_statistics: { select: { soled: true } } } },
-  //   },
-  // });
+  const products_ad: ProductWithStatistics[] = await prisma.product.findMany({
+    include: {
+      statisctics: true,
+    },
+  });
   console.log(statistics);
+  console.log(products_ad);
   return (
     <div>
       {statistics.map((product, index) => {
         return (
           <div key={product.id}>
-            <h1>{product.product.statisctics.totalRate}</h1>
+            <h1>{product.product.statisctics.soled}</h1>
             {/* <h1>{product.product.product_statistics}</h1> */}
             {/* <h1 className="text-red-300">
               {

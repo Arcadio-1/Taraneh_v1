@@ -7,15 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model product_ad {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  product    products @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  product_id String   @db.ObjectId
-  status     Boolean
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @db.Date
-}
-
 model product_category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
@@ -32,32 +23,45 @@ model product_packing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
 
-model product_statistics {
-  id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  // product    products @relation((fields: [product_id],references: [id] , onDelete:Cascade))
-  product_id String     @db.ObjectId
+model Ad {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id String   @db.ObjectId
+  status     Boolean
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @db.Date
+
+  @@map("product_ad")
+}
+
+model Statistic {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
   views      Int
   buyerLiked Int
   soled      Int
   totalLike  Int
   totalRate  Int
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @db.Date
-  products   products[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @db.Date
+  Product    Product[]
+
+  @@map("product_statistics")
 }
 
-model products {
-  id             String             @id @default(auto()) @map("_id") @db.ObjectId
+model Product {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
   brandEn        String
   brandFn        String
-  createdAt      DateTime           @db.Date
+  createdAt      DateTime  @db.Date
   image_url      String
   off_percent    Int
   price          Int
   status         Boolean
   title          String
-  updatedAt      DateTime           @db.Date
-  statisctics    product_statistics @relation(fields: [statisctics_id], references: [id], onDelete: Cascade)
-  statisctics_id String             @db.ObjectId
-  product_ad     product_ad[]
+  updatedAt      DateTime  @db.Date
+  statisctics    Statistic @relation(fields: [statisctics_id], references: [id], onDelete: Cascade)
+  statisctics_id String    @db.ObjectId
+  product_ad     Ad[]
+
+  @@map("products")
 }
