@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../style/globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -15,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fa" dir="ltr">
-      <body className="bg-g1_1">{children}</body>
+    <html lang="fa" dir="rtl">
+      <body className="bg-g1_1">
+        <main className="max-w-[1720px] bg-violet-50 m-auto">{children}</main>
+      </body>
     </html>
   );
 }

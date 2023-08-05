@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        iransans: "iransans",
+        iransansnum: "iransansnum",
+        iransansbold: "iransansbold",
+        iranyekan: "iranyekan",
+        iranyekan_bold: "iranyekan_bold",
+      },
       colors: {
         success: " #07bc0c",
         error: "#e74c3c",
@@ -68,7 +75,7 @@ module.exports = {
           warning: "#f79926",
           error: "#ea535a",
           body: {
-            "background-color": "#e3e6e6",
+            "background-color": "snow",
           },
         },
       },

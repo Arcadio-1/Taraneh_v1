@@ -1,11 +1,7 @@
 import { Prisma } from "@prisma/client";
 
-export type AdWithProductWithStatistics = Prisma.AdGetPayload<{
+export type AdWithProducts = Prisma.AdGetPayload<{
   include: {
-    product: { include: { statisctics: true } };
+    product: true;
   };
-}>;
-
-export type ProductWithStatistics = Prisma.ProductGetPayload<{
-  include: { statisctics: true };
 }>;

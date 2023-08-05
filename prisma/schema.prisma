@@ -7,6 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+type ProductsStatistics {
+  buyerRate Int
+  soled     Int
+  totalLike Int
+  totalRate Int
+  views     Int
+}
+
 model product_category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
@@ -34,34 +42,52 @@ model Ad {
   @@map("product_ad")
 }
 
-model Statistic {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  views      Int
-  buyerLiked Int
-  soled      Int
-  totalLike  Int
-  totalRate  Int
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @db.Date
-  Product    Product[]
-
-  @@map("product_statistics")
-}
-
 model Product {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  brandEn        String
-  brandFn        String
-  createdAt      DateTime  @db.Date
-  image_url      String
-  off_percent    Int
-  price          Int
-  status         Boolean
-  title          String
-  updatedAt      DateTime  @db.Date
-  statisctics    Statistic @relation(fields: [statisctics_id], references: [id], onDelete: Cascade)
-  statisctics_id String    @db.ObjectId
-  product_ad     Ad[]
+  id           String             @id @default(auto()) @map("_id") @db.ObjectId
+  brandEn      String
+  brandFn      String
+  createdAt    DateTime           @db.Date
+  image_url    String
+  off_percent  Int
+  price        Int
+  selling_type String
+  statistics   ProductsStatistics
+  status       Boolean
+  title        String
+  updatedAt    DateTime           @db.Date
+  Ad           Ad[]
 
   @@map("products")
 }
+
+// model Statistic {
+//   id         String    @id @default(auto()) @map("_id") @db.ObjectId
+//   views      Int
+//   buyerLiked Int
+//   soled      Int
+//   totalLike  Int
+//   totalRate  Int
+//   createdAt  DateTime  @default(now())
+//   updatedAt  DateTime  @db.Date
+//   Product    Product[]
+
+//   @@map("product_statistics")
+// }
+
+// model Product {
+//   id             String    @id @default(auto()) @map("_id") @db.ObjectId
+//   brandEn        String
+//   brandFn        String
+//   createdAt      DateTime  @db.Date
+//   image_url      String
+//   off_percent    Int
+//   price          Int
+//   status         Boolean
+//   title          String
+//   updatedAt      DateTime  @db.Date
+//   statisctics    Statistic @relation(fields: [statisctics_id], references: [id], onDelete: Cascade)
+//   statisctics_id String    @db.ObjectId
+//   product_ad     Ad[]
+
+//   @@map("products")
+// }

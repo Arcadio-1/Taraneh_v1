@@ -1,7 +1,7 @@
 export function price_format(
   price: number,
   off_percent: number
-): { price: string; off_price: string } {
+): { price: string; off_price: string; off_percent: string } {
   const result = new Intl.NumberFormat("en-US", {
     style: "decimal",
   }).format(price);
@@ -11,7 +11,7 @@ export function price_format(
       style: "decimal",
     }).format(price - (price / 100) * off_percent);
   }
-  return { price: result, off_price };
+  return { price: result, off_price, off_percent: `${off_percent}٪` };
 }
 
 export function price_calculator(price: number, off_percent: number): number {

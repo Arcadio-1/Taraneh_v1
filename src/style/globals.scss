@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: iransans;
+  src: url(fonts/iransans/ttf/IRANSansWeb.ttf);
+}
+@font-face {
+  font-family: iransansnum;
+  src: url(fonts/iransans/ttf-num/IRANSansWebFaNum.ttf);
+}
+@font-face {
+  font-family: iransansbold;
+  src: url(fonts/iransans/ttf/IRANSansWeb_Bold.ttf);
+}
+@font-face {
+  font-family: iranyekan;
+  src: url(fonts/iranyekan/IRANYekanWeb.ttf);
+}
+@font-face {
+  font-family: iranyekan_bold;
+  src: url(fonts/iranyekan/IRANYekanWeb-Bold.ttf);
+}
+
+@function size($size) {
+  @return map-get($font-sizes, $size);
+}
+@mixin responsive($brekPoint) {
+  @if ($brekPoint==xl) {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if ($brekPoint==lg) {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if ($brekPoint==md) {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if ($brekPoint==sm) {
+    @media (max-width: 450px) {
+      @content;
+    }
+  }
+  @if ($brekPoint==xs) {
+    @media (max-width: 400px) {
+      @content;
+    }
+  }
+}
+
+html {
+  font-size: 62.5%;
+  @include responsive(lg) {
+    font-size: 58%;
+  }
+  @include responsive(md) {
+    font-size: 55%;
+  }
+  @include responsive(sm) {
+    font-size: 53%;
+  }
+  @include responsive(xs) {
+    font-size: 51%;
+  }
+}
