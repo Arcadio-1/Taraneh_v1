@@ -12,6 +12,7 @@ interface Props {
 }
 
 const Product_slid_card = ({ product }: Props) => {
+  // console.log(product.id);
   return (
     <div className="relative rounded-3xl bg-base-100 overflow-hidden p-2 shadow-md m-2 h-full w-[20rem] max-xl:w-[19rem] max-md:w-[18rem] transition-all duration-150 hover:scale-105 hover:shadow-lg">
       <Link href={"#"} className=" h-full grid grid-rows-3 items-stretch ">

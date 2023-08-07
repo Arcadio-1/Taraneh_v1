@@ -5,3 +5,7 @@ export type AdWithProducts = Prisma.AdGetPayload<{
     product: true;
   };
 }>;
+
+export type Specfic_cat = Prisma.Main_catGetPayload<{
+  select: { Specific_cat: true; id: true; label: true; title: true };
+}>;

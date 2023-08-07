@@ -1,0 +1,312 @@
+[{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da2"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "دانه قهوه",
+  "label": "coffee-bean",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f293"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f29c"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f294"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f298"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a0"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a4"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a5"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2aa"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da3"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "قهوه اسپرسو",
+  "label": "espresso",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2ac"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b2"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2bd"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c0"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c7"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2ca"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2cc"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f296"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da4"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "قهوه ترک",
+  "label": "turkish-coffee",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f29f"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a1"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a3"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da5"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "کپسول قهوه",
+  "label": "coffee-capsule",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f29a"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f29e"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2ab"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2af"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b8"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da6"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "کاپوچینو",
+  "label": "cappuccino",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2ba"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2bf"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c4"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c8"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2cb"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f29d"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a2"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a6"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da7"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "هات چاکلت",
+  "label": "hot-chocolate",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b0"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b4"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b5"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b7"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2bb"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da8"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9d"
+  },
+  "title": "قهوه فوری",
+  "label": "instant-coffee",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2bc"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c1"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c2"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c5"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c6"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f292"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446da9"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9e"
+  },
+  "title": "دستگاه آسیاب قهوه",
+  "label": "coffee-grinder-machine",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f295"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f297"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f299"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f29b"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a7"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446daa"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9e"
+  },
+  "title": "دستگاه قهوه ساز",
+  "label": "coffee-machine",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a8"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2a9"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2ad"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b3"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446dab"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9e"
+  },
+  "title": "دستگاه اسپرسو ساز",
+  "label": "espresso-machine",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b6"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b9"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2ae"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2b1"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2cd"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64cdbc4a723e6d8c5e446dac"
+  },
+  "main_cat_id": {
+    "$oid": "64cdb72e723e6d8c5e446d9e"
+  },
+  "title": "قهوه جوش",
+  "label": "coffee-pot",
+  "products_id": [
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2be"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c3"
+    },
+    {
+      "$oid": "64c5c349cc0b7ede8fa2f2c9"
+    }
+  ]
+}]

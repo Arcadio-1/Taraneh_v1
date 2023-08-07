@@ -1,13 +1,17 @@
 import { prisma } from "@/lib/db/prisma";
-import { AdWithProducts } from "@/types/type";
+import { AdWithProducts, Specfic_cat } from "@/types/type";
 import React from "react";
 import Slider from "./Slider";
 import CryptoJS from "crypto-js";
+import { Main_cat, Prisma, Specific_cat } from "@prisma/client";
+import Link from "next/link";
 
 const AdSlider = async () => {
   const adProducts: AdWithProducts[] = await prisma.ad.findMany({
     include: { product: true },
   });
+
+  // Use this to save cart id in cookies for unauthenticated users
   // const secretPass = "123";
   // const text = { user_id: "hossein", use_name: "c4net" };
   // const data = CryptoJS.AES.encrypt(JSON.stringify(text), "123").toString();

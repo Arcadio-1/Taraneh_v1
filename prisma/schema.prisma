@@ -15,6 +15,17 @@ type ProductsStatistics {
   views     Int
 }
 
+model Ad {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id String   @db.ObjectId
+  status     Boolean
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @db.Date
+
+  @@map("product_ad")
+}
+
 model product_category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
@@ -31,21 +42,15 @@ model product_packing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
 
-model Ad {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  product_id String   @db.ObjectId
-  status     Boolean
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @db.Date
-
-  @@map("product_ad")
-}
-
 model Product {
-  id           String             @id @default(auto()) @map("_id") @db.ObjectId
-  brandEn      String
-  brandFn      String
+  id              String       @id @default(auto()) @map("_id") @db.ObjectId
+  brandEn         String
+  brandFn         String
+  main_cat        Main_cat     @relation(fields: [main_cat_id], references: [id])
+  main_cat_id     String       @db.ObjectId
+  specific_cat    Specific_cat @relation(fields: [specific_cat_id], references: [id])
+  specific_cat_id String       @db.ObjectId
+
   createdAt    DateTime           @db.Date
   image_url    String
   off_percent  Int
@@ -60,34 +65,26 @@ model Product {
   @@map("products")
 }
 
-// model Statistic {
-//   id         String    @id @default(auto()) @map("_id") @db.ObjectId
-//   views      Int
-//   buyerLiked Int
-//   soled      Int
-//   totalLike  Int
-//   totalRate  Int
-//   createdAt  DateTime  @default(now())
-//   updatedAt  DateTime  @db.Date
-//   Product    Product[]
+model Main_cat {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  link             String
+  specifics_cat_id String[]
+  title            String
+  label            String
+  Product          Product[]
+  Specific_cat     Specific_cat[]
 
-//   @@map("product_statistics")
-// }
+  @@map("products_main_categories")
+}
 
-// model Product {
-//   id             String    @id @default(auto()) @map("_id") @db.ObjectId
-//   brandEn        String
-//   brandFn        String
-//   createdAt      DateTime  @db.Date
-//   image_url      String
-//   off_percent    Int
-//   price          Int
-//   status         Boolean
-//   title          String
-//   updatedAt      DateTime  @db.Date
-//   statisctics    Statistic @relation(fields: [statisctics_id], references: [id], onDelete: Cascade)
-//   statisctics_id String    @db.ObjectId
-//   product_ad     Ad[]
+model Specific_cat {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  main_cat    Main_cat  @relation(fields: [main_cat_id], references: [id], onDelete: Cascade)
+  main_cat_id String    @db.ObjectId
+  products_id String[]  @db.ObjectId
+  title       String
+  label       String
+  Product     Product[]
 
-//   @@map("products")
-// }
+  @@map("products_specific_categories")
+}

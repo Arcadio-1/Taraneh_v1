@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Status = ({ type }: Props) => {
-  console.log(type);
   return (
     <div className="absolute top-10 left-0">
       {type === SellingType.normal && (
