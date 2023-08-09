@@ -1,9 +1,5 @@
-import AdSlider from "@/components/AdSlider/AdSlider";
-import Hero from "@/components/hero/Hero";
-import { prisma } from "@/lib/db/prisma";
-import { price_format } from "@/lib/util/price_formt";
-import { Prisma } from "@prisma/client";
-import { Fragment } from "react";
+import AdSlider from "@/components/Util/ad_slider/AdSlider";
+import Hero from "@/components/Home_page/hero/Hero";
 
 export default async function Home() {
   // const statistics: AdWithProductWithStatistics[] = await prisma.ad.findMany({
@@ -20,9 +16,9 @@ export default async function Home() {
   // console.log(statistics);
   // console.log(products_ad);
   return (
-    <Fragment>
+    <div>
       <Hero />
       <AdSlider />
-    </Fragment>
+    </div>
   );
 }

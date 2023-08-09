@@ -34,5 +34,5 @@ const fixer = async () => {
     });
   });
   const json = JSON.stringify(ProductJson);
-  console.log(json);
+  // console.log(json);
 };

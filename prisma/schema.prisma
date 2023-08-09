@@ -66,25 +66,26 @@ model Product {
 }
 
 model Main_cat {
-  id               String         @id @default(auto()) @map("_id") @db.ObjectId
-  link             String
-  specifics_cat_id String[]
-  title            String
-  label            String
-  Product          Product[]
-  Specific_cat     Specific_cat[]
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  label        String
+  image        String
+  Product      Product[]
+  Specific_cat Specific_cat[]
 
   @@map("products_main_categories")
 }
 
 model Specific_cat {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  main_cat    Main_cat  @relation(fields: [main_cat_id], references: [id], onDelete: Cascade)
-  main_cat_id String    @db.ObjectId
-  products_id String[]  @db.ObjectId
-  title       String
-  label       String
-  Product     Product[]
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  main_cat     Main_cat  @relation(fields: [main_cat_id], references: [id], onDelete: Cascade)
+  main_cat_id  String    @db.ObjectId
+  products_id  String[]  @db.ObjectId
+  title        String
+  label        String
+  single_image String
+  hero_image   String
+  Product      Product[]
 
   @@map("products_specific_categories")
 }
