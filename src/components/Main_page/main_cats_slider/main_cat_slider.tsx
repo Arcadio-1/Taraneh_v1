@@ -1,4 +1,4 @@
-import Slider from "@/components/Util/slider/Slider";
+import Slider from "@/components/Util/products_Slider/Products_Slider";
 import { AllCatsTopsViewProducts } from "@/types/type";
 import React from "react";
 

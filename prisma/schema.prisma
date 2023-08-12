@@ -15,6 +15,11 @@ type ProductsStatistics {
   views     Int
 }
 
+enum UserRoler {
+  Admin
+  user
+}
+
 model Ad {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   product    Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
@@ -43,24 +48,23 @@ model product_packing {
 }
 
 model Product {
-  id              String       @id @default(auto()) @map("_id") @db.ObjectId
-  brandEn         String
-  brandFn         String
-  main_cat        Main_cat     @relation(fields: [main_cat_id], references: [id])
-  main_cat_id     String       @db.ObjectId
-  specific_cat    Specific_cat @relation(fields: [specific_cat_id], references: [id])
-  specific_cat_id String       @db.ObjectId
-
-  createdAt    DateTime           @db.Date
-  image_url    String
-  off_percent  Int
-  price        Int
-  selling_type String
-  statistics   ProductsStatistics
-  status       Boolean
-  title        String
-  updatedAt    DateTime           @db.Date
-  Ad           Ad[]
+  id              String             @id @default(auto()) @map("_id") @db.ObjectId
+  main_cat        Main_cat           @relation(fields: [main_cat_id], references: [id])
+  main_cat_id     String             @db.ObjectId
+  specific_cat    Specific_cat       @relation(fields: [specific_cat_id], references: [id])
+  specific_cat_id String             @db.ObjectId
+  brand_id        String             @db.ObjectId
+  brand           Brand              @relation(fields: [brand_id], references: [id])
+  createdAt       DateTime           @db.Date
+  image_url       String
+  off_percent     Int
+  price           Int
+  selling_type    String
+  statistics      ProductsStatistics
+  status          Boolean
+  title           String
+  updatedAt       DateTime           @db.Date
+  Ad              Ad[]
 
   @@map("products")
 }
@@ -88,4 +92,14 @@ model Specific_cat {
   Product      Product[]
 
   @@map("products_specific_categories")
+}
+
+model Brand {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  title_fr String
+  title_en String
+  image    String
+  Product  Product[]
+
+  @@map("products_brands")
 }

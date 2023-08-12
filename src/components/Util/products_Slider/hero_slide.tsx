@@ -20,12 +20,12 @@ const HeroSlide = ({
       className={`relative rounded-3xl overflow-hidden p-2 m-2 h-full w-[20rem] max-xl:w-[19rem] max-md:w-[18rem] ${bg_color}`}
     >
       <div className="flex flex-col items-center justify-evenly h-full">
-        <h1 className="text-[1.8rem] text-gray-50 ml-auto font-iransansbold">
+        <h1 className="text-[1.5rem] text-gray-50 ml-auto font-iransansbold">
           {title}
         </h1>
         <Image src={image_url} height={150} width={150} alt={title} />
         <Link
-          className="text-[1.7rem] mr-auto font-iransans text-gray-50 flex items-center hover:text-red-400 hover:fill-red-400"
+          className="text-[1.4rem] mr-auto font-iransans text-gray-50 flex items-center hover:text-red-400 hover:fill-red-400"
           href={link_url}
         >
           مشاهده همه

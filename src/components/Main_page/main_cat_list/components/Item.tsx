@@ -9,11 +9,11 @@ interface Props {
 
 const Item = ({ cat }: Props) => {
   return (
-    <div className="grow">
+    <div className="grow bg-g1_1 rounded-lg shadow-md shadow-slate-300 hover:scale-[1.01]">
       <Link title={cat.title} href={`main/${cat.label}`}>
-        <div className="flex justify-around items-center gap-2 bg-g1_1 rounded-lg">
+        <div className="flex justify-around items-center gap-2 ">
           <div className="flex items-center">
-            <span className="text-[1.8rem] font-iranyekan_bold text-gray-50">
+            <span className="text-[1.4rem] font-iranyekan_bold text-gray-50">
               {cat.title}
             </span>
             <svg viewBox="0 0 96 96" className="h-8 w-8">

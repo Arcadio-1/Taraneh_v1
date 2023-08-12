@@ -20,16 +20,17 @@ import Product_slid_card from "../product_card/Slide/Product_slid_card";
 interface Props {
   products: Product[];
   bg_color: string;
+  classes?: string;
   heroSlide?: Hero_slide_type;
 }
-const Slider = ({ products, heroSlide, bg_color }: Props) => {
+const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
   return (
     <section>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
         spaceBetween={10}
         slidesPerView={"auto"}
-        className={`sliderSection-swiper ${bg_color}`}
+        className={`sliderSection-swiper ${bg_color} ${classes}`}
         navigation
       >
         {!!heroSlide && (
@@ -53,4 +54,4 @@ const Slider = ({ products, heroSlide, bg_color }: Props) => {
   );
 };
 
-export default Slider;
+export default Products_Slider;

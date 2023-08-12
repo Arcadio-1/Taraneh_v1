@@ -5,15 +5,14 @@ export type AdWithProducts = Prisma.AdGetPayload<{
     product: true;
   };
 }>;
-
-export type Specfic_cat = Prisma.Main_catGetPayload<{
+export type DrinksBrands = Prisma.ProductGetPayload<{
   select: {
-    Specific_cat: true;
-    id: true;
-    label: true;
-    title: true;
-    image: true;
+    brand: true;
   };
+}>;
+
+export type MainCat_with_Specific_cats = Prisma.Main_catGetPayload<{
+  include: { Specific_cat: true };
 }>;
 
 export type AllCatsTopsViewProducts = Prisma.ProductGetPayload<{

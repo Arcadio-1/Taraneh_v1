@@ -1,9 +1,9 @@
 import { prisma } from "@/lib/db/prisma";
 import { AdWithProducts } from "@/types/type";
 import React from "react";
-import Slider from "../slider/Slider";
+import Slider from "../products_Slider/Products_Slider";
 import { Product } from "@prisma/client";
-import { Hero_slide_type } from "../slider/hero_slide";
+import { Hero_slide_type } from "../products_Slider/hero_slide";
 
 const AdSlider = async () => {
   const adProducts: AdWithProducts[] = await prisma.ad.findMany({
