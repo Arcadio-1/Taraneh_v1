@@ -19,3 +19,14 @@ export function price_calculator(price: number, off_percent: number): number {
   if (off_percent) result = price - (price / 100) * off_percent;
   return result;
 }
+
+export function numberSeperator(number: number): string {
+  const result = new Intl.NumberFormat("en-US", {
+    style: "decimal",
+  }).format(number);
+  return result;
+}
+
+export const numberGenerator = (number: string): number => {
+  return parseInt(number.replace(/,/g, ""));
+};

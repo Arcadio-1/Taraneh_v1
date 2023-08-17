@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className="bg-g1_1">
-        <main className="max-w-[1720px] bg-violet-50 m-auto  flex-col items-center justify-center overflow-hidden">
+        <main className="max-w-[1720px] px-5 bg-light_1 m-auto font-iranyekan flex-col items-center justify-center overflow-hidden">
           {children}
         </main>
       </body>

@@ -18,3 +18,11 @@ export type MainCat_with_Specific_cats = Prisma.Main_catGetPayload<{
 export type AllCatsTopsViewProducts = Prisma.ProductGetPayload<{
   include: { main_cat: true };
 }>[];
+
+export type ProductsWithBrands = Prisma.ProductGetPayload<{
+  include: { brand: true };
+}>;
+
+export type MainCatsWithSpecificCats = Prisma.Main_catGetPayload<{
+  include: { Specific_cat: true };
+}>;

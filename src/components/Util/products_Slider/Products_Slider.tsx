@@ -15,7 +15,7 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Product } from "@prisma/client";
 import HeroSlide, { Hero_slide_type } from "./hero_slide";
-import Product_slid_card from "../product_card/Slide/Product_slid_card";
+import Product_slide_card from "../product_card/Slide/Product_slide_card";
 
 interface Props {
   products: Product[];
@@ -45,7 +45,7 @@ const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
               id={product.id}
               className="p-5 !max-w-[20rem] !h-auto max-xl:!max-w-[19rem] max-md:!max-w-[18rem]"
             >
-              <Product_slid_card product={product} key={product.id} />
+              <Product_slide_card product={product} key={product.id} />
             </SwiperSlide>
           );
         })}
