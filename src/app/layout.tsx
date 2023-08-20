@@ -1,3 +1,4 @@
+import Navbar from "@/components/Util/nav/Navbar";
 import "../style/globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,10 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="bg-g1_1">
-        <main className="max-w-[1720px] px-5 bg-light_1 m-auto font-iranyekan flex-col items-center justify-center overflow-hidden">
-          {children}
-        </main>
+      <body className="max-w-[1720px] bg-light_1 m-auto font-iranyekan flex-col items-center justify-center">
+        <Navbar />
+        <main className="">{children}</main>
       </body>
     </html>
   );
