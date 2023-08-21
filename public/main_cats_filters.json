@@ -1,0 +1,38 @@
+[
+  {
+    "mainCat_id": {
+      "$oid": "64cdb72e723e6d8c5e446d9e"
+    },
+    "sections": {
+      "by_specific_cats": {
+        "title": "ابزار های تهیه نوشیدنی",
+        "list": [
+          {
+            "id": "1",
+            "title": "دستگاه آسیاب قهوه",
+            "key_name": "coffee-grinder-machine",
+            "key_id": "64cdbc4a723e6d8c5e446da9"
+          },
+          {
+            "id": "2",
+            "title": "دستگاه اسپرسو ساز",
+            "key_name": "espresso-machine",
+            "key_id": "64cdbc4a723e6d8c5e446dab"
+          },
+          {
+            "id": "3",
+            "title": "قهوه جوش",
+            "key_name": "coffee-pot",
+            "key_id": "64cdbc4a723e6d8c5e446dac"
+          },
+          {
+            "id": "4",
+            "title": "دستگاه قهوه ساز",
+            "key_name": "coffee-machine",
+            "key_id": "64cdbc4a723e6d8c5e446daa"
+          }
+        ]
+      }
+    }
+  }
+]

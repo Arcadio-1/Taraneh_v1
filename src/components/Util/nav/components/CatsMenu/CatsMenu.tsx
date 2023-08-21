@@ -1,190 +1,147 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import MenuIcon from "../../../icons/MenuIcon";
-import { MegaMenu } from "./components/MegaMenu";
+
+import * as React from "react";
+import Link from "next/link";
+import Coffee_image from "@/assets/images/menu/cofffee.png";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
 } from "@/components_shadcn/ui/navigation-menu";
-
-import {
-  Menubar,
-  MenubarCheckboxItem,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components_shadcn/ui/menubar";
-import DrinksIcon from "@/components/Util/icons/DrinksIcon";
-import ToolsIcon from "@/components/Util/icons/ToolsIcon";
+import Image from "next/image";
 import { MainCatsWithSpecificCats } from "@/types/type";
+const components: { title: string; href: string; description: string }[] = [
+  {
+    title: "Alert Dialog",
+    href: "/docs/primitives/alert-dialog",
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
+  },
+  {
+    title: "Hover Card",
+    href: "/docs/primitives/hover-card",
+    description:
+      "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Progress",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Scroll-area",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Tabs",
+    href: "/docs/primitives/tabs",
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Tooltip",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+];
 
 interface Props {
-  cats: MainCatsWithSpecificCats[];
+  mainCats: MainCatsWithSpecificCats[];
 }
-const CatsMenu = ({ cats }: Props) => {
-  const [mount, setMount] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!mount) {
-      setMount(true);
-    }
-  }, [mount]);
+export function CatsMenu({ mainCats }: Props) {
   return (
-    <div
-      className="flex items-center justify-center gap-1 "
-      onMouseOver={() => console.log("test")}
-    >
-      {mount && (
-        <Menubar className="border-transparent">
-          <MenubarMenu>
-            <MenubarTrigger className="">
-              <MenuIcon clasees="h-[2rem] w-[2rem] hidden md:inline" />
-              <span className="font-iranyekan_bold text-xl">
-                دسته بندی کالا ها
-              </span>
-            </MenubarTrigger>
-            <MenubarContent className="bg-slate-100">
-              <div className="bg-red-100 h-[40rem] ">
-                {/* <div className="bg-red-200 w-full grow-0 shrink"> */}
-                {/* <MenubarSeparator /> */}
-                <MenubarSub>
-                  <MenubarSubTrigger>
-                    نوشیدنی
-                    <MenubarShortcut>
-                      <DrinksIcon classes="h-7 w-7" />
-                    </MenubarShortcut>
-                  </MenubarSubTrigger>
-                  <MenubarSubContent className="bg-slate-100 h-[40rem] w-[60rem]">
-                    <MegaMenu />
-                  </MenubarSubContent>
-                </MenubarSub>
-                <MenubarSub>
-                  <MenubarSubTrigger>
-                    ابزار تهیه نوشیدنی
-                    <MenubarShortcut>
-                      <ToolsIcon classes="h-7 w-7" />
-                    </MenubarShortcut>
-                  </MenubarSubTrigger>
-                  <MenubarSubContent className="bg-slate-100">
-                    <MenubarItem>Email link</MenubarItem>
-                    <MenubarItem>Messages</MenubarItem>
-                    <MenubarItem>Notes</MenubarItem>
-                  </MenubarSubContent>
-                </MenubarSub>
-                {/* </div> */}
-              </div>
-            </MenubarContent>
-          </MenubarMenu>
-        </Menubar>
-      )}
-    </div>
+    <NavigationMenu dir="rtl" className="border-transparent">
+      <NavigationMenuList>
+        {mainCats.map((cat) => {
+          return (
+            <NavigationMenuItem key={cat.id}>
+              <NavigationMenuTrigger className="text-xl">
+                {cat.title}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="bg-slate-100 rounded-xl border-transparent">
+                <ul className="grid gap-3 p-4 md:w-[700px] md:grid-cols-5 md:grid-rows-2 items-stretch">
+                  <li className="row-span-2">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-start items-start rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/"
+                      >
+                        <Image
+                          src={cat.image}
+                          alt={cat.title}
+                          width={100}
+                          height={100}
+                        />
+                        <div className="flex flex-col items-start">
+                          <div className="mb-2 mt-4 text-lg font-iransansbold">
+                            {cat.title}
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            {cat.title}
+                          </p>
+                        </div>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  {cat.Specific_cat.map((specific) => {
+                    return (
+                      <ListItem
+                        className="flex h-full items-start justify-start border rounded-xl border-opacity-20 border-g1_7 font-iransansbol hover:border-opacity-80"
+                        key={specific.id}
+                        href={`/search/${specific.label}`}
+                        title={specific.title}
+                      >
+                        <Image
+                          src={specific.single_image}
+                          alt={specific.title}
+                          width={50}
+                          height={50}
+                        />
+                      </ListItem>
+                    );
+                  })}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          );
+        })}
+      </NavigationMenuList>
+    </NavigationMenu>
   );
-};
+}
 
-export default CatsMenu;
-
-// export function MenubarDemo() {
-//   return (
-//     <Menubar>
-//       <MenubarMenu>
-//         <MenubarTrigger>File</MenubarTrigger>
-//         <MenubarContent>
-//           <MenubarItem>
-//             New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-//           </MenubarItem>
-//           <MenubarItem>
-//             New Window <MenubarShortcut>⌘N</MenubarShortcut>
-//           </MenubarItem>
-//           <MenubarItem disabled>New Incognito Window</MenubarItem>
-//           <MenubarSeparator />
-//           <MenubarSub>
-//             <MenubarSubTrigger>Share</MenubarSubTrigger>
-//             <MenubarSubContent>
-//               <MenubarItem>Email link</MenubarItem>
-//               <MenubarItem>Messages</MenubarItem>
-//               <MenubarItem>Notes</MenubarItem>
-//             </MenubarSubContent>
-//           </MenubarSub>
-//           <MenubarSeparator />
-//           <MenubarItem>
-//             Print... <MenubarShortcut>⌘P</MenubarShortcut>
-//           </MenubarItem>
-//         </MenubarContent>
-//       </MenubarMenu>
-//       <MenubarMenu>
-//         <MenubarTrigger>Edit</MenubarTrigger>
-//         <MenubarContent>
-//           <MenubarItem>
-//             Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-//           </MenubarItem>
-//           <MenubarItem>
-//             Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-//           </MenubarItem>
-//           <MenubarSeparator />
-//           <MenubarSub>
-//             <MenubarSubTrigger>Find</MenubarSubTrigger>
-//             <MenubarSubContent>
-//               <MenubarItem>Search the web</MenubarItem>
-//               <MenubarSeparator />
-//               <MenubarItem>Find...</MenubarItem>
-//               <MenubarItem>Find Next</MenubarItem>
-//               <MenubarItem>Find Previous</MenubarItem>
-//             </MenubarSubContent>
-//           </MenubarSub>
-//           <MenubarSeparator />
-//           <MenubarItem>Cut</MenubarItem>
-//           <MenubarItem>Copy</MenubarItem>
-//           <MenubarItem>Paste</MenubarItem>
-//         </MenubarContent>
-//       </MenubarMenu>
-//       <MenubarMenu>
-//         <MenubarTrigger>View</MenubarTrigger>
-//         <MenubarContent>
-//           <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-//           <MenubarCheckboxItem checked>
-//             Always Show Full URLs
-//           </MenubarCheckboxItem>
-//           <MenubarSeparator />
-//           <MenubarItem inset>
-//             Reload <MenubarShortcut>⌘R</MenubarShortcut>
-//           </MenubarItem>
-//           <MenubarItem disabled inset>
-//             Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-//           </MenubarItem>
-//           <MenubarSeparator />
-//           <MenubarItem inset>Toggle Fullscreen</MenubarItem>
-//           <MenubarSeparator />
-//           <MenubarItem inset>Hide Sidebar</MenubarItem>
-//         </MenubarContent>
-//       </MenubarMenu>
-//       <MenubarMenu>
-//         <MenubarTrigger>Profiles</MenubarTrigger>
-//         <MenubarContent>
-//           <MenubarRadioGroup value="benoit">
-//             <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-//             <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-//             <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-//           </MenubarRadioGroup>
-//           <MenubarSeparator />
-//           <MenubarItem inset>Edit...</MenubarItem>
-//           <MenubarSeparator />
-//           <MenubarItem inset>Add Profile...</MenubarItem>
-//         </MenubarContent>
-//       </MenubarMenu>
-//     </Menubar>
-//   )
-// }
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-lg font-iranyekan font-medium leading-none">
+            {title}
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

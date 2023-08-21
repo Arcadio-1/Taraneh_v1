@@ -4,7 +4,7 @@ import HelpIcon from "../icons/helpIcon";
 import MenuIcon from "../icons/MenuIcon";
 import CartIcon from "../icons/CartIcon";
 import Search from "./components/Search";
-import CatsMenu from "./components/CatsMenu/CatsMenu";
+import { CatsMenu } from "./components/CatsMenu/CatsMenu";
 import NavbarLinks from "./components/NavbarLinks";
 import { MegaMenu } from "./components/CatsMenu/components/MegaMenu";
 import { prisma } from "@/lib/db/prisma";
@@ -29,7 +29,7 @@ const Navbar = async () => {
         </div>
       </div>
       <div className="hidden md:flex md:gap-2">
-        <CatsMenu cats={cats} />
+        <CatsMenu mainCats={cats} />
         {/* <MegaMenu /> */}
         <NavbarLinks />
       </div>
