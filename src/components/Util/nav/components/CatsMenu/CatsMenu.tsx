@@ -1,8 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import Coffee_image from "@/assets/images/menu/cofffee.png";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -15,6 +13,7 @@ import {
 } from "@/components_shadcn/ui/navigation-menu";
 import Image from "next/image";
 import { MainCatsWithSpecificCats } from "@/types/type";
+import Link from "next/link";
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Alert Dialog",
@@ -53,6 +52,8 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
+import ToolsIcon from "@/components/Util/icons/ToolsIcon";
+import DrinksIcon from "@/components/Util/icons/DrinksIcon";
 interface Props {
   mainCats: MainCatsWithSpecificCats[];
 }
@@ -63,16 +64,22 @@ export function CatsMenu({ mainCats }: Props) {
         {mainCats.map((cat) => {
           return (
             <NavigationMenuItem key={cat.id}>
-              <NavigationMenuTrigger className="text-xl">
+              <NavigationMenuTrigger className="text-xl flex items-center gap-1">
+                {cat.title === "نوشیدنی ها" && (
+                  <DrinksIcon classes="h-8 w-8 fill-dark_4" />
+                )}
+                {cat.title === "ابزار تهیه نوشیدنی" && (
+                  <ToolsIcon classes="h-8 w-8 fill-dark_4" />
+                )}
                 {cat.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="bg-slate-100 rounded-xl border-transparent">
                 <ul className="grid gap-3 p-4 md:w-[700px] md:grid-cols-5 md:grid-rows-2 items-stretch">
                   <li className="row-span-2">
                     <NavigationMenuLink asChild>
-                      <a
-                        className="flex h-full w-full select-none flex-col justify-start items-start rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
+                      <Link
+                        className="flex h-full w-full select-none flex-col justify-evenly items-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href={`/main/${cat.label}`}
                       >
                         <Image
                           src={cat.image}
@@ -80,26 +87,22 @@ export function CatsMenu({ mainCats }: Props) {
                           width={100}
                           height={100}
                         />
-                        <div className="flex flex-col items-start">
-                          <div className="mb-2 mt-4 text-lg font-iransansbold">
-                            {cat.title}
-                          </div>
-                          <p className="text-sm leading-tight text-muted-foreground">
-                            {cat.title}
-                          </p>
+                        <div className="mb-2 mt-4 text-lg font-iransansbold">
+                          {cat.title}
                         </div>
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   {cat.Specific_cat.map((specific) => {
                     return (
                       <ListItem
-                        className="flex h-full items-start justify-start border rounded-xl border-opacity-20 border-g1_7 font-iransansbol hover:border-opacity-80"
+                        className="flex flex-col h-full justify-between border rounded-xl border-opacity-20 border-g1_7 items-stretch font-iransansbol hover:border-opacity-80"
                         key={specific.id}
                         href={`/search/${specific.label}`}
                         title={specific.title}
                       >
                         <Image
+                          className="mr-auto"
                           src={specific.single_image}
                           alt={specific.title}
                           width={50}
@@ -118,30 +121,30 @@ export function CatsMenu({ mainCats }: Props) {
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-lg font-iranyekan font-medium leading-none">
-            {title}
-          </div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
+type ListItemType1 = React.ComponentPropsWithoutRef<"a">;
+type ListItemType2 = Omit<ListItemType1, "href"> & { href: string };
+
+const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemType2>(
+  ({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <Link
+            ref={ref}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className
+            )}
+            {...props}
+          >
+            <div className="text-lg font-iranyekan font-medium leading-none">
+              {title}
+            </div>
+            <div className="">{children}</div>
+          </Link>
+        </NavigationMenuLink>
+      </li>
+    );
+  }
+);
 ListItem.displayName = "ListItem";

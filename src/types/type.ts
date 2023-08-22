@@ -26,3 +26,8 @@ export type ProductsWithBrands = Prisma.ProductGetPayload<{
 export type MainCatsWithSpecificCats = Prisma.Main_catGetPayload<{
   include: { Specific_cat: true };
 }>;
+
+export type Drinks_products = Prisma.Main_catGetPayload<{
+  where: { label: "drinks" };
+  include: { Product: { include: { brand: true; specific_cat: true } } };
+}>;

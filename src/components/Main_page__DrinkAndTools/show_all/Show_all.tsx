@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface Props {
@@ -9,7 +10,10 @@ interface Props {
 
 const Show_all = ({ image_url, alt, label }: Props) => {
   return (
-    <div className="flex items-center gap-2 justify-center px-5 py-2 bg-amber-600 rounded-xl">
+    <Link
+      href={`/search/${alt}`}
+      className="flex items-center gap-2 justify-center px-5 py-2 bg-amber-600 rounded-xl"
+    >
       <div className="flex items-center">
         <h1 className="text-3xl font-iranyekan_bold text-light_2">{label}</h1>
         <svg viewBox="0 0 96 96" className="h-8 w-8">
@@ -20,7 +24,7 @@ const Show_all = ({ image_url, alt, label }: Props) => {
         </svg>
       </div>
       <Image src={image_url} width={100} height={100} alt={alt} />
-    </div>
+    </Link>
   );
 };
 

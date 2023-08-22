@@ -8,7 +8,7 @@ import MuiAccordionSummary, {
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { Brand } from "@prisma/client";
+import { Brand, Specific_cat } from "@prisma/client";
 import { MainCatsWithSpecificCats } from "@/types/type";
 import Categories from "./components/categories";
 import PriceRange from "./components/priceRange";
@@ -58,10 +58,11 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 interface Props {
   brands: Brand[];
-  mainCats: MainCatsWithSpecificCats[];
+  mainCats?: MainCatsWithSpecificCats[];
+  specificCats?: Specific_cat[] | null;
 }
 
-export default function Filters({ brands, mainCats }: Props) {
+export default function Filters({ brands, mainCats, specificCats }: Props) {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
   const handleChange =
@@ -71,24 +72,53 @@ export default function Filters({ brands, mainCats }: Props) {
 
   return (
     <div>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-        className=""
-      >
-        <AccordionSummary
+      {!!specificCats && (
+        <Accordion
+          expanded={expanded === "panel1"}
+          onChange={handleChange("panel1")}
           className=""
-          aria-controls="panel1d-content"
-          id="panel1d-header"
         >
-          <Typography className="font-iranyekan_bold text-xl">
-            دسته بندی ها
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails className="bg-slate-100">
-          <Categories mainCats={mainCats} />
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            className=""
+            aria-controls="panel1d-content"
+            id="panel1d-header"
+          >
+            <Typography className="font-iranyekan_bold text-xl">
+              دسته بندی ها
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {specificCats.map((specific) => {
+              return (
+                <Typography key={specific.id} className="font-iranyekan_bold">
+                  {specific.title}
+                </Typography>
+              );
+            })}
+          </AccordionDetails>
+        </Accordion>
+      )}
+      {!!mainCats && (
+        <Accordion
+          expanded={expanded === "panel1"}
+          onChange={handleChange("panel1")}
+          className=""
+        >
+          <AccordionSummary
+            className=""
+            aria-controls="panel1d-content"
+            id="panel1d-header"
+          >
+            <Typography className="font-iranyekan_bold text-xl">
+              دسته بندی ها
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails className="bg-slate-100">
+            <Categories mainCats={mainCats} />
+          </AccordionDetails>
+        </Accordion>
+      )}
+
       <Accordion
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
