@@ -83,7 +83,7 @@ export default function Filters({ brands, mainCats, specificCats }: Props) {
             aria-controls="panel1d-content"
             id="panel1d-header"
           >
-            <Typography className="font-iranyekan_bold text-xl">
+            <Typography className="!font-iranyekan_bold text-xl">
               دسته بندی ها
             </Typography>
           </AccordionSummary>
@@ -109,7 +109,7 @@ export default function Filters({ brands, mainCats, specificCats }: Props) {
             aria-controls="panel1d-content"
             id="panel1d-header"
           >
-            <Typography className="font-iranyekan_bold text-xl">
+            <Typography className="!font-iranyekan_bold text-xl">
               دسته بندی ها
             </Typography>
           </AccordionSummary>
@@ -124,19 +124,19 @@ export default function Filters({ brands, mainCats, specificCats }: Props) {
         onChange={handleChange("panel2")}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography className="font-iranyekan_bold text-xl">
+          <Typography className="!font-iranyekan_bold text-xl" fontSize={11}>
             برند ها
           </Typography>
         </AccordionSummary>
-        <AccordionDetails className="bg-slate-100">
+        <AccordionDetails className="bg-slate-100 flex flex-col gap-2">
           {brands.map((brand) => {
             return (
               <div key={brand.id} className="flex justify-between">
                 <div className="flex gap-1">
                   <input type="checkbox" />
-                  <span>{brand.title_fr}</span>
+                  <span className="text-base">{brand.title_fr}</span>
                 </div>
-                <span>{brand.title_en}</span>
+                <span className="text-base">{brand.title_en}</span>
               </div>
             );
           })}
@@ -147,7 +147,7 @@ export default function Filters({ brands, mainCats, specificCats }: Props) {
         onChange={handleChange("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography className="font-iranyekan_bold text-xl">
+          <Typography className="text-2xl !font-iranyekan_bold">
             محدوده قیمت
           </Typography>
         </AccordionSummary>

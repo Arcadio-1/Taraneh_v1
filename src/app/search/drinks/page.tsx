@@ -10,6 +10,7 @@ import {
 } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
 
 interface Props {
@@ -22,6 +23,7 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
     where: { main_cat: { label: "drinks" } },
     include: { brand: true },
   });
+  if (!allProducts.length) notFound();
   const currentPage = parseInt(page);
 
   const pageSize = 10;
@@ -44,7 +46,6 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
     ...new Map(brands.map((item) => [item.id, item])).values(),
   ];
 
-  const allBrands = await prisma.brand.findMany();
   const mainCats = await prisma.main_cat.findFirst({
     where: { label: "drinks" },
     select: { Specific_cat: true },

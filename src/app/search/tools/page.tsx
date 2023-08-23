@@ -44,7 +44,6 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
     ...new Map(brands.map((item) => [item.id, item])).values(),
   ];
 
-  const allBrands = await prisma.brand.findMany();
   const mainCats = await prisma.main_cat.findFirst({
     where: { label: "tools" },
     select: { Specific_cat: true },
