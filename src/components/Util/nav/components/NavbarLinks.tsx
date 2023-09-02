@@ -3,6 +3,8 @@ import PercentIcon from "../../icons/PercentIcon";
 import BlogIcon from "../../icons/BlogIcon";
 import FixingIcon from "../../icons/FixingIcon";
 import Link from "next/link";
+// import { signIn } from "next-auth/react";
+// import { signIn } from "next-auth/react";
 
 const NavbarLinks = () => {
   return (
@@ -24,6 +26,9 @@ const NavbarLinks = () => {
         <Link className="text-dark_4" href={"#"}>
           تعمیرات
         </Link>
+        {/* <p onClick={()=>{signIn({})}}>
+          Login
+        </p> */}
       </li>
     </ul>
   );

@@ -1,4 +1,16 @@
 import { Prisma } from "@prisma/client";
+import { z } from "zod";
+
+export enum IsValid {
+  true = "200",
+  false = "500",
+}
+
+export enum Sign {
+  signin,
+  signUp,
+  error,
+}
 
 export type AdWithProducts = Prisma.AdGetPayload<{
   select: {

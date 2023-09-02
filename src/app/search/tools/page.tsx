@@ -48,7 +48,7 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
     where: { label: "tools" },
     select: { Specific_cat: true },
   });
-  console.log(mainCats);
+  // console.log(mainCats);
 
   return (
     <div className="flex items-stretch mt-3">

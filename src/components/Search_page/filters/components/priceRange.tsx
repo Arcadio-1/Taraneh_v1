@@ -100,7 +100,7 @@ export default function PriceRange() {
     activeThumb: number
   ) => {
     // console.log(newValue);
-    console.log(activeThumb);
+    // console.log(activeThumb);
     if (!Array.isArray(newValue)) {
       return;
     }
@@ -121,7 +121,7 @@ export default function PriceRange() {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const num = numberGenerator(e.target.value);
-    console.log(num);
+    // console.log(num);
     const newValue: number = num;
 
     if (typer === Typer.min) {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import FatCat from "@/assets/images/404.png";
+import astronaut from "@/assets/images/util/404.png";
 import Image from "next/image";
 export default function NotFoundPage() {
   return (
@@ -42,7 +42,7 @@ export default function NotFoundPage() {
       <div className="">
         <Image
           className="max-w-[30rem]"
-          src={FatCat}
+          src={astronaut}
           width={300}
           height={300}
           alt="404"

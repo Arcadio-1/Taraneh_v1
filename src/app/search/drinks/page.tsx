@@ -50,7 +50,6 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
     where: { label: "drinks" },
     select: { Specific_cat: true },
   });
-  console.log(mainCats);
 
   return (
     <div className="flex items-stretch mt-3">
