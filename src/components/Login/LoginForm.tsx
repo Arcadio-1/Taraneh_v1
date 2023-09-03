@@ -13,7 +13,7 @@ import { Input } from "@/components_shadcn/ui/input";
 import { Button } from "@/components_shadcn/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Sign } from "@/types/type";
 import axios from "axios";
@@ -31,6 +31,7 @@ const formSchame = z.object({
       ),
   ]),
 });
+
 const validationFormSchame = z.object({
   validationNumber: z.string().regex(/[0-9]{5}$/, {
     message: "مثلا 12345",
@@ -43,6 +44,7 @@ const validationFormSchame = z.object({
 
 const LoginForm = () => {
   const router = useRouter();
+  const callbackParam = useSearchParams().get("callback") || "/";
   const [validationNumber, setValidationNumber] = useState(false);
   const [showValidationForm, setShowValidationForm] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -72,7 +74,7 @@ const LoginForm = () => {
   };
   const onLogin = async (values: z.infer<typeof validationFormSchame>) => {
     await signIn("credentials", {
-      callbackUrl: "/",
+      callbackUrl: callbackParam,
       phone: phoneNumber,
     });
   };
@@ -90,11 +92,11 @@ const LoginForm = () => {
       }
     );
     console.log(regester);
-
-    await signIn("credentials", {
-      callbackUrl: "/",
-      phone: phoneNumber,
-    });
+    onLogin(values);
+    // await signIn("credentials", {
+    //   callbackUrl: "/profile",
+    //   phone: phoneNumber,
+    // });
   };
 
   return (

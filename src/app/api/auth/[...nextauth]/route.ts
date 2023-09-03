@@ -19,7 +19,6 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         try {
           const phone = phoneSchame.parse(credentials);
-          // console.log("result", phone);
         } catch (error) {
           console.log(error);
           throw new Error("شماره موبایل وارد شده صحیح نیست");
@@ -47,7 +46,6 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async jwt({ token, user, session }) {
-      console.log("jwt callback", token, user, session);
       if (user) {
         return {
           ...token,
@@ -58,7 +56,6 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token, user }) {
-      console.log("session callback", session, token, user);
       return {
         ...session,
         user: {

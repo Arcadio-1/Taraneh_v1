@@ -13,6 +13,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { UserMenu } from "./components/UserMenu";
 import { headers } from "next/headers";
+import Log from "./Log";
 
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
@@ -20,16 +21,10 @@ const Navbar = async () => {
   const cats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
     include: { Specific_cat: true },
   });
-  // console.log(session);
   const headersList = headers();
-  // const domain = headersList.get("x-forwarded-host") || "";
-  // const protocol = headersList.get("x-forwarded-proto") || "";
   const pathname = headersList.get("x-invoke-path") || "";
-  // const regex = new RegExp(/users\/login*/);
-  // console.log(regex.test(pathname));
   return (
     <>
-      {/* {!regex.test(pathname) && ( */}
       <div className="px-4">
         <div className="mb-3 md:flex md:gap-6">
           <div className="flex items-center justify-between">
@@ -42,7 +37,9 @@ const Navbar = async () => {
           <div className="flex justify-between items-center gap-4 md:grow">
             <Search />
             <div className="flex items-center gap-2">
-              <UserMenu callbackPath={pathname} session={session} />
+              {session && <UserMenu session={session} />}
+              {!session && <Log />}
+
               <ShoppingCartButton />
             </div>
           </div>
@@ -52,7 +49,6 @@ const Navbar = async () => {
           <NavbarLinks />
         </div>
       </div>
-      {/* )} */}
     </>
   );
 };
