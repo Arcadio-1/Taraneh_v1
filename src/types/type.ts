@@ -11,7 +11,10 @@ export enum Sign {
   signUp,
   error,
 }
-
+// export enum Role {
+//   ADMIN,
+//   USER,
+// }
 export type AdWithProducts = Prisma.AdGetPayload<{
   select: {
     product: true;

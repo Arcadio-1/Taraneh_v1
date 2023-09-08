@@ -45,14 +45,24 @@ model Session {
   @@map("sessions")
 }
 
+enum Role {
+  ADMIN
+  USER
+}
+
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   phone         String    @unique
-  name          String?
+  name          String    @default("")
+  family        String    @default("")
+  address       String    @default("")
+  state         String    @default("")
+  city          String    @default("")
+  code_meli     String    @default("")
+  image         String    @default("")
   email         String?   @unique
   emailVerified DateTime?
-  image         String?
-  role          String    @default("user")
+  role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
 
@@ -67,11 +77,6 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
-}
-
-enum UserRoler {
-  Admin
-  user
 }
 
 model Ad {

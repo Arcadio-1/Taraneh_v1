@@ -10,6 +10,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Logout from "@mui/icons-material/Logout";
+import { Role } from "@prisma/client";
+import { Settings2Icon, SettingsIcon } from "lucide-react";
 
 interface Props {
   session: Session;
@@ -26,7 +28,7 @@ export function UserMenu({ session }: Props) {
     setAnchorEl(null);
   };
 
-  const user = session.user;
+  // const user = session;
 
   return (
     <div>
@@ -90,13 +92,30 @@ export function UserMenu({ session }: Props) {
               className="font-iransansnum text-lg"
               onClick={handleClose}
             >
-              <Avatar /> {user.phone}
+              <Avatar /> {session.phone}
               <svg className="w-5 h-5 mr-5 " viewBox="0 0 512 512">
                 <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
               </svg>
             </MenuItem>
           </Link>
           <Divider />
+          {session.role === Role.ADMIN && (
+            <>
+              <Link href={"/dashboard"}>
+                <MenuItem
+                  className="font-iransansnum text-lg flex gap-2"
+                  onClick={handleClose}
+                >
+                  <Settings2Icon className="stroke-gray-500" />
+                  <span>پنل مدیریت</span>
+                  <svg className="w-5 h-5 mr-auto " viewBox="0 0 512 512">
+                    <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
+                  </svg>
+                </MenuItem>
+              </Link>
+              <Divider />
+            </>
+          )}
           <MenuItem
             className="font-iranyekan_bold text-base"
             onClick={() => {

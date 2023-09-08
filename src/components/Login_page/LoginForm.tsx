@@ -17,30 +17,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Sign } from "@/types/type";
 import axios from "axios";
-
-const formSchame = z.object({
-  phone: z.union([
-    z.string().regex(/09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/, {
-      message: "شماره موبایل وارد شده صحیح نمیباشد مثال (09120001122)",
-    }),
-    z
-      .string()
-      .regex(
-        /۰۹(۱[۰۱۲۳۴۵۶۷۸۹]|۳[۱۲۳۴۵۶۷۸۹]|۰[۱۲۳۴۵۶۷۸۹]|۲[۱۲۳۴۵۶۷۸۹])-?[۰۱۲۳۴۵۶۷۸۹]{3}-?[۰۱۲۳۴۵۶۷۸۹]{4}$/,
-        { message: "(شماره موبایل وارد شده صحیح نمیباشد مثال (09120001122" }
-      ),
-  ]),
-});
+import { phoneSchame } from "@/lib/util/validation";
 
 const validationFormSchame = z.object({
   validationNumber: z.string().regex(/[0-9]{5}$/, {
     message: "مثلا 12345",
   }),
 });
-
-// const formSchame = z.object({
-//   phone: z.string().min(3, { message: "نام مورد نظر باید حداقل 3 حرف باشد" }),
-// });
 
 const LoginForm = () => {
   const router = useRouter();
@@ -50,8 +33,8 @@ const LoginForm = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [sign, setSign] = useState<Sign>();
 
-  const form = useForm<z.infer<typeof formSchame>>({
-    resolver: zodResolver(formSchame),
+  const form = useForm<z.infer<typeof phoneSchame>>({
+    resolver: zodResolver(phoneSchame),
     defaultValues: {
       phone: "",
     },
@@ -63,7 +46,7 @@ const LoginForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchame>) => {
+  const onSubmit = async (values: z.infer<typeof phoneSchame>) => {
     setShowValidationForm(true);
     setPhoneNumber(values.phone);
     const signType = await fetch(`/api/log_type/${values.phone}`);
@@ -91,7 +74,7 @@ const LoginForm = () => {
         },
       }
     );
-    console.log(regester);
+    // console.log(regester);
     onLogin(values);
     // await signIn("credentials", {
     //   callbackUrl: "/profile",
