@@ -20,11 +20,15 @@ const Product_slid_card = ({
     price,
     off_percent,
     image_url,
+    id,
   },
 }: Props) => {
   return (
     <div className="relative rounded-3xl bg-base-100 overflow-hidden p-2 shadow-md m-2 h-full w-[20rem] max-xl:w-[19rem] max-md:w-[18rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg">
-      <Link href={"#"} className=" h-full grid grid-rows-3 items-stretch ">
+      <Link
+        href={`/product/${id}`}
+        className=" h-full grid grid-rows-3 items-stretch "
+      >
         <ImageComponent image_url={image_url} title={title} />
         <div className="h-full flex flex-col">
           <Title title={title} />

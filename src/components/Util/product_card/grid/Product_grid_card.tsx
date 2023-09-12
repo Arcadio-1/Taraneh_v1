@@ -20,12 +20,13 @@ const Product_grid_card = ({
     price,
     off_percent,
     image_url,
+    id,
   },
 }: Props) => {
   return (
     <div className="relative bg-base-100 overflow-hidden h-full transition-all duration-150 hover:scale-[1.015] hover:shadow-lg p-2">
       <Link
-        href={"#"}
+        href={`/product/${id}`}
         className=" h-full grid grid-cols-2 grid-rows-2 items-stretch sm:grid-rows-3 sm:grid-cols-1 sm:grid sm:place-items-center "
       >
         <ImageComponent image_url={image_url} title={title} />

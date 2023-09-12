@@ -17,8 +17,8 @@ interface Props {
 const All_products_page = async ({ searchParams: { page = "1" } }: Props) => {
   const currentPage = parseInt(page);
 
-  const pageSize = 10;
-  const heroItemCount = 1;
+  const pageSize = 60;
+  const heroItemCount = 0;
 
   const totalItemCount = await prisma.product.count();
 
@@ -27,7 +27,7 @@ const All_products_page = async ({ searchParams: { page = "1" } }: Props) => {
   const products: ProductsWithBrands[] = await prisma.product.findMany({
     include: { brand: true },
     orderBy: { id: "desc" },
-    skip: (currentPage - 1) * pageSize + 1,
+    // skip: (currentPage - 1) * pageSize + 1,
     take: pageSize,
   });
 

@@ -38,17 +38,17 @@ const SpecficCategoryPage = async ({
   const currentPage = parseInt(page);
 
   const pageSize = 10;
-  const heroItemCount = 1;
+  const heroItemCount = 0;
 
   const totalItemCount = allProducts.length;
 
-  const totalPages = Math.ceil((totalItemCount - heroItemCount) / pageSize);
+  const totalPages = Math.ceil(totalItemCount / pageSize);
 
   const specific_products = await prisma.product.findMany({
     where: { specific_cat: { label: specificLabel } },
     include: { brand: true },
     orderBy: { id: "desc" },
-    skip: (currentPage - 1) * pageSize + 1,
+    // skip: (currentPage - 1) * pageSize + 1,
     take: pageSize,
   });
   const brands = allProducts.map((product) => product.brand);
@@ -56,6 +56,7 @@ const SpecficCategoryPage = async ({
   const arrayUniqueByKey = [
     ...new Map(brands.map((item) => [item.id, item])).values(),
   ];
+  console.log(specific_products);
   return (
     <div className="px-8">
       <Breadcrumbs list={breadcrumbsList} />

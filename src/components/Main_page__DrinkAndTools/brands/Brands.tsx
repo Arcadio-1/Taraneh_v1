@@ -27,21 +27,23 @@ const Brands = async ({ drinks_id, title }: Props) => {
       <div className="bg-amber-500 grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-3 p-3 ">
         {arrayUniqueByKey.length > 0 &&
           arrayUniqueByKey.map(({ brand }) => {
-            return (
-              <div
-                className="rounded-xl border flex items-center overflow-hidden bg-white"
-                key={brand.id}
-              >
-                <Link href={"#"}>
-                  <Image
-                    src={brand.image}
-                    width={200}
-                    height={200}
-                    alt={brand.title_fr}
-                  />
-                </Link>
-              </div>
-            );
+            if (brand.image) {
+              return (
+                <div
+                  className="rounded-xl border flex items-center overflow-hidden bg-white"
+                  key={brand.id}
+                >
+                  <Link href={"#"}>
+                    <Image
+                      src={brand.image}
+                      width={200}
+                      height={200}
+                      alt={brand.title_fr}
+                    />
+                  </Link>
+                </div>
+              );
+            }
           })}
       </div>
     </div>

@@ -27,7 +27,7 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
   const currentPage = parseInt(page);
 
   const pageSize = 10;
-  const heroItemCount = 1;
+  const heroItemCount = 0;
 
   const totalItemCount = allProducts.length;
 
@@ -37,7 +37,7 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
     where: { main_cat: { label: "drinks" } },
     include: { brand: true },
     orderBy: { id: "desc" },
-    skip: (currentPage - 1) * pageSize + 1,
+    // skip: (currentPage - 1) * pageSize + 1,
     take: pageSize,
   });
   const brands = allProducts.map((product) => product.brand);
