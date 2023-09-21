@@ -25,7 +25,7 @@ declare module "next-auth" {
     phone: string;
     name: string;
     id: string;
-    email: string;
+    // email: string;
     address: string;
     state: string;
     city: string;
@@ -38,7 +38,7 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
   interface JWT {
     family: string;
-    // phone: string;
+    phone: string;
     name: string;
     id: string;
     email: string;

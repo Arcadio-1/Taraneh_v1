@@ -74,7 +74,6 @@ const LoginForm = () => {
         },
       }
     );
-    // console.log(regester);
     onLogin(values);
     // await signIn("credentials", {
     //   callbackUrl: "/profile",

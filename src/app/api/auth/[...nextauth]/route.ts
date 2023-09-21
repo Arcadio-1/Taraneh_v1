@@ -5,8 +5,7 @@ import { Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/lib/env";
 import { PrismaClient } from "@prisma/client";
-import { personalInfoFormSchame, phoneSchame } from "@/lib/util/validation";
-import { z } from "zod";
+import { phoneSchame } from "@/lib/util/validation";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,
@@ -47,28 +46,27 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async jwt({ token, user, session, trigger }) {
-      if (trigger === "update") {
-        if (session.feild === "personal_info") {
-          const data = personalInfoFormSchame.parse(session.data);
-          const customSession: {
-            id: string;
-            data: z.infer<typeof personalInfoFormSchame>;
-          } = session;
-          // customSession
-          // console.log("customSession", customSession);
-          token.name = customSession.data.name;
-          token.family = customSession.data.family;
-          token.code_meli = customSession.data.code_meli;
-          await prisma.user.update({
-            where: { id: customSession.id },
-            data: {
-              name: customSession.data.name,
-              family: customSession.data.family,
-              code_meli: customSession.data.code_meli,
-            },
-          });
-        }
-      }
+      // if (trigger === "update") {
+      //   if (session.feild === "personal_info") {
+      //     const data = personalInfoFormSchame.parse(session.data);
+      //     const customSession: {
+      //       id: string;
+      //       data: z.infer<typeof personalInfoFormSchame>;
+      //     } = session;
+      //     // customSession
+      //     token.name = customSession.data.name;
+      //     token.family = customSession.data.family;
+      //     token.code_meli = customSession.data.code_meli;
+      //     await prisma.user.update({
+      //       where: { id: customSession.id },
+      //       data: {
+      //         name: customSession.data.name,
+      //         family: customSession.data.family,
+      //         code_meli: customSession.data.code_meli,
+      //       },
+      //     });
+      //   }
+      // }
       if (user) {
         return {
           ...token,
@@ -76,7 +74,7 @@ export const authOptions: NextAuthOptions = {
           name: user.name,
           family: user.family,
           phone: user.phone,
-          email: user.email,
+          // email: user.email,
           address: user.address,
           state: user.state,
           city: user.city,
@@ -90,20 +88,20 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token, user }) {
       return {
         ...session,
-        // user: {
-        ...session.user,
-        id: token.id,
-        name: token.name,
-        family: token.family,
-        phone: token.phone,
-        email: token.email,
-        address: token.address,
-        state: token.state,
-        city: token.city,
-        code_meli: token.code_meli,
-        role: token.role,
-        image: token.image,
-        // },
+        user: {
+          ...session.user,
+          id: token.id,
+          name: token.name,
+          family: token.family,
+          phone: token.phone,
+          email: token.email,
+          address: token.address,
+          state: token.state,
+          city: token.city,
+          code_meli: token.code_meli,
+          role: token.role,
+          image: token.image,
+        },
       };
       return session;
     },

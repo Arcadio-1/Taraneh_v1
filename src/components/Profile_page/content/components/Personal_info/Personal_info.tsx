@@ -8,7 +8,6 @@ interface Props {
 }
 
 const Personal_info = ({ session }: Props) => {
-  console.log(session.user);
   return (
     <div className="grid grid-cols-2">
       <div className="flex justify-between">

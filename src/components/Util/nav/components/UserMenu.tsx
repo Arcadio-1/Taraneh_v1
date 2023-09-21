@@ -11,7 +11,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Logout from "@mui/icons-material/Logout";
 import { Role } from "@prisma/client";
-import { Settings2Icon, SettingsIcon } from "lucide-react";
+import { Settings2Icon } from "lucide-react";
 
 interface Props {
   session: Session;
@@ -27,9 +27,7 @@ export function UserMenu({ session }: Props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   // const user = session;
-
   return (
     <div>
       <React.Fragment>
@@ -92,15 +90,15 @@ export function UserMenu({ session }: Props) {
               className="font-iransansnum text-lg"
               onClick={handleClose}
             >
-              <Avatar /> {session.phone}
+              <Avatar /> {session.user.phone}
               <svg className="w-5 h-5 mr-5 " viewBox="0 0 512 512">
                 <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
               </svg>
             </MenuItem>
           </Link>
           <Divider />
-          {session.role === Role.ADMIN && (
-            <>
+          {session.user.role === Role.ADMIN && (
+            <div>
               <Link href={"/dashboard"}>
                 <MenuItem
                   className="font-iransansnum text-lg flex gap-2"
@@ -114,7 +112,7 @@ export function UserMenu({ session }: Props) {
                 </MenuItem>
               </Link>
               <Divider />
-            </>
+            </div>
           )}
           <MenuItem
             className="font-iranyekan_bold text-base"

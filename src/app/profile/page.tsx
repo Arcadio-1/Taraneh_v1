@@ -11,7 +11,6 @@ const page = async () => {
     redirect("/users/login?callback=/profile");
   }
   // if(session.user.)
-  // console.log("session", session);
   return (
     <div className="grid grid-cols-[repeat(7,minmax(0,1fr))]">
       <Aside session={session} />

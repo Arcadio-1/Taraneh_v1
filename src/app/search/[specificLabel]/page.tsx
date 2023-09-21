@@ -56,7 +56,6 @@ const SpecficCategoryPage = async ({
   const arrayUniqueByKey = [
     ...new Map(brands.map((item) => [item.id, item])).values(),
   ];
-  console.log(specific_products);
   return (
     <div className="px-8">
       <Breadcrumbs list={breadcrumbsList} />

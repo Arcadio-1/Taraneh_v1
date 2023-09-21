@@ -20,7 +20,6 @@ interface LinkType {
 
 const Navigation = () => {
   // const { data } = useSession();
-  // console.log(data);
   const links: LinkType[] = [
     {
       id: "1",

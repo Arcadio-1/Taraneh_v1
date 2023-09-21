@@ -11,7 +11,6 @@ interface Props {
 
 const User_card = ({ session }: Props) => {
   const { user } = session;
-  // console.log(user);
   return (
     <div className="flex items-center justify-between py-4 px-3 border-b-2 m-2">
       <div className="flex items-center gap-3">

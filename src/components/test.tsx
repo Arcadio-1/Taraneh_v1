@@ -16,8 +16,6 @@ const Test = () => {
       sum += digit * weight;
     }
 
-    console.log("sum", sum);
-
     const checksum = sum % 10;
 
     return checksum;
@@ -64,7 +62,6 @@ const Test = () => {
   const runer = () => {
     const inputNumber = "570910";
     const checksum = calculateUSPassportMRZChecksum(inputNumber);
-    console.log(`MRZ Checksum for ${inputNumber} is ${checksum}`);
   };
 
   const numberSeter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,8 +69,6 @@ const Test = () => {
       return (prev = e.target.value);
     });
     const checksum = calculateUSPassportMRZChecksum(e.target.value);
-    // console.log(checksum);
-    console.log(`MRZ Checksum for ${e.target.value} is ${checksum}`);
   };
 
   return (

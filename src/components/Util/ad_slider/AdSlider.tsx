@@ -23,7 +23,6 @@ const AdSlider = async () => {
 
   // const bytes = CryptoJS.AES.decrypt(data, "123");
   // const data2 = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-  // console.log(data2);
   const heroSlide: Hero_slide_type = {
     image_url: "/image/assets/ad_slide_hero_v1.png",
     title: "پیشنهاد شگفت انگیز",

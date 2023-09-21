@@ -37,6 +37,9 @@ export type AllCatsTopsViewProducts = Prisma.ProductGetPayload<{
 export type ProductsWithBrands = Prisma.ProductGetPayload<{
   include: { brand: true };
 }>;
+export type Product_full = Prisma.ProductGetPayload<{
+  include: { brand: true; specific_cat: true; main_cat: true };
+}>;
 
 export type MainCatsWithSpecificCats = Prisma.Main_catGetPayload<{
   include: { Specific_cat: true };
@@ -46,3 +49,22 @@ export type Drinks_products = Prisma.Main_catGetPayload<{
   where: { label: "drinks" };
   include: { Product: { include: { brand: true; specific_cat: true } } };
 }>;
+
+export type CartWithProducts = Prisma.CartGetPayload<{
+  include: { items: { include: { product: true } } };
+}>;
+
+export type CartItemWithProduct = Prisma.CartItemGetPayload<{
+  include: { product: true };
+}>;
+
+export type ShoppingCart = CartWithProducts & {
+  size: number;
+  subtotal: number;
+};
+
+export enum Operate {
+  increment,
+  decrement,
+  remove,
+}

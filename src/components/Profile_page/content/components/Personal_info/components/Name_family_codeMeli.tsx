@@ -42,7 +42,6 @@ const Name_family_codeMeli = ({ userId }: Props) => {
   });
 
   const onSubmit = async (values: z.infer<typeof personalInfoFormSchame>) => {
-    console.log(values);
     const res = update({
       feild: "personal_info",
       id: userId,
@@ -50,10 +49,8 @@ const Name_family_codeMeli = ({ userId }: Props) => {
     });
     const res2 = await res;
     if (res2) {
-      // console.log("success");
       location.reload();
     }
-    // console.log(res2);
   };
   return (
     <Dialog>

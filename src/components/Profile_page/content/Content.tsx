@@ -14,7 +14,6 @@ interface Props {
 
 const Content = ({ session }: Props) => {
   const path = usePathname();
-  // console.log("session", session.role);
   return (
     <div className="col-span-5 border border-red-800 p-5">
       {path === "/profile" && <Root />}

@@ -5,12 +5,15 @@ export function price_format(
   const result = new Intl.NumberFormat("en-US", {
     style: "decimal",
   }).format(price);
-  let off_price: string = "";
+
+  let off_price: string = result;
+
   if (off_percent) {
     off_price = new Intl.NumberFormat("en-US", {
       style: "decimal",
     }).format(price - (price / 100) * off_percent);
   }
+
   return { price: result, off_price, off_percent: `${off_percent}٪` };
 }
 

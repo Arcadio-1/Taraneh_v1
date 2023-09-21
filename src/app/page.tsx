@@ -13,8 +13,6 @@ export default async function Home() {
   //     statisctics: true,
   //   },
   // });
-  // console.log(statistics);
-  // console.log(products_ad);
   return (
     <div>
       <Hero />

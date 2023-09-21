@@ -10,7 +10,6 @@ const page = async () => {
   if (!session) {
     redirect("/users/login?callback=/profile");
   }
-  // console.log(session);
   return (
     <div className="grid grid-cols-[repeat(7,minmax(0,1fr))]">
       <Aside session={session} />

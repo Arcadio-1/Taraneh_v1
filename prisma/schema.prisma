@@ -65,6 +65,7 @@ model User {
   role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
+  Cart          Cart[]
 
   @@map("users")
 }
@@ -124,6 +125,7 @@ model Product {
   title           String
   updatedAt       DateTime           @db.Date
   Ad              Ad[]
+  CartItem        CartItem[]
 
   @@map("products")
 }
@@ -161,4 +163,26 @@ model Brand {
   Product  Product[]
 
   @@map("products_brands")
+}
+
+model Cart {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  items     CartItem[]
+  userId    String?    @db.ObjectId
+  user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@map("carts")
+}
+
+model CartItem {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int
+  cartId    String  @db.ObjectId
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+
+  @@map("cartitems")
 }
