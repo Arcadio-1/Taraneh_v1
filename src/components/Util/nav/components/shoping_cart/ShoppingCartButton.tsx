@@ -18,7 +18,7 @@ const ShoppingCartButton = ({ cart }: Props) => {
         <div>
           <HoverCard openDelay={0} closeDelay={0}>
             <HoverCardTrigger asChild className="">
-              <div className="relative p-1 duration-0 data-[state=open]:bg-red-100 rounded-lg">
+              <div className="relative p-1 m-2 duration-0 data-[state=open]:bg-red-100 rounded-lg">
                 <span className="absolute bottom-[-5px] right-[-7px] bg-g1_5 bg-opacity-90 text-light_2 py-[1px] px-2 flex items-center justify-center rounded-[5px] font-iransansnum">
                   {cart.size}
                 </span>

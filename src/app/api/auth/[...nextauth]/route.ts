@@ -5,7 +5,9 @@ import { Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/lib/env";
 import { PrismaClient } from "@prisma/client";
-import { phoneSchame } from "@/lib/util/validation";
+import { personalInfoFormSchame, phoneSchame } from "@/lib/util/validation";
+import { mergeCarts } from "@/lib/actions/mergeCart";
+import { z } from "zod";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,
@@ -104,6 +106,11 @@ export const authOptions: NextAuthOptions = {
         },
       };
       return session;
+    },
+  },
+  events: {
+    async signIn({ user }) {
+      await mergeCarts(user.id);
     },
   },
   secret: env.NEXTAUTH_SECRET,
