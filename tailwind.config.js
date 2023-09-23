@@ -42,14 +42,14 @@ module.exports = {
         g1_2: "#2a9d8f",
         g1_3: "#e9c46a",
         g1_4: "#f4a261",
-        g1_5: "#e1421a",
+        g1_5: "#ef4056",
         g1_6: "#1ccaff",
         g1_7: "#2079c5",
 
         g2_1: "#8e9aaf",
         g2_2: "#cbc0d3",
         g2_3: "#efd3d7",
-        g2_4: "#feeafa",
+        g2_4: "#ef394e",
         g2_5: "#dee2ff",
 
         g3_0: "#f0faff",
@@ -104,7 +104,7 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
+        lg: "5px",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },

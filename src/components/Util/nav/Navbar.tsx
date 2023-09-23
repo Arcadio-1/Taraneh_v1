@@ -6,14 +6,11 @@ import MenuIcon from "../icons/MenuIcon";
 import Search from "./components/Search";
 import { CatsMenu } from "./components/CatsMenu";
 import NavbarLinks from "./components/NavbarLinks";
-// import { prisma } from "@/lib/db/prisma";
 import { MainCatsWithSpecificCats, ShoppingCart } from "@/types/type";
 import Link from "next/link";
-import ShoppingCartButton from "./components/ShoppingCartButton";
+import ShoppingCartButton from "./components/shoping_cart/ShoppingCartButton";
 import { Session } from "next-auth";
-// import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { UserMenu } from "./components/UserMenu";
-import { headers } from "next/headers";
 import Log from "./Log";
 
 interface Props {
@@ -29,13 +26,6 @@ const Navbar = ({ cats, session, cart }: Props) => {
     setMount(true);
   }, []);
 
-  // const session = await getServerSession(authOptions);
-
-  // const cats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
-  //   include: { Specific_cat: true },
-  // });
-  // const headersList = headers();
-  // const pathname = headersList.get("x-invoke-path") || "";
   return (
     <>
       {mount ? (
