@@ -21,7 +21,7 @@ const Price = ({ price: org_price, off_percent }: Props) => {
             off_price={price.off_price}
             price={price.price}
           />
-          <TomanIcon />
+          <TomanIcon classes="h-8 w-8" />
         </div>
       </div>
     </div>
