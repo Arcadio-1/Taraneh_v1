@@ -52,12 +52,14 @@ export function UserMenu({ session }: Props) {
           open={open}
           onClose={handleClose}
           onClick={handleClose}
+          style={{ left: "60px" }}
           PaperProps={{
             elevation: 0,
             sx: {
               overflow: "visible",
               filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              mt: 1.5,
+              mt: 0.3,
+              left: 50,
               "& .MuiMenuItem-root": {
                 display: "flex",
               },
@@ -67,13 +69,14 @@ export function UserMenu({ session }: Props) {
                 ml: 1,
                 mr: -0.5,
                 p: 0,
+                left: 0,
               },
               "&:before": {
                 content: '""',
                 display: "block",
                 position: "absolute",
                 top: 0,
-                left: 40,
+                left: 2,
                 width: 10,
                 height: 10,
                 bgcolor: "background.paper",

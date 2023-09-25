@@ -33,7 +33,9 @@ export async function createCart(): Promise<ShoppingCart> {
   return {
     ...newCart,
     items: [],
-    size: 0,
     subtotal: 0,
+    subTotalWithDiscount: 0,
+    size: 0,
+    subDiscount: 0,
   };
 }

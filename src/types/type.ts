@@ -61,10 +61,13 @@ export type CartItemWithProduct = Prisma.CartItemGetPayload<{
 export type ShoppingCart = CartWithProducts & {
   size: number;
   subtotal: number;
+  subTotalWithDiscount: number;
+  subDiscount: number;
 };
 
 export enum Operate {
   increment,
   decrement,
   remove,
+  clearCart,
 }

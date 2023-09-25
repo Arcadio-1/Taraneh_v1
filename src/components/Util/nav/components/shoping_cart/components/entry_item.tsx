@@ -1,3 +1,4 @@
+"use Client";
 import Control_amount from "@/components/Product_page/order/Control_amount";
 import Prod_price from "@/components/Product_page/order/Prod_price";
 import { CartItemWithProduct } from "@/types/type";
@@ -7,16 +8,19 @@ import React from "react";
 
 interface Props {
   cart_item: CartItemWithProduct;
+  classess?: string;
 }
 
-const Entry_item = ({ cart_item }: Props) => {
+const Entry_item = ({ cart_item, classess }: Props) => {
   return (
-    <div className="grid grid-cols-3 border-b-2 py-2 px-2 last:border-b-0">
+    <div
+      className={`grid grid-cols-3 border-b-2 py-2 px-2 last:border-b-0 ${classess}`}
+    >
       <Link href={`/product/${cart_item.productId}`}>
         <Image
           src={cart_item.product.image_url}
-          width={200}
-          height={200}
+          width={100}
+          height={100}
           alt={cart_item.product.title}
         />
       </Link>

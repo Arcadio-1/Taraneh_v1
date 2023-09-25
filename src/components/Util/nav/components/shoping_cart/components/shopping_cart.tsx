@@ -13,7 +13,7 @@ const Shopping_cart = ({ cart }: Props) => {
     <>
       <Header cart_size={cart.size} />
       <Content cart={cart} />
-      <Footer cart_subtotal={cart.subtotal} />
+      <Footer cart_subtotal={cart.subTotalWithDiscount} />
     </>
   );
 };

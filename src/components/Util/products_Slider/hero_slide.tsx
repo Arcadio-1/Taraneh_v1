@@ -23,7 +23,7 @@ const HeroSlide = ({
         <h1 className="text-[1.5rem] text-gray-50 ml-auto font-iransansbold">
           {title}
         </h1>
-        <Image src={image_url} height={150} width={150} alt={title} />
+        <Image src={image_url} height={100} width={100} alt={title} />
         <Link
           className="text-[1.4rem] mr-auto font-iransans text-gray-50 flex items-center hover:text-red-400 hover:fill-red-400"
           href={link_url}

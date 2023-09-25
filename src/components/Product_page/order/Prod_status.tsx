@@ -1,4 +1,5 @@
 import OrdersIcon from "@/components/Profile_page/navigation/icons/OrdersIcon";
+import GuaranteeIcon from "@/components/Util/icons/GuaranteeIcon";
 import ShipingIcon from "@/components/Util/icons/ShipingIcon";
 import { DotIcon } from "lucide-react";
 import React from "react";
@@ -8,9 +9,20 @@ const Prod_status = () => {
     <div className=" flex flex-col justify-start items-start gap-2">
       <div className="flex items-center gap-4">
         <OrdersIcon className="w-8 h-8 stroke-cyan-600" />
-        <p className="font-iranyekan_bold text-xl">موجود در انبار فروشگاه</p>
+        <p className="font-iranyekan_bold text-lg">موجود در انبار فروشگاه</p>
       </div>
       <ul className="flex flex-col gap-0">
+        <li className="flex items-center gap-2">
+          <div className="relative">
+            <DotIcon className="text-cyan-600 p-0 m-0" height={20} width={20} />
+            <span className="absolute top-0 left-1/2 w-[.6px] h-[calc(50%-2.5px)] bg-gray-400 translate-x-[-50%]"></span>
+            <span className="absolute bottom-0 left-1/2 w-[.6px] h-[calc(50%-2.5px)] bg-gray-400 translate-x-[-50%]"></span>
+          </div>
+          <div className="flex items-center gap-1">
+            <GuaranteeIcon classess="h-5 w-5 fill-dark_4" />
+            <p className="text-sm">گارانتی اصالت و سلامت فیزیکی کالا</p>
+          </div>
+        </li>
         <li className="flex items-center gap-2">
           <div className="relative">
             <DotIcon className="text-cyan-600 p-0 m-0" height={20} width={20} />

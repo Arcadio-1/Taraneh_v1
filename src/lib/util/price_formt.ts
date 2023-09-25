@@ -11,16 +11,15 @@ export function price_format(
   if (off_percent) {
     off_price = new Intl.NumberFormat("en-US", {
       style: "decimal",
-    }).format(price - (price / 100) * off_percent);
+    }).format(price_calculator(price, off_percent));
   }
 
   return { price: result, off_price, off_percent: `${off_percent}٪` };
 }
 
 export function price_calculator(price: number, off_percent: number): number {
-  let result = price;
-  if (off_percent) result = price - (price / 100) * off_percent;
-  return result;
+  if (off_percent > 0) return price - (price / 100) * off_percent;
+  return price;
 }
 
 export function numberSeperator(number: number): string {

@@ -1,3 +1,4 @@
+"use client";
 import React, { useTransition } from "react";
 import { manageCart } from "@/lib/actions/manageCart";
 import { Operate } from "@/types/type";
