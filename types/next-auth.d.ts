@@ -11,9 +11,6 @@ declare module "next-auth" {
       name: string;
       id: string;
       email: string;
-      address: string;
-      state: string;
-      city: string;
       code_meli: string;
       role: Role;
       image: string;
@@ -26,9 +23,6 @@ declare module "next-auth" {
     name: string;
     id: string;
     // email: string;
-    address: string;
-    state: string;
-    city: string;
     code_meli: string;
     role: Role;
     image: string;
@@ -42,9 +36,6 @@ declare module "next-auth/jwt" {
     name: string;
     id: string;
     email: string;
-    address: string;
-    state: string;
-    city: string;
     code_meli: string;
     role: Role;
     image: string;

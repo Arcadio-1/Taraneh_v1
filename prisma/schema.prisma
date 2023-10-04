@@ -16,31 +16,34 @@ type ProductsStatistics {
 }
 
 model Account {
-  id                String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId            String  @db.ObjectId
+  id                String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String       @db.ObjectId
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.String
-  access_token      String? @db.String
+  refresh_token     String?      @db.String
+  access_token      String?      @db.String
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.String
+  id_token          String?      @db.String
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  UserAddress       UserAddress? @relation(fields: [userAddressId], references: [id])
+  userAddressId     String?      @db.ObjectId
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
 
 model Session {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken String   @unique
-  userId       String   @db.ObjectId
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken  String       @unique
+  userId        String       @db.ObjectId
+  expires       DateTime
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  UserAddress   UserAddress? @relation(fields: [userAddressId], references: [id])
+  userAddressId String?      @db.ObjectId
 
   @@map("sessions")
 }
@@ -51,23 +54,43 @@ enum Role {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  phone         String    @unique
-  name          String    @default("")
-  family        String    @default("")
-  address       String    @default("")
-  state         String    @default("")
-  city          String    @default("")
-  code_meli     String    @default("")
-  image         String    @default("")
-  email         String?   @unique
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  phone         String        @unique
+  name          String        @default("")
+  family        String        @default("")
+  code_meli     String        @default("")
+  image         String        @default("")
+  email         String?       @unique
   emailVerified DateTime?
-  role          Role      @default(USER)
+  role          Role          @default(USER)
   accounts      Account[]
   sessions      Session[]
   Cart          Cart[]
+  UserAddress   UserAddress[]
+  State         State?        @relation(fields: [stateId], references: [id])
+  stateId       String?       @db.ObjectId
+  City          City?         @relation(fields: [cityId], references: [id])
+  cityId        String?       @db.ObjectId
 
   @@map("users")
+}
+
+model UserAddress {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  user_id      String    @unique @db.ObjectId
+  address      String
+  zip_code     String
+  house_number String
+  state_id     String    @db.ObjectId
+  city_id      String    @db.ObjectId
+  user         User      @relation(fields: [user_id], references: [id])
+  state        State     @relation(fields: [state_id], references: [id])
+  city         City      @relation(fields: [city_id], references: [id])
+  Account      Account[]
+  Session      Session[]
+  Cart         Cart[]
+
+  @@map("userAddress")
 }
 
 model VerificationToken {
@@ -166,12 +189,14 @@ model Brand {
 }
 
 model Cart {
-  id        String     @id @default(auto()) @map("_id") @db.ObjectId
-  items     CartItem[]
-  userId    String?    @db.ObjectId
-  user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  items         CartItem[]
+  userId        String?      @db.ObjectId
+  user          User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  UserAddress   UserAddress? @relation(fields: [userAddressId], references: [id])
+  userAddressId String?      @db.ObjectId
 
   @@map("carts")
 }
@@ -185,4 +210,25 @@ model CartItem {
   cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
 
   @@map("cartitems")
+}
+
+model State {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  state_name  String
+  Cities      City[]
+  User        User[]
+  UserAddress UserAddress[]
+
+  @@map("states")
+}
+
+model City {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  city_name   String
+  state_id    String        @db.ObjectId
+  state       State         @relation(fields: [state_id], references: [id], onDelete: Cascade)
+  User        User[]
+  UserAddress UserAddress[]
+
+  @@map("cities")
 }

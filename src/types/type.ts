@@ -65,6 +65,10 @@ export type ShoppingCart = CartWithProducts & {
   subDiscount: number;
 };
 
+export type Address_Full = Prisma.UserAddressGetPayload<{
+  include: { city: true; state: true };
+}>;
+
 export enum Operate {
   increment,
   decrement,

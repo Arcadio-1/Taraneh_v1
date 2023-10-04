@@ -30,9 +30,9 @@ export const personalInfoFormSchame = z.object({
     }),
   code_meli: z
     .string()
-    .min(10, { message: "%کد ملی وارد شده صحیح نیست" })
+    .min(10, { message: "کد ملی وارد شده صحیح نیست" })
     .regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$/, {
-      message: "کد ملی وارد شده صحیح نیست#",
+      message: "کد ملی وارد شده صحیح نیست",
     })
     .refine(
       (value) => {
@@ -47,5 +47,43 @@ export const personalInfoFormSchame = z.object({
         return isChecked;
       },
       { message: "کد ملی وارد شده صحیح نیست" }
+    ),
+});
+
+export const AddressSchame = z.object({
+  state_id: z.string().min(24, { message: "لطفا استان خود را انتخاب کنید" }),
+  city_id: z
+    .string()
+    .min(24, { message: "لطفا ابتدا استان و سپس شهر خود را انتخاب کنید." }),
+  zip_code: z
+    .string()
+    .min(10, { message: "کد پستی وارد شده صحیح نیست." })
+    .regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$/, {
+      message: "کد پستی وارد شده صحیح نیست.",
+    }),
+  house_number: z
+    .string()
+    .min(1, { message: "پلاک وارد شده صحیح نیست" })
+    .regex(/^\d*$|[۰۱۲۳۴۵۶۷۸۹]*$/, {
+      message: "پلاک وارد شده صحیح نیست",
+    }),
+  address: z
+    .string()
+    .min(6, { message: "آدرس وارد شده صحیح نیست" })
+    .regex(/^[ آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+$/, {
+      message: "لطفا ادرس خود را به زبان فارسی وارد کنید",
+    }),
+});
+
+export const emailSchame = z.object({
+  email: z
+    .string()
+    .toLowerCase()
+    .min(7, { message: "لطفا ایمیل خود را به صورت کامل وارد کنید" })
+    .regex(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      {
+        message: "لطفا ایمیل خود را به شکل صحیح  (abc@gmail.com) وارد کنید",
+      }
     ),
 });

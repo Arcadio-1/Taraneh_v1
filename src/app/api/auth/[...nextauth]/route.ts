@@ -5,7 +5,11 @@ import { Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/lib/env";
 import { PrismaClient } from "@prisma/client";
-import { personalInfoFormSchame, phoneSchame } from "@/lib/util/validation";
+import {
+  emailSchame,
+  personalInfoFormSchame,
+  phoneSchame,
+} from "@/lib/util/validation";
 import { mergeCarts } from "@/lib/actions/mergeCart";
 import { z } from "zod";
 
@@ -48,27 +52,65 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async jwt({ token, user, session, trigger }) {
-      // if (trigger === "update") {
-      //   if (session.feild === "personal_info") {
-      //     const data = personalInfoFormSchame.parse(session.data);
-      //     const customSession: {
-      //       id: string;
-      //       data: z.infer<typeof personalInfoFormSchame>;
-      //     } = session;
-      //     // customSession
-      //     token.name = customSession.data.name;
-      //     token.family = customSession.data.family;
-      //     token.code_meli = customSession.data.code_meli;
-      //     await prisma.user.update({
-      //       where: { id: customSession.id },
-      //       data: {
-      //         name: customSession.data.name,
-      //         family: customSession.data.family,
-      //         code_meli: customSession.data.code_meli,
-      //       },
-      //     });
-      //   }
-      // }
+      if (trigger === "update") {
+        if (session.feild === "personal_info") {
+          const data = personalInfoFormSchame.parse(session.data);
+          const customSession: {
+            id: string;
+            data: z.infer<typeof personalInfoFormSchame>;
+          } = session;
+          // customSession
+          token.name = customSession.data.name;
+          token.family = customSession.data.family;
+          token.code_meli = customSession.data.code_meli;
+          await prisma.user.update({
+            where: { id: customSession.id },
+            data: {
+              name: customSession.data.name,
+              family: customSession.data.family,
+              code_meli: customSession.data.code_meli,
+            },
+          });
+        }
+        if (session.feild === "phone") {
+          const data = phoneSchame.parse(session.data);
+          const existenCheck = await prisma.user.findUnique({
+            where: { phone: session.data.phone },
+          });
+          const customSession: {
+            id: string;
+            data: z.infer<typeof phoneSchame>;
+          } = session;
+          if (!existenCheck) {
+            token.phone = customSession.data.phone;
+            await prisma.user.update({
+              where: { id: customSession.id },
+              data: {
+                phone: customSession.data.phone,
+              },
+            });
+          }
+        }
+        if (session.feild === "email") {
+          const data = emailSchame.parse(session.data);
+          const existenCheck = await prisma.user.findUnique({
+            where: { email: session.data.email },
+          });
+          const customSession: {
+            id: string;
+            data: z.infer<typeof emailSchame>;
+          } = session;
+          if (!existenCheck) {
+            token.email = customSession.data.email;
+            await prisma.user.update({
+              where: { id: customSession.id },
+              data: {
+                email: customSession.data.email,
+              },
+            });
+          }
+        }
+      }
       if (user) {
         return {
           ...token,
@@ -77,9 +119,6 @@ export const authOptions: NextAuthOptions = {
           family: user.family,
           phone: user.phone,
           // email: user.email,
-          address: user.address,
-          state: user.state,
-          city: user.city,
           code_meli: user.code_meli,
           role: user.role,
           image: user.image,
@@ -97,9 +136,6 @@ export const authOptions: NextAuthOptions = {
           family: token.family,
           phone: token.phone,
           email: token.email,
-          address: token.address,
-          state: token.state,
-          city: token.city,
           code_meli: token.code_meli,
           role: token.role,
           image: token.image,

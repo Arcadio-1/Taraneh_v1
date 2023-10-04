@@ -9,7 +9,7 @@ interface Props {
 }
 const Aside = ({ session }: Props) => {
   return (
-    <div className="col-span-2 border border-red-600">
+    <div className="col-span-2 border rounded-lg">
       <User_card session={session} />
       <Navigation />
     </div>

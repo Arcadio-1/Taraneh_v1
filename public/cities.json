@@ -1,0 +1,6217 @@
+[
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246646" },
+    "city_name": "سهند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246645" },
+    "city_name": "کشکسرای",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246649" },
+    "city_name": "تیمورلو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246650" },
+    "city_name": "ورزقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246653" },
+    "city_name": "ایلخچی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246654" },
+    "city_name": "شرفخانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246659" },
+    "city_name": "سیه رود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824665c" },
+    "city_name": "خواجه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824665e" },
+    "city_name": "قره آغاج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246664" },
+    "city_name": "لیلان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246667" },
+    "city_name": "بخشایش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824666a" },
+    "city_name": "کلیبر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246675" },
+    "city_name": "یامچی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246678" },
+    "city_name": "خداجو(خراجو)",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246679" },
+    "city_name": "آذرشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824667b" },
+    "city_name": "سراب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246681" },
+    "city_name": "عجب شیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246686" },
+    "city_name": "شاهین دژ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246688" },
+    "city_name": "باروق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824668e" },
+    "city_name": "دیزج دیز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246691" },
+    "city_name": "میاندوآب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246693" },
+    "city_name": "سلماس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824669f" },
+    "city_name": "بوکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a0" },
+    "city_name": "پیرانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a1" },
+    "city_name": "چهاربرج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a2" },
+    "city_name": "قوشچی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a5" },
+    "city_name": "سیه چشمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b0" },
+    "city_name": "نیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b5" },
+    "city_name": "جعفرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b6" },
+    "city_name": "نمین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466bc" },
+    "city_name": "گیوی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466bd" },
+    "city_name": "گرمی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c4" },
+    "city_name": "سرعین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c6" },
+    "city_name": "آبی بیگلو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c7" },
+    "city_name": "گزبرخوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466cf" },
+    "city_name": "تیران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d0" },
+    "city_name": "ونک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d9" },
+    "city_name": "مجلسی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466db" },
+    "city_name": "فولادشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466de" },
+    "city_name": "لای بید",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e1" },
+    "city_name": "رزوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e5" },
+    "city_name": "برزک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e6" },
+    "city_name": "سفیدشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e7" },
+    "city_name": "سمیرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f2" },
+    "city_name": "حسن اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f3" },
+    "city_name": "سده لنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f4" },
+    "city_name": "حبیب آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f5" },
+    "city_name": "بهاران شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f9" },
+    "city_name": "رضوانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466fc" },
+    "city_name": "نیک آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246701" },
+    "city_name": "منظریه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246709" },
+    "city_name": "بهارستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824670a" },
+    "city_name": "چمگردان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824670d" },
+    "city_name": "بادرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824670f" },
+    "city_name": "گلپایگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246715" },
+    "city_name": "افوس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246716" },
+    "city_name": "زیباشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824671e" },
+    "city_name": "شاپورآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824671f" },
+    "city_name": "فلاورجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246725" },
+    "city_name": "نطنز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246727" },
+    "city_name": "نیاسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824672a" },
+    "city_name": "جوزدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246732" },
+    "city_name": "چهارباغ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824673c" },
+    "city_name": "اشتهارد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246746" },
+    "city_name": "بدره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246747" },
+    "city_name": "ایلام",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824664a" },
+    "city_name": "صوفیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824664e" },
+    "city_name": "زرنق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246652" },
+    "city_name": "زنوز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246656" },
+    "city_name": "مبارک شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824665b" },
+    "city_name": "خمارلو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246671" },
+    "city_name": "تبریز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246682" },
+    "city_name": "آبش احمد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246683" },
+    "city_name": "تازه شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246684" },
+    "city_name": "نالوس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246690" },
+    "city_name": "نوشین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246694" },
+    "city_name": "آواجیق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246695" },
+    "city_name": "قطور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246697" },
+    "city_name": "خوی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824669a" },
+    "city_name": "خلیفان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a4" },
+    "city_name": "ماکو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a7" },
+    "city_name": "کشاورز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a8" },
+    "city_name": "فیرورق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a9" },
+    "city_name": "محمدیار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ac" },
+    "city_name": "قره ضیاءالدین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b3" },
+    "city_name": "تازه کندانگوت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b9" },
+    "city_name": "خلخال",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c2" },
+    "city_name": "قصابه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c3" },
+    "city_name": "رضی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c5" },
+    "city_name": "بیله سوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c9" },
+    "city_name": "زرین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466cc" },
+    "city_name": "خالدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466cd" },
+    "city_name": "سجزی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ce" },
+    "city_name": "گوگد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d1" },
+    "city_name": "دهق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d3" },
+    "city_name": "کاشان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d8" },
+    "city_name": "خور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466dd" },
+    "city_name": "کلیشادوسودرجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466df" },
+    "city_name": "قهجاورستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e0" },
+    "city_name": "چرمهین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e4" },
+    "city_name": "نصرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e9" },
+    "city_name": "اردستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ea" },
+    "city_name": "جوشقان قالی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466eb" },
+    "city_name": "بویین ومیاندشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ef" },
+    "city_name": "دولت آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f7" },
+    "city_name": "تودشک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246700" },
+    "city_name": "نجف آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246703" },
+    "city_name": "دیزیچه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246708" },
+    "city_name": "شاهین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246711" },
+    "city_name": "حنا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246712" },
+    "city_name": "کهریزسنگ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246713" },
+    "city_name": "مهاباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246714" },
+    "city_name": "کامو و چوگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246717" },
+    "city_name": "کوشک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246718" },
+    "city_name": "نایین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824671c" },
+    "city_name": "ورزنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824671d" },
+    "city_name": "ورنامخواست",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246721" },
+    "city_name": "اصفهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246726" },
+    "city_name": "محمدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246733" },
+    "city_name": "آسارا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246736" },
+    "city_name": "شهرجدیدهشتگرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246737" },
+    "city_name": "محمدشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246738" },
+    "city_name": "مشکین دشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824673a" },
+    "city_name": "هشتگرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824673b" },
+    "city_name": "ماهدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246740" },
+    "city_name": "گلسار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824674a" },
+    "city_name": "آسمان آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824674b" },
+    "city_name": "پهله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824674d" },
+    "city_name": "سراب باغ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246752" },
+    "city_name": "مورموری",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824674f" },
+    "city_name": "میمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246750" },
+    "city_name": "دره شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824675a" },
+    "city_name": "ماژین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246762" },
+    "city_name": "نخل تقی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246764" },
+    "city_name": "بندردیلم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246765" },
+    "city_name": "وحدتیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246768" },
+    "city_name": "بندردیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246769" },
+    "city_name": "کاکی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824676b" },
+    "city_name": "دالکی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246771" },
+    "city_name": "بوشکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246773" },
+    "city_name": "شبانکاره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246775" },
+    "city_name": "دلوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246778" },
+    "city_name": "عسلویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246782" },
+    "city_name": "جوادآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246783" },
+    "city_name": "ارجمند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246788" },
+    "city_name": "نسیم شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824678a" },
+    "city_name": "ملارد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824678e" },
+    "city_name": "احمد آباد مستوفی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246791" },
+    "city_name": "فردوسیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246792" },
+    "city_name": "گلستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246795" },
+    "city_name": "فشم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246796" },
+    "city_name": "پرند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246797" },
+    "city_name": "آبعلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824679a" },
+    "city_name": "بومهن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824679e" },
+    "city_name": "فرون اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824679f" },
+    "city_name": "کهریزک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a0" },
+    "city_name": "رباطکریم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a3" },
+    "city_name": "صالحیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ad" },
+    "city_name": "گوجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ae" },
+    "city_name": "گهرو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467af" },
+    "city_name": "سورشجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b1" },
+    "city_name": "شهرکرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b4" },
+    "city_name": "پردنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ba" },
+    "city_name": "نقنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467bd" },
+    "city_name": "دستنا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c0" },
+    "city_name": "هفشجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c1" },
+    "city_name": "سردشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c4" },
+    "city_name": "بن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467cb" },
+    "city_name": "گندمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467cc" },
+    "city_name": "جونقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ce" },
+    "city_name": "هارونی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d0" },
+    "city_name": "کیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d6" },
+    "city_name": "قاین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e7" },
+    "city_name": "مود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ec" },
+    "city_name": "خضری دشت بیاض",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ee" },
+    "city_name": "اسدیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f5" },
+    "city_name": "سلطان آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f9" },
+    "city_name": "همت آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467fc" },
+    "city_name": "بجستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467fd" },
+    "city_name": "چناران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246800" },
+    "city_name": "چکنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246802" },
+    "city_name": "بردسکن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824680a" },
+    "city_name": "ششتمد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246811" },
+    "city_name": "داورزن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246818" },
+    "city_name": "یونسی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824681b" },
+    "city_name": "کندر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824681d" },
+    "city_name": "احمدابادصولت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246827" },
+    "city_name": "سبزوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824682b" },
+    "city_name": "شهرزو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824682e" },
+    "city_name": "انابد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246838" },
+    "city_name": "چناران شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246753" },
+    "city_name": "توحید",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246756" },
+    "city_name": "چوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824675f" },
+    "city_name": "اهرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246761" },
+    "city_name": "خورموج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246766" },
+    "city_name": "بنک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824676a" },
+    "city_name": "جم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824676f" },
+    "city_name": "خارک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246772" },
+    "city_name": "انارستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246776" },
+    "city_name": "بردستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824677a" },
+    "city_name": "امام حسن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824677b" },
+    "city_name": "سعد آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824677f" },
+    "city_name": "آب پخش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246781" },
+    "city_name": "پیشوا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246784" },
+    "city_name": "ری",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246785" },
+    "city_name": "نصیرشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824678b" },
+    "city_name": "شمشک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824678c" },
+    "city_name": "پاکدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824678f" },
+    "city_name": "کیلان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246790" },
+    "city_name": "قرچک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a1" },
+    "city_name": "آبسرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a4" },
+    "city_name": "شهریار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a8" },
+    "city_name": "حسن آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a9" },
+    "city_name": "اسلامشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ab" },
+    "city_name": "پردیس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b2" },
+    "city_name": "منج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b3" },
+    "city_name": "بروجن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b9" },
+    "city_name": "کاج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467bc" },
+    "city_name": "باباحیدر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467be" },
+    "city_name": "سودجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467bf" },
+    "city_name": "بازفت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c5" },
+    "city_name": "فارسان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c7" },
+    "city_name": "نافچ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c9" },
+    "city_name": "بلداجی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467cd" },
+    "city_name": "ناغان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d3" },
+    "city_name": "مال خلیفه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d4" },
+    "city_name": "اسلامیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d5" },
+    "city_name": "شوسف",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467de" },
+    "city_name": "محمدشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e0" },
+    "city_name": "فردوس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e1" },
+    "city_name": "نهبندان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e2" },
+    "city_name": "اسفدن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ea" },
+    "city_name": "بشرویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f0" },
+    "city_name": "بار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f1" },
+    "city_name": "نیل شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f2" },
+    "city_name": "جنگل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f3" },
+    "city_name": "درود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467fa" },
+    "city_name": "سلامی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467fb" },
+    "city_name": "باجگیران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246801" },
+    "city_name": "نصرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246805" },
+    "city_name": "نقاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824680b" },
+    "city_name": "شادمهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824680d" },
+    "city_name": "چاپشلو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246810" },
+    "city_name": "صالح آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246812" },
+    "city_name": "فرهادگرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246813" },
+    "city_name": "کاخک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246814" },
+    "city_name": "مشهدریزه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246815" },
+    "city_name": "جغتای",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824681f" },
+    "city_name": "رضویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246821" },
+    "city_name": "باخرز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246822" },
+    "city_name": "سفیدسنگ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246826" },
+    "city_name": "قاسم آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824682a" },
+    "city_name": "لطف آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824682c" },
+    "city_name": "خرو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824682f" },
+    "city_name": "ملک آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246833" },
+    "city_name": "ریوش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246834" },
+    "city_name": "طرقبه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246648" },
+    "city_name": "دوزدوزان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824664c" },
+    "city_name": "هادیشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246655" },
+    "city_name": "مهربان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824665d" },
+    "city_name": "بناب مرند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824665f" },
+    "city_name": "وایقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246662" },
+    "city_name": "خامنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246663" },
+    "city_name": "خسروشاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246665" },
+    "city_name": "نظرکهریزی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246666" },
+    "city_name": "اهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824666f" },
+    "city_name": "گوگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246670" },
+    "city_name": "بستان آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246672" },
+    "city_name": "جلفا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246673" },
+    "city_name": "اچاچی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246674" },
+    "city_name": "هریس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246676" },
+    "city_name": "خاروانا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246677" },
+    "city_name": "کوزه کنان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824667e" },
+    "city_name": "هوراند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246687" },
+    "city_name": "گردکشانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246689" },
+    "city_name": "سیلوانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824668d" },
+    "city_name": "تکاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824668f" },
+    "city_name": "سیمینه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246692" },
+    "city_name": "مرگنلر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246698" },
+    "city_name": "نقده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246699" },
+    "city_name": "سرو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824669b" },
+    "city_name": "پلدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824669c" },
+    "city_name": "میرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824669d" },
+    "city_name": "اشنویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824669e" },
+    "city_name": "زرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a3" },
+    "city_name": "شوط",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466a6" },
+    "city_name": "سردشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466aa" },
+    "city_name": "ارومیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466af" },
+    "city_name": "کلور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b4" },
+    "city_name": "مشگین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b8" },
+    "city_name": "مرادلو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466bb" },
+    "city_name": "هیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466be" },
+    "city_name": "لاهرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466bf" },
+    "city_name": "هشتجین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c0" },
+    "city_name": "عنبران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c1" },
+    "city_name": "تازه کند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466c8" },
+    "city_name": "زیار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ca" },
+    "city_name": "گلشن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d4" },
+    "city_name": "ابوزیدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d5" },
+    "city_name": "اصغرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d6" },
+    "city_name": "بافران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d7" },
+    "city_name": "شهرضا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466da" },
+    "city_name": "هرند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466dc" },
+    "city_name": "کمشچه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e2" },
+    "city_name": "فریدونشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e3" },
+    "city_name": "طرق رود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466e8" },
+    "city_name": "گلدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ed" },
+    "city_name": "درچه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ee" },
+    "city_name": "انارک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f1" },
+    "city_name": "گرگاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f6" },
+    "city_name": "میمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f8" },
+    "city_name": "گلشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466fa" },
+    "city_name": "داران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466fd" },
+    "city_name": "مشکات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246702" },
+    "city_name": "فرخی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246705" },
+    "city_name": "زاینده رود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824670b" },
+    "city_name": "دهاقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824670c" },
+    "city_name": "برف انبار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246710" },
+    "city_name": "عسگران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246719" },
+    "city_name": "سین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824671a" },
+    "city_name": "زازران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246724" },
+    "city_name": "دامنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246647" },
+    "city_name": "سیس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824664b" },
+    "city_name": "سردرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824664d" },
+    "city_name": "هشترود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824664f" },
+    "city_name": "ترکمانچای",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246651" },
+    "city_name": "تسوج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246657" },
+    "city_name": "تیکمه داش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246658" },
+    "city_name": "باسمنج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824665a" },
+    "city_name": "میانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246660" },
+    "city_name": "مراغه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246661" },
+    "city_name": "ممقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246668" },
+    "city_name": "آقکند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246669" },
+    "city_name": "جوان قلعه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824666b" },
+    "city_name": "مرند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824666c" },
+    "city_name": "اسکو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824666d" },
+    "city_name": "شندآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824666e" },
+    "city_name": "شربیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824667a" },
+    "city_name": "شبستر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824667c" },
+    "city_name": "ملکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824667d" },
+    "city_name": "بناب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824667f" },
+    "city_name": "کلوانق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246680" },
+    "city_name": "ترک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d20" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246685" },
+    "city_name": "ایواوغلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824668a" },
+    "city_name": "بازرگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824668b" },
+    "city_name": "نازک علیا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824668c" },
+    "city_name": "ربط",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246696" },
+    "city_name": "محمودآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ab" },
+    "city_name": "مهاباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d21" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ad" },
+    "city_name": "پارس آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ae" },
+    "city_name": "فخراباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b1" },
+    "city_name": "اردبیل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b2" },
+    "city_name": "اسلام اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466b7" },
+    "city_name": "اصلاندوز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ba" },
+    "city_name": "کوراییم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d22" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466cb" },
+    "city_name": "پیربکران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466d2" },
+    "city_name": "زواره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ec" },
+    "city_name": "کرکوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466f0" },
+    "city_name": "ایمانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466fb" },
+    "city_name": "علویجه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466fe" },
+    "city_name": "آران وبیدگل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82466ff" },
+    "city_name": "خوانسار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246704" },
+    "city_name": "اژیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246706" },
+    "city_name": "خورزوق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246707" },
+    "city_name": "قهدریجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824670e" },
+    "city_name": "کوهپایه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824671b" },
+    "city_name": "مبارکه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246720" },
+    "city_name": "وزوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246722" },
+    "city_name": "باغ بهادران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246723" },
+    "city_name": "چادگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246728" },
+    "city_name": "نوش آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246729" },
+    "city_name": "کمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824672b" },
+    "city_name": "قمصر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824672c" },
+    "city_name": "جندق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824672d" },
+    "city_name": "طالخونچه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824672e" },
+    "city_name": "خمینی شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246730" },
+    "city_name": "دستگرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246731" },
+    "city_name": "ابریشم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246734" },
+    "city_name": "کرج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824673e" },
+    "city_name": "گرمدره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824673f" },
+    "city_name": "تنکمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246741" },
+    "city_name": "کمال شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246743" },
+    "city_name": "آبدانان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246748" },
+    "city_name": "ایوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246749" },
+    "city_name": "مهران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246751" },
+    "city_name": "ارکواز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246757" },
+    "city_name": "زرنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824672f" },
+    "city_name": "باغشاد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d23" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246735" },
+    "city_name": "طالقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246739" },
+    "city_name": "نظرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824673d" },
+    "city_name": "کوهسار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246742" },
+    "city_name": "فردیس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d24" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246744" },
+    "city_name": "شباب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246745" },
+    "city_name": "موسیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824674c" },
+    "city_name": "مهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824674e" },
+    "city_name": "بلاوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246754" },
+    "city_name": "دهلران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246755" },
+    "city_name": "لومار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246758" },
+    "city_name": "صالح آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246759" },
+    "city_name": "سرابله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824675c" },
+    "city_name": "ریز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824675d" },
+    "city_name": "برازجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246763" },
+    "city_name": "کلمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246767" },
+    "city_name": "چغادک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824676c" },
+    "city_name": "بندرگناوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824676e" },
+    "city_name": "آبدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246777" },
+    "city_name": "بادوله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824677c" },
+    "city_name": "بندرکنگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246786" },
+    "city_name": "رودهن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246789" },
+    "city_name": "صباشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824678d" },
+    "city_name": "باقرشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246798" },
+    "city_name": "چهاردانگه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246799" },
+    "city_name": "تهران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824679b" },
+    "city_name": "وحیدیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824679d" },
+    "city_name": "لواسان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a2" },
+    "city_name": "باغستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467aa" },
+    "city_name": "دماوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ac" },
+    "city_name": "وردنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b8" },
+    "city_name": "طاقانک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c3" },
+    "city_name": "چلیچه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c8" },
+    "city_name": "دشتک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d1" },
+    "city_name": "اردل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d2" },
+    "city_name": "سفیددشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d7" },
+    "city_name": "عشق آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d8" },
+    "city_name": "طبس مسینا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467da" },
+    "city_name": "آیسک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467db" },
+    "city_name": "نیمبلوک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467dd" },
+    "city_name": "سربیشه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e4" },
+    "city_name": "حاجی آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e6" },
+    "city_name": "آرین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e8" },
+    "city_name": "خوسف",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ed" },
+    "city_name": "طبس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f4" },
+    "city_name": "رباط سنگ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f6" },
+    "city_name": "فریمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f7" },
+    "city_name": "گناباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ff" },
+    "city_name": "کلات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246803" },
+    "city_name": "مشهد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246804" },
+    "city_name": "کدکن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246808" },
+    "city_name": "شاندیز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246809" },
+    "city_name": "نشتیفان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824680e" },
+    "city_name": "رشتخوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824680f" },
+    "city_name": "قدمگاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246817" },
+    "city_name": "قوچان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246819" },
+    "city_name": "سنگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824681e" },
+    "city_name": "شهراباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246823" },
+    "city_name": "بیدخت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246824" },
+    "city_name": "تایباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246829" },
+    "city_name": "گلمکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824682d" },
+    "city_name": "تربت جام",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246830" },
+    "city_name": "بایک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246831" },
+    "city_name": "دولت آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824675b" },
+    "city_name": "دلگشا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d25" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824675e" },
+    "city_name": "بندرریگ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246760" },
+    "city_name": "دوراهک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824676d" },
+    "city_name": "آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246770" },
+    "city_name": "شنبه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246774" },
+    "city_name": "سیراف",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246779" },
+    "city_name": "تنگ ارم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824677d" },
+    "city_name": "بوشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824677e" },
+    "city_name": "بردخون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d26" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246780" },
+    "city_name": "شاهدشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246787" },
+    "city_name": "اندیشه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246793" },
+    "city_name": "ورامین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246794" },
+    "city_name": "فیروزکوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824679c" },
+    "city_name": "صفادشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a5" },
+    "city_name": "قدس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a6" },
+    "city_name": "تجریش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467a7" },
+    "city_name": "شریف آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d27" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b0" },
+    "city_name": "سرخون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b5" },
+    "city_name": "سامان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b6" },
+    "city_name": "فرخ شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467b7" },
+    "city_name": "صمصامی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467bb" },
+    "city_name": "لردگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c2" },
+    "city_name": "فرادبنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467c6" },
+    "city_name": "شلمزار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ca" },
+    "city_name": "آلونی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467cf" },
+    "city_name": "چلگرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d28" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467d9" },
+    "city_name": "ارسک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467dc" },
+    "city_name": "دیهوک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467df" },
+    "city_name": "بیرجند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e3" },
+    "city_name": "گزیک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e5" },
+    "city_name": "سه قلعه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467e9" },
+    "city_name": "قهستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467eb" },
+    "city_name": "سرایان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467ef" },
+    "city_name": "زهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d29" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467f8" },
+    "city_name": "کاریز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82467fe" },
+    "city_name": "درگز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246806" },
+    "city_name": "قلندرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246807" },
+    "city_name": "کاشمر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824680c" },
+    "city_name": "عشق آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246816" },
+    "city_name": "مزدآوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824681a" },
+    "city_name": "نوخندان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824681c" },
+    "city_name": "نیشابور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246820" },
+    "city_name": "تربت حیدریه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246825" },
+    "city_name": "فیروزه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246828" },
+    "city_name": "فیض آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246837" },
+    "city_name": "خلیل آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246832" },
+    "city_name": "سرخس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246835" },
+    "city_name": "خواف",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246836" },
+    "city_name": "روداب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246839" },
+    "city_name": "راز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824683d" },
+    "city_name": "اسفراین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246846" },
+    "city_name": "درق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246847" },
+    "city_name": "آوا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824684e" },
+    "city_name": "هفتگل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824684f" },
+    "city_name": "بیدروبه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246853" },
+    "city_name": "شرافت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246858" },
+    "city_name": "کوت عبداله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246859" },
+    "city_name": "میداود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824685c" },
+    "city_name": "چم گلک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824685f" },
+    "city_name": "آبژدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246862" },
+    "city_name": "مقاومت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246863" },
+    "city_name": "ترکالکی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246872" },
+    "city_name": "سرداران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246874" },
+    "city_name": "رامشیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824687c" },
+    "city_name": "شهر امام",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824687f" },
+    "city_name": "گلگیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246881" },
+    "city_name": "سماله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246887" },
+    "city_name": "ایذه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824688d" },
+    "city_name": "دزفول",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246890" },
+    "city_name": "گوریه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246891" },
+    "city_name": "خرمشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246893" },
+    "city_name": "خنافره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246894" },
+    "city_name": "چمران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246896" },
+    "city_name": "سوسنگرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246897" },
+    "city_name": "شیبان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246899" },
+    "city_name": "باغ ملک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824689a" },
+    "city_name": "صفی آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824689b" },
+    "city_name": "سجاس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824689c" },
+    "city_name": "زرین رود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824689e" },
+    "city_name": "ارمغانخانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824689f" },
+    "city_name": "کرسف",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a4" },
+    "city_name": "قیدار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a5" },
+    "city_name": "ابهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a6" },
+    "city_name": "دندی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ae" },
+    "city_name": "ماه نشان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b6" },
+    "city_name": "سمنان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b9" },
+    "city_name": "کلاته خیج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468bf" },
+    "city_name": "میامی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c2" },
+    "city_name": "کلاته",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468df" },
+    "city_name": "ایرانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e0" },
+    "city_name": "سرباز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e1" },
+    "city_name": "سیرکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e4" },
+    "city_name": "سوران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e6" },
+    "city_name": "کنارک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468eb" },
+    "city_name": "فدامی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ec" },
+    "city_name": "خومه زار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ef" },
+    "city_name": "دبیران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f1" },
+    "city_name": "رامجرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f4" },
+    "city_name": "ارسنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f8" },
+    "city_name": "شیراز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468fe" },
+    "city_name": "نی ریز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246900" },
+    "city_name": "امام شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246901" },
+    "city_name": "جهرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246903" },
+    "city_name": "گراش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246911" },
+    "city_name": "قایمیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246912" },
+    "city_name": "گله دار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246913" },
+    "city_name": "دوبرجی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246914" },
+    "city_name": "آباده طشک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824691c" },
+    "city_name": "قادراباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824691e" },
+    "city_name": "بنارویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246920" },
+    "city_name": "شهرصدرا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246923" },
+    "city_name": "جویم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246924" },
+    "city_name": "خوزی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246929" },
+    "city_name": "داراب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824683a" },
+    "city_name": "پیش قلعه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824683b" },
+    "city_name": "قوشخانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824683c" },
+    "city_name": "شوقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246840" },
+    "city_name": "شیروان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246849" },
+    "city_name": "سنخواست",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246852" },
+    "city_name": "گتوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824685a" },
+    "city_name": "چغامیش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824685d" },
+    "city_name": "حر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246864" },
+    "city_name": "دارخوین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246866" },
+    "city_name": "لالی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246869" },
+    "city_name": "دهدز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824686a" },
+    "city_name": "قلعه تل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824686c" },
+    "city_name": "رفیع",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824686f" },
+    "city_name": "سالند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246871" },
+    "city_name": "اروندکنار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246875" },
+    "city_name": "شادگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246876" },
+    "city_name": "بندرماهشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246877" },
+    "city_name": "جایزان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246883" },
+    "city_name": "بهبهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246884" },
+    "city_name": "هندیجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246888" },
+    "city_name": "صیدون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246889" },
+    "city_name": "سیاه منصور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824688c" },
+    "city_name": "شوش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a9" },
+    "city_name": "گرماب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468af" },
+    "city_name": "زرین آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b0" },
+    "city_name": "ایوانکی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b1" },
+    "city_name": "مجن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b4" },
+    "city_name": "مهدی شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468bc" },
+    "city_name": "رودیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c3" },
+    "city_name": "آرادان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c5" },
+    "city_name": "شهرک علی اکبر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c6" },
+    "city_name": "بنجار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c7" },
+    "city_name": "گلمورتی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c9" },
+    "city_name": "راسک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468cd" },
+    "city_name": "هیدوچ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ce" },
+    "city_name": "نوک آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468cf" },
+    "city_name": "زهک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d2" },
+    "city_name": "گشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d5" },
+    "city_name": "زابلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d6" },
+    "city_name": "چاه بهار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d9" },
+    "city_name": "اسپکه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468dc" },
+    "city_name": "ادیمی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e5" },
+    "city_name": "خاش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e8" },
+    "city_name": "نیک شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e9" },
+    "city_name": "کازرون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ee" },
+    "city_name": "فیروزآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468fd" },
+    "city_name": "بیضا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ff" },
+    "city_name": "کنارتخته",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246905" },
+    "city_name": "شهرپیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246906" },
+    "city_name": "حسن اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246909" },
+    "city_name": "خانه زنیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824690b" },
+    "city_name": "بوانات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824690d" },
+    "city_name": "فراشبند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824690e" },
+    "city_name": "زرقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824690f" },
+    "city_name": "صغاد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246915" },
+    "city_name": "خرامه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246919" },
+    "city_name": "سیدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246925" },
+    "city_name": "اردکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824692f" },
+    "city_name": "مرودشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246934" },
+    "city_name": "خور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246936" },
+    "city_name": "لپویی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824693d" },
+    "city_name": "بالاده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246941" },
+    "city_name": "مصیری",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246948" },
+    "city_name": "رونیز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824694a" },
+    "city_name": "لار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824692b" },
+    "city_name": "کوار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824692c" },
+    "city_name": "نوبندگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824692e" },
+    "city_name": "خاوران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246930" },
+    "city_name": "کوهنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246931" },
+    "city_name": "ششده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824693a" },
+    "city_name": "مهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824693e" },
+    "city_name": "قیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824693f" },
+    "city_name": "قطب آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246942" },
+    "city_name": "میانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246943" },
+    "city_name": "صفاشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246944" },
+    "city_name": "اقلید",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246945" },
+    "city_name": "عمادده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246949" },
+    "city_name": "کره ای",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824694c" },
+    "city_name": "هماشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824694f" },
+    "city_name": "سگزآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246952" },
+    "city_name": "رازمیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246953" },
+    "city_name": "خرمدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246955" },
+    "city_name": "شال",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246956" },
+    "city_name": "شریفیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824695b" },
+    "city_name": "خاکعلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824695c" },
+    "city_name": "سیردان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824695e" },
+    "city_name": "بویین زهرا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824695f" },
+    "city_name": "محمدیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246962" },
+    "city_name": "اسفرورین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246964" },
+    "city_name": "دانسفهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824697a" },
+    "city_name": "سنندج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824697c" },
+    "city_name": "موچش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824697f" },
+    "city_name": "سریش آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246982" },
+    "city_name": "بابارشانی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246986" },
+    "city_name": "بیجار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246988" },
+    "city_name": "کانی سور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824698b" },
+    "city_name": "سقز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246992" },
+    "city_name": "بلوک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246994" },
+    "city_name": "گنبکی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824699d" },
+    "city_name": "لاله زار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824699e" },
+    "city_name": "کشکوییه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a3" },
+    "city_name": "سیرجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a9" },
+    "city_name": "اندوهجرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ac" },
+    "city_name": "امین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ae" },
+    "city_name": "رفسنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b1" },
+    "city_name": "اختیارآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b5" },
+    "city_name": "ماهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469bf" },
+    "city_name": "نجف شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c1" },
+    "city_name": "باغین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c4" },
+    "city_name": "نودژ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d0" },
+    "city_name": "زهکلوت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d6" },
+    "city_name": "شهربابک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d7" },
+    "city_name": "انار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d9" },
+    "city_name": "شاهو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469da" },
+    "city_name": "بانوره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469db" },
+    "city_name": "تازه آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e0" },
+    "city_name": "کرند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e1" },
+    "city_name": "کوزران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ea" },
+    "city_name": "میان راهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ed" },
+    "city_name": "ریجاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ef" },
+    "city_name": "هرسین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f3" },
+    "city_name": "نودشه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469fa" },
+    "city_name": "سی سخت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469fb" },
+    "city_name": "دهدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a07" },
+    "city_name": "چرام",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a10" },
+    "city_name": "بندرترکمن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a11" },
+    "city_name": "نگین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a12" },
+    "city_name": "آق قلا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a18" },
+    "city_name": "نوده خاندوز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a1b" },
+    "city_name": "گمیش تپه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a1e" },
+    "city_name": "کلاله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a1f" },
+    "city_name": "اینچه برون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a27" },
+    "city_name": "شلمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a28" },
+    "city_name": "خشکبیجار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a2a" },
+    "city_name": "سنگر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a30" },
+    "city_name": "احمدسرگوراب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824694d" },
+    "city_name": "آباده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824694e" },
+    "city_name": "لامرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246958" },
+    "city_name": "نرجه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246967" },
+    "city_name": "تاکستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824696a" },
+    "city_name": "قم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d32" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824696e" },
+    "city_name": "جعفریه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d32" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246974" },
+    "city_name": "قروه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824697e" },
+    "city_name": "مریوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824698f" },
+    "city_name": "آرمرده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246993" },
+    "city_name": "پاریز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246999" },
+    "city_name": "جوپار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824699a" },
+    "city_name": "عنبرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a2" },
+    "city_name": "جبالبارز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a7" },
+    "city_name": "صفاییه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469af" },
+    "city_name": "هماشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b6" },
+    "city_name": "دوساری",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469be" },
+    "city_name": "جیرفت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c8" },
+    "city_name": "نرماشیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ca" },
+    "city_name": "مس سرچشمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469cf" },
+    "city_name": "یزدان شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d2" },
+    "city_name": "مردهک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d3" },
+    "city_name": "شهداد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d4" },
+    "city_name": "ارزوییه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469dc" },
+    "city_name": "هلشی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469df" },
+    "city_name": "نوسود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e2" },
+    "city_name": "بیستون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e3" },
+    "city_name": "حمیل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e9" },
+    "city_name": "کرمانشاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f1" },
+    "city_name": "سرمست",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f4" },
+    "city_name": "گهواره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469fe" },
+    "city_name": "دوگنبدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a04" },
+    "city_name": "پاتاوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a09" },
+    "city_name": "سیمین شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a17" },
+    "city_name": "بندرگز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a19" },
+    "city_name": "مینودشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a1c" },
+    "city_name": "علی اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a2e" },
+    "city_name": "رحیم آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a2f" },
+    "city_name": "لوندویل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824683e" },
+    "city_name": "گرمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824683f" },
+    "city_name": "قاضی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246842" },
+    "city_name": "آشخانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246845" },
+    "city_name": "بجنورد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246848" },
+    "city_name": "زیارت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824684c" },
+    "city_name": "فاروج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824684d" },
+    "city_name": "لوجلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246850" },
+    "city_name": "شاوور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246851" },
+    "city_name": "حمزه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246854" },
+    "city_name": "منصوریه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246855" },
+    "city_name": "زهره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246856" },
+    "city_name": "رامهرمز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246857" },
+    "city_name": "بندرامام خمینی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824685e" },
+    "city_name": "شمس آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246860" },
+    "city_name": "چویبده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246868" },
+    "city_name": "حمیدیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824686b" },
+    "city_name": "میانرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824686d" },
+    "city_name": "اندیمشک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824686e" },
+    "city_name": "الوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246878" },
+    "city_name": "بستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824687a" },
+    "city_name": "اهواز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824687e" },
+    "city_name": "حسینیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246880" },
+    "city_name": "مینوشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824688a" },
+    "city_name": "هویزه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824688b" },
+    "city_name": "آزادی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824688f" },
+    "city_name": "آبادان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246898" },
+    "city_name": "الهایی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a0" },
+    "city_name": "هیدج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a1" },
+    "city_name": "سلطانیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a7" },
+    "city_name": "حلب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468aa" },
+    "city_name": "چورزق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ac" },
+    "city_name": "سهرورد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b2" },
+    "city_name": "دامغان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b5" },
+    "city_name": "شاهرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b8" },
+    "city_name": "گرمسار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ba" },
+    "city_name": "دیباج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468be" },
+    "city_name": "امیریه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c0" },
+    "city_name": "شهمیرزاد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c1" },
+    "city_name": "بیارجمند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c4" },
+    "city_name": "محمدی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468c8" },
+    "city_name": "نگور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ca" },
+    "city_name": "بنت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468cc" },
+    "city_name": "جالق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d0" },
+    "city_name": "بمپور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d1" },
+    "city_name": "پیشین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d3" },
+    "city_name": "محمدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d4" },
+    "city_name": "زاهدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468da" },
+    "city_name": "فنوج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468db" },
+    "city_name": "سراوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468dd" },
+    "city_name": "زابل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468de" },
+    "city_name": "دوست محمد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e3" },
+    "city_name": "نصرت آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e7" },
+    "city_name": "محمدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ea" },
+    "city_name": "کارزین (فتح آباد)",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ed" },
+    "city_name": "سلطان شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f0" },
+    "city_name": "باب انار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f5" },
+    "city_name": "دژکرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f6" },
+    "city_name": "بیرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f7" },
+    "city_name": "دهرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f9" },
+    "city_name": "ایزدخواست",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468fa" },
+    "city_name": "علامرودشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246902" },
+    "city_name": "بابامنیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246904" },
+    "city_name": "فسا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246917" },
+    "city_name": "افزر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246918" },
+    "city_name": "دوزه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246841" },
+    "city_name": "حصارگرمخان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246843" },
+    "city_name": "تیتکانلو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246844" },
+    "city_name": "جاجرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824684a" },
+    "city_name": "صفی آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824684b" },
+    "city_name": "ایور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824685b" },
+    "city_name": "ملاثانی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246861" },
+    "city_name": "مسجدسلیمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246865" },
+    "city_name": "سردشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246867" },
+    "city_name": "کوت سیدنعیم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246870" },
+    "city_name": "صالح شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246873" },
+    "city_name": "تشان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246879" },
+    "city_name": "ویس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824687b" },
+    "city_name": "فتح المبین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824687d" },
+    "city_name": "قلعه خواجه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246882" },
+    "city_name": "شوشتر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246885" },
+    "city_name": "ابوحمیظه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246886" },
+    "city_name": "آغاجاری",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824688e" },
+    "city_name": "جنت مکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246892" },
+    "city_name": "مشراگه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246895" },
+    "city_name": "امیدیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824689d" },
+    "city_name": "آب بر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a2" },
+    "city_name": "خرمدره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a3" },
+    "city_name": "نیک پی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468a8" },
+    "city_name": "نوربهار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ab" },
+    "city_name": "زنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468ad" },
+    "city_name": "صایین قلعه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b3" },
+    "city_name": "سرخه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468b7" },
+    "city_name": "کهن آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468bb" },
+    "city_name": "درجزین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468bd" },
+    "city_name": "بسطام",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468cb" },
+    "city_name": "قصرقند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d7" },
+    "city_name": "زرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468d8" },
+    "city_name": "بزمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468e2" },
+    "city_name": "میرجاوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d2f" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f2" },
+    "city_name": "سروستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468f3" },
+    "city_name": "قره بلاغ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468fb" },
+    "city_name": "اوز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82468fc" },
+    "city_name": "وراوی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246907" },
+    "city_name": "کامفیروز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246908" },
+    "city_name": "خنج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824690a" },
+    "city_name": "استهبان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824690c" },
+    "city_name": "لطیفی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246910" },
+    "city_name": "اشکنان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246916" },
+    "city_name": "میمند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824691a" },
+    "city_name": "کوپن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824691f" },
+    "city_name": "سعادت شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246922" },
+    "city_name": "حسامی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246926" },
+    "city_name": "قطرویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246928" },
+    "city_name": "مبارک آباددیز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246933" },
+    "city_name": "ایج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246935" },
+    "city_name": "نوجین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246946" },
+    "city_name": "مادرسلیمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824694b" },
+    "city_name": "اسیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246950" },
+    "city_name": "بیدستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246954" },
+    "city_name": "آبگرم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246957" },
+    "city_name": "اقبالیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246959" },
+    "city_name": "ارداق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824695a" },
+    "city_name": "الوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246961" },
+    "city_name": "معلم کلایه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246963" },
+    "city_name": "آوج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246966" },
+    "city_name": "قزوین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246968" },
+    "city_name": "کهک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d32" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246970" },
+    "city_name": "قنوات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d32" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246972" },
+    "city_name": "دستجرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d32" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246976" },
+    "city_name": "سروآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824691b" },
+    "city_name": "زاهدشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824691d" },
+    "city_name": "سده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246921" },
+    "city_name": "سورمق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246927" },
+    "city_name": "نودان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824692a" },
+    "city_name": "نورآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824692d" },
+    "city_name": "حاجی آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246932" },
+    "city_name": "مزایجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246937" },
+    "city_name": "بهمن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246938" },
+    "city_name": "اهل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246939" },
+    "city_name": "خشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824693b" },
+    "city_name": "جنت شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824693c" },
+    "city_name": "مشکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246940" },
+    "city_name": "خانیمن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246947" },
+    "city_name": "داریان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d30" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246951" },
+    "city_name": "کوهین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824695d" },
+    "city_name": "ضیاڈآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246960" },
+    "city_name": "محمودآبادنمونه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246965" },
+    "city_name": "آبیک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d31" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824696c" },
+    "city_name": "سلفچگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d32" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246975" },
+    "city_name": "توپ آغاج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246977" },
+    "city_name": "بویین سفلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246978" },
+    "city_name": "زرینه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246979" },
+    "city_name": "دلبران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824697b" },
+    "city_name": "یاسوکند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824697d" },
+    "city_name": "بانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246983" },
+    "city_name": "دیواندره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246985" },
+    "city_name": "شویشه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824698c" },
+    "city_name": "بلبان آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824698d" },
+    "city_name": "پیرتاج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824698e" },
+    "city_name": "کامیاران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246995" },
+    "city_name": "زنگی آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246997" },
+    "city_name": "خانوک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246998" },
+    "city_name": "کیانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824699c" },
+    "city_name": "نظام شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824699f" },
+    "city_name": "زیدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a1" },
+    "city_name": "چترود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a4" },
+    "city_name": "رودبار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a5" },
+    "city_name": "کرمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a6" },
+    "city_name": "بافت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a8" },
+    "city_name": "منوجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ad" },
+    "city_name": "بردسیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b0" },
+    "city_name": "محمدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b2" },
+    "city_name": "بروات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b3" },
+    "city_name": "ریحان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b9" },
+    "city_name": "گلزار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ba" },
+    "city_name": "بهرمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469bb" },
+    "city_name": "بلورد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c3" },
+    "city_name": "زرند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c5" },
+    "city_name": "گلباف",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469cc" },
+    "city_name": "رابر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469cd" },
+    "city_name": "راین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d5" },
+    "city_name": "نگار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d8" },
+    "city_name": "سنقر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e5" },
+    "city_name": "سطر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e6" },
+    "city_name": "روانسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e7" },
+    "city_name": "پاوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e8" },
+    "city_name": "ازگله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f2" },
+    "city_name": "سومار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f5" },
+    "city_name": "رباط",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f7" },
+    "city_name": "گودین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f9" },
+    "city_name": "لنده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469fd" },
+    "city_name": "سرفاریاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a01" },
+    "city_name": "دیشموک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a02" },
+    "city_name": "مادوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246980" },
+    "city_name": "صاحب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246981" },
+    "city_name": "دهگلان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246984" },
+    "city_name": "برده رشه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246987" },
+    "city_name": "اورامان تخت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246989" },
+    "city_name": "کانی دینار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824698a" },
+    "city_name": "دزج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246990" },
+    "city_name": "چناره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d33" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246991" },
+    "city_name": "کهنوج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246996" },
+    "city_name": "بم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e824699b" },
+    "city_name": "جوزم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469a0" },
+    "city_name": "هنزا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469aa" },
+    "city_name": "هجدک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ab" },
+    "city_name": "خورسند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b4" },
+    "city_name": "کوهبنان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b7" },
+    "city_name": "دهج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469b8" },
+    "city_name": "فاریاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469bc" },
+    "city_name": "فهرج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469bd" },
+    "city_name": "کاظم آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c0" },
+    "city_name": "قلعه گنج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c2" },
+    "city_name": "بزنجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c6" },
+    "city_name": "راور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c7" },
+    "city_name": "خاتون اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469c9" },
+    "city_name": "دشتکار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469cb" },
+    "city_name": "خواجو شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ce" },
+    "city_name": "درب بهشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469d1" },
+    "city_name": "محی آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d34" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469dd" },
+    "city_name": "جوانرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469de" },
+    "city_name": "قصرشیرین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469e4" },
+    "city_name": "گیلانغرب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469eb" },
+    "city_name": "کنگاور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ec" },
+    "city_name": "سرپل ذهاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ee" },
+    "city_name": "باینگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f0" },
+    "city_name": "اسلام آبادغرب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f6" },
+    "city_name": "صحنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d35" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469f8" },
+    "city_name": "گراب سفلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469fc" },
+    "city_name": "یاسوج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e82469ff" },
+    "city_name": "چیتاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a00" },
+    "city_name": "لیکک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a08" },
+    "city_name": "سوق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a0d" },
+    "city_name": "گنبدکاووس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a0e" },
+    "city_name": "کردکوی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a0f" },
+    "city_name": "مراوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a13" },
+    "city_name": "سرخنکلاته",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a1a" },
+    "city_name": "گرگان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a22" },
+    "city_name": "نوکنده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a24" },
+    "city_name": "انبارآلوم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a25" },
+    "city_name": "جلین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a26" },
+    "city_name": "منجیل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a29" },
+    "city_name": "ماکلوان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a2b" },
+    "city_name": "مرجقل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a2c" },
+    "city_name": "لیسار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a2d" },
+    "city_name": "رضوانشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a03" },
+    "city_name": "باشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a05" },
+    "city_name": "قلعه رییسی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a06" },
+    "city_name": "مارگون",
+    "state_id": { "$oid": "637ebcac50832e0655c08d36" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a0a" },
+    "city_name": "مزرعه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a0b" },
+    "city_name": "رامیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a0c" },
+    "city_name": "فراغی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a14" },
+    "city_name": "گالیکش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a15" },
+    "city_name": "سنگدوین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a16" },
+    "city_name": "دلند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a1d" },
+    "city_name": "خان ببین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a20" },
+    "city_name": "فاضل آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a21" },
+    "city_name": "تاتارعلیا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a23" },
+    "city_name": "آزادشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d37" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a31" },
+    "city_name": "لوشان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a34" },
+    "city_name": "فومن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a36" },
+    "city_name": "بازار جمعه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a3d" },
+    "city_name": "لنگرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a3f" },
+    "city_name": "صومعه سرا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a41" },
+    "city_name": "دیلمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a42" },
+    "city_name": "رودسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a43" },
+    "city_name": "کیاشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a49" },
+    "city_name": "خمام",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a4e" },
+    "city_name": "بره سر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a50" },
+    "city_name": "رودبنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a51" },
+    "city_name": "جیرنده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a52" },
+    "city_name": "چاف و چمخاله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a55" },
+    "city_name": "حویق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a60" },
+    "city_name": "هفت چشمه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a67" },
+    "city_name": "الیگودرز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a6a" },
+    "city_name": "نورآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a75" },
+    "city_name": "پل سفید",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a76" },
+    "city_name": "دابودشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a79" },
+    "city_name": "بهنمیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a7f" },
+    "city_name": "ارطه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a83" },
+    "city_name": "گزنک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a85" },
+    "city_name": "رامسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a87" },
+    "city_name": "خلیل شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a88" },
+    "city_name": "کیاکلا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a8e" },
+    "city_name": "هچیرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a93" },
+    "city_name": "بهشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a98" },
+    "city_name": "آلاشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa0" },
+    "city_name": "زرگرمحله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa1" },
+    "city_name": "عباس اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa2" },
+    "city_name": "قایم شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa8" },
+    "city_name": "خرم آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aaa" },
+    "city_name": "رستمکلا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aaf" },
+    "city_name": "نراق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab4" },
+    "city_name": "غرق آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab7" },
+    "city_name": "خشکرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac1" },
+    "city_name": "نوبران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac3" },
+    "city_name": "دلیجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac7" },
+    "city_name": "هندودر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246acd" },
+    "city_name": "شهباز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ace" },
+    "city_name": "بیکاء",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246acf" },
+    "city_name": "تیرور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad2" },
+    "city_name": "کوشکنار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad4" },
+    "city_name": "سرگز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad9" },
+    "city_name": "لمزان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae5" },
+    "city_name": "دهبارز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae6" },
+    "city_name": "میناب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae8" },
+    "city_name": "سوزا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af0" },
+    "city_name": "دشتی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246afa" },
+    "city_name": "فامنین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246afb" },
+    "city_name": "سامن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246afd" },
+    "city_name": "فرسفج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b00" },
+    "city_name": "فیروزان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b06" },
+    "city_name": "ملایر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b07" },
+    "city_name": "صالح آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b08" },
+    "city_name": "تویسرکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b18" },
+    "city_name": "عقدا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b1a" },
+    "city_name": "ابرکوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b1d" },
+    "city_name": "اردکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b22" },
+    "city_name": "خضرآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a37" },
+    "city_name": "کلاچای",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a39" },
+    "city_name": "املش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a3b" },
+    "city_name": "لاهیجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a45" },
+    "city_name": "رودبار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a46" },
+    "city_name": "کومله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a61" },
+    "city_name": "بروجرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a68" },
+    "city_name": "معمولان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a6d" },
+    "city_name": "ازنا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a72" },
+    "city_name": "درب گنبد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a77" },
+    "city_name": "چالوس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a78" },
+    "city_name": "کیاسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a7a" },
+    "city_name": "تنکابن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a7c" },
+    "city_name": "ایزدشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a7d" },
+    "city_name": "گتاب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a80" },
+    "city_name": "امیرکلا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a82" },
+    "city_name": "پایین هولار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a8b" },
+    "city_name": "فریدونکنار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a96" },
+    "city_name": "بابل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a97" },
+    "city_name": "جویبار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a9b" },
+    "city_name": "کتالم وسادات شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa7" },
+    "city_name": "سرخرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa9" },
+    "city_name": "کجور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aab" },
+    "city_name": "سورک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab3" },
+    "city_name": "مهاجران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab5" },
+    "city_name": "خنداب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab8" },
+    "city_name": "ساروق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab9" },
+    "city_name": "محلات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246abc" },
+    "city_name": "میلاجرد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac6" },
+    "city_name": "نیمور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac8" },
+    "city_name": "آوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac9" },
+    "city_name": "جاورسیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad3" },
+    "city_name": "کیش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad5" },
+    "city_name": "بندرعباس",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad6" },
+    "city_name": "زیارتعلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad7" },
+    "city_name": "سندرک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ada" },
+    "city_name": "رویدر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ade" },
+    "city_name": "هشتبندی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246adf" },
+    "city_name": "سردشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae0" },
+    "city_name": "درگهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae1" },
+    "city_name": "پارسیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae3" },
+    "city_name": "جناح",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae7" },
+    "city_name": "سیریک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aef" },
+    "city_name": "هرمز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af3" },
+    "city_name": "تخت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af6" },
+    "city_name": "سرکان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af7" },
+    "city_name": "آجین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aff" },
+    "city_name": "مریانج",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b01" },
+    "city_name": "قروه درجزین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b03" },
+    "city_name": "لالجین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b0e" },
+    "city_name": "مهاجران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b0f" },
+    "city_name": "کبودرآهنگ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b13" },
+    "city_name": "حمیدیا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b1b" },
+    "city_name": "زارچ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b1c" },
+    "city_name": "نیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b20" },
+    "city_name": "شاهدیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b23" },
+    "city_name": "میبد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a32" },
+    "city_name": "اطاقور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a35" },
+    "city_name": "چوبر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a3a" },
+    "city_name": "رستم آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a3e" },
+    "city_name": "کوچصفهان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a44" },
+    "city_name": "شفت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a4a" },
+    "city_name": "ماسال",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a4b" },
+    "city_name": "واجارگاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a4c" },
+    "city_name": "هشتپر (تالش)",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a4d" },
+    "city_name": "پره سر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a53" },
+    "city_name": "لولمان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a56" },
+    "city_name": "سیاهکل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a57" },
+    "city_name": "چابکسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a5a" },
+    "city_name": "چالانچولان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a5f" },
+    "city_name": "کوهدشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a69" },
+    "city_name": "کوهنانی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a6e" },
+    "city_name": "گراب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a73" },
+    "city_name": "گلوگاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a7b" },
+    "city_name": "کلاردشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a84" },
+    "city_name": "محمودآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a8a" },
+    "city_name": "مرزیکلا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a8c" },
+    "city_name": "زیرآب",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a90" },
+    "city_name": "هادی شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a91" },
+    "city_name": "نشتارود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a95" },
+    "city_name": "بلده",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a99" },
+    "city_name": "آمل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a9d" },
+    "city_name": "شیرود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a9f" },
+    "city_name": "رویان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aae" },
+    "city_name": "خنجین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab0" },
+    "city_name": "کمیجان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab2" },
+    "city_name": "رازقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab6" },
+    "city_name": "قورچی باشی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aba" },
+    "city_name": "شازند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246abd" },
+    "city_name": "تفرش",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246abe" },
+    "city_name": "زاویه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246acb" },
+    "city_name": "مامونیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad1" },
+    "city_name": "قشم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae2" },
+    "city_name": "کنگ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae4" },
+    "city_name": "تازیان پایین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ae9" },
+    "city_name": "خمیر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aea" },
+    "city_name": "چارک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aeb" },
+    "city_name": "حاجی اباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aee" },
+    "city_name": "گوهران",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af2" },
+    "city_name": "بستک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af4" },
+    "city_name": "زنگنه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246afc" },
+    "city_name": "بهار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b02" },
+    "city_name": "ازندریان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b04" },
+    "city_name": "گل تپه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b0a" },
+    "city_name": "همدان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b0c" },
+    "city_name": "رزن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b0d" },
+    "city_name": "جوکار",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b10" },
+    "city_name": "قهاوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b12" },
+    "city_name": "مهردشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b14" },
+    "city_name": "تفت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b17" },
+    "city_name": "یزد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b19" },
+    "city_name": "بهاباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b21" },
+    "city_name": "بافق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b24" },
+    "city_name": "مهریز",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b25" },
+    "city_name": "احمدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a33" },
+    "city_name": "لشت نشاء",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a38" },
+    "city_name": "بندرانزلی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a3c" },
+    "city_name": "توتکابن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a40" },
+    "city_name": "اسالم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a47" },
+    "city_name": "رشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a48" },
+    "city_name": "ماسوله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a4f" },
+    "city_name": "آستارا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a54" },
+    "city_name": "گوراب زرمیخ",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a58" },
+    "city_name": "آستانه اشرفیه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a59" },
+    "city_name": "رانکوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d38" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a5b" },
+    "city_name": "بیران شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a5c" },
+    "city_name": "ویسیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a5d" },
+    "city_name": "شول آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a5e" },
+    "city_name": "پلدختر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a62" },
+    "city_name": "الشتر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a63" },
+    "city_name": "مومن آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a64" },
+    "city_name": "دورود",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a65" },
+    "city_name": "زاغه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a66" },
+    "city_name": "چقابل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a6b" },
+    "city_name": "سپیددشت",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a6c" },
+    "city_name": "سراب دوره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a6f" },
+    "city_name": "خرم آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a70" },
+    "city_name": "اشترینان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a71" },
+    "city_name": "فیروزآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d39" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a74" },
+    "city_name": "گلوگاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a7e" },
+    "city_name": "سلمان شهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a81" },
+    "city_name": "کوهی خیل",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a86" },
+    "city_name": "نوشهر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a89" },
+    "city_name": "نور",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a8d" },
+    "city_name": "امامزاده عبدالله",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a8f" },
+    "city_name": "فریم",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a92" },
+    "city_name": "پول",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a94" },
+    "city_name": "کلارآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a9a" },
+    "city_name": "نکا",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a9c" },
+    "city_name": "بابلسر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246a9e" },
+    "city_name": "شیرگاه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa3" },
+    "city_name": "خوش رودپی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa4" },
+    "city_name": "مرزن آباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa5" },
+    "city_name": "ساری",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aa6" },
+    "city_name": "رینه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aac" },
+    "city_name": "چمستان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3a" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aad" },
+    "city_name": "آستانه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ab1" },
+    "city_name": "آشتیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246abb" },
+    "city_name": "ساوه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246abf" },
+    "city_name": "اراک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac0" },
+    "city_name": "توره",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac2" },
+    "city_name": "فرمهین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac4" },
+    "city_name": "پرندک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ac5" },
+    "city_name": "کارچان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aca" },
+    "city_name": "خمین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246acc" },
+    "city_name": "داودآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3b" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad0" },
+    "city_name": "گروک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246ad8" },
+    "city_name": "کوهستک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246adb" },
+    "city_name": "قلعه قاضی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246adc" },
+    "city_name": "فارغان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246add" },
+    "city_name": "ابوموسی",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aec" },
+    "city_name": "فین",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246aed" },
+    "city_name": "بندرجاسک",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af1" },
+    "city_name": "بندرلنگه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3c" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af5" },
+    "city_name": "دمق",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af8" },
+    "city_name": "جورقان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246af9" },
+    "city_name": "برزول",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246afe" },
+    "city_name": "شیرین سو",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b05" },
+    "city_name": "گیان",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b09" },
+    "city_name": "اسدآباد",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b0b" },
+    "city_name": "نهاوند",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3d" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b11" },
+    "city_name": "مروست",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b15" },
+    "city_name": "اشکذر",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b16" },
+    "city_name": "ندوشن",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b1e" },
+    "city_name": "هرات",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  },
+  {
+    "_id": { "$oid": "61bae70c9accd671e8246b1f" },
+    "city_name": "بفروییه",
+    "state_id": { "$oid": "637ebcac50832e0655c08d3e" }
+  }
+]

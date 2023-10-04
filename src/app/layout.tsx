@@ -8,6 +8,7 @@ import { prisma } from "@/lib/db/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { getCart } from "@/lib/actions/getCart";
+import Provider from "./(provider)/Provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,8 +31,10 @@ export default async function RootLayout({
     <html lang="fa" dir="rtl">
       <body className="max-w-[1720px] m-auto font-iranyekan flex-col items-center justify-center">
         <SessionProvider>
-          <Navbar cats={cats} cart={cart} session={session} />
-          <main className="">{children}</main>
+          <Provider>
+            <Navbar cats={cats} cart={cart} session={session} />
+            <main className="">{children}</main>
+          </Provider>
         </SessionProvider>
       </body>
     </html>

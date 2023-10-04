@@ -12,6 +12,9 @@ import IconButton from "@mui/material/IconButton";
 import Logout from "@mui/icons-material/Logout";
 import { Role } from "@prisma/client";
 import { Settings2Icon } from "lucide-react";
+import ArrowIcon, { Arrow } from "../../icons/ArrowIcon";
+import UserDashboardIcon from "../../icons/UserDashboardIcon";
+import AdminDashboardIcon from "../../icons/AdminDashboardIcon";
 
 interface Props {
   session: Session;
@@ -60,8 +63,16 @@ export function UserMenu({ session }: Props) {
               filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
               mt: 0.3,
               left: 50,
+              minWidth: 140,
               "& .MuiMenuItem-root": {
                 display: "flex",
+                alignItems: "stretch",
+                padding: "7px 0px",
+                height: "100%",
+              },
+              "& .MuiDivider-root": {
+                marginTop: 0.5,
+                marginBottom: 0.5,
               },
               "& .MuiAvatar-root": {
                 width: 32,
@@ -88,46 +99,61 @@ export function UserMenu({ session }: Props) {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <Link href={"/profile"}>
-            <MenuItem
-              className="font-iransansnum text-lg"
-              onClick={handleClose}
+          <MenuItem onClick={handleClose}>
+            <Link
+              className="flex justify-between items-center w-full px-2"
+              href={"/profile"}
             >
-              <Avatar /> {session.user.phone}
-              <svg className="w-5 h-5 mr-5 " viewBox="0 0 512 512">
-                <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
-              </svg>
-            </MenuItem>
-          </Link>
+              <div className="flex gap-2 items-start">
+                <UserDashboardIcon classess="h-6 w-6 fill-dark_4" />
+                {!session.user.name && !session.user.family && (
+                  <span className="font-iransansnum">{session.user.phone}</span>
+                )}
+                {session.user.name && session.user.family && (
+                  <span className=" text-md text-dark_4 font-iranyekan_bold">
+                    {session.user.name} {session.user.family}
+                  </span>
+                )}
+              </div>
+              <ArrowIcon classes="h-4 w-4 fill-dark_4" direction={Arrow.left} />
+            </Link>
+          </MenuItem>
           <Divider />
           {session.user.role === Role.ADMIN && (
-            <div>
-              <Link href={"/dashboard"}>
-                <MenuItem
-                  className="font-iransansnum text-lg flex gap-2"
-                  onClick={handleClose}
-                >
-                  <Settings2Icon className="stroke-gray-500" />
-                  <span>پنل مدیریت</span>
-                  <svg className="w-5 h-5 mr-auto " viewBox="0 0 512 512">
-                    <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
-                  </svg>
-                </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link
+                className="flex justify-between items-center w-full px-2"
+                href={"/dashboard"}
+              >
+                <div className="flex gap-2 items-start">
+                  <AdminDashboardIcon classess="h-6 w-6 fill-dark_4" />
+                  <span className="text-md text-dark_4 font-iranyekan_bold">
+                    پنل مدیریت
+                  </span>
+                </div>
+                <ArrowIcon
+                  classes="h-4 w-4 fill-dark_4"
+                  direction={Arrow.left}
+                />
               </Link>
-              <Divider />
-            </div>
+              <Divider className="my-2" />
+            </MenuItem>
           )}
+
           <MenuItem
-            className="font-iranyekan_bold text-base"
             onClick={() => {
               signOut();
               handleClose();
             }}
           >
-            {/* <ListItemIcon > */}
-            <Logout className="ml-3" fontSize="medium" />
-            {/* </ListItemIcon> */}
-            خروج از حساب کاربری
+            <div className="flex justify-between items-center w-full px-2">
+              <div className="flex gap-2 items-start">
+                <Logout className=" h-6 w-6 fill-dark_4" fontSize="medium" />
+                <span className="text-md text-dark_4 font-iranyekan_bold">
+                  خروج از حساب کاربری
+                </span>
+              </div>
+            </div>
           </MenuItem>
         </Menu>
       </React.Fragment>
