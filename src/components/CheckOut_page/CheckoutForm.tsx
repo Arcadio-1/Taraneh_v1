@@ -1,6 +1,7 @@
 import { numberSeperator } from "@/lib/util/price_formt";
 import React from "react";
 import TomanIcon from "../Util/icons/TomanIcon";
+import Link from "next/link";
 
 interface Props {
   subtotal: number;
@@ -66,9 +67,12 @@ const CheckoutForm = ({
           </div>
         )}
       </div>
-      <button className="bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold">
+      <Link
+        href={"/shipping"}
+        className="flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
+      >
         ثبت سفارش
-      </button>
+      </Link>
     </div>
   );
 };

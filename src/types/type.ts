@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Order, Prisma } from "@prisma/client";
 import { z } from "zod";
 
 export enum IsValid {
@@ -75,3 +75,5 @@ export enum Operate {
   remove,
   clearCart,
 }
+
+export type OrderType = Omit<Order, "id">;

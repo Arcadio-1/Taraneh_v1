@@ -7,6 +7,109 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+type OrderAddress {
+  address      String
+  city         OrderAddressCity
+  city_id      String
+  house_number String
+  id           String
+  state        OrderAddressState
+  state_id     String
+  user_id      String
+  zip_code     String
+}
+
+type OrderAddressCity {
+  city_name String
+  id        String
+  state_id  String
+}
+
+type OrderAddressState {
+  id         String
+  state_name String
+}
+
+type OrderCart {
+  createdAt            DateTime
+  id                   String
+  items                OrderCartItems[]
+  size                 Int
+  subDiscount          Int
+  subTotalWithDiscount Int
+  subtotal             Int
+  updatedAt            DateTime
+  userId               String
+}
+
+type OrderCartItems {
+  cartId    String
+  id        String
+  product   OrderCartItemsProduct
+  productId String
+  quantity  Int
+}
+
+type OrderCartItemsProduct {
+  brand_id        String
+  createdAt       DateTime
+  id              String
+  image_url       String
+  main_cat_id     String
+  off_percent     Int
+  price           Int
+  selling_type    String
+  specific_cat_id String
+  statistics      OrderCartItemsProductStatistics
+  status          Boolean
+  title           String
+  updatedAt       DateTime
+}
+
+type OrderCartItemsProductStatistics {
+  buyerRate Int
+  soled     Int
+  totalLike Int
+  totalRate Int
+  views     Int
+}
+
+type OrderSelectedDate {
+  // id            String
+  day           Int
+  dayOfyear     Int
+  gregorianDate String
+  holiday       Boolean
+  month         Int
+  month_name    String
+  weekday       String
+  year          Int
+}
+
+type OrderUser {
+  code_meli String
+  email     String
+  family    String
+  id        String
+  image     String
+  name      String
+  phone     String
+  role      String
+}
+
+model Order {
+  id             String            @id @default(auto()) @map("_id") @db.ObjectId
+  posting_price  Int
+  payment_status Boolean
+  status         OrderStatus
+  address        OrderAddress
+  cart           OrderCart
+  selectedDate   OrderSelectedDate
+  user           OrderUser
+
+  @@map("orders")
+}
+
 type ProductsStatistics {
   buyerRate Int
   soled     Int
@@ -53,6 +156,13 @@ enum Role {
   USER
 }
 
+enum OrderStatus {
+  IN_STORE
+  IN_PROCESS
+  ON_DELIVERY
+  DELIVERED
+}
+
 model User {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
   phone         String        @unique
@@ -88,7 +198,6 @@ model UserAddress {
   city         City      @relation(fields: [city_id], references: [id])
   Account      Account[]
   Session      Session[]
-  Cart         Cart[]
 
   @@map("userAddress")
 }
@@ -189,14 +298,12 @@ model Brand {
 }
 
 model Cart {
-  id            String       @id @default(auto()) @map("_id") @db.ObjectId
-  items         CartItem[]
-  userId        String?      @db.ObjectId
-  user          User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
-  UserAddress   UserAddress? @relation(fields: [userAddressId], references: [id])
-  userAddressId String?      @db.ObjectId
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  items     CartItem[]
+  userId    String?    @db.ObjectId
+  user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 
   @@map("carts")
 }

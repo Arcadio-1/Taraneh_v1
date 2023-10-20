@@ -1,6 +1,6 @@
 import OrdersIcon from "@/components/Profile_page/navigation/icons/OrdersIcon";
 import GuaranteeIcon from "@/components/Util/icons/GuaranteeIcon";
-import ShipingIcon from "@/components/Util/icons/ShipingIcon";
+import ShippingIcon from "@/components/Util/icons/ShippingIcon";
 import { DotIcon } from "lucide-react";
 import React from "react";
 
@@ -30,7 +30,7 @@ const Prod_status = () => {
             <span className="absolute bottom-0 left-1/2 w-[.6px] h-[calc(50%-2.5px)] bg-gray-400 translate-x-[-50%]"></span>
           </div>
           <div className="flex items-center gap-1">
-            <ShipingIcon classes="h-5 w-5 fill-red-600" />
+            <ShippingIcon classes="h-5 w-5 fill-red-600" />
             <p className="text-sm">ارسال کافه ترانه</p>
           </div>
         </li>

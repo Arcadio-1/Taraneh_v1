@@ -12,6 +12,7 @@ import ShoppingCartButton from "./components/shoping_cart/ShoppingCartButton";
 import { Session } from "next-auth";
 import { UserMenu } from "./components/UserMenu";
 import Log from "./Log";
+import { usePathname } from "next/navigation";
 
 interface Props {
   cats: MainCatsWithSpecificCats[];
@@ -19,12 +20,20 @@ interface Props {
   cart: ShoppingCart | null;
 }
 
+const navDiablerPaths: string[] = ["/shipping", "/payment"];
+
 const Navbar = ({ cats, session, cart }: Props) => {
   const [mount, setMount] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMount(true);
-  }, []);
+    navDiablerPaths.map((path) => {
+      if (path === pathname) {
+        setMount(false);
+      }
+    });
+  }, [pathname]);
 
   return (
     <>
@@ -49,7 +58,7 @@ const Navbar = ({ cats, session, cart }: Props) => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:flex md:gap-2">
+            <div className="hidden md:flex md:gap-2 text-g1 border-b-g1_7">
               <CatsMenu mainCats={cats} />
               <NavbarLinks />
             </div>

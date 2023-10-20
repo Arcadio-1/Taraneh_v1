@@ -31,12 +31,12 @@ interface Props {
   userId: string;
   address: Address_Full | null;
 }
-interface StateAndCityInterface {
+export interface StateAndCityInterface {
   value: string;
   label: string;
   key: string;
 }
-const states: StateAndCityInterface[] = [
+export const states: StateAndCityInterface[] = [
   {
     value: "637ebcac50832e0655c08d20",
     key: "637ebcac50832e0655c08d20",

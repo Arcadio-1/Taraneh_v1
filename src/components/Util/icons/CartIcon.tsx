@@ -1,14 +1,13 @@
 import React from "react";
 
 interface Props {
-  clasess?: string;
+  classes?: string;
 }
 
-const CartIcon = ({ clasess }: Props) => {
+const CartIcon = ({ classes }: Props) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={`${clasess}`}
+      className={`${classes}`}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
