@@ -45,15 +45,17 @@ const Shipping_form = ({
   );
 
   const { order, setOrder } = useGlobalContext();
+  const post_cost: number = 39000;
 
   const submit_orders = async () => {
     if (address && cart && selectedDate && cart.userId) {
       setOrder((prev) => {
         return (prev = {
           payment_status: false,
-          posting_price: 39000,
+          posting_price: post_cost,
           user: user.user as OrderUser,
           cart: cart as OrderCart,
+          final_price: subtotalWithDiscount + post_cost,
           address: address,
           selectedDate: selectedDate,
           status: OrderStatus.IN_STORE,
@@ -118,7 +120,7 @@ const Shipping_form = ({
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(39000)}
+              {numberSeperator(post_cost)}
             </span>
             <TomanIcon classes="h-6 w-6 fill-dark_5" />
           </div>
@@ -150,7 +152,7 @@ const Shipping_form = ({
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(subtotalWithDiscount)}
+              {numberSeperator(subtotalWithDiscount + post_cost)}
             </span>
             <TomanIcon classes="h-6 w-6 " />
           </div>

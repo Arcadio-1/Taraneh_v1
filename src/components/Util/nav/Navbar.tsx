@@ -39,7 +39,7 @@ const Navbar = ({ cats, session, cart }: Props) => {
     <>
       {mount ? (
         <>
-          <div className="px-4">
+          <div className="px-4 pb-4">
             <div className="mb-3 md:flex md:gap-6">
               <div className="flex items-center justify-between">
                 <MenuIcon clasees="h-[3rem] w-[3rem] md:hidden" />

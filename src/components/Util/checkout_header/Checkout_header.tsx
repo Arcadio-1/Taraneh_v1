@@ -15,7 +15,7 @@ interface Props {
 
 const Checkout_header = ({ stage }: Props) => {
   return (
-    <div className="flex flex-col border rounded-lg items-center gap-5 p-4">
+    <div className="flex flex-col border rounded-lg items-center gap-5   py-3 px-4">
       <div>
         <Link href={"/"}>
           <h1 className="text-3xl text-g1_5 font-iranyekan_bold">کافه ترانه</h1>

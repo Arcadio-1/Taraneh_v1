@@ -101,6 +101,7 @@ model Order {
   id             String            @id @default(auto()) @map("_id") @db.ObjectId
   posting_price  Int
   payment_status Boolean
+  final_price    Int
   status         OrderStatus
   address        OrderAddress
   cart           OrderCart
