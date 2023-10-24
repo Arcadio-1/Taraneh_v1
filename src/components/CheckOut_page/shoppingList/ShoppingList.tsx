@@ -2,8 +2,6 @@ import { ShoppingCart } from "@/types/type";
 import React from "react";
 import Header from "./components/Header";
 import ShoppingListItem from "./components/ShoppingListItem";
-import { MenuSquareIcon } from "lucide-react";
-import { MenuButton } from "@mui/base";
 
 interface Props {
   cart: ShoppingCart;

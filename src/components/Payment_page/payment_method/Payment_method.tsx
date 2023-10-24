@@ -47,7 +47,6 @@ const Payment_method = () => {
       <RadioGroup
         className=" py-3"
         onValueChange={(e) => {
-          console.log(e);
           setSelected(e);
         }}
       >

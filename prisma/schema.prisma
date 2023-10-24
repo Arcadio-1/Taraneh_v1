@@ -102,6 +102,7 @@ model Order {
   posting_price  Int
   payment_status Boolean
   final_price    Int
+  createdAt      DateTime          @default(now())
   status         OrderStatus
   address        OrderAddress
   cart           OrderCart

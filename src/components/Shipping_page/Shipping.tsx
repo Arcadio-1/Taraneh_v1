@@ -24,7 +24,6 @@ const Shipping = ({ address, session, cart }: Props) => {
 
   const selectedDateHandler = (date: SlectedInterface) => {
     setSelectedDate(date);
-    console.log(selectedDate);
   };
   return (
     <div className="flex gap-2">
@@ -36,10 +35,6 @@ const Shipping = ({ address, session, cart }: Props) => {
         </div>
       </div>
       <Shipping_form
-        cartSize={cart.size}
-        subtotal={cart.subtotal}
-        subDiscount={cart.subDiscount}
-        subtotalWithDiscount={cart.subTotalWithDiscount}
         selectedDate={selectedDate}
         address={address}
         user={session}

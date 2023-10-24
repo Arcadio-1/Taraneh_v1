@@ -4,6 +4,8 @@ import EmptyCart from "@/components/CheckOut_page/emptyCart/EmptyCart";
 import { getCart } from "@/lib/actions/getCart";
 import React from "react";
 
+export const revalidate = true;
+
 const page = async () => {
   const cart = await getCart();
   return (

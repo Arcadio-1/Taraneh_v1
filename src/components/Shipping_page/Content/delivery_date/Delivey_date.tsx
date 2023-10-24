@@ -87,7 +87,6 @@ const Delivey_date = ({ selectedDateHandler }: Props) => {
               className="border-t py-3"
               onValueChange={(e) => {
                 const date = JSON.parse(e);
-                console.log(date);
                 selectedDateHandler(date);
               }}
             >

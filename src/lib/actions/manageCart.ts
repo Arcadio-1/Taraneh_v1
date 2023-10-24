@@ -62,4 +62,7 @@ export async function manageCart(
     }
   }
   revalidatePath(`/products/${productId}`);
+  revalidatePath(`/checkout`);
+  // revalidatePath(`/shipping`);
+  // revalidatePath(`/payment`);
 }

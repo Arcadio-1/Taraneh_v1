@@ -15,10 +15,6 @@ import {
 import { useGlobalContext } from "@/app/(provider)/Provider";
 
 interface Props {
-  subtotal: number;
-  subDiscount: number;
-  cartSize: number;
-  subtotalWithDiscount: number;
   selectedDate: SlectedInterface | null;
   address: OrderAddress | null;
   user: Session;
@@ -30,16 +26,7 @@ enum Submit_status_Enum {
   set_date,
   ready,
 }
-const Shipping_form = ({
-  cartSize,
-  subtotal,
-  subDiscount,
-  subtotalWithDiscount,
-  selectedDate,
-  address,
-  user,
-  cart,
-}: Props) => {
+const Shipping_form = ({ selectedDate, address, user, cart }: Props) => {
   const [submitStatus, setSubmitStatus] = useState<Submit_status_Enum>(
     Submit_status_Enum.set_date
   );
@@ -55,13 +42,12 @@ const Shipping_form = ({
           posting_price: post_cost,
           user: user.user as OrderUser,
           cart: cart as OrderCart,
-          final_price: subtotalWithDiscount + post_cost,
+          final_price: cart.subTotalWithDiscount + post_cost,
           address: address,
           selectedDate: selectedDate,
           status: OrderStatus.IN_STORE,
         });
       });
-      console.log("test");
     }
   };
   useEffect(() => {
@@ -91,14 +77,14 @@ const Shipping_form = ({
             <div>
               <span className="font-iranyekan_bold">(</span>
               <span className="font-iransansnum text-xl font-bold">
-                {cartSize}
+                {cart.size}
               </span>
               <span className="font-iranyekan_bold">)</span>
             </div>
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(subtotal)}
+              {numberSeperator(cart.subtotal)}
             </span>
             <TomanIcon classes="h-6 w-6 fill-dark_5" />
           </div>
@@ -126,7 +112,7 @@ const Shipping_form = ({
           </div>
         </div>
         <Divider />
-        {subDiscount && subDiscount > 0 && (
+        {cart.subDiscount && cart.subDiscount > 0 && (
           <div className="flex items-start justify-between text-g1_5">
             <div className="flex items-center gap-2">
               <label>
@@ -137,8 +123,10 @@ const Shipping_form = ({
             </div>
             <div className="flex items-center gap-1">
               <p className="font-iransansnum text-xl font-bold flex gap-2">
-                <span>({Math.round(subDiscount / (subtotal / 100))}%)</span>
-                <span>{numberSeperator(subDiscount)}</span>
+                <span>
+                  ({Math.round(cart.subDiscount / (cart.subtotal / 100))}%)
+                </span>
+                <span>{numberSeperator(cart.subDiscount)}</span>
               </p>
               <TomanIcon classes="h-6 w-6 fill-g1_5" />
             </div>
@@ -152,7 +140,7 @@ const Shipping_form = ({
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(subtotalWithDiscount + post_cost)}
+              {numberSeperator(cart.subTotalWithDiscount + post_cost)}
             </span>
             <TomanIcon classes="h-6 w-6 " />
           </div>

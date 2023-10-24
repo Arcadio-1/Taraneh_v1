@@ -3359,7 +3359,6 @@ const calendarGenerator = () => {
       });
     }
   }
-  console.log(date);
   return date;
 };
 
