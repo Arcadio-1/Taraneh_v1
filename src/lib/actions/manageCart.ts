@@ -66,3 +66,11 @@ export async function manageCart(
   // revalidatePath(`/shipping`);
   // revalidatePath(`/payment`);
 }
+
+export async function resetCart(cart_id: string) {
+  await prisma.cart.delete({
+    where: { id: cart_id },
+  });
+  revalidatePath(`/`);
+  revalidatePath(`/checkout`);
+}

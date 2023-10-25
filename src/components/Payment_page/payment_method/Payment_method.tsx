@@ -6,48 +6,53 @@ import OrganazationCreditIcon from "@/components/Util/icons/OrganazationCreditIc
 import PosIcon from "@/components/Util/icons/PosIcon";
 import { Label } from "@/components_shadcn/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components_shadcn/ui/radio-group";
+import { PayMethod } from "@prisma/client";
 import React, { useState } from "react";
 
 const payment_methods = [
   {
-    method_value: "bank_cart",
+    method_value: PayMethod.BANK_CART,
     id: "0",
     // icon: <CartBankIcon classes="h-10 w-10 fill-gray-500" />,
     label: "پرداخت اینترنتی",
     description: "پرداخت انلاین با تمامی کارت های بانکی",
   },
   {
-    method_value: "pos",
+    method_value: PayMethod.POS,
     id: "1",
     // icon: <PosIcon classes="h-10 w-10 fill-gray-500" />,
     label: "پرداخت در محل (با کارت بانکی)",
     description: "هنگام تحویل از طریق کارت‌های بانکی",
   },
   {
-    method_value: "cridit",
+    method_value: PayMethod.CRIDIT,
     id: "2",
     // icon: <CriditIcon classes="h-10 w-10 fill-gray-500" />,
     label: "پرداخت اعتباری ترانه پی",
     description: "الان بخر، بعدا پرداخت کن",
   },
   {
-    method_value: "organazationCredit",
+    method_value: PayMethod.ORGANAZATION_CRIDIT,
     id: "3",
     // icon: <OrganazationCreditIcon classes="h-10 w-10 fill-gray-500" />,
     label: "پرداخت با کارت اعتباری",
     description: "ویژه بانک‌ها، سازمان‌ها و شرکت‌ها",
   },
 ];
-const Payment_method = () => {
-  const [selected, setSelected] = useState<string>("");
+
+interface Props {
+  onPaymentSet: (method: PayMethod) => void;
+  paymentMethod: PayMethod;
+}
+const Payment_method = ({ onPaymentSet, paymentMethod }: Props) => {
   const [colapsToggole, setColapsToggole] = useState<boolean>(true);
   return (
     <div className="py-3 px-4 border rounded-lg">
       <h1>انتخاب روش پرداخت</h1>
       <RadioGroup
         className=" py-3"
-        onValueChange={(e) => {
-          setSelected(e);
+        onValueChange={(e: PayMethod) => {
+          onPaymentSet(e);
         }}
       >
         {payment_methods.map((method, index) => {
@@ -66,7 +71,7 @@ const Payment_method = () => {
                   <div className="flex flex-col items-end gap-3">
                     <span
                       className={`text-xl font-iranyekan_bold ${
-                        selected === method.method_value && "text-red-500"
+                        paymentMethod === method.method_value && "text-red-500"
                       }`}
                     >
                       {method.label}
@@ -74,31 +79,33 @@ const Payment_method = () => {
                     <span className={`text-dark_5`}>{method.description}</span>
                   </div>
                   <div>
-                    {method.method_value === "bank_cart" && (
+                    {method.method_value === PayMethod.BANK_CART && (
                       <CartBankIcon
                         classes={`h-10 w-10 fill-gray-500 ${
-                          selected === "bank_cart" && "fill-red-500"
+                          paymentMethod === PayMethod.BANK_CART &&
+                          "fill-red-500"
                         }`}
                       />
                     )}
-                    {method.method_value === "pos" && (
+                    {method.method_value === PayMethod.POS && (
                       <PosIcon
                         classes={`h-10 w-10 fill-gray-500 ${
-                          selected === "pos" && "fill-red-500"
+                          paymentMethod === PayMethod.POS && "fill-red-500"
                         }`}
                       />
                     )}
-                    {method.method_value === "cridit" && (
+                    {method.method_value === PayMethod.CRIDIT && (
                       <CriditIcon
                         classes={`h-10 w-10 fill-gray-500 ${
-                          selected === "cridit" && "fill-red-500"
+                          paymentMethod === PayMethod.CRIDIT && "fill-red-500"
                         }`}
                       />
                     )}
-                    {method.method_value === "organazationCredit" && (
+                    {method.method_value === PayMethod.ORGANAZATION_CRIDIT && (
                       <OrganazationCreditIcon
                         classes={`h-10 w-10 fill-gray-500 ${
-                          selected === "organazationCredit" && "fill-red-500"
+                          paymentMethod === PayMethod.ORGANAZATION_CRIDIT &&
+                          "fill-red-500"
                         }`}
                       />
                     )}

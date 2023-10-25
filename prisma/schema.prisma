@@ -101,6 +101,7 @@ model Order {
   id             String            @id @default(auto()) @map("_id") @db.ObjectId
   posting_price  Int
   payment_status Boolean
+  payment_method PayMethod
   final_price    Int
   createdAt      DateTime          @default(now())
   status         OrderStatus
@@ -163,6 +164,14 @@ enum OrderStatus {
   IN_PROCESS
   ON_DELIVERY
   DELIVERED
+}
+
+enum PayMethod {
+  NOT_PAYED
+  BANK_CART
+  POS
+  CRIDIT
+  ORGANAZATION_CRIDIT
 }
 
 model User {

@@ -47,7 +47,7 @@ const Shipping_summry = ({ order }: Props) => {
             </div>
           </div>
           <div
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 cursor-pointer"
             onClick={() => {
               setShowOrderSummry((prev) => {
                 return (prev = !prev);

@@ -9,7 +9,7 @@ interface Props {
 
 const Checkout = ({ cart }: Props) => {
   return (
-    <div className="flex gap-2 mt-2">
+    <div className="pb-[10rem] md:p-0 flex flex-col md:flex-row gap-2 mt-2">
       <ShoppingList cart={cart} />
       <CheckoutForm
         subtotal={cart.subtotal}

@@ -16,15 +16,17 @@ import {
 } from "@/components_shadcn/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components_shadcn/ui/radio-group";
 import { SlectedInterface } from "../../Shipping";
+import { SheetClose } from "@/components_shadcn/ui/sheet";
 
 export interface DateInterface {
   gregorianDate: string;
 }
 interface Props {
   selectedDateHandler: (date: SlectedInterface) => void;
+  sheeter: boolean;
 }
 
-const Delivey_date = ({ selectedDateHandler }: Props) => {
+const Delivey_date = ({ selectedDateHandler, sheeter }: Props) => {
   const [datesList, setDatesList] = useState<SlectedInterface[]>([]);
 
   useEffect(() => {
@@ -40,6 +42,8 @@ const Delivey_date = ({ selectedDateHandler }: Props) => {
     ) {
       if (!calendarArray[i].holiday) {
         avalbelDatesList++;
+        // setDatesList([]);
+
         setDatesList((prevDays) => {
           const newDay = calendarArray[i];
           const gregorianDate = jalali_to_gregorian(
@@ -57,7 +61,7 @@ const Delivey_date = ({ selectedDateHandler }: Props) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-2 mb-3">
+      <div className="flex items-center gap-2 mb-3 ml-auto">
         <ClockIcon className="stroke-gray-400 w-6 h-6" />
         <p>انتخاب زمان ارسال</p>
       </div>
@@ -104,15 +108,30 @@ const Delivey_date = ({ selectedDateHandler }: Props) => {
                         // checked={index === 1}
                         id={date.dayOfyear.toString()}
                       />
-                      <Label
-                        htmlFor={date.dayOfyear.toString()}
-                        className="flex gap-1 cursor-pointer text-md"
-                      >
-                        <span>ساعت</span>
-                        <span className="font-iransansnum">9</span>
-                        <span>تا</span>
-                        <span className="font-iransansnum">22</span>
-                      </Label>
+                      {sheeter && (
+                        <SheetClose asChild>
+                          <Label
+                            htmlFor={date.dayOfyear.toString()}
+                            className="flex gap-1 cursor-pointer text-md"
+                          >
+                            <span>ساعت</span>
+                            <span className="font-iransansnum">9</span>
+                            <span>تا</span>
+                            <span className="font-iransansnum">22</span>
+                          </Label>
+                        </SheetClose>
+                      )}
+                      {!sheeter && (
+                        <Label
+                          htmlFor={date.dayOfyear.toString()}
+                          className="flex gap-1 cursor-pointer text-md"
+                        >
+                          <span>ساعت</span>
+                          <span className="font-iransansnum">9</span>
+                          <span>تا</span>
+                          <span className="font-iransansnum">22</span>
+                        </Label>
+                      )}
                     </div>
                   </TabsContent>
                 );

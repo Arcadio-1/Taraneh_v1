@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import User_info from "./Address/User_info";
 import Shipping_items from "./Content/shipping_items/Shipping_items";
 import Delivey_date, {
@@ -22,19 +22,39 @@ const Shipping = ({ address, session, cart }: Props) => {
     null
   );
 
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   const selectedDateHandler = (date: SlectedInterface) => {
     setSelectedDate(date);
   };
   return (
-    <div className="flex gap-2">
+    <div className="pb-[10rem] md:p-0 flex flex-col md:flex-row gap-2">
       <div className="grow">
         <User_info address={address} user={session} />
-        <div className="border rounded-lg  py-3 px-4">
+        <div className="border rounded-lg  py-3 px-4 flex flex-col gap-4">
           <Shipping_items cart={cart} />
-          <Delivey_date selectedDateHandler={selectedDateHandler} />
+          {windowSize.innerWidth > 767 && (
+            <Delivey_date
+              sheeter={false}
+              selectedDateHandler={selectedDateHandler}
+            />
+          )}
         </div>
       </div>
       <Shipping_form
+        selectedDateHandler={selectedDateHandler}
         selectedDate={selectedDate}
         address={address}
         user={session}
@@ -45,3 +65,7 @@ const Shipping = ({ address, session, cart }: Props) => {
 };
 
 export default Shipping;
+function getWindowSize() {
+  const { innerWidth, innerHeight } = window;
+  return { innerWidth, innerHeight };
+}
