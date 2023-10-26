@@ -26,6 +26,7 @@ const Payment = ({ cart }: Props) => {
     if (order && order.cart && order.cart.items) {
       setOrder((prev) => {
         return (prev = {
+          user_id: order.user_id,
           payment_status: false,
           payment_method: method,
           posting_price: order.posting_price,

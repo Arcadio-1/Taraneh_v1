@@ -99,6 +99,7 @@ type OrderUser {
 
 model Order {
   id             String            @id @default(auto()) @map("_id") @db.ObjectId
+  user_id        String
   posting_price  Int
   payment_status Boolean
   payment_method PayMethod
@@ -160,7 +161,7 @@ enum Role {
 }
 
 enum OrderStatus {
-  IN_STORE
+  REJECTED
   IN_PROCESS
   ON_DELIVERY
   DELIVERED

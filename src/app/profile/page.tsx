@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import React from "react";
 import Aside from "@/components/Profile_page/side_navaigation/Aside";
 import Content from "@/components/Profile_page/content/Content";
-import { getAddress } from "@/lib/actions/manageAddress";
 import { Address_Full } from "@/types/type";
 import { prisma } from "@/lib/db/prisma";
 
@@ -19,7 +18,7 @@ const page = async () => {
   });
   // if(session.user.)
   return (
-    <div className="grid grid-cols-[repeat(7,minmax(0,1fr))]">
+    <div className="grid gap-4 grid-cols-[repeat(8,minmax(0,1fr))] max-w-[1124px] mx-auto mt-6">
       <Aside session={session} />
       <Content session={session} address={address} />
     </div>

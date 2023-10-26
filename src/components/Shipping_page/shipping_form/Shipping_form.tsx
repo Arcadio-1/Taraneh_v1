@@ -58,6 +58,7 @@ const Shipping_form = ({
     if (address && cart && selectedDate && cart.userId) {
       setOrder((prev) => {
         return (prev = {
+          user_id: user.user.id,
           payment_status: false,
           payment_method: PayMethod.NOT_PAYED,
           posting_price: post_cost,
@@ -66,7 +67,7 @@ const Shipping_form = ({
           final_price: cart.subTotalWithDiscount + post_cost,
           address: address,
           selectedDate: selectedDate,
-          status: OrderStatus.IN_STORE,
+          status: OrderStatus.IN_PROCESS,
         });
       });
     }

@@ -68,7 +68,7 @@ const Navigation = () => {
           </li>
         );
       })}
-      <li className="border-b-[1px] border-b-gray-600 px-2 py-2 border-opacity-25 hover:bg-gray-100">
+      <li className=" px-2 py-2 hover:bg-gray-100">
         <button
           onClick={() => {
             signOut({ callbackUrl: "/" });

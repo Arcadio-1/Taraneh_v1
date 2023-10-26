@@ -15,8 +15,8 @@ interface Props {
 
 const Personal_info = ({ session, address }: Props) => {
   return (
-    <div className="grid grid-cols-2 grid-rows-2 gap-5 py-6">
-      <div className="flex justify-between border-b-2 px-5 py-1">
+    <div className="grid grid-cols-2 grid-rows-2 gap-3">
+      <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">
         <div className="flex flex-col gap-2">
           <p className="text-md text-dark_4">نام و نام خانوادگی</p>
           {!!session.user.name && !!session.user.family && (
@@ -38,7 +38,7 @@ const Personal_info = ({ session, address }: Props) => {
           <Name_family_codeMeli userId={session.user.id} />
         </div>
       </div>
-      <div className="flex justify-between border-b-2 px-5 py-1">
+      <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">
         <div className="flex flex-col gap-2">
           <p className="text-md text-dark_4"> شماره موبایل </p>
           {!!session.user.phone && (
@@ -58,7 +58,7 @@ const Personal_info = ({ session, address }: Props) => {
           <Phone userId={session.user.id} />
         </div>
       </div>
-      <div className="flex justify-between border-b-2 px-5 py-1">
+      <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">
         <div className="flex flex-col gap-2">
           <p className="text-md text-dark_4">ایمیل</p>
           {!!session.user.email && (
@@ -78,7 +78,7 @@ const Personal_info = ({ session, address }: Props) => {
           <Email userId={session.user.id} />
         </div>
       </div>
-      <div className="flex justify-between border-b-2 px-5 py-1">
+      <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">
         <div className="flex flex-col gap-2">
           <p className="text-md text-dark_4">آدرس</p>
           {!!address && (
@@ -89,7 +89,7 @@ const Personal_info = ({ session, address }: Props) => {
                 <span>{address.city.city_name}</span>
               </p>
               <p>
-                <span>{address.address}</span>
+                <span> {address.address} </span>
                 <span>کدپستی : </span>
                 <span className="font-iransansnum">{address.zip_code} </span>
                 <span>پلاک : </span>

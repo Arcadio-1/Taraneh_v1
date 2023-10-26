@@ -14,8 +14,8 @@ interface Props {
 const Content = ({ session, address }: Props) => {
   const path = usePathname();
   return (
-    <div className="col-span-5 border rounded-lg">
-      {path === "/profile" && <Root />}
+    <div className="col-span-6 border rounded-lg px-2 py-5">
+      {path === "/profile" && <Root user_id={session.user.id} />}
       {path === "/profile/personal-info" && (
         <Personal_info session={session} address={address} />
       )}
