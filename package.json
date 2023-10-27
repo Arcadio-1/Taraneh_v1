@@ -72,6 +72,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.29.5-appdir.0",
     "daisyui": "^3.5.0"
   }
 }
