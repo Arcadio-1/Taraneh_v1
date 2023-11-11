@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-
+import Amazing from "@/assets/images/Amazings.svg";
 export interface Hero_slide_type {
-  title: string;
+  title?: string;
   image_url: string;
   link_url: string;
 }
@@ -17,15 +17,30 @@ const HeroSlide = ({
 }: Props) => {
   return (
     <div
-      className={`relative rounded-3xl overflow-hidden p-2 m-2 h-full w-[20rem] max-xl:w-[19rem] max-md:w-[18rem] ${bg_color}`}
+      className={`relative overflow-hidden p-2 shadow-md h-full w-[18rem] max-xl:w-[16rem] max-md:w-[15rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${bg_color} rounded-bl-xl rounded-tl-xl flex items-center justify-center`}
     >
       <div className="flex flex-col items-center justify-evenly h-full">
-        <h1 className="text-[1.5rem] text-gray-50 ml-auto font-iransansbold">
-          {title}
-        </h1>
-        <Image src={image_url} height={100} width={100} alt={title} />
+        {title && (
+          <h1 className="text-[1.5rem] text-gray-50 ml-auto font-iransansbold">
+            {title}
+          </h1>
+        )}
+        {!title && (
+          <Image
+            src={Amazing}
+            height={80}
+            width={80}
+            alt={"پیشنهاد شگفت انگیز"}
+          />
+        )}
+        <Image
+          src={image_url}
+          height={100}
+          width={100}
+          alt={title || "پیشنهاد شگفت انگیز"}
+        />
         <Link
-          className="text-[1.4rem] mr-auto font-iransans text-gray-50 flex items-center hover:text-red-400 hover:fill-red-400"
+          className="text-[1.4rem] font-iransans text-gray-50 flex items-center hover:text-red-400 hover:fill-red-400"
           href={link_url}
         >
           مشاهده همه

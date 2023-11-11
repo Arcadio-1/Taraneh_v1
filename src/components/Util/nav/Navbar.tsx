@@ -20,7 +20,7 @@ interface Props {
   cart: ShoppingCart | null;
 }
 
-const navDiablerPaths: string[] = ["/shipping", "/payment"];
+const navDiablerPaths: string[] = ["/shipping", "/payment", "/successPayment"];
 
 const Navbar = ({ cats, session, cart }: Props) => {
   const [mount, setMount] = useState<boolean>(false);

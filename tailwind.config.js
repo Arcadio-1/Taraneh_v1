@@ -25,6 +25,7 @@ module.exports = {
         iransansbold: "iransansbold",
         iranyekan: "iranyekan",
         iranyekan_bold: "iranyekan_bold",
+        yekan: "yekan",
       },
       colors: {
         success: " #07bc0c",

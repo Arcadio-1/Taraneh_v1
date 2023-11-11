@@ -6,7 +6,7 @@ interface Props {
 
 const Off_percent = ({ percent }: Props) => {
   return (
-    <p className="bg-error py-1 pb-0 px-3 rounded-md text-light_1 text-xl font-iransansnum font-thin">
+    <p className="bg-error px-3 text-light_1 text-lg font-iransansnum font-thin rounded-full">
       {percent}
     </p>
   );

@@ -3403,8 +3403,8 @@ function convertFaToEnDigits(faDigits: string): number {
   return parseInt(enDigits);
 }
 
-export const getdayOfYear = (): number => {
-  let date = new Date().toLocaleDateString("fa-IR");
+export const getdayOfYear = (dater?: string): number => {
+  let date = dater || new Date().toLocaleDateString("fa-IR");
   const splited = date.split("/");
   const month = convertFaToEnDigits(splited[1]);
   const day = convertFaToEnDigits(splited[2]);
@@ -3484,4 +3484,10 @@ export const jalali_to_gregorian = (date: string) => {
   let gm = i + 1;
   let gd = g_day_no + 1;
   return `${gy}/${gm}/${gd}`;
+};
+
+export const faDateObjectGenerator = (date: string): Day => {
+  const dayOfYear = getdayOfYear(date);
+  const calender = calendarGenerator();
+  return calender[dayOfYear - 1];
 };

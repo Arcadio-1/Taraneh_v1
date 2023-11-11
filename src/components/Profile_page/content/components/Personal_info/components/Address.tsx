@@ -252,7 +252,7 @@ const Address = ({ userId, address }: Props) => {
   }, [stateValue]);
 
   const onSubmit = async (values: z.infer<typeof AddressSchame>) => {
-    const isValid = AddressSchame.parse(values);
+    const isValid = AddressSchame.safeParse(values);
     const res = await setAddress(userId, values);
     if (res.status === "success") {
       location.reload();
@@ -268,7 +268,7 @@ const Address = ({ userId, address }: Props) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] bg-opacity-100 bg-light_1">
         <DialogHeader className=" flex flex-col gap-3">
-          <DialogTitle className="text-xl">ثبت اطلاعات شناسایی</DialogTitle>
+          <DialogTitle className="text-xl">ثبت اطلاعات آدرس</DialogTitle>
           <Divider className="my-" />
           <DialogDescription className="text-dark_2 text-lg">
             لطفا آدرس خود را جهت دریافت مرسوله پستی ثبت نمایید.

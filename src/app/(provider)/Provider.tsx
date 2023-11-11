@@ -10,20 +10,33 @@ import {
   SetStateAction,
   useState,
 } from "react";
-import { OrderType } from "@/types/type";
+// import { OrderType } from "@/types/type";
+import { OrderSelectedDate, OrderStatus } from "@prisma/client";
 
 interface ContextProps {
-  order: OrderType | null;
-  setOrder: Dispatch<SetStateAction<OrderType | null>>;
+  // order: OrderType | null;
+  // setOrder: Dispatch<SetStateAction<OrderType | null>>;
+  deliveryDate: OrderSelectedDate | null;
+  setDeliveryDate: Dispatch<SetStateAction<OrderSelectedDate | null>>;
+  postingPrice: number;
+  setPostingPric: Dispatch<SetStateAction<number>>;
 }
 
 const GlobalContext = createContext<ContextProps>({
-  order: null,
-  setOrder: (): OrderType | null => null,
+  // order: null,
+  // setOrder: (): OrderType | null => null,
+  deliveryDate: null,
+  setDeliveryDate: (): OrderSelectedDate | null => null,
+  postingPrice: 0,
+  setPostingPric: (): number => 0,
 });
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
-  const [order, setOrder] = useState<OrderType | null>(null);
+  // const [order, setOrder] = useState<OrderType | null>(null);
+  const [postingPrice, setPostingPric] = useState<number>(0);
+  const [deliveryDate, setDeliveryDate] = useState<OrderSelectedDate | null>(
+    null
+  );
 
   const theme = createTheme(
     {
@@ -35,7 +48,14 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   );
 
   return (
-    <GlobalContext.Provider value={{ order, setOrder }}>
+    <GlobalContext.Provider
+      value={{
+        deliveryDate,
+        setDeliveryDate,
+        postingPrice,
+        setPostingPric,
+      }}
+    >
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </GlobalContext.Provider>
   );

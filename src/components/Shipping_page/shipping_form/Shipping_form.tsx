@@ -4,16 +4,9 @@ import { numberSeperator } from "@/lib/util/price_formt";
 import { Divider } from "@mui/material";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { SlectedInterface } from "../Shipping";
 import { ShoppingCart } from "@/types/type";
 import { Session } from "next-auth";
-import {
-  OrderAddress,
-  OrderCart,
-  OrderStatus,
-  OrderUser,
-  PayMethod,
-} from "@prisma/client";
+import { OrderAddress } from "@prisma/client";
 import { useGlobalContext } from "@/app/(provider)/Provider";
 ///////////////
 import {
@@ -24,11 +17,9 @@ import {
 import Delivey_date from "../Content/delivery_date/Delivey_date";
 
 interface Props {
-  selectedDate: SlectedInterface | null;
   address: OrderAddress | null;
   user: Session;
   cart: ShoppingCart;
-  selectedDateHandler: (date: SlectedInterface) => void;
 }
 enum Submit_status_Enum {
   set_Addres,
@@ -36,40 +27,22 @@ enum Submit_status_Enum {
   set_date,
   ready,
 }
-const Shipping_form = ({
-  selectedDate,
-  address,
-  user,
-  cart,
-  selectedDateHandler,
-}: Props) => {
+const Shipping_form = ({ address, user, cart }: Props) => {
   const [submitStatus, setSubmitStatus] = useState<Submit_status_Enum>(
     Submit_status_Enum.set_date
   );
+
+  const { deliveryDate, setPostingPric } = useGlobalContext();
 
   const [mount, setMount] = useState(false);
   useEffect(() => {
     setMount(true);
   }, []);
-  const { order, setOrder } = useGlobalContext();
   const post_cost: number = 39000;
 
   const submit_orders = async () => {
-    if (address && cart && selectedDate && cart.userId) {
-      setOrder((prev) => {
-        return (prev = {
-          user_id: user.user.id,
-          payment_status: false,
-          payment_method: PayMethod.NOT_PAYED,
-          posting_price: post_cost,
-          user: user.user as OrderUser,
-          cart: cart as OrderCart,
-          final_price: cart.subTotalWithDiscount + post_cost,
-          address: address,
-          selectedDate: selectedDate,
-          status: OrderStatus.IN_PROCESS,
-        });
-      });
+    if (address && cart && cart.userId && deliveryDate) {
+      setPostingPric(post_cost);
     }
   };
   useEffect(() => {
@@ -81,12 +54,12 @@ const Shipping_form = ({
       setSubmitStatus(Submit_status_Enum.set_personalInfo);
       return;
     }
-    if (!selectedDate) {
+    if (!deliveryDate) {
       setSubmitStatus(Submit_status_Enum.set_date);
       return;
     }
     setSubmitStatus(Submit_status_Enum.ready);
-  }, [address, selectedDate, user]);
+  }, [address, deliveryDate, user]);
 
   return (
     <div className=" md:border rounded-lg min-w-[25rem] h-full py-6 px-4 flex flex-col items-stretch gap-4">
@@ -221,10 +194,7 @@ const Shipping_form = ({
                   Make changes to your profile here. Click save when done.
                 </SheetDescription>
               </SheetHeader> */}
-                <Delivey_date
-                  sheeter={true}
-                  selectedDateHandler={selectedDateHandler}
-                />
+                <Delivey_date sheeter={true} />
                 {/* <SheetFooter>
                 <SheetClose asChild>
                   <Button type="submit">Save changes</Button>

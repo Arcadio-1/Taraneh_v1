@@ -13,7 +13,6 @@ interface Props {
 
 const Control_amount = ({ amount, product_id, classess }: Props) => {
   const [isPending, startTransition] = useTransition();
-  const { setOrder } = useGlobalContext();
 
   return (
     <div
@@ -21,7 +20,6 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
     >
       <button
         onClick={async () => {
-          setOrder(null);
           startTransition(async () => {
             await manageCart(product_id, Operate.increment);
           });
@@ -41,8 +39,6 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
 
       <button
         onClick={async () => {
-          setOrder(null);
-
           startTransition(async () => {
             await manageCart(product_id, Operate.decrement);
           });

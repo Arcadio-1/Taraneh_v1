@@ -10,6 +10,7 @@ declare module "next-auth" {
       code_meli: string;
       role: Role;
       image: string;
+      name: string;
     } & DefaultSession["user"];
   }
 }

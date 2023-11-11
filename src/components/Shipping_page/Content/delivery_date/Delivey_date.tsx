@@ -15,19 +15,17 @@ import {
   TabsTrigger,
 } from "@/components_shadcn/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components_shadcn/ui/radio-group";
-import { SlectedInterface } from "../../Shipping";
 import { SheetClose } from "@/components_shadcn/ui/sheet";
+import { useGlobalContext } from "@/app/(provider)/Provider";
+import { OrderSelectedDate } from "@prisma/client";
 
-export interface DateInterface {
-  gregorianDate: string;
-}
 interface Props {
-  selectedDateHandler: (date: SlectedInterface) => void;
   sheeter: boolean;
 }
 
-const Delivey_date = ({ selectedDateHandler, sheeter }: Props) => {
-  const [datesList, setDatesList] = useState<SlectedInterface[]>([]);
+const Delivey_date = ({ sheeter }: Props) => {
+  const [datesList, setDatesList] = useState<OrderSelectedDate[]>([]);
+  const { setDeliveryDate } = useGlobalContext();
 
   useEffect(() => {
     const dayOfYear = getdayOfYear();
@@ -42,7 +40,6 @@ const Delivey_date = ({ selectedDateHandler, sheeter }: Props) => {
     ) {
       if (!calendarArray[i].holiday) {
         avalbelDatesList++;
-        // setDatesList([]);
 
         setDatesList((prevDays) => {
           const newDay = calendarArray[i];
@@ -90,8 +87,10 @@ const Delivey_date = ({ selectedDateHandler, sheeter }: Props) => {
             <RadioGroup
               className="border-t py-3"
               onValueChange={(e) => {
-                const date = JSON.parse(e);
-                selectedDateHandler(date);
+                const date: OrderSelectedDate = JSON.parse(e);
+                setDeliveryDate((prev) => {
+                  return (prev = date);
+                });
               }}
             >
               {datesList.map((date, index) => {

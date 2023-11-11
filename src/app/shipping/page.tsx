@@ -4,7 +4,7 @@ import Checkout_header, {
 import { prisma } from "@/lib/db/prisma";
 import { getServerSession } from "next-auth";
 import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth/authOptions";
 import { redirect } from "next/navigation";
 import { Address_Full } from "@/types/type";
 import { getCart } from "@/lib/actions/getCart";

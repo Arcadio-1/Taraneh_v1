@@ -5,10 +5,11 @@ import Rate from "./components/Rate";
 import Price from "./components/price/Price";
 import Link from "next/link";
 import Status from "./components/Status";
-import ImageComponent from "./components/Image";
+import ImageComponent from "./components/ImageComponent";
 import Title from "./components/Title";
 interface Props {
   product: Product;
+  index: number;
 }
 
 const Product_slid_card = ({
@@ -22,18 +23,20 @@ const Product_slid_card = ({
     image_url,
     id,
   },
+  index,
 }: Props) => {
   return (
-    <div className="relative rounded-3xl bg-base-100 overflow-hidden p-2 shadow-md m-2 h-full w-[20rem] max-xl:w-[19rem] max-md:w-[18rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg">
-      <Link
-        href={`/product/${id}`}
-        className=" h-full grid grid-rows-2 items-stretch "
-      >
+    <div
+      className={`relative bg-light_1 overflow-hidden p-2 shadow-md h-full w-[18rem] max-xl:w-[16rem] max-md:w-[15rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${
+        index === 0 && "rounded-tr-xl rounded-br-xl"
+      }`}
+    >
+      <Link href={`/product/${id}`} className=" h-full grid grid-rows-3">
         <ImageComponent image_url={image_url} title={title} />
-        <div className="h-full flex flex-col">
-          <Title title={title} />
+        <div className="h-full flex flex-col justify-end">
+          {/* <Title title={title} /> */}
           <Status type={selling_type} />
-          <Rate rateNum={statistics.totalRate} />
+          {/* <Rate rateNum={statistics.totalRate} /> */}
           {status ? (
             <Price price={price} off_percent={off_percent} />
           ) : (

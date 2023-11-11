@@ -1,24 +1,49 @@
 import TomanIcon from "@/components/Util/icons/TomanIcon";
 import { numberSeperator } from "@/lib/util/price_formt";
-import { OrderType } from "@/types/type";
+import { Address_Full, OrderType, ShoppingCart } from "@/types/type";
 import { Divider } from "@mui/material";
 import React from "react";
-import { PayMethod } from "@prisma/client";
+import { OrderCart, OrderStatus, PayMethod } from "@prisma/client";
 import { addOrder } from "@/lib/actions/manageOrders";
 import { useRouter } from "next/navigation";
+import { Session } from "next-auth";
+import { useGlobalContext } from "@/app/(provider)/Provider";
 interface Props {
-  order: OrderType;
+  cart: ShoppingCart;
+  address: Address_Full;
+  session: Session;
+  paymentMethod: PayMethod;
 }
 
-const Payment_form = ({ order }: Props) => {
+const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
+  const { postingPrice, deliveryDate } = useGlobalContext();
   const route = useRouter();
   const payHandler = async () => {
-    if (order.payment_method !== PayMethod.NOT_PAYED) {
-      console.log(order);
-      await addOrder(order);
-      route.push("/successPayment");
-      // await resetCart(order.cart.id);
-      // setOrder(null);
+    if (
+      session &&
+      session.user.name &&
+      session.user.family &&
+      deliveryDate &&
+      cart.userId
+    ) {
+      if (paymentMethod !== PayMethod.NOT_PAYED && cart.userId) {
+        const orderr: OrderType = {
+          user_id: session.user.id,
+          payment_status: true,
+          payment_method: paymentMethod,
+          posting_price: postingPrice,
+          user: session.user,
+          cart: cart as OrderCart,
+          final_price: cart.subTotalWithDiscount + postingPrice,
+          address: address,
+          selectedDate: deliveryDate,
+          status: OrderStatus.NOT_CONFIRMED,
+        };
+        const orderAdder = await addOrder(orderr);
+        if (orderAdder) {
+          route.push(`/successPayment?tracking_code=${orderAdder.id}`);
+        }
+      }
     }
   };
 
@@ -33,7 +58,7 @@ const Payment_form = ({ order }: Props) => {
             <div>
               <span className="font-iranyekan_bold">(</span>
               <span className="font-iransansnum text-xl font-bold">
-                {order.cart.size}
+                {cart.size}
               </span>
               <span className="font-iranyekan_bold">)</span>
             </div>
@@ -41,7 +66,7 @@ const Payment_form = ({ order }: Props) => {
 
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(order.cart.subtotal)}
+              {numberSeperator(cart.subtotal)}
             </span>
             <TomanIcon classes="h-6 w-6 fill-dark_5" />
           </div>
@@ -61,12 +86,12 @@ const Payment_form = ({ order }: Props) => {
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(order.posting_price)}
+              {numberSeperator(postingPrice)}
             </span>
             <TomanIcon classes="h-6 w-6 fill-dark_5" />
           </div>
         </div>
-        {!!order.cart.subDiscount && (
+        {!!cart.subDiscount && (
           <>
             <Divider />
             <div className="flex items-start justify-between text-dark_3">
@@ -77,7 +102,7 @@ const Payment_form = ({ order }: Props) => {
               </div>
               <div className="flex items-center gap-1">
                 <span className="font-iransansnum text-xl font-bold">
-                  {numberSeperator(order.cart.subDiscount)}
+                  {numberSeperator(cart.subDiscount)}
                 </span>
                 <TomanIcon classes="h-6 w-6 " />
               </div>
@@ -85,7 +110,7 @@ const Payment_form = ({ order }: Props) => {
           </>
         )}
         <Divider />
-        {!!order.cart.subDiscount && order.cart.subDiscount > 0 && (
+        {!!cart.subDiscount && cart.subDiscount > 0 && (
           <div className="flex items-start justify-between text-g1_5">
             <div className="flex items-center gap-2">
               <label className="font-iranyekan_bold font-bold text-md">
@@ -95,15 +120,10 @@ const Payment_form = ({ order }: Props) => {
             <div className="flex items-center gap-1">
               <p className="font-iransansnum text-xl font-bold flex gap-2">
                 <span>
-                  (
-                  {Math.round(
-                    order.cart.subDiscount / (order.cart.subtotal / 100)
-                  )}
+                  ({Math.round(cart.subDiscount / (cart.subtotal / 100))}
                   %)
                 </span>
-                <span className="">
-                  {numberSeperator(order.cart.subDiscount)}
-                </span>
+                <span className="">{numberSeperator(cart.subDiscount)}</span>
               </p>
 
               <TomanIcon classes="h-6 w-6 fill-g1_5" />
@@ -118,7 +138,7 @@ const Payment_form = ({ order }: Props) => {
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-xl font-bold">
-              {numberSeperator(order.final_price)}
+              {numberSeperator(cart.subTotalWithDiscount + postingPrice)}
             </span>
             <TomanIcon classes="h-6 w-6 " />
           </div>
@@ -128,7 +148,7 @@ const Payment_form = ({ order }: Props) => {
         className="hidden md:flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
         onClick={payHandler}
       >
-        {order.payment_method === PayMethod.NOT_PAYED
+        {paymentMethod === PayMethod.NOT_PAYED
           ? "نحوه پرداخت را مشخص کنید"
           : "پرداخت"}
       </button>
@@ -137,19 +157,19 @@ const Payment_form = ({ order }: Props) => {
           className="flex grow items-center justify-center bg-g1_5 py-5 text-xl rounded-lg text-light_1 font-iransansbold"
           onClick={payHandler}
         >
-          {order.payment_method === PayMethod.NOT_PAYED
+          {paymentMethod === PayMethod.NOT_PAYED
             ? "نحوه پرداخت را مشخص کنید"
             : "پرداخت"}
         </button>
         <div className="flex flex-col items-end gap-3 grow justify-between text-dark_3">
           <div className="flex items-center gap-2">
             <label className="font-iranyekan_bold font-bold text-lg text-dark_4">
-              ثابل پرداخت{" "}
+              قابل پرداخت
             </label>
           </div>
           <div className="flex items-center gap-1">
             <span className="font-iransansnum text-2xl font-bold">
-              {numberSeperator(order.final_price)}
+              {numberSeperator(cart.subTotalWithDiscount + postingPrice)}
             </span>
             <TomanIcon classes="h-8 w-8 fill-dark_1 " />
           </div>

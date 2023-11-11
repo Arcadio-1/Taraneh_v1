@@ -1,6 +1,6 @@
 "use server";
 
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth/authOptions";
 import { ShoppingCart } from "@/types/type";
 import { Cart } from "@prisma/client";
 import { getServerSession } from "next-auth";

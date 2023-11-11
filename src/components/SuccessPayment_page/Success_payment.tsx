@@ -4,18 +4,18 @@ import { resetCart } from "@/lib/actions/manageCart";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import ArrowIcon, { Arrow } from "../Util/icons/ArrowIcon";
+import { useRouter } from "next/navigation";
 
-const Success_payment = () => {
-  const { order, setOrder } = useGlobalContext();
+interface Props {
+  tracking_code: string;
+}
+
+const Success_payment = ({ tracking_code }: Props) => {
+  const router = useRouter();
   useEffect(() => {
-    const reseter = async () => {
-      if (order) {
-        await resetCart(order.cart.id);
-        setOrder(null);
-      }
-    };
-    reseter();
-  });
+    router.refresh();
+  }, [router]);
+
   return (
     <div className="flex p-5 border items-center justify-center h-[60vh] w-full">
       <div className="w-full sm:w-[30rem] md:w-[35rem] lg:w-[40rem] xl:w-[45rem] border rounded-lg">
@@ -27,7 +27,7 @@ const Success_payment = () => {
         <div className="flex flex-col gap-2 py-4">
           <div className="px-4 border-b py-2 font-iranyekan_bold">
             <label>شماره پیگیری : </label>
-            <span className="font-iransansnum text-xl">12356</span>
+            <span className="font-iransansnum text-xl">{tracking_code}</span>
           </div>
           <div className="px-4">
             <Link

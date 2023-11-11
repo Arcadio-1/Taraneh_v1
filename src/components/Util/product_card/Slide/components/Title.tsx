@@ -5,11 +5,7 @@ interface Props {
 }
 
 const Title = ({ title }: Props) => {
-  return (
-    <h2 className="font-iransansnum text-dark_2 font-normal text-xl">
-      {title}
-    </h2>
-  );
+  return <h2 className="font-iranyekan_bold text-lg text-dark_2">{title}</h2>;
 };
 
 export default Title;

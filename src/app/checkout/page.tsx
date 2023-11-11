@@ -1,6 +1,7 @@
 import Checkout from "@/components/CheckOut_page/Checkout";
 import Navbar from "@/components/CheckOut_page/Navbar";
 import EmptyCart from "@/components/CheckOut_page/emptyCart/EmptyCart";
+import AdSlider from "@/components/Util/ad_slider/AdSlider";
 import { getCart } from "@/lib/actions/getCart";
 import React from "react";
 
@@ -12,6 +13,7 @@ const page = async () => {
     <div className="max-w-[1232px] mx-auto mt-10">
       <Navbar cart_size={cart?.size || 0} />
       {cart && cart.size > 0 ? <Checkout cart={cart} /> : <EmptyCart />}
+      <AdSlider />
     </div>
   );
 };

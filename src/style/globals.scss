@@ -62,6 +62,10 @@
   font-family: iranyekan_bold;
   src: url(fonts/iranyekan/IRANYekanWeb-Bold.ttf);
 }
+@font-face {
+  font-family: yekan;
+  src: url(fonts/iranyekan/Yekan.ttf);
+}
 
 @function size($size) {
   @return map-get($font-sizes, $size);

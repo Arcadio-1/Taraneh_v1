@@ -16,6 +16,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Product } from "@prisma/client";
 import HeroSlide, { Hero_slide_type } from "./hero_slide";
 import Product_slide_card from "../product_card/Slide/Product_slide_card";
+import LastSlide from "./lastSlide";
 
 interface Props {
   products: Product[];
@@ -28,27 +29,34 @@ const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
     <section>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-        spaceBetween={10}
+        spaceBetween={2}
         slidesPerView={"auto"}
         className={`sliderSection-swiper ${bg_color} ${classes}`}
         navigation
       >
         {!!heroSlide && (
-          <SwiperSlide className="p-5 !max-w-[20rem] !h-auto max-xl:!max-w-[19rem] max-md:!max-w-[18rem]">
+          <SwiperSlide className="p-5 !max-w-[18rem] !h-auto max-xl:!max-w-[16rem] max-md:!max-w-[15rem]">
             <HeroSlide hero={heroSlide} bg_color={bg_color} />
           </SwiperSlide>
         )}
-        {products.map((product) => {
+        {products.map((product, index) => {
           return (
             <SwiperSlide
               key={product.id}
               id={product.id}
-              className="p-5 !max-w-[20rem] !h-auto max-xl:!max-w-[19rem] max-md:!max-w-[18rem]"
+              className="p-5 !max-w-[18rem] !h-auto max-xl:!max-w-[16rem] max-md:!max-w-[15rem]"
             >
-              <Product_slide_card product={product} key={product.id} />
+              <Product_slide_card
+                index={index}
+                product={product}
+                key={product.id}
+              />
             </SwiperSlide>
           );
         })}
+        <SwiperSlide className="p-5 !max-w-[18rem] !h-auto max-xl:!max-w-[16rem] max-md:!max-w-[15rem]">
+          <LastSlide link_url="#" bg_color="bg-light_1" />
+        </SwiperSlide>
       </Swiper>
     </section>
   );

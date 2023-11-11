@@ -1,21 +1,19 @@
 import AdSlider from "@/components/Util/ad_slider/AdSlider";
 import Hero from "@/components/Home_page/hero/Hero";
+import Cat_section_2 from "@/components/Home_page/catSection/cat_section_2";
+import { MainCatsWithSpecificCats } from "@/types/type";
+import { prisma } from "@/lib/db/prisma";
+import ManeCats from "@/components/Home_page/maneCats/maneCats";
 
 export default async function Home() {
-  // const statistics: AdWithProductWithStatistics[] = await prisma.ad.findMany({
-  //   include: { product: { include: { statisctics: true } } },
-  // });
-  // const products = await prisma.products.findMany({
-  //   orderBy: { id: "desc" },
-  // });
-  // const products_ad: ProductWithStatistics[] = await prisma.product.findMany({
-  //   include: {
-  //     statisctics: true,
-  //   },
-  // });
+  const cats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
+    include: { Specific_cat: true },
+  });
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <Hero />
+      <Cat_section_2 cats={cats} />
+      <ManeCats cats={cats} />
       <AdSlider />
     </div>
   );

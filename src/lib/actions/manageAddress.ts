@@ -4,6 +4,7 @@ import { City, UserAddress } from "@prisma/client";
 import { prisma } from "../db/prisma";
 import { AddressSchame } from "../util/validation";
 import { z } from "zod";
+import { revalidatePath } from "next/cache";
 
 export async function getAddress(userId: string): Promise<UserAddress | null> {
   const address = await prisma.userAddress.findFirst({
@@ -30,7 +31,7 @@ export async function setAddress(
       create: { ...prismaAddresData, user_id: user_id },
       update: prismaAddresData,
     });
-
+    revalidatePath(`/profile/addresses`);
     return {
       status: "success",
       titile: "ثبت شد.",

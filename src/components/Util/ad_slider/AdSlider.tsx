@@ -6,19 +6,20 @@ import { Product } from "@prisma/client";
 import { Hero_slide_type } from "../products_Slider/hero_slide";
 
 const AdSlider = async () => {
-  const adProducts: AdWithProducts[] = await prisma.ad.findMany({
+  const adProducts = await prisma.product.findMany({
     take: 8,
-    where: { product: { status: true } },
-    select: { product: true },
+    where: {
+      status: true,
+      off_percent: { gt: 1 },
+    },
   });
 
   const products: Product[] = adProducts.map((product) => {
-    return product.product;
+    return product;
   });
 
   const heroSlide: Hero_slide_type = {
     image_url: "/image/assets/ad_slide_hero_v1.png",
-    title: "پیشنهاد شگفت انگیز",
     link_url: "#",
   };
   return (

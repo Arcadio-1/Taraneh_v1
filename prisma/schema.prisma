@@ -114,6 +114,15 @@ model Order {
   @@map("orders")
 }
 
+enum OrderStatus {
+  REJECTED
+  IN_PROCESS
+  ON_DELIVERY
+  DELIVERED
+  NOT_CONFIRMED
+  CANCELED
+}
+
 type ProductsStatistics {
   buyerRate Int
   soled     Int
@@ -158,13 +167,6 @@ model Session {
 enum Role {
   ADMIN
   USER
-}
-
-enum OrderStatus {
-  REJECTED
-  IN_PROCESS
-  ON_DELIVERY
-  DELIVERED
 }
 
 enum PayMethod {

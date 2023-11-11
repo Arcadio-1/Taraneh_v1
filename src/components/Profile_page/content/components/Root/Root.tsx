@@ -1,20 +1,17 @@
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import processingImage from "@/assets/images/profile/status-processing.svg";
 import deliveredImage from "@/assets/images/profile/status-delivered.svg";
 import returnedImage from "@/assets/images/profile/status-returned.svg";
-import { getOrders } from "@/lib/actions/manageOrders";
 import { Order, OrderStatus } from "@prisma/client";
 
 interface Props {
-  user_id: string;
+  orders: Order[] | null;
 }
 
-const Root = ({ user_id }: Props) => {
-  const [orders, setOrders] = useState<Order[] | []>([]);
+const Root = ({ orders }: Props) => {
   const [inProcess, setInProcess] = useState<Order[] | []>([]);
   const [delivered, setDelivered] = useState<Order[] | []>([]);
   const [rejected, setrejected] = useState<Order[] | []>([]);
@@ -29,6 +26,9 @@ const Root = ({ user_id }: Props) => {
           case OrderStatus.IN_PROCESS:
             setInProcess((prev) => (prev = [...prev, order]));
             break;
+          case OrderStatus.NOT_CONFIRMED:
+            setInProcess((prev) => (prev = [...prev, order]));
+            break;
           case OrderStatus.DELIVERED:
             setDelivered((prev) => (prev = [...prev, order]));
             break;
@@ -41,14 +41,6 @@ const Root = ({ user_id }: Props) => {
       });
     }
   }, [orders]);
-
-  useEffect(() => {
-    const getOrderi = async () => {
-      const orderss = await getOrders(user_id);
-      setOrders(orderss);
-    };
-    getOrderi();
-  }, [user_id]);
 
   return (
     <div className="flex flex-col gap-10 px-4">
