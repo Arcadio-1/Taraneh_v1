@@ -10,6 +10,7 @@ import { authOptions } from "@/lib/auth/authOptions";
 import { getCart } from "@/lib/actions/getCart";
 import Provider from "./(provider)/Provider";
 import { Toaster } from "@/components_shadcn/ui/toaster";
+import Footer from "@/components/Util/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default async function RootLayout({
           <Provider>
             <Navbar cats={cats} cart={cart} session={session} />
             <main className="">{children}</main>
+            <Footer />
             <Toaster />
           </Provider>
         </SessionProvider>
