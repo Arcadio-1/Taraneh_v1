@@ -7,7 +7,7 @@ import Express_delivery from "@/assets/images/footer/express-delivery.svg";
 import Support from "@/assets/images/footer/support.svg";
 import Image from "next/image";
 import InstagramIcon from "../icons/InstagramIcon";
-import TwitterIcon from "../icons/twitterIcon";
+import TwitterIcon from "../icons/TwitterIcon";
 import LinkedinIcon from "../icons/LinkedinIcon";
 import YoutubeIcon from "../icons/YoutubeIcon";
 import Enamad from "@/assets/images/footer/enamad.png";
@@ -18,7 +18,7 @@ import ScrollToTopBtn from "./ScrollToTopBtn";
 const Footer = () => {
   return (
     <div className="px-8 py-8 flex flex-col gap-20">
-      <div className="flex items-center justify-between">
+      <div className="flex items-start flex-col-reverse gap-4 justify-end  sm:flex-row sm:items-center sm:gap-0">
         <div className="flex flex-col gap-3">
           <Image
             className="max-w-xs"
@@ -27,15 +27,15 @@ const Footer = () => {
             height={50}
             alt="کافه ترانه"
           />
-          <div className="flex gap-4 text-xl text-dark_4">
+          <div className="flex gap-4 text-xl text-dark_4 flex-col sm:flex-row">
             <span>تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱</span>
-            <span>|</span>
+            <span className="hidden sm:inline">|</span>
             <span>۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</span>
           </div>
         </div>
         <ScrollToTopBtn />
       </div>
-      <div className="flex items-center justify-evenly">
+      <div className="flex flex-wrap gap-5 items-center justify-evenly">
         <div className="flex flex-col items-center justify-center">
           <Image
             src={Original_products}
@@ -82,7 +82,7 @@ const Footer = () => {
           <span>۷ روز ﻫﻔﺘﻪ، ۲۴ ﺳﺎﻋﺘﻪ</span>
         </div>
       </div>
-      <div className="flex items-center justify-evenly gap-12">
+      <div className="flex items-center justify-evenly gap-12 flex-wrap">
         <div className="flex flex-col gap-3">
           <p className="text-xl">همراه ما باشید!</p>
           <div className="flex gap-6">
