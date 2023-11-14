@@ -1,4 +1,3 @@
-import { prisma } from "@/lib/db/prisma";
 import { MainCatsWithSpecificCats } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,13 +17,13 @@ const Cat_section_2 = async ({ cats }: Props) => {
         {cats.map((mainCat) => {
           return (
             <div
-              className="flex gap-2 justify-center flex-wrap items-stretch"
+              className="flex gap-4 justify-center flex-wrap items-stretch "
               key={mainCat.id}
             >
               {mainCat.Specific_cat.map((specific) => {
                 return (
                   <div
-                    className="border-4 rounded-lg border-dark_6 border-opacity-10 hover:border-transparent p-2 transition-all duration-150 hover:scale-[1.015] hover:shadow-lg flex items-center grow flex-col justify-between gap-4"
+                    className="rounded-lg bg-white backdrop-blur-sm bg-opacity-40 border-dark_6 border-opacity-10 hover:border-transparent p-2 transition-all duration-150 hover:scale-[1.015] hover:shadow-lg flex items-center grow flex-col justify-between gap-4"
                     key={specific.id}
                   >
                     <Link
@@ -37,7 +36,7 @@ const Cat_section_2 = async ({ cats }: Props) => {
                         height={100}
                         alt={specific.title}
                       />
-                      <h2 className="font-iranyekan_bold text-dark_2 text-xl">
+                      <h2 className="font-iranyekan_bold text-dark-1 text-xl">
                         {specific.title}
                       </h2>
                     </Link>

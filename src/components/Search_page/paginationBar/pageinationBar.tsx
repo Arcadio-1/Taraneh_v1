@@ -6,19 +6,27 @@ import React from "react";
 interface Props {
   currentPage: number;
   totalPages: number;
-  query: string | undefined;
+  searchQuery: string | undefined;
 }
 
-const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
+const PageinationBar = ({
+  currentPage,
+  totalPages,
+  searchQuery = "",
+}: Props) => {
   const maxPage = Math.min(totalPages, Math.max(currentPage + 2, 5));
   const minPage = Math.max(1, Math.min(currentPage - 2, maxPage - 4));
+
+  const url = `${searchQuery && `?searchQuery=${searchQuery}&`}${
+    searchQuery ? "" : "?"
+  }page=`;
 
   let numberedPageItems: JSX.Element[] = [];
 
   for (let page = minPage; page <= maxPage; page++) {
     numberedPageItems.push(
       <Link
-        href={`?page=${page}`}
+        href={`${url}${page}`}
         key={page}
         className={`font-iransansnum text-2xl h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 ${
           currentPage === page ? "bg-slate-200 hover:bg-slate-200" : ""
@@ -37,7 +45,7 @@ const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
           </div>
         ) : (
           <Link
-            href={`?page=${currentPage - 1}`}
+            href={`${url}${currentPage - 1}`}
             className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
           >
             <ArrowIcon classes="h-4 w-4" direction={Arrow.right} />
@@ -46,7 +54,7 @@ const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
         {currentPage > 3 && (
           <>
             <Link
-              href={`?page=${1}`}
+              href={`${url}${1}`}
               key={1}
               className={`font-iransansnum text-2xl h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 ${
                 currentPage === 1 ? "bg-slate-200 hover:bg-slate-200" : ""
@@ -62,7 +70,7 @@ const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
           <>
             <span>...</span>
             <Link
-              href={`?page=${totalPages}`}
+              href={`${url}${totalPages}`}
               key={totalPages}
               className={`font-iransansnum text-2xl h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 ${
                 currentPage === totalPages
@@ -80,7 +88,7 @@ const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
           </div>
         ) : (
           <Link
-            href={`?page=${currentPage + 1}`}
+            href={`${url}${currentPage + 1}`}
             className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
           >
             <ArrowIcon classes="h-4 w-4" direction={Arrow.left} />
@@ -94,7 +102,7 @@ const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
           </div>
         ) : (
           <Link
-            href={`?page=${currentPage - 1}`}
+            href={`${url}${currentPage - 1}`}
             className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
           >
             <ArrowIcon classes="h-5 w-5" direction={Arrow.right} />
@@ -110,7 +118,7 @@ const PageinationBar = ({ currentPage, totalPages, query }: Props) => {
           </div>
         ) : (
           <Link
-            href={`?page=${currentPage + 1}`}
+            href={`${url}${currentPage + 1}`}
             className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
           >
             <ArrowIcon classes="h-5 w-5" direction={Arrow.left} />

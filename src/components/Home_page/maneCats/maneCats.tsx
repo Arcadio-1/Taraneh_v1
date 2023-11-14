@@ -9,15 +9,15 @@ interface Props {
 
 const ManeCats = ({ cats }: Props) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 px-4">
+    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-3 px-4 justify-center py-4">
       {cats.map((mainCat) => {
         return (
           <Link
             href={`/main/${mainCat.label}`}
-            className="grow flex items-center justify-evenly bg-g1_1 bg-opacity-60 rounded-xl p-5"
+            className="grow w-full flex items-center justify-evenly p-5 max-w-2xl rounded-lg bg-white backdrop-blur-sm bg-opacity-40"
             key={mainCat.id}
           >
-            <h1 className="text-light_1 text-4xl">{mainCat.title}</h1>
+            <h1 className="text-dark_1 text-4xl">{mainCat.title}</h1>
             <Image
               src={mainCat.image}
               alt={mainCat.title}

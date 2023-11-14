@@ -12,8 +12,10 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-3">
       <Hero />
-      <Cat_section_2 cats={cats} />
-      <ManeCats cats={cats} />
+      <div className="bg-[url('/image/coffee_background.jpg')] bg-cover bg-center bg-no-repeat">
+        <Cat_section_2 cats={cats} />
+        <ManeCats cats={cats} />
+      </div>
       <AdSlider />
     </div>
   );

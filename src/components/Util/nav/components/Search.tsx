@@ -11,7 +11,7 @@ const Search = () => {
   function searchProducts(formData: FormData) {
     const searchQuery = formData.get("searchQuery")?.toString();
     if (searchQuery) {
-      router.push("/search?query=" + searchQuery);
+      router.push("/search?searchQuery=" + searchQuery);
     } else {
       router.push("/search");
     }

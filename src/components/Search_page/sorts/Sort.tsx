@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./components/List";
+import SortIcon from "@/components/Util/icons/SortIcon";
 
 export interface SortItem {
   id: string;
@@ -44,60 +45,7 @@ const Sort = () => {
   return (
     <div className="flex items-center gap-3 py-4">
       <div className="flex items-center justify-center">
-        <svg viewBox="0 0 256 256" className="h-6 w-6">
-          <polyline
-            fill="none"
-            points="144 168 184 208 224 168"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-          />
-          <line
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-            x1="184"
-            x2="184"
-            y1="112"
-            y2="208"
-          />
-          <line
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-            x1="48"
-            x2="120"
-            y1="128"
-            y2="128"
-          />
-          <line
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-            x1="48"
-            x2="184"
-            y1="64"
-            y2="64"
-          />
-          <line
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="24"
-            x1="48"
-            x2="104"
-            y1="192"
-            y2="192"
-          />
-        </svg>
+        <SortIcon classes="w-6 h-6" />
         <label className="font-iransansbold text-lg">مرتب سازی:</label>
       </div>
       <List sortItems={sortItems} />
