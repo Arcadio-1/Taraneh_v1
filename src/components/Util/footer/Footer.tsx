@@ -17,8 +17,8 @@ import ScrollToTopBtn from "./ScrollToTopBtn";
 
 const Footer = () => {
   return (
-    <div className="px-8 py-8 flex flex-col gap-20">
-      <div className="flex items-start flex-col-reverse gap-4 justify-end  sm:flex-row sm:items-center sm:gap-0">
+    <div className="px-8 py-8 flex flex-col gap-20 shadow-[0px_1px_5px_rgba(0,0,0,0.20)] mt-5">
+      <div className="flex items-start flex-col-reverse gap-4 justify-end  sm:justify-between sm:flex-row sm:items-center sm:gap-0">
         <div className="flex flex-col gap-3">
           <Image
             className="max-w-xs"

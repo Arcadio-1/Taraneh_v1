@@ -14,11 +14,11 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 interface Props {
-  searchParams: {
-    page: string;
-  };
+  searchParams: { searchQuery: string; page: string; sort: string };
 }
-const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
+const Drinks_page = async ({
+  searchParams: { page = "1", searchQuery },
+}: Props) => {
   const allProducts = await prisma.product.findMany({
     where: { main_cat: { label: "drinks" } },
     include: { brand: true },
@@ -81,7 +81,11 @@ const Drinks_page = async ({ searchParams: { page = "1" } }: Props) => {
         </div>
         <Sort />
         <Products products={products} />
-        <PageinationBar currentPage={currentPage} totalPages={totalPages} />
+        <PageinationBar
+          searchQuery={searchQuery}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
       </main>
     </div>
   );

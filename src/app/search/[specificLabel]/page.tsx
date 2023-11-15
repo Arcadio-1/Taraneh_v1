@@ -11,14 +11,12 @@ import React from "react";
 
 interface Props {
   params: { specificLabel: string };
-  searchParams: {
-    page: string;
-  };
+  searchParams: { searchQuery: string; page: string; sort: string };
 }
 
 const SpecficCategoryPage = async ({
   params: { specificLabel },
-  searchParams: { page = "1" },
+  searchParams: { page = "1", searchQuery },
 }: Props) => {
   const allProducts = await prisma.product.findMany({
     where: { specific_cat: { label: specificLabel } },
@@ -66,7 +64,11 @@ const SpecficCategoryPage = async ({
         <main className=" w-full px-4 mb-10">
           <Sort />
           <Products products={specific_products} />
-          <PageinationBar currentPage={currentPage} totalPages={totalPages} />
+          <PageinationBar
+            searchQuery={searchQuery}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
         </main>
       </div>
     </div>

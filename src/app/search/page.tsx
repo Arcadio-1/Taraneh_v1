@@ -1,7 +1,7 @@
 import Products from "@/components/Search_page/Products/Products";
 import Filters from "@/components/Search_page/filters/Filters";
 import PageinationBar from "@/components/Search_page/paginationBar/pageinationBar";
-import Sort from "@/components/Search_page/sorts/Sort";
+import Sort, { SortValue } from "@/components/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
 import { GetProductsInterface, getProducts } from "@/lib/util/getPropducts";
 import { MainCatsWithSpecificCats } from "@/types/type";
@@ -9,7 +9,7 @@ import { Metadata } from "next";
 import React from "react";
 
 interface SearchPageProps {
-  searchParams: { searchQuery: string; page: string; sort: string };
+  searchParams: { searchQuery: string; page: string; sort: SortValue };
 }
 
 export function generateMetadata({
@@ -46,9 +46,10 @@ const All_products_page = async ({
         <Filters brands={allBrands} mainCats={mainCats} />
       </aside>
       <main className=" w-full px-4 mb-10">
-        <Sort />
+        <Sort searchQuery={searchQuery} />
         <Products products={products} />
         <PageinationBar
+          sort={sort}
           searchQuery={searchQuery}
           currentPage={currentPage}
           totalPages={totalPages}

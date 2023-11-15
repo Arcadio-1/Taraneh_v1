@@ -2,10 +2,11 @@
 
 import { ProductsWithBrands } from "@/types/type";
 import { prisma } from "../db/prisma";
+import { SortValue } from "@/components/Search_page/sorts/Sort";
 
 export interface GetProductsInterface {
   page: string;
-  sort: string;
+  sort: SortValue;
   searchQuery: string;
   pageSize: number;
 }
@@ -18,7 +19,7 @@ type GetProductReturnType = {
 
 export const getProducts = async ({
   page = "1",
-  sort = "",
+  sort = SortValue.newst,
   searchQuery = "",
   pageSize,
 }: GetProductsInterface): Promise<GetProductReturnType> => {
@@ -28,32 +29,200 @@ export const getProducts = async ({
   let products: ProductsWithBrands[] = [];
 
   if (!searchQuery) {
-    products = await prisma.product.findMany({
-      include: { brand: true },
-      orderBy: { id: "asc" },
-      skip: (currentPage - 1) * pageSize,
-      take: pageSize,
-    });
+    switch (sort) {
+      case SortValue.grtPrice:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { price: "desc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.lwrPrice:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { price: "asc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.grtView:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { statistics: { views: "desc" } },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.grtSale:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { statistics: { soled: "desc" } },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.fav:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { statistics: { totalLike: "desc" } },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.newst:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { createdAt: "desc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      default:
+        products = await prisma.product.findMany({
+          include: { brand: true },
+          orderBy: { createdAt: "desc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+    }
   }
 
   if (searchQuery) {
-    products = await prisma.product.findMany({
-      where: {
-        OR: [
-          { title: { contains: searchQuery, mode: "insensitive" } },
-          {
-            brand: {
-              title_fr: { contains: searchQuery, mode: "insensitive" },
-              title_en: { contains: searchQuery, mode: "insensitive" },
-            },
+    switch (sort) {
+      case SortValue.grtPrice:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
           },
-        ],
-      },
-      include: { brand: true },
-      orderBy: { price: "asc" },
-      skip: (currentPage - 1) * pageSize,
-      take: pageSize,
-    });
+          include: { brand: true },
+          orderBy: { price: "desc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.lwrPrice:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
+          },
+          include: { brand: true },
+          orderBy: { price: "asc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.grtView:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
+          },
+          include: { brand: true },
+          orderBy: { statistics: { views: "desc" } },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.grtSale:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
+          },
+          include: { brand: true },
+          orderBy: { statistics: { soled: "desc" } },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.fav:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
+          },
+          include: { brand: true },
+          orderBy: { statistics: { totalLike: "desc" } },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      case SortValue.newst:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
+          },
+          include: { brand: true },
+          orderBy: { createdAt: "desc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+        break;
+      default:
+        products = await prisma.product.findMany({
+          where: {
+            OR: [
+              { title: { contains: searchQuery, mode: "insensitive" } },
+              {
+                brand: {
+                  title_fr: { contains: searchQuery, mode: "insensitive" },
+                  title_en: { contains: searchQuery, mode: "insensitive" },
+                },
+              },
+            ],
+          },
+          include: { brand: true },
+          orderBy: { createdAt: "desc" },
+          skip: (currentPage - 1) * pageSize,
+          take: pageSize,
+        });
+    }
   }
 
   return {

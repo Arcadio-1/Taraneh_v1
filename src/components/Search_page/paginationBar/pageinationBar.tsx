@@ -2,23 +2,26 @@
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import Link from "next/link";
 import React from "react";
+import { SortValue } from "../sorts/Sort";
 
 interface Props {
   currentPage: number;
   totalPages: number;
   searchQuery: string | undefined;
+  sort: SortValue;
 }
 
 const PageinationBar = ({
   currentPage,
   totalPages,
   searchQuery = "",
+  sort = SortValue.grtView,
 }: Props) => {
   const maxPage = Math.min(totalPages, Math.max(currentPage + 2, 5));
   const minPage = Math.max(1, Math.min(currentPage - 2, maxPage - 4));
 
-  const url = `${searchQuery && `?searchQuery=${searchQuery}&`}${
-    searchQuery ? "" : "?"
+  const url = `?${searchQuery && `searchQuery=${searchQuery}&`}${
+    sort !== SortValue.grtView && `sort=${sort}&`
   }page=`;
 
   let numberedPageItems: JSX.Element[] = [];
