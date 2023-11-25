@@ -1,142 +1,165 @@
 "use client";
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
-import MuiAccordionSummary, {
-  AccordionSummaryProps,
-} from "@mui/material/AccordionSummary";
-import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { Brand, Specific_cat } from "@prisma/client";
+import { Brand } from "@prisma/client";
 import { MainCatsWithSpecificCats } from "@/types/type";
 import Categories from "./components/categories";
 import PriceRange from "./components/priceRange";
-
-const Accordion = styled((props: AccordionProps) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  // border: `1px solid ${theme.palette.divider}`,
-  // borderRadius: "10px",
-  // backgroundColor: "gray",
-  // marginBottom: "2px",
-  "&:not(:last-child)": {
-    borderBottom: 0,
-  },
-  "&:before": {
-    display: "none",
-  },
-}));
-
-const AccordionSummary = styled((props: AccordionSummaryProps) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
-    {...props}
-  />
-))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === "dark"
-      ? "rgba(255, 255, 255, .05)"
-      : "rgba(0, 0, 0, .03)",
-  // flexDirection: "row-reverse",
-  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(-90deg)",
-  },
-  "& .MuiAccordionSummary-expandIconWrapper": {
-    transform: "rotate(90deg)",
-  },
-  "& .MuiAccordionSummary-content": {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  // backgroundColor: "red",
-  // borderTop: "1px solid rgba(0, 0, 0, .125)",
-}));
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+} from "./components/AccordionStyled";
+import { useRouter, useSearchParams } from "next/navigation";
+import { SortValue } from "../sorts/Sort";
 
 interface Props {
   brands: Brand[];
-  mainCats?: MainCatsWithSpecificCats[];
-  specificCats?: Specific_cat[] | null;
+  mainCats: MainCatsWithSpecificCats[];
+  searchQuery: string;
+  bQ: string[];
+  sort: SortValue;
+  maxPrice: string;
+  minPrice: string;
 }
 
-export default function Filters({ brands, mainCats, specificCats }: Props) {
+export default function Filters({
+  brands,
+  mainCats,
+  searchQuery,
+  sort,
+  bQ,
+  maxPrice,
+  minPrice,
+}: Props) {
   const [expanded, setExpanded] = React.useState<string | false>(false);
+  const [brandsList, setBrandsList] = React.useState<string[]>(bQ);
+  const router = useRouter();
 
-  const handleChange =
+  React.useEffect(() => {
+    router.push(
+      `?${sort ? `sort=${sort}&` : ""}${
+        !!searchQuery ? `searchQuery=${searchQuery}` : ""
+      }${!!searchQuery && !!bQ ? "&" : ""}${
+        !!minPrice && !!maxPrice
+          ? `minPrice=${minPrice}&maxPrice=${maxPrice}&`
+          : ``
+      }${brandsList
+        .map((item) => {
+          return `bQ=${item}`;
+        })
+        .toString()
+        .replaceAll(",", "&")}`
+    );
+    // }
+  }, [brandsList, router, sort, searchQuery]);
+
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+    // Case 1 : The user checks the box
+    if (checked) {
+      setBrandsList((prev) => {
+        return (prev = [...prev, value]);
+      });
+    }
+    // Case 2  : The user unchecks the box
+    else {
+      setBrandsList((prev) => {
+        return (prev = prev.filter((e) => e !== value));
+      });
+    }
+    // router.push(
+    //   `?${sort ? `sort=${sort}&` : ""}${
+    //     !!searchQuery ? `searchQuery=${searchQuery}&` : ""
+    //   }${brandsList
+    //     .map((item) => {
+    //       return `bQ=${item}`;
+    //     })
+    //     .toString()
+    //     .replaceAll(",", "&")} `
+    // );
+  };
+  const testHandler = () => {
+    const url = `?${sort ? `sort=${sort}&` : ""}${
+      !!searchQuery ? `searchQuery=${searchQuery}` : ""
+    }${!!searchQuery && !!bQ ? "&" : ""}${brandsList
+      .map((item) => {
+        return `bQ=${item}`;
+      })
+      .toString()
+      .replaceAll(",", "&")}`;
+    console.log(url);
+  };
+
+  const expandHandler =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
 
   return (
     <div>
-      {!!specificCats && (
-        <Accordion
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
+      {/* <button onClick={testHandler}>test</button> */}
+      <Accordion
+        expanded={expanded === "panel1"}
+        onChange={expandHandler("panel1")}
+        className=""
+      >
+        <AccordionSummary
           className=""
+          aria-controls="panel1d-content"
+          id="panel1d-header"
         >
-          <AccordionSummary
-            className=""
-            aria-controls="panel1d-content"
-            id="panel1d-header"
-          >
-            <Typography className="!font-iranyekan_bold text-xl">
-              دسته بندی ها
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            {specificCats.map((specific) => {
-              return (
-                <Typography key={specific.id} className="font-iranyekan_bold">
-                  {specific.title}
-                </Typography>
-              );
-            })}
-          </AccordionDetails>
-        </Accordion>
-      )}
-      {!!mainCats && (
-        <Accordion
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
-          className=""
-        >
-          <AccordionSummary
-            className=""
-            aria-controls="panel1d-content"
-            id="panel1d-header"
-          >
-            <Typography className="!font-iranyekan_bold text-xl">
-              دسته بندی ها
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails className="bg-slate-100">
-            <Categories mainCats={mainCats} />
-          </AccordionDetails>
-        </Accordion>
-      )}
-
+          <Typography className="!font-iranyekan_bold text-lg">
+            دسته بندی ها
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails className="bg-slate-100">
+          <Categories
+            searchQuery={searchQuery}
+            sort={sort}
+            mainCats={mainCats}
+          />
+        </AccordionDetails>
+      </Accordion>
       <Accordion
         expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
+        onChange={expandHandler("panel2")}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography className="!font-iranyekan_bold text-xl" fontSize={11}>
+          <Typography className="!font-iranyekan_bold text-lg" fontSize={11}>
             برند ها
           </Typography>
         </AccordionSummary>
-        <AccordionDetails className="bg-slate-100 flex flex-col gap-2">
+        <AccordionDetails className="bg-slate-100 flex flex-col gap-2 h-96 overflow-auto">
           {brands.map((brand) => {
             return (
               <div key={brand.id} className="flex justify-between">
-                <div className="flex gap-1">
-                  <input type="checkbox" />
-                  <span className="text-base">{brand.title_fr}</span>
+                <div className="flex">
+                  <input
+                    className=" cursor-pointer"
+                    type="checkbox"
+                    checked={
+                      brandsList
+                        ? brandsList.indexOf(brand.title_en) !== -1
+                        : false
+                    }
+                    id={brand.title_en}
+                    value={brand.title_en}
+                    onChange={handleChanges}
+                  />
+                  <label
+                    htmlFor={brand.title_en}
+                    className="text-lg cursor-pointer px-2"
+                  >
+                    {brand.title_fr}
+                  </label>
                 </div>
-                <span className="text-base">{brand.title_en}</span>
+                <label
+                  htmlFor={brand.title_en}
+                  className="text-lg grow text-left cursor-pointer"
+                >
+                  {brand.title_en}
+                </label>
               </div>
             );
           })}
@@ -144,15 +167,21 @@ export default function Filters({ brands, mainCats, specificCats }: Props) {
       </Accordion>
       <Accordion
         expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
+        onChange={expandHandler("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography className="text-2xl !font-iranyekan_bold">
+          <Typography className="text-lg !font-iranyekan_bold">
             محدوده قیمت
           </Typography>
         </AccordionSummary>
         <AccordionDetails className="bg-slate-100">
-          <PriceRange />
+          <PriceRange
+            bQ={bQ}
+            searchQuery={searchQuery}
+            sort={sort}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
+          />
         </AccordionDetails>
       </Accordion>
     </div>

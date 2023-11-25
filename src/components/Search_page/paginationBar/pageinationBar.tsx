@@ -3,25 +3,36 @@ import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import Link from "next/link";
 import React from "react";
 import { SortValue } from "../sorts/Sort";
+import { useSearchParams } from "next/navigation";
 
 interface Props {
   currentPage: number;
   totalPages: number;
   searchQuery: string | undefined;
   sort: SortValue;
+  bQ: string[];
+  maxPrice: string;
+  minPrice: string;
 }
 
 const PageinationBar = ({
   currentPage,
   totalPages,
   searchQuery = "",
+  maxPrice = "",
+  minPrice = "",
   sort = SortValue.grtView,
+  bQ,
 }: Props) => {
   const maxPage = Math.min(totalPages, Math.max(currentPage + 2, 5));
   const minPage = Math.max(1, Math.min(currentPage - 2, maxPage - 4));
-
-  const url = `?${searchQuery && `searchQuery=${searchQuery}&`}${
-    sort !== SortValue.grtView && `sort=${sort}&`
+  const url = `?${sort !== SortValue.grtView ? `sort=${sort}&` : ``}${bQ
+    .map((item) => {
+      return `bQ=${item}`;
+    })
+    .toString()
+    .replaceAll(",", "&")}${bQ.length ? `&` : ``}${
+    !!minPrice && !!maxPrice ? `minPrice=${minPrice}&maxPrice=${maxPrice}&` : ``
   }page=`;
 
   let numberedPageItems: JSX.Element[] = [];

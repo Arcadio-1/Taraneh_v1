@@ -1,78 +1,115 @@
 import Products from "@/components/Search_page/Products/Products";
 import Filters from "@/components/Search_page/filters/Filters";
 import PageinationBar from "@/components/Search_page/paginationBar/pageinationBar";
-import Sort from "@/components/Search_page/sorts/Sort";
-import Breadcrumbs, {
-  BreadcrumbsType,
-} from "@/components/Util/breadcrumbs/Breadcrumbs";
+import Sort, { SortValue } from "@/components/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
-import { notFound } from "next/navigation";
-import React from "react";
+import { GetProductsInterface, getProducts } from "@/lib/util/getPropducts";
+import { MainCatsWithSpecificCats } from "@/types/type";
+import { Metadata } from "next";
+import React, { Suspense } from "react";
+import Loading from "../../loading";
+import CartItemSkeleton from "@/components/Profile_page/content/components/Orders/components/orderItem/components/CartItemSkeleton";
 
-interface Props {
-  params: { specificLabel: string };
-  searchParams: { searchQuery: string; page: string; sort: string };
+interface SearchPageProps {
+  params: {
+    specificLabel: string;
+  };
+  searchParams: {
+    searchQuery: string;
+    page: string;
+    sort: SortValue;
+    cat: string;
+    bQ: string;
+    minPrice: string;
+    maxPrice: string;
+  };
 }
 
-const SpecficCategoryPage = async ({
+export function generateMetadata({
+  searchParams: { searchQuery },
+}: SearchPageProps): Metadata {
+  return {
+    title: `${
+      searchQuery
+        ? `جستجو: ${searchQuery} - کافه ترانه`
+        : "لیست محصولات - کافه ترانه"
+    }`,
+  };
+}
+
+const All_products_page = async ({
+  searchParams: { page, searchQuery, sort, cat, bQ, maxPrice, minPrice },
   params: { specificLabel },
-  searchParams: { page = "1", searchQuery },
-}: Props) => {
-  const allProducts = await prisma.product.findMany({
-    where: { specific_cat: { label: specificLabel } },
-    include: { brand: true, specific_cat: { select: { title: true } } },
+}: SearchPageProps) => {
+  const bQhelper = () => {
+    if (typeof bQ === "string") {
+      return [`${bQ}`];
+    }
+    if (typeof bQ === "undefined") {
+      return [];
+    }
+    if (typeof bQ === "object") {
+      return [...bQ];
+    }
+    return [];
+  };
+
+  const queryDetials: GetProductsInterface = {
+    searchQuery: searchQuery,
+    page: page,
+    sort: sort,
+    pageSize: 8,
+    bQ: bQhelper(),
+    maxPrice: maxPrice,
+    minPrice: minPrice,
+    main_cat: "",
+    specific_cat: `${specificLabel}`,
+  };
+  const { currentPage, totalPages, products } = await getProducts(queryDetials);
+
+  const allBrands = await prisma.brand.findMany({
+    orderBy: { title_fr: "asc" },
   });
-  if (!allProducts.length) notFound();
-  const breadcrumbsList: BreadcrumbsType[] = [
-    {
-      title: "ابزار تهیه نوشیدنی",
-      link: "/search/tools",
-    },
-    {
-      title: allProducts[0].specific_cat.title,
-      link: `/search/${specificLabel}`,
-    },
-  ];
-  const currentPage = parseInt(page);
-
-  const pageSize = 10;
-  const heroItemCount = 0;
-
-  const totalItemCount = allProducts.length;
-
-  const totalPages = Math.ceil(totalItemCount / pageSize);
-
-  const specific_products = await prisma.product.findMany({
-    where: { specific_cat: { label: specificLabel } },
-    include: { brand: true },
-    orderBy: { id: "desc" },
-    // skip: (currentPage - 1) * pageSize + 1,
-    take: pageSize,
+  const mainCats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
+    include: { Specific_cat: true },
   });
-  const brands = allProducts.map((product) => product.brand);
 
-  const arrayUniqueByKey = [
-    ...new Map(brands.map((item) => [item.id, item])).values(),
-  ];
   return (
-    <div className="px-8">
-      <Breadcrumbs list={breadcrumbsList} />
-      <div className="flex items-stretch mt-3">
-        <aside className="hidden lg:block border-2 w-[25rem] text-dark_4 border-dark_6 border-opacity-40 rounded-xl py-3 px-5">
-          <Filters brands={arrayUniqueByKey} />
-        </aside>
-        <main className=" w-full px-4 mb-10">
-          <Sort />
-          <Products products={specific_products} />
-          <PageinationBar
-            searchQuery={searchQuery}
-            currentPage={currentPage}
-            totalPages={totalPages}
-          />
-        </main>
-      </div>
+    <div className="flex items-stretch mt-3">
+      <aside className="hidden md:block border-2 w-[28rem] text-dark_4 border-dark_6 border-opacity-40 rounded-xl py-3 px-5">
+        <Filters
+          brands={allBrands}
+          mainCats={mainCats}
+          searchQuery={searchQuery}
+          sort={sort}
+          bQ={bQhelper()}
+          maxPrice={maxPrice}
+          minPrice={minPrice}
+        />
+      </aside>
+      <main className=" w-full px-4 mb-10">
+        <Sort
+          bQ={bQhelper()}
+          maxPrice={maxPrice}
+          minPrice={minPrice}
+          searchQuery={searchQuery}
+          sort={sort}
+        />
+        <Suspense fallback={<Loading />}>
+          {!!products.length && <Products products={products} />}
+        </Suspense>
+        <PageinationBar
+          bQ={bQhelper()}
+          sort={sort}
+          searchQuery={searchQuery}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          maxPrice={maxPrice}
+          minPrice={minPrice}
+        />
+      </main>
     </div>
   );
 };
 
-export default SpecficCategoryPage;
+export default All_products_page;

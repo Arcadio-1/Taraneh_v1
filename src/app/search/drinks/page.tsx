@@ -1,94 +1,111 @@
 import Products from "@/components/Search_page/Products/Products";
 import Filters from "@/components/Search_page/filters/Filters";
 import PageinationBar from "@/components/Search_page/paginationBar/pageinationBar";
-import Sort from "@/components/Search_page/sorts/Sort";
+import Sort, { SortValue } from "@/components/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
-import {
-  Drinks_products,
-  MainCatsWithSpecificCats,
-  ProductsWithBrands,
-} from "@/types/type";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import React from "react";
+import { GetProductsInterface, getProducts } from "@/lib/util/getPropducts";
+import { MainCatsWithSpecificCats } from "@/types/type";
+import { Metadata } from "next";
+import React, { Suspense } from "react";
+import Loading from "../../loading";
+import CartItemSkeleton from "@/components/Profile_page/content/components/Orders/components/orderItem/components/CartItemSkeleton";
 
-interface Props {
-  searchParams: { searchQuery: string; page: string; sort: string };
+interface SearchPageProps {
+  searchParams: {
+    searchQuery: string;
+    page: string;
+    sort: SortValue;
+    cat: string;
+    bQ: string;
+    minPrice: string;
+    maxPrice: string;
+  };
 }
-const Drinks_page = async ({
-  searchParams: { page = "1", searchQuery },
-}: Props) => {
-  const allProducts = await prisma.product.findMany({
-    where: { main_cat: { label: "drinks" } },
-    include: { brand: true },
+
+export function generateMetadata({
+  searchParams: { searchQuery },
+}: SearchPageProps): Metadata {
+  return {
+    title: `${
+      searchQuery
+        ? `جستجو: ${searchQuery} - کافه ترانه`
+        : "لیست محصولات - کافه ترانه"
+    }`,
+  };
+}
+
+const All_products_page = async ({
+  searchParams: { page, searchQuery, sort, cat, bQ, maxPrice, minPrice },
+}: SearchPageProps) => {
+  const bQhelper = () => {
+    if (typeof bQ === "string") {
+      return [`${bQ}`];
+    }
+    if (typeof bQ === "undefined") {
+      return [];
+    }
+    if (typeof bQ === "object") {
+      return [...bQ];
+    }
+    return [];
+  };
+
+  const queryDetials: GetProductsInterface = {
+    searchQuery: searchQuery,
+    page: page,
+    sort: sort,
+    pageSize: 8,
+    bQ: bQhelper(),
+    maxPrice: maxPrice,
+    minPrice: minPrice,
+    main_cat: "drinks",
+    specific_cat: "",
+  };
+  const { currentPage, totalPages, products } = await getProducts(queryDetials);
+
+  const allBrands = await prisma.brand.findMany({
+    orderBy: { title_fr: "asc" },
   });
-  if (!allProducts.length) notFound();
-  const currentPage = parseInt(page);
-
-  const pageSize = 10;
-  const heroItemCount = 0;
-
-  const totalItemCount = allProducts.length;
-
-  const totalPages = Math.ceil((totalItemCount - heroItemCount) / pageSize);
-
-  const products: ProductsWithBrands[] = await prisma.product.findMany({
-    where: { main_cat: { label: "drinks" } },
-    include: { brand: true },
-    orderBy: { id: "desc" },
-    // skip: (currentPage - 1) * pageSize + 1,
-    take: pageSize,
-  });
-  const brands = allProducts.map((product) => product.brand);
-
-  const arrayUniqueByKey = [
-    ...new Map(brands.map((item) => [item.id, item])).values(),
-  ];
-
-  const mainCats = await prisma.main_cat.findFirst({
-    where: { label: "drinks" },
-    select: { Specific_cat: true },
+  const mainCats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
+    include: { Specific_cat: true },
   });
 
   return (
     <div className="flex items-stretch mt-3">
-      <aside className="hidden lg:block border-2 w-[25rem] text-dark_4 border-dark_6 border-opacity-40 rounded-xl py-3 px-5">
+      <aside className="hidden md:block border-2 w-[28rem] text-dark_4 border-dark_6 border-opacity-40 rounded-xl py-3 px-5">
         <Filters
-          brands={arrayUniqueByKey}
-          specificCats={mainCats?.Specific_cat}
+          brands={allBrands}
+          mainCats={mainCats}
+          searchQuery={searchQuery}
+          sort={sort}
+          bQ={bQhelper()}
+          maxPrice={maxPrice}
+          minPrice={minPrice}
         />
       </aside>
       <main className=" w-full px-4 mb-10">
-        <div className="flex gap-2">
-          {mainCats?.Specific_cat.map((main) => {
-            return (
-              <Link
-                href={`/search/${main.label}`}
-                key={main.id}
-                className="flex flex-col justify-evenly items-center border border-g1_7 h-48 w-48 rounded-xl border-opacity-25"
-              >
-                <span className=" text-lg">{main.title}</span>
-                <Image
-                  src={main.single_image}
-                  alt={main.label}
-                  width={70}
-                  height={70}
-                />
-              </Link>
-            );
-          })}
-        </div>
-        <Sort />
-        <Products products={products} />
+        <Sort
+          bQ={bQhelper()}
+          maxPrice={maxPrice}
+          minPrice={minPrice}
+          searchQuery={searchQuery}
+          sort={sort}
+        />
+        <Suspense fallback={<Loading />}>
+          {!!products.length && <Products products={products} />}
+        </Suspense>
         <PageinationBar
+          bQ={bQhelper()}
+          sort={sort}
           searchQuery={searchQuery}
           currentPage={currentPage}
           totalPages={totalPages}
+          maxPrice={maxPrice}
+          minPrice={minPrice}
         />
       </main>
     </div>
   );
 };
 
-export default Drinks_page;
+export default All_products_page;
