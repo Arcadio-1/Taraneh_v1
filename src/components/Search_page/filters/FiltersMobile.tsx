@@ -96,7 +96,7 @@ export default function FiltersMobile({
     };
 
   return (
-    <div>
+    <div className="md:hidden">
       <Sheet>
         <SheetTrigger asChild>
           <div className="flex items-center justify-center">
