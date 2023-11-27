@@ -1,14 +1,15 @@
 import Products from "@/components/Search_page/Products/Products";
 import Filters from "@/components/Search_page/filters/Filters";
 import PageinationBar from "@/components/Search_page/paginationBar/pageinationBar";
-import Sort, { SortValue } from "@/components/Search_page/sorts/Sort";
+import Sort from "@/components/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
 import { GetProductsInterface, getProducts } from "@/lib/util/getPropducts";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats, SortValue } from "@/types/type";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Loading from "../../loading";
 import CartItemSkeleton from "@/components/Profile_page/content/components/Orders/components/orderItem/components/CartItemSkeleton";
+import FiltersMobile from "@/components/Search_page/filters/FiltersMobile";
 
 interface SearchPageProps {
   params: {
@@ -88,13 +89,24 @@ const All_products_page = async ({
         />
       </aside>
       <main className=" w-full px-4 mb-10">
-        <Sort
-          bQ={bQhelper()}
-          maxPrice={maxPrice}
-          minPrice={minPrice}
-          searchQuery={searchQuery}
-          sort={sort}
-        />
+        <div className="flex gap-2 items-center">
+          <FiltersMobile
+            brands={allBrands}
+            mainCats={mainCats}
+            searchQuery={searchQuery}
+            sort={sort}
+            bQ={bQhelper()}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
+          />
+          <Sort
+            bQ={bQhelper()}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
+            searchQuery={searchQuery}
+            sort={sort}
+          />
+        </div>
         <Suspense fallback={<Loading />}>
           {!!products.length && <Products products={products} />}
         </Suspense>

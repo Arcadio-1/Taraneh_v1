@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import TomanIcon from "@/components/Util/icons/TomanIcon";
 import { numberSeperator } from "@/lib/util/price_formt";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SortValue } from "../../sorts/Sort";
+import { SortValue } from "@/types/type";
 
 // enum Typer {
 //   min = "min",
@@ -190,7 +190,8 @@ export default function PriceRange({
           <TomanIcon classes="h-[2rem] w-[2rem]" />
         </div>
       </div>
-      <Box sx={{ width: 300 }}>
+      <div className="flex items-center justify-center">
+        {/* <Box sx={{ width: 300 }}> */}
         <AirbnbSlider
           dir="ltr"
           className="font-iransansbold text-xl"
@@ -204,7 +205,8 @@ export default function PriceRange({
           max={maxValue}
           marks={marks}
         />
-      </Box>
+        {/* </Box> */}
+      </div>
     </div>
   );
 }

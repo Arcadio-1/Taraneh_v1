@@ -164,29 +164,36 @@ const Shipping_form = ({ address, user, cart }: Props) => {
       </div>
       <div className="fixed bottom-0 right-0 left-0 p-8 w-full flex gap-2 items-center justify-between shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden bg-light_1">
         <div className="grow">
-          {submitStatus === Submit_status_Enum.ready && (
-            <Link
-              onClick={() => submit_orders()}
-              href={"payment"}
-              className="flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
-            >
-              ثبت سفارش
-            </Link>
-          )}
           {mount && (
             <Sheet>
-              <SheetTrigger asChild>
-                {submitStatus !== Submit_status_Enum.ready && (
-                  <div className="flex items-center justify-center border border-g1_5 text-g1_5 w-full py-3 rounded-lg  font-iransansbold select-none">
+              {submitStatus === Submit_status_Enum.ready && (
+                <div>
+                  <SheetTrigger asChild>
+                    <button className="flex items-center justify-center border border-g1_5 text-g1_5 w-full py-3 rounded-lg  font-iransansbold select-none">
+                      ویرایش زمان ارسال
+                    </button>
+                  </SheetTrigger>
+                  <Link
+                    onClick={() => submit_orders()}
+                    href={"payment"}
+                    className="flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
+                  >
+                    ثبت سفارش
+                  </Link>
+                </div>
+              )}
+              {submitStatus !== Submit_status_Enum.ready && (
+                <SheetTrigger asChild>
+                  <button className="flex items-center justify-center border border-g1_5 text-g1_5 w-full py-3 rounded-lg  font-iransansbold select-none">
                     {submitStatus === Submit_status_Enum.set_date &&
                       "انتخاب زمان دریافت"}
                     {submitStatus === Submit_status_Enum.set_Addres &&
                       "لطفا آدرس خود را ثبت کنید"}
                     {submitStatus === Submit_status_Enum.set_personalInfo &&
                       "لطفا مشخصات خود را ثبت کنید"}
-                  </div>
-                )}
-              </SheetTrigger>
+                  </button>
+                </SheetTrigger>
+              )}
               <SheetContent dir="ltr" side={"bottom"}>
                 {/* <SheetHeader>
                 <SheetTitle>Edit profile</SheetTitle>

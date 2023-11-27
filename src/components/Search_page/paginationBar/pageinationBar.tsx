@@ -2,8 +2,8 @@
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import Link from "next/link";
 import React from "react";
-import { SortValue } from "../sorts/Sort";
 import { useSearchParams } from "next/navigation";
+import { SortValue } from "@/types/type";
 
 interface Props {
   currentPage: number;

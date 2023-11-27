@@ -23,7 +23,7 @@ const AdSlider = async () => {
     link_url: "#",
   };
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto z-0">
       <Slider products={products} bg_color="bg-g3_3" heroSlide={heroSlide} />
     </div>
   );

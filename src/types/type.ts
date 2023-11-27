@@ -78,3 +78,18 @@ export enum Operate {
 }
 
 export type OrderType = Omit<Order, "id" | "createdAt">;
+
+export enum SortValue {
+  grtPrice = "0",
+  lwrPrice = "1",
+  grtView = "2",
+  grtSale = "3",
+  fav = "4",
+  newst = "5",
+}
+export interface SortItem {
+  id: string;
+  title: string;
+  value: SortValue;
+}
+export type SortItems = SortItem[];

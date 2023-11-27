@@ -12,7 +12,7 @@ interface Props {
 const Price = ({ price: org_price, off_percent }: Props) => {
   const price = price_format(org_price, off_percent);
   return (
-    <div className="font-iransansnum text-xl font-bold flex flex-col mt-3">
+    <div className="font-iransansnum text-xl font-bold flex flex-col">
       <div className="flex items-center justify-between">
         {!!off_percent && <Off_percent percent={price.off_percent} />}
         <div className="flex justify-end items-start mr-auto pl-3">

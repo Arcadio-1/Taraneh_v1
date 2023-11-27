@@ -2,7 +2,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Brand } from "@prisma/client";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats, SortValue } from "@/types/type";
 import Categories from "./components/categories";
 import PriceRange from "./components/priceRange";
 import {
@@ -11,7 +11,6 @@ import {
   AccordionSummary,
 } from "./components/AccordionStyled";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SortValue } from "../sorts/Sort";
 
 interface Props {
   brands: Brand[];

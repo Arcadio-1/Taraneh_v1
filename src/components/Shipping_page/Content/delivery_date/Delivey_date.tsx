@@ -46,15 +46,26 @@ const Delivey_date = ({ sheeter }: Props) => {
           const gregorianDate = jalali_to_gregorian(
             `${newDay.year}/${newDay.month}/${newDay.day}`
           );
-          prevDays.push({
-            ...newDay,
-            gregorianDate: gregorianDate,
-          });
-          return prevDays;
+          // prevDays.push({
+          //   ...newDay,
+          //   gregorianDate: gregorianDate,
+          // });
+          // return prevDays;
+          return (prevDays = [
+            ...prevDays,
+            {
+              ...newDay,
+              gregorianDate: gregorianDate,
+            },
+          ]);
         });
       }
     }
   }, []);
+
+  useEffect(() => {
+    console.log(datesList);
+  }, [datesList]);
 
   return (
     <div className="flex flex-col gap-4">
