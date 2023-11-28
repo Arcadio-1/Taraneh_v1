@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components_shadcn/ui/popover";
-import { Avatar, Divider } from "@mui/material";
+import { Divider } from "@mui/material";
 import { Session } from "next-auth";
 import Link from "next/link";
 import ArrowIcon, { Arrow } from "../../icons/ArrowIcon";
@@ -23,14 +23,12 @@ interface Props {
 
 export default function UserMenu({ session }: Props) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <div className="flex items-end cursor-pointer">
           <ProfileIcon classes="w-9 h-9 fill-dark_4" />
-          {/* <ArrowIcon direction={Arrow.down} classes="h-5 w-5 fill-dark_4" /> */}
           <div>
             <svg viewBox="0 0 24 24" className="w-8 h-8">
               <path d="M7 10l5 5 5-5H7z"></path>
@@ -41,8 +39,7 @@ export default function UserMenu({ session }: Props) {
       <PopoverContent className="w-[200px] p-0 ml-28 !bg-transparent !shadow-transparent">
         <Command className="shadow-lg border rounded-lg flex flec-col gap-6 py-5">
           <CommandItem
-            onSelect={(currentValue) => {
-              setValue(currentValue === value ? "" : currentValue);
+            onSelect={() => {
               setOpen(false);
             }}
           >
@@ -51,7 +48,6 @@ export default function UserMenu({ session }: Props) {
               href={"/profile"}
             >
               <div className="flex gap-2 items-start">
-                {/* <UserDashboardIcon classess="h-6 w-6 fill-dark_4" /> */}
                 {!session.user.name && !session.user.family && (
                   <span className="font-iransansnum">{session.user.phone}</span>
                 )}
@@ -66,11 +62,7 @@ export default function UserMenu({ session }: Props) {
           </CommandItem>
           <Divider />
           <CommandItem
-            // onClick={() => {
-            //   signOut();
-            // }}
-            onSelect={(currentValue) => {
-              setValue(currentValue === value ? "" : currentValue);
+            onSelect={() => {
               setOpen(false);
               signOut();
             }}
@@ -87,7 +79,6 @@ export default function UserMenu({ session }: Props) {
           {session.user.role === Role.ADMIN && (
             <CommandItem
               onSelect={(currentValue) => {
-                setValue(currentValue === value ? "" : currentValue);
                 setOpen(false);
               }}
             >
