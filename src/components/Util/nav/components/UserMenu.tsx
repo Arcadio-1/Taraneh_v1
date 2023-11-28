@@ -1,133 +1,103 @@
 "use client";
-import { Session } from "next-auth";
-import { signOut } from "next-auth/react";
-import Link from "next/link";
+
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Logout from "@mui/icons-material/Logout";
-import { Role } from "@prisma/client";
-import { Settings2Icon } from "lucide-react";
+import { Command, CommandItem } from "@/components_shadcn/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components_shadcn/ui/popover";
+import { Avatar, Divider } from "@mui/material";
+import { Session } from "next-auth";
+import Link from "next/link";
 import ArrowIcon, { Arrow } from "../../icons/ArrowIcon";
-import UserDashboardIcon from "../../icons/UserDashboardIcon";
+import Logout from "@mui/icons-material/Logout";
+import ProfileIcon from "../../icons/ProfileIcon";
+import { Role } from "@prisma/client";
 import AdminDashboardIcon from "../../icons/AdminDashboardIcon";
+import { signOut } from "next-auth/react";
 
 interface Props {
   session: Session;
 }
 
-export function UserMenu({ session }: Props) {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+export default function UserMenu({ session }: Props) {
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("");
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  // const user = session;
   return (
-    <div>
-      <React.Fragment>
-        <Box
-          sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
-        >
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 1 }}
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <div className="flex items-end cursor-pointer">
+          <ProfileIcon classes="w-9 h-9 fill-dark_4" />
+          {/* <ArrowIcon direction={Arrow.down} classes="h-5 w-5 fill-dark_4" /> */}
+          <div>
+            <svg viewBox="0 0 24 24" className="w-8 h-8">
+              <path d="M7 10l5 5 5-5H7z"></path>
+            </svg>
+          </div>
+        </div>
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0 ml-28 !bg-transparent !shadow-transparent">
+        <Command className="shadow-lg border rounded-lg flex flec-col gap-6 py-5">
+          <CommandItem
+            onSelect={(currentValue) => {
+              setValue(currentValue === value ? "" : currentValue);
+              setOpen(false);
+            }}
           >
-            <Avatar className="h-12 w-12" />
-          </IconButton>
-        </Box>
-        <Menu
-          dir="rtl"
-          anchorEl={anchorEl}
-          id="account-menu"
-          open={open}
-          onClose={handleClose}
-          onClick={handleClose}
-          style={{ left: "60px" }}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              mt: 0.3,
-              left: 50,
-              minWidth: 140,
-              "& .MuiMenuItem-root": {
-                display: "flex",
-                alignItems: "stretch",
-                padding: "7px 0px",
-                height: "100%",
-              },
-              "& .MuiDivider-root": {
-                marginTop: 0.5,
-                marginBottom: 0.5,
-              },
-              "& .MuiAvatar-root": {
-                width: 32,
-                height: 32,
-                ml: 1,
-                mr: -0.5,
-                p: 0,
-                left: 0,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                left: 2,
-                width: 10,
-                height: 10,
-                bgcolor: "background.paper",
-                transform: "translateY(-50%) rotate(45deg)",
-                zIndex: 0,
-              },
-            },
-          }}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        >
-          <MenuItem onClick={handleClose}>
             <Link
               className="flex justify-between items-center w-full px-2"
               href={"/profile"}
             >
               <div className="flex gap-2 items-start">
-                <UserDashboardIcon classess="h-6 w-6 fill-dark_4" />
+                {/* <UserDashboardIcon classess="h-6 w-6 fill-dark_4" /> */}
                 {!session.user.name && !session.user.family && (
                   <span className="font-iransansnum">{session.user.phone}</span>
                 )}
                 {session.user.name && session.user.family && (
-                  <span className=" text-md text-dark_4 font-iranyekan_bold">
+                  <span className=" text-md text-dark_4 font-iranyekan_bold text-xl">
                     {session.user.name} {session.user.family}
                   </span>
                 )}
               </div>
               <ArrowIcon classes="h-4 w-4 fill-dark_4" direction={Arrow.left} />
             </Link>
-          </MenuItem>
+          </CommandItem>
           <Divider />
+          <CommandItem
+            // onClick={() => {
+            //   signOut();
+            // }}
+            onSelect={(currentValue) => {
+              setValue(currentValue === value ? "" : currentValue);
+              setOpen(false);
+              signOut();
+            }}
+          >
+            <div className="flex justify-between items-center w-full px-2 cursor-pointer">
+              <div className="flex gap-2 items-start">
+                <Logout className=" h-6 w-6 fill-dark_4" fontSize="medium" />
+                <span className="text-md text-dark_4 font-iranyekan_bold text-lg">
+                  خروج از حساب کاربری
+                </span>
+              </div>
+            </div>
+          </CommandItem>
           {session.user.role === Role.ADMIN && (
-            <MenuItem onClick={handleClose}>
+            <CommandItem
+              onSelect={(currentValue) => {
+                setValue(currentValue === value ? "" : currentValue);
+                setOpen(false);
+              }}
+            >
               <Link
                 className="flex justify-between items-center w-full px-2"
                 href={"/dashboard"}
               >
                 <div className="flex gap-2 items-start">
                   <AdminDashboardIcon classess="h-6 w-6 fill-dark_4" />
-                  <span className="text-md text-dark_4 font-iranyekan_bold">
+                  <span className="text-md text-dark_4 font-iranyekan_bold text-lg">
                     پنل مدیریت
                   </span>
                 </div>
@@ -137,26 +107,10 @@ export function UserMenu({ session }: Props) {
                 />
               </Link>
               <Divider className="my-2" />
-            </MenuItem>
+            </CommandItem>
           )}
-
-          <MenuItem
-            onClick={() => {
-              signOut();
-              handleClose();
-            }}
-          >
-            <div className="flex justify-between items-center w-full px-2">
-              <div className="flex gap-2 items-start">
-                <Logout className=" h-6 w-6 fill-dark_4" fontSize="medium" />
-                <span className="text-md text-dark_4 font-iranyekan_bold">
-                  خروج از حساب کاربری
-                </span>
-              </div>
-            </div>
-          </MenuItem>
-        </Menu>
-      </React.Fragment>
-    </div>
+        </Command>
+      </PopoverContent>
+    </Popover>
   );
 }

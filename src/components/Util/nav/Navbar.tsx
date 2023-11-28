@@ -10,9 +10,10 @@ import { MainCatsWithSpecificCats, ShoppingCart } from "@/types/type";
 import Link from "next/link";
 import ShoppingCartButton from "./components/shoping_cart/ShoppingCartButton";
 import { Session } from "next-auth";
-import { UserMenu } from "./components/UserMenu";
+// import { UserMenuMui } from "./components/UserMenuMui";
 import Log from "./Log";
 import { usePathname } from "next/navigation";
+import UserMenu from "./components/UserMenu";
 
 interface Props {
   cats: MainCatsWithSpecificCats[];
@@ -50,10 +51,11 @@ const Navbar = ({ cats, session, cart }: Props) => {
               </div>
               <div className="flex justify-between items-center gap-4 md:grow">
                 <Search />
-                <div className="flex items-center gap-2">
+                <div className="flex items-stretch gap-5">
                   {session && <UserMenu session={session} />}
+                  {/* {session && <UserMenuMui session={session} />} */}
                   {!session && <Log />}
-
+                  <span className=" w-1 border-l"></span>
                   <ShoppingCartButton cart={cart} />
                 </div>
               </div>

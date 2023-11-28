@@ -30,7 +30,7 @@ const ShoppingListItem = ({ cart_item }: Props) => {
       </div>
       <div className="grow flex justify-between">
         <div className="flex flex-col gap-4">
-          <p className="font-iransansbold font-bold text-lg">
+          <p className="font-iransans text-xl text-dark_3">
             {cart_item.product.title}
           </p>
           <Prod_status />
