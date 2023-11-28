@@ -8,7 +8,6 @@ import { MainCatsWithSpecificCats, SortValue } from "@/types/type";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Loading from "../loading";
-import CartItemSkeleton from "@/components/Profile_page/content/components/Orders/components/orderItem/components/CartItemSkeleton";
 import FiltersMobile from "@/components/Search_page/filters/FiltersMobile";
 
 interface SearchPageProps {
