@@ -6,14 +6,15 @@ import Footer from "./footer";
 
 interface Props {
   cart: ShoppingCart;
+  sheet: boolean;
 }
 
-const Shopping_cart = ({ cart }: Props) => {
+const Shopping_cart = ({ cart, sheet }: Props) => {
   return (
     <>
       <Header cart_size={cart.size} />
-      <Content cart={cart} />
-      <Footer cart_subtotal={cart.subTotalWithDiscount} />
+      <Content sheet={sheet} cart={cart} />
+      <Footer sheet={sheet} cart_subtotal={cart.subTotalWithDiscount} />
     </>
   );
 };

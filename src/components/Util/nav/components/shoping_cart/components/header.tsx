@@ -12,7 +12,6 @@ const Header = ({ cart_size }: Props) => {
         <span className="font-iransansnum">{cart_size}</span>
         <span> کالا </span>
       </p>
-      {/* <Link href={"#"}>مشاهده سبد خرید</Link> */}
     </div>
   );
 };

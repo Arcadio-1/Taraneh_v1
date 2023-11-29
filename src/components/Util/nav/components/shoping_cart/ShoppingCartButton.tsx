@@ -9,22 +9,20 @@ import {
 import Shopping_cart from "./components/shopping_cart";
 import Link from "next/link";
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components_shadcn/ui/popover";
-import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetTrigger,
 } from "@/components_shadcn/ui/sheet";
+import Prod_price from "@/components/Product_page/order/Prod_price";
+import Control_amount from "@/components/Product_page/order/Control_amount";
+import Image from "next/image";
+import TomanIcon from "@/components/Util/icons/TomanIcon";
 interface Props {
   cart: ShoppingCart | null;
 }
 
 const ShoppingCartButton = ({ cart }: Props) => {
-  const [open, setOpen] = React.useState(false);
-
   return (
     <>
       <div className="hidden md:flex">
@@ -40,7 +38,7 @@ const ShoppingCartButton = ({ cart }: Props) => {
                 </div>
               </HoverCardTrigger>
               <HoverCardContent className="w-[40rem] rounded-[5px] bg-white z-50">
-                <Shopping_cart cart={cart} />
+                <Shopping_cart sheet={false} cart={cart} />
               </HoverCardContent>
             </HoverCard>
           </div>
@@ -69,7 +67,7 @@ const ShoppingCartButton = ({ cart }: Props) => {
                 </div>
               </SheetTrigger>
               <SheetContent side={"left"}>
-                <Shopping_cart cart={cart} />
+                <Shopping_cart sheet={true} cart={cart} />
               </SheetContent>
             </Sheet>
           </div>

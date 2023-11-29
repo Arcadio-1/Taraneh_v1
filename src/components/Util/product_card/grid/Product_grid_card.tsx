@@ -30,10 +30,10 @@ const Product_grid_card = ({
         className=" h-full grid grid-cols-2 grid-rows-2 items-stretch sm:grid-rows-3 sm:grid-cols-1 sm:grid sm:place-items-center "
       >
         <ImageComponent image_url={image_url} title={title} />
-        <div className="h-full w-full flex flex-col mt-auto row-span-2 justify-end">
+        <div className="h-full w-full flex flex-col mt-auto row-span-2 justify-end ">
           <Status type={selling_type} />
-          <div className="grid grid-rows-2">
-            <div>
+          <div className="grid grid-rows-2 my-auto h-2/3 px-2 gap-16">
+            <div className="flx flex-col">
               <Title title={title} />
               <Rate rateNum={statistics.totalRate} />
             </div>

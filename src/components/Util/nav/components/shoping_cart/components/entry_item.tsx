@@ -1,6 +1,7 @@
 "use Client";
 import Control_amount from "@/components/Product_page/order/Control_amount";
 import Prod_price from "@/components/Product_page/order/Prod_price";
+import { SheetClose } from "@/components_shadcn/ui/sheet";
 import { CartItemWithProduct } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,21 +10,36 @@ import React from "react";
 interface Props {
   cart_item: CartItemWithProduct;
   classess?: string;
+  sheet: boolean;
 }
 
-const Entry_item = ({ cart_item, classess }: Props) => {
+const Entry_item = ({ cart_item, sheet, classess }: Props) => {
   return (
     <div
       className={`grid grid-cols-3 border-b-2 py-2 px-2 last:border-b-0 ${classess}`}
     >
-      <Link href={`/product/${cart_item.productId}`}>
-        <Image
-          src={cart_item.product.image_url}
-          width={100}
-          height={100}
-          alt={cart_item.product.title}
-        />
-      </Link>
+      {sheet ? (
+        <SheetClose asChild>
+          <Link href={`/product/${cart_item.productId}`}>
+            <Image
+              src={cart_item.product.image_url}
+              width={100}
+              height={100}
+              alt={cart_item.product.title}
+            />
+          </Link>
+        </SheetClose>
+      ) : (
+        <Link href={`/product/${cart_item.productId}`}>
+          <Image
+            src={cart_item.product.image_url}
+            width={100}
+            height={100}
+            alt={cart_item.product.title}
+          />
+        </Link>
+      )}
+
       <div className="col-span-2 flex flex-col justify-between">
         <span className="text-xl font-bold font-iranyekan_bold">
           {cart_item.product.title}

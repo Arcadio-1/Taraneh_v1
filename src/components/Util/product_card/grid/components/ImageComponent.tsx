@@ -8,7 +8,7 @@ interface Props {
 }
 const ImageComponent = ({ image_url, title }: Props) => {
   return (
-    <div className=" p-5 flex items-center justify-center  row-span-2">
+    <div className="pt-5 pb-5 pl-5 md:pr-5 flex items-center justify-center  row-span-2">
       <Image src={image_url} alt={title} width={512} height={512} />
     </div>
   );
