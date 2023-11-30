@@ -10,14 +10,9 @@ import Shopping_cart from "./components/shopping_cart";
 import Link from "next/link";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetTrigger,
 } from "@/components_shadcn/ui/sheet";
-import Prod_price from "@/components/Product_page/order/Prod_price";
-import Control_amount from "@/components/Product_page/order/Control_amount";
-import Image from "next/image";
-import TomanIcon from "@/components/Util/icons/TomanIcon";
 interface Props {
   cart: ShoppingCart | null;
 }

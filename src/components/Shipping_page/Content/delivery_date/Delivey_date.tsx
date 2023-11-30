@@ -63,10 +63,6 @@ const Delivey_date = ({ sheeter }: Props) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(datesList);
-  }, [datesList]);
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2 mb-3 ml-auto">

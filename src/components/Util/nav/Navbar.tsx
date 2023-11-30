@@ -14,6 +14,7 @@ import { Session } from "next-auth";
 import Log from "./Log";
 import { usePathname } from "next/navigation";
 import UserMenu from "./components/UserMenu";
+import Main_menu from "./components/shoping_cart/Main_menu/Main_menu";
 
 interface Props {
   cats: MainCatsWithSpecificCats[];
@@ -43,7 +44,7 @@ const Navbar = ({ cats, session, cart }: Props) => {
           <div className="px-4 pb-4">
             <div className="mb-3 md:flex md:gap-6">
               <div className="flex items-center justify-between">
-                <MenuIcon clasees="h-[3rem] w-[3rem] md:hidden" />
+                <Main_menu cats={cats} />
                 <Link href={"/"}>
                   <LogoIcon classes="h-[6rem] w-[12rem] fill-g1_7" />
                 </Link>
