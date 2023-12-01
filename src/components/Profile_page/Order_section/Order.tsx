@@ -15,7 +15,7 @@ interface Props {
 }
 const Order = ({ order }: Props) => {
   return (
-    <div className="col-span-6 border rounded-lg py-2">
+    <div className="col-span-8 md:col-span-6 border rounded-lg px-2 py-5">
       <Header />
       <Divider />
 

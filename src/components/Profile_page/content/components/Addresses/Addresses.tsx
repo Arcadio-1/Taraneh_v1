@@ -22,6 +22,8 @@ import {
 import { Autocomplete, TextField } from "@mui/material";
 import { Input } from "@/components_shadcn/ui/input";
 import { toast } from "@/components_shadcn/ui/use-toast";
+import Link from "next/link";
+import ArrowLongIcon, { Arrow } from "@/components/Util/icons/ArrowLongIcon";
 
 interface Props {
   address: Address_Full | null;
@@ -98,9 +100,20 @@ const Addresses = ({ address, user }: Props) => {
 
   return (
     <div className=" bg-opacity-100 bg-light_1 ">
+      <div className="flex items-center justify-start gap-2 mb-5">
+        <Link href={`/profile`}>
+          <ArrowLongIcon
+            classes="h-10 w-10 md:hidden fill-dark_4"
+            direction={Arrow.right}
+          />
+        </Link>
+        <h1 className=" text-lg font-iranyekan_bold text-dark_3">
+          مدیریت آدرس
+        </h1>
+      </div>
       <Form {...form}>
         <form
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 px-5"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <div className="flex items-stretch gap-4">

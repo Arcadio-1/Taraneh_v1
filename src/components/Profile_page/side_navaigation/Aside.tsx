@@ -6,12 +6,15 @@ import { Divider } from "@mui/material";
 
 interface Props {
   session: Session;
+  root?: boolean;
 }
-const Aside = ({ session }: Props) => {
+const Aside = ({ session, root }: Props) => {
   return (
-    <div className="col-span-2 border rounded-lg">
-      <User_card session={session} />
-      <Navigation />
+    <div className="border rounded-lg mt-10 md:m-0">
+      <div className="hidden md:block">
+        <User_card session={session} />
+      </div>
+      <Navigation root={root} />
     </div>
   );
 };

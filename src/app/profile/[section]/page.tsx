@@ -23,7 +23,9 @@ const page = async () => {
   // if(session.user.)
   return (
     <div className="grid gap-4 grid-cols-[repeat(8,minmax(0,1fr))] max-w-[1124px] mx-auto mt-6">
-      <Aside session={session} />
+      <div className="hidden col-span-2 md:block">
+        <Aside session={session} />
+      </div>
       <Content orders={order} session={session} address={address} />
     </div>
   );

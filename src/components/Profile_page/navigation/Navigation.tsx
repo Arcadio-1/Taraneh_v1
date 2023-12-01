@@ -9,6 +9,7 @@ import { LogOutIcon } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { Role } from "@prisma/client";
 import { Session } from "next-auth";
+import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 
 interface LinkType {
   id: string;
@@ -17,8 +18,11 @@ interface LinkType {
   role: Role;
   icon?: ReactNode;
 }
+interface Props {
+  root?: boolean;
+}
 
-const Navigation = () => {
+const Navigation = ({ root = false }: Props) => {
   // const { data } = useSession();
   const links: LinkType[] = [
     {
@@ -56,14 +60,19 @@ const Navigation = () => {
         return (
           <li
             key={item.id}
-            className=" hover:bg-gray-100 border-b-[1px] border-b-gray-100 last:bg-red-600"
+            className={`${
+              root && item.id === "1" ? "hidden" : ""
+            } hover:bg-gray-100 border-b-[1px] border-b-gray-100 last:bg-red-600`}
           >
             <Link
               href={item.link}
-              className="flex items-center gap-2 text-lg px-2 py-2 mx-2"
+              className="flex justify-between px-2 py-2 mx-2"
             >
-              {!!item.icon && item.icon}
-              {item.title}
+              <div className="flex items-center gap-2">
+                {!!item.icon && item.icon}
+                <span className="text-lg">{item.title}</span>
+              </div>
+              <ArrowIcon classes="h-5 w-5 fill-dark_4" direction={Arrow.left} />
             </Link>
           </li>
         );

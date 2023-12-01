@@ -6,6 +6,8 @@ import EmptyOrder from "./components/EmptyOrder";
 import { getOrders } from "@/lib/actions/manageOrders";
 import { Session } from "next-auth";
 import CartItemSkeleton from "./components/orderItem/components/CartItemSkeleton";
+import ArrowLongIcon, { Arrow } from "@/components/Util/icons/ArrowLongIcon";
+import Link from "next/link";
 
 interface Props {
   // orders: Order[] | null;
@@ -29,7 +31,6 @@ const Orders = ({ user }: Props) => {
     const geter = async () => {
       const orderr = await getOrders();
       setLoading(false);
-      console.log(orderr);
       if (orderr) {
         setOrders((prev) => {
           return (prev = orderr);
@@ -41,7 +42,17 @@ const Orders = ({ user }: Props) => {
 
   return (
     <div>
-      <h1 className="px-3 text-lg">تاریخچه سفارشات</h1>
+      <div className="px-3 flex items-center justify-start gap-2">
+        <Link href={`/profile`}>
+          <ArrowLongIcon
+            classes="h-10 w-10 md:hidden fill-dark_3"
+            direction={Arrow.right}
+          />
+        </Link>
+        <h1 className=" text-lg font-iranyekan_bold text-dark_3">
+          تاریخچه سفارشات
+        </h1>
+      </div>
       <div>
         <Tabs
           className=" flex flex-col gap-6"

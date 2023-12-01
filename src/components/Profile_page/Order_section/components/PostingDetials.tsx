@@ -54,7 +54,7 @@ const PostingDetials = ({
 
   return (
     <div className="grow flex flex-col gap-6 border py-4 px-6 rounded-lg ">
-      <div className="flex items-stretch">
+      <div className="flex items-stretch flex-col md:flex-row">
         {status !== OrderStatus.CANCELED && (
           <div className="flex grow flex-col gap-4">
             <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ const PostingDetials = ({
             </div>
           </div>
         )}
-        <div className="flex flex-col justify-between grow">
+        <div className="flex flex-col justify-between grow gap-5 mt-5 md:m-0">
           <ProgressOrdering status={status} />
           {status === OrderStatus.ON_DELIVERY && (
             <div className="flex gap-2 items-center">

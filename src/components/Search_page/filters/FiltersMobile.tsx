@@ -87,7 +87,6 @@ export default function FiltersMobile({
       })
       .toString()
       .replaceAll(",", "&")}`;
-    console.log(url);
   };
 
   const expandHandler =
