@@ -113,3 +113,11 @@ html {
     font-size: 51%;
   }
 }
+
+.swiper-button-disabled {
+  opacity: 10% !important;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  transition: all 300ms ease-in-out !important;
+}

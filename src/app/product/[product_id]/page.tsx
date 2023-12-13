@@ -4,17 +4,17 @@ import Breadcrumbs, {
 import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
-import ProdImage from "@/components/Product_page/image/ProdImage";
-import Prod_specification from "@/components/Product_page/specifications/Prod_specification";
-import Header from "@/components/Product_page/header/Header";
-import Prod_order from "@/components/Product_page/order/Prod_order";
 import { Metadata } from "next";
 import { getCart } from "@/lib/actions/getCart";
-import AdSlider from "@/components/Util/ad_slider/AdSlider";
-import Slider from "@/components/Util/products_Slider/Products_Slider";
-import { AdWithProducts } from "@/types/type";
-import { Product } from "@prisma/client";
-import { Hero_slide_type } from "@/components/Util/products_Slider/hero_slide";
+import Main from "@/components/Product_page/main/Main";
+import Smilar_product_slider from "@/components/Product_page/smilar_products_slider/Smilar_product_slider";
+import Sub from "@/components/Product_page/sub/Sub";
+import {
+  CommentWithUser,
+  Specifications_select_specifications,
+} from "@/types/type";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth/authOptions";
 
 interface Props {
   params: {
@@ -38,27 +38,48 @@ export async function generateMetadata({
   return {
     title: "ترانه - " + product.title,
     description: product.title,
+    metadataBase: new URL("http://localhost:3000"),
     openGraph: {
-      images: [{ url: product.image_url }],
+      title: "ترانه - " + product.title,
+
+      description: product.title,
+      images: [
+        {
+          url: product.image_url,
+        },
+      ],
+    },
+    twitter: {
+      // card: "summary_large_image",
+      // site: "@eMartiiin94",
+      title: "ترانه - " + product.title,
+      description: product.title,
+      images: [
+        {
+          url: product.image_url,
+        },
+      ],
     },
   };
 }
 
 const page = async ({ params: { product_id } }: Props) => {
-  const adProducts: AdWithProducts[] = await prisma.ad.findMany({
-    take: 8,
-    where: { product: { status: true } },
-    select: { product: true },
-  });
-  const products: Product[] = adProducts.map((product) => {
-    return product.product;
-  });
+  const session = await getServerSession(authOptions);
   const product = await getProduct(product_id);
-  const heroSlide: Hero_slide_type = {
-    image_url: "/image/assets/ad_slide_hero_v1.png",
-    title: "پیشنهاد شگفت انگیز",
-    link_url: "#",
-  };
+
+  const introduction = await prisma.product_description.findUnique({
+    where: { product_id: product_id },
+    select: { description: true },
+  });
+  const comments: CommentWithUser[] = await prisma.comments.findMany({
+    include: { user: { select: { name: true, family: true, id: true } } },
+  });
+
+  const specifications: Specifications_select_specifications | null =
+    await prisma.specifications.findUnique({
+      where: { product_id: product_id },
+      select: { specifications: true },
+    });
 
   const breadcrumbs: BreadcrumbsType[] = [
     {
@@ -77,49 +98,22 @@ const page = async ({ params: { product_id } }: Props) => {
 
   const cart = await getCart();
 
-  const amount = async () => {
-    if (cart) {
-      const product = cart.items.find((item) => item.productId === product_id);
-      if (product) {
-        return product.quantity;
-      } else {
-        return 0;
-      }
-    } else {
-      return 0;
-    }
-  };
-
   return (
     <div className="px-5 flex flex-col gap-5">
       <div>
         <Breadcrumbs list={breadcrumbs} />
-        <section className="lg:grid lg:grid-cols-3 flex flex-col">
-          <ProdImage
-            product_image_url={product.image_url}
-            product_title={product.title}
-          />
-          <div className="col-span-2">
-            <Header
-              product_brand={product.brand}
-              product_title={product.title}
-              product_cat={product.specific_cat.title}
-            />
-
-            <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 ">
-              <Prod_specification product={product} />
-              <Prod_order
-                status={product.status}
-                price={product.price}
-                offPercent={product.off_percent}
-                product_Id={product_id}
-                amount={await amount()}
-              />
-            </div>
-          </div>
-        </section>
+        <Main cart={cart} product={product} product_id={product_id} />
       </div>
-      <Slider products={products} bg_color="bg-slate-400" />
+      <Smilar_product_slider />
+      <Sub
+        session={session}
+        comments={comments}
+        introduction={introduction?.description}
+        specifications={specifications}
+        product_id={product_id}
+        cart={cart}
+        product={product}
+      />
     </div>
   );
 };

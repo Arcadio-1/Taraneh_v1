@@ -161,7 +161,12 @@ export default function UserMenu({ session }: Props) {
             </SheetClose>
             <Divider />
             <SheetClose asChild>
-              <div className="flex justify-between items-center w-full px-2 cursor-pointer">
+              <div
+                onClick={() => {
+                  signOut();
+                }}
+                className="flex justify-between items-center w-full px-2 cursor-pointer"
+              >
                 <div className="flex gap-2 items-start">
                   <Logout className=" h-6 w-6 fill-dark_4" fontSize="medium" />
                   <span className="text-md text-dark_4 font-iranyekan_bold text-lg">

@@ -93,3 +93,17 @@ export interface SortItem {
   value: SortValue;
 }
 export type SortItems = SortItem[];
+
+export type CommentWithUser = Prisma.CommentsGetPayload<{
+  include: { user: { select: { name: true; family: true; id: true } } };
+}>;
+
+export enum LikeMethod {
+  Like,
+  Dislike,
+}
+
+export type Specifications_select_specifications =
+  Prisma.SpecificationsGetPayload<{
+    select: { specifications: true };
+  }>;

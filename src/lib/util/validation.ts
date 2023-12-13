@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { fixNumbers } from "./translateNumbers";
+import { OrderStatus, Recommendation } from "@prisma/client";
 
 export const phoneSchame = z.object({
   phone: z.union([
@@ -86,4 +87,26 @@ export const emailSchame = z.object({
         message: "لطفا ایمیل خود را به شکل صحیح  (abc@gmail.com) وارد کنید",
       }
     ),
+});
+export const commentSchame = z.object({
+  product_id: z.string(),
+  date: z.date(),
+  userId: z.string(),
+  buyer: z.boolean(),
+  recommendation: z.nativeEnum(Recommendation),
+  like: z.array(z.object({ userId: z.string() })),
+  dislike: z.array(z.object({ userId: z.string() })),
+  parent: z.string().or(z.null()),
+  title: z
+    .string()
+    .min(2, { message: "لطفا عنوان نظر خود را مشخص کنید " })
+    .max(100, { message: "لطفا عنوان نظر خود بصورت کوتاه مشخص کنید " }),
+  text: z
+    .string()
+    .min(2, { message: "لطفا دیدگاه خود را بنویسید " })
+    .max(1000, { message: "لطفا دیدگاه خود را کوتاه تر بنویسید " }),
+  rate: z
+    .number()
+    .min(10, { message: "لطفا امتیاز خود را وارد کنید" })
+    .max(50, { message: "امتیاز وارد شده صحیح نیست" }),
 });

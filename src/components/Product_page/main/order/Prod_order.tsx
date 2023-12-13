@@ -11,16 +11,10 @@ interface Props {
   price: number;
   product_Id: string;
   offPercent: number;
-  amount: number;
+  cart: ShoppingCart | null;
 }
 
-const Prod_order = ({
-  status,
-  offPercent,
-  price,
-  product_Id,
-  amount,
-}: Props) => {
+const Prod_order = ({ status, offPercent, price, product_Id, cart }: Props) => {
   if (status) {
     return (
       <div className="lg:bg-slate-100 p-4 lg:rounded-xl lg:border-2 lg:max-w-[220px] lg:min-w-[180px] lg:flex lg:flex-col lg:gap-4">
@@ -29,8 +23,8 @@ const Prod_order = ({
         <Prod_order_form
           offPercent={offPercent}
           price={price}
-          product_Id={product_Id}
-          amount={amount}
+          product_id={product_Id}
+          cart={cart}
         />
       </div>
     );

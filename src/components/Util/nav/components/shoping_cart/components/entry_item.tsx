@@ -1,6 +1,6 @@
 "use Client";
-import Control_amount from "@/components/Product_page/order/Control_amount";
-import Prod_price from "@/components/Product_page/order/Prod_price";
+import Control_amount from "@/components/Product_page/main/order/Control_amount";
+import Prod_price from "@/components/Product_page/main/order/Prod_price";
 import { SheetClose } from "@/components_shadcn/ui/sheet";
 import { CartItemWithProduct } from "@/types/type";
 import Image from "next/image";

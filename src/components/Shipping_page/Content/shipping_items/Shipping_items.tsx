@@ -1,5 +1,5 @@
 "use client";
-import Control_amount from "@/components/Product_page/order/Control_amount";
+import Control_amount from "@/components/Product_page/main/order/Control_amount";
 import ShippingIcon from "@/components/Util/icons/ShippingIcon";
 import { ShoppingCart } from "@/types/type";
 import Image from "next/image";

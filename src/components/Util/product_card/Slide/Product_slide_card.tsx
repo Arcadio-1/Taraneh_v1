@@ -27,14 +27,14 @@ const Product_slid_card = ({
 }: Props) => {
   return (
     <div
-      className={`relative bg-light_1 overflow-hidden p-2 shadow-md h-full w-[18rem] max-xl:w-[16rem] max-md:w-[15rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${
+      className={`relative bg-light_1 overflow-hidden shadow-md h-full transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${
         index === 0 && "rounded-tr-xl rounded-br-xl"
       }`}
     >
-      <Link href={`/product/${id}`} className=" h-full grid grid-rows-3">
+      <Link href={`/product/${id}`} className=" h-full grid grid-rows-3 p-3">
         <ImageComponent image_url={image_url} title={title} />
-        <div className="h-full flex flex-col justify-end">
-          {/* <Title title={title} /> */}
+        <div className="h-full flex flex-col justify-between py-2">
+          <Title title={title} />
           <Status type={selling_type} />
           {/* <Rate rateNum={statistics.totalRate} /> */}
           {status ? (

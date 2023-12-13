@@ -19,6 +19,10 @@ type OrderAddress {
   zip_code     String
 }
 
+type User_id_type {
+  userId String @db.ObjectId
+}
+
 type OrderAddressCity {
   city_name String
   id        String
@@ -131,6 +135,11 @@ type ProductsStatistics {
   views     Int
 }
 
+type specificationItem {
+  label String
+  value String
+}
+
 model Account {
   id                String       @id @default(auto()) @map("_id") @db.ObjectId
   userId            String       @db.ObjectId
@@ -169,6 +178,13 @@ enum Role {
   USER
 }
 
+enum Recommendation {
+  EMPTY
+  NOT_RECOMMENDED
+  NOT_SURE
+  RECOMMENDED
+}
+
 enum PayMethod {
   NOT_PAYED
   BANK_CART
@@ -195,6 +211,7 @@ model User {
   stateId       String?       @db.ObjectId
   City          City?         @relation(fields: [cityId], references: [id])
   cityId        String?       @db.ObjectId
+  Comments      Comments[]
 
   @@map("users")
 }
@@ -241,8 +258,13 @@ model product_category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 }
 
-model product_description {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model Product_description {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  product_id  String  @unique @db.ObjectId
+  product     Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  description String
+
+  @@map("product_description")
 }
 
 model product_images {
@@ -254,24 +276,27 @@ model product_packing {
 }
 
 model Product {
-  id              String             @id @default(auto()) @map("_id") @db.ObjectId
-  main_cat        Main_cat           @relation(fields: [main_cat_id], references: [id])
-  main_cat_id     String             @db.ObjectId
-  specific_cat    Specific_cat       @relation(fields: [specific_cat_id], references: [id])
-  specific_cat_id String             @db.ObjectId
-  brand_id        String             @db.ObjectId
-  brand           Brand              @relation(fields: [brand_id], references: [id])
-  createdAt       DateTime           @db.Date
-  image_url       String
-  off_percent     Int
-  price           Int
-  selling_type    String
-  statistics      ProductsStatistics
-  status          Boolean
-  title           String
-  updatedAt       DateTime           @db.Date
-  Ad              Ad[]
-  CartItem        CartItem[]
+  id                  String                @id @default(auto()) @map("_id") @db.ObjectId
+  main_cat            Main_cat              @relation(fields: [main_cat_id], references: [id])
+  main_cat_id         String                @db.ObjectId
+  specific_cat        Specific_cat          @relation(fields: [specific_cat_id], references: [id])
+  specific_cat_id     String                @db.ObjectId
+  brand_id            String                @db.ObjectId
+  brand               Brand                 @relation(fields: [brand_id], references: [id])
+  createdAt           DateTime              @db.Date
+  image_url           String
+  off_percent         Int
+  price               Int
+  selling_type        String
+  statistics          ProductsStatistics
+  status              Boolean
+  title               String
+  updatedAt           DateTime              @db.Date
+  Ad                  Ad[]
+  CartItem            CartItem[]
+  Product_description Product_description[]
+  Comments            Comments[]
+  Specifications      Specifications[]
 
   @@map("products")
 }
@@ -352,4 +377,32 @@ model City {
   UserAddress UserAddress[]
 
   @@map("cities")
+}
+
+model Comments {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  product_id     String         @db.ObjectId
+  product        Product        @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  date           DateTime       @default(now())
+  rate           Int
+  userId         String         @db.ObjectId
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title          String
+  buyer          Boolean
+  recommendation Recommendation
+  text           String
+  like           User_id_type[]
+  dislike        User_id_type[]
+  parent         String?        @db.ObjectId
+
+  @@map("product_comments")
+}
+
+model Specifications {
+  id             String              @id @default(auto()) @map("_id") @db.ObjectId
+  product_id     String              @unique @db.ObjectId
+  product        Product             @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  specifications specificationItem[]
+
+  @@map("product_specifications")
 }

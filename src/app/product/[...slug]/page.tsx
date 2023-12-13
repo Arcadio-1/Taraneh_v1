@@ -4,12 +4,17 @@ import Breadcrumbs, {
 import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
-import ProdImage from "@/components/Product_page/image/ProdImage";
-import Prod_specification from "@/components/Product_page/specifications/Prod_specification";
-import Header from "@/components/Product_page/header/Header";
-import Prod_order from "@/components/Product_page/order/Prod_order";
 import { Metadata } from "next";
 import { getCart } from "@/lib/actions/getCart";
+import Main from "@/components/Product_page/main/Main";
+import Smilar_product_slider from "@/components/Product_page/smilar_products_slider/Smilar_product_slider";
+import Sub from "@/components/Product_page/sub/Sub";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth/authOptions";
+import {
+  CommentWithUser,
+  Specifications_select_specifications,
+} from "@/types/type";
 interface Props {
   params: {
     slug: string[];
@@ -20,6 +25,9 @@ const getProduct = cache(async (id: string) => {
   const product = await prisma.product.findUnique({
     where: { id: id },
     include: { main_cat: true, specific_cat: true, brand: true },
+  });
+  const description = await prisma.product_description.findUnique({
+    where: { id: id },
   });
   if (!product) notFound();
   return product;
@@ -40,6 +48,20 @@ export async function generateMetadata({
 
 const page = async ({ params: { slug } }: Props) => {
   const product = await getProduct(slug[0]);
+  const introduction = await prisma.product_description.findUnique({
+    where: { product_id: slug[0] },
+    select: { description: true },
+  });
+  const comments: CommentWithUser[] = await prisma.comments.findMany({
+    include: { user: { select: { name: true, family: true, id: true } } },
+  });
+
+  const specifications: Specifications_select_specifications | null =
+    await prisma.specifications.findUnique({
+      where: { product_id: slug[0] },
+      select: { specifications: true },
+    });
+
   const breadcrumbs: BreadcrumbsType[] = [
     {
       title: product.main_cat.title,
@@ -54,49 +76,25 @@ const page = async ({ params: { slug } }: Props) => {
       link: `/product/${product.id}`,
     },
   ];
-
+  const session = await getServerSession(authOptions);
   const cart = await getCart();
 
-  const amount = async () => {
-    if (cart) {
-      const product = cart.items.find((item) => item.productId === slug[0]);
-      if (product) {
-        return product.quantity;
-      } else {
-        return 0;
-      }
-    } else {
-      return 0;
-    }
-  };
-
   return (
-    <div>
-      <Breadcrumbs list={breadcrumbs} />
-      <section className="lg:grid lg:grid-cols-3 flex flex-col">
-        <ProdImage
-          product_image_url={product.image_url}
-          product_title={product.title}
-        />
-        <div className="col-span-2">
-          <Header
-            product_brand={product.brand}
-            product_title={product.title}
-            product_cat={product.specific_cat.title}
-          />
-
-          <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-1">
-            <Prod_specification product={product} />
-            <Prod_order
-              status={product.status}
-              price={product.price}
-              offPercent={product.off_percent}
-              product_Id={slug[0]}
-              amount={await amount()}
-            />
-          </div>
-        </div>
-      </section>
+    <div className="px-5 flex flex-col gap-5">
+      <div>
+        <Breadcrumbs list={breadcrumbs} />
+        <Main cart={cart} product={product} product_id={slug[0]} />
+      </div>
+      <Smilar_product_slider />
+      <Sub
+        session={session}
+        comments={comments}
+        introduction={introduction?.description}
+        specifications={specifications}
+        product_id={slug[0]}
+        cart={cart}
+        product={product}
+      />
     </div>
   );
 };

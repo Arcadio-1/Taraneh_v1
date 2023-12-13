@@ -1,5 +1,5 @@
-import Control_amount from "@/components/Product_page/order/Control_amount";
-import Prod_status from "@/components/Product_page/order/Prod_status";
+import Control_amount from "@/components/Product_page/main/order/Control_amount";
+import Prod_status from "@/components/Product_page/main/order/Prod_status";
 import { CartItemWithProduct } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,8 +1,8 @@
 "use client";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "swiper/css/scrollbar";
 import React from "react";
 
 import {
@@ -31,11 +31,11 @@ const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
         spaceBetween={2}
         slidesPerView={"auto"}
-        className={`sliderSection-swiper ${bg_color} ${classes}`}
+        className={`sliderSection-swiper ${bg_color} ${classes} !px-4`}
         navigation
       >
         {!!heroSlide && (
-          <SwiperSlide className="p-5 !max-w-[18rem] !h-auto max-xl:!max-w-[16rem] max-md:!max-w-[15rem]">
+          <SwiperSlide className="py-5 !max-w-[16rem] md:!max-w-[18rem] !h-auto">
             <HeroSlide hero={heroSlide} bg_color={bg_color} />
           </SwiperSlide>
         )}
@@ -44,7 +44,7 @@ const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
             <SwiperSlide
               key={product.id}
               id={product.id}
-              className="p-5 !max-w-[18rem] !h-auto max-xl:!max-w-[16rem] max-md:!max-w-[15rem]"
+              className="py-5 !max-w-[16rem] md:!max-w-[18rem] !h-auto"
             >
               <Product_slide_card
                 index={index}
@@ -54,7 +54,7 @@ const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
             </SwiperSlide>
           );
         })}
-        <SwiperSlide className="p-5 !max-w-[18rem] !h-auto max-xl:!max-w-[16rem] max-md:!max-w-[15rem]">
+        <SwiperSlide className="py-5 !max-w-[16rem] md:!max-w-[18rem] !h-auto">
           <LastSlide link_url="#" bg_color="bg-light_1" />
         </SwiperSlide>
       </Swiper>

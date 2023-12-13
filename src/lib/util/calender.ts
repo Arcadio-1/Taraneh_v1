@@ -3491,3 +3491,36 @@ export const faDateObjectGenerator = (date: string): Day => {
   const calender = calendarGenerator();
   return calender[dayOfYear - 1];
 };
+
+export const gregorian_to_jalali = (date?: Date) => {
+  const theDate =
+    date?.toLocaleDateString("fa-IR") || new Date().toLocaleDateString("fa-IR");
+  const splited = theDate.split("/");
+  const year = convertFaToEnDigits(splited[0]);
+  const month = convertFaToEnDigits(splited[1]);
+  const day = convertFaToEnDigits(splited[2]);
+  const months = [
+    "فروردین",
+    "اردیبهشت",
+    "خرداد",
+    "تیر",
+    "مرداد",
+    "شهریور",
+    "مهر",
+    "آبان",
+    "آذر",
+    "دی",
+    "بهمن",
+    "اسفند",
+  ];
+  const monthLabel = months[month - 1];
+  // const dayNum = getdayOfYear(theDate);
+  // const calender = calendarGenerator();
+  // return calender[dayNum - 1];
+  return {
+    year: year,
+    month: month,
+    monthLabel: monthLabel,
+    day: day,
+  };
+};

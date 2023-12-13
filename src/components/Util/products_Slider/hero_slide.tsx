@@ -17,7 +17,7 @@ const HeroSlide = ({
 }: Props) => {
   return (
     <div
-      className={`relative overflow-hidden p-2 shadow-md h-full w-[18rem] max-xl:w-[16rem] max-md:w-[15rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${bg_color} rounded-bl-xl rounded-tl-xl flex items-center justify-center`}
+      className={`relative h-full ${bg_color} flex items-center justify-center`}
     >
       <div className="flex flex-col items-center justify-evenly h-full">
         {title && (
