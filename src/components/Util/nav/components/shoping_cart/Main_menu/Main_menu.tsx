@@ -27,7 +27,7 @@ const Main_menu = ({ cats }: Props) => {
   return (
     <div className=" md:hidden">
       <Sheet>
-        <SheetTrigger asChild>
+        <SheetTrigger>
           <div>
             <MenuIcon clasees="h-12 w-12" />
           </div>

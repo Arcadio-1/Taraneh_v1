@@ -10,9 +10,9 @@ interface Props {
 const Cat_section_2 = async ({ cats }: Props) => {
   return (
     <div className="flex flex-col items-center justify-center gap-7 py-6">
-      <h1 className="mb-5 text-2xl bg-slate-50 w-full py-4 bg-opacity-40 text-center font-iranyekan_bold">
+      {/* <h1 className="mb-5 text-2xl bg-slate-50 w-full py-4 bg-opacity-40 text-center font-iranyekan_bold">
         خرید بر اساس دسته بندی
-      </h1>
+      </h1> */}
       <div className="w-full px-2 flex flex-col-reverse items-center justify-center gap-4">
         {cats.map((mainCat) => {
           return (

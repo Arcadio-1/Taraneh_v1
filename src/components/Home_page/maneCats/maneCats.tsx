@@ -14,7 +14,7 @@ const ManeCats = ({ cats }: Props) => {
         return (
           <Link
             href={`/main/${mainCat.label}`}
-            className="grow w-full flex items-center justify-evenly p-5 max-w-2xl rounded-lg bg-white backdrop-blur-sm bg-opacity-40"
+            className="grow w-full flex items-center justify-evenly p-5 max-w-2xl rounded-lg bg-white backdrop-blur-sm bg-opacity-10"
             key={mainCat.id}
           >
             <h1 className="text-dark_1 text-4xl">{mainCat.title}</h1>

@@ -12,9 +12,13 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-3">
       <Hero />
-      <div className="bg-[url('/image/coffee_background.jpg')] bg-cover bg-center bg-no-repeat">
-        <Cat_section_2 cats={cats} />
+      <div className="bg-[url('/image/coffee_background_2.jpg')] bg-cover bg-center bg-no-repeat">
+        {/* <div className="bg-gray-400 py-4"> */}
+        <h1 className="mb-5 text-2xl bg-slate-50 w-full py-4 bg-opacity-40 text-center font-iranyekan_bold">
+          خرید بر اساس دسته بندی
+        </h1>
         <ManeCats cats={cats} />
+        <Cat_section_2 cats={cats} />
       </div>
       <AdSlider />
     </div>
