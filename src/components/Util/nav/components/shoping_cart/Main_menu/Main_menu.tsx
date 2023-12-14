@@ -44,7 +44,6 @@ const Main_menu = ({ cats }: Props) => {
               {cats.map((mainCat) => {
                 return (
                   <TabsTrigger
-                    // place="mainMenu"
                     key={mainCat.id}
                     value={mainCat.id}
                     className=" pt-6 border-transparent w-full"
