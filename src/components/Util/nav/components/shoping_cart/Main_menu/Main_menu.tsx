@@ -27,9 +27,9 @@ const Main_menu = ({ cats }: Props) => {
   return (
     <div className=" md:hidden">
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <div>
-            <MenuIcon clasees="h-12 w-12" />
+            <MenuIcon clasess="h-12 w-12" />
           </div>
         </SheetTrigger>
         <SheetContent
@@ -44,7 +44,7 @@ const Main_menu = ({ cats }: Props) => {
               {cats.map((mainCat) => {
                 return (
                   <TabsTrigger
-                    place="mainMenu"
+                    // place="mainMenu"
                     key={mainCat.id}
                     value={mainCat.id}
                     className=" pt-6 border-transparent w-full"
