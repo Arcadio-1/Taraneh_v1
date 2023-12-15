@@ -31,9 +31,9 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
   }`;
   return (
     <div className="">
-      {mainCats.map((main) => {
+      {mainCats.map((main, index) => {
         return (
-          <>
+          <div key={index}>
             <Accordion
               className={`text-xl ${
                 expanded !== main.label && `!bg-transparent`
@@ -73,7 +73,7 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
               </AccordionDetails>
             </Accordion>
             {expanded === main.label && <Divider />}
-          </>
+          </div>
         );
       })}
     </div>

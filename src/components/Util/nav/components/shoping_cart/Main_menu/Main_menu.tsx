@@ -18,16 +18,29 @@ import {
 import { MainCatsWithSpecificCats } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 interface Props {
   cats: MainCatsWithSpecificCats[];
 }
+
+enum SelectedTab {
+  Drinks = "drinks",
+  Tools = "tools",
+}
 const Main_menu = ({ cats }: Props) => {
+  const [selectedTab, setSelectedTab] = useState<SelectedTab>(
+    SelectedTab.Tools
+  );
   return (
     <div className=" md:hidden">
       <Sheet>
-        <SheetTrigger asChild>
+        <SheetTrigger
+          onClick={() => {
+            setSelectedTab(SelectedTab.Tools);
+          }}
+          asChild
+        >
           <div>
             <MenuIcon clasess="h-12 w-12" />
           </div>
@@ -46,7 +59,17 @@ const Main_menu = ({ cats }: Props) => {
                   <TabsTrigger
                     key={mainCat.id}
                     value={mainCat.id}
-                    className=" pt-6 border-transparent w-full"
+                    className={`pt-6 border-transparent w-full !bg-transparent duration-0 border-b-[3px] ${
+                      selectedTab === mainCat.label ? "!bg-white" : ""
+                    }`}
+                    onClick={() => {
+                      if (mainCat.label === "tools") {
+                        setSelectedTab(SelectedTab.Tools);
+                      }
+                      if (mainCat.label === "drinks") {
+                        setSelectedTab(SelectedTab.Drinks);
+                      }
+                    }}
                   >
                     <div className="flex flex-col items-center gap-3">
                       {mainCat.title === "نوشیدنی ها" && (
