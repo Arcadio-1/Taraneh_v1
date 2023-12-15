@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Loading from "../../loading";
 import FiltersMobile from "@/components/Search_page/filters/FiltersMobile";
+import Not_found from "@/components/Search_page/Products/Not_found";
 
 interface SearchPageProps {
   searchParams: {
@@ -103,17 +104,19 @@ const All_products_page = async ({
           />
         </div>
         <Suspense fallback={<Loading />}>
-          {!!products.length && <Products products={products} />}
+          {!!products.length ? <Products products={products} /> : <Not_found />}
         </Suspense>
-        <PageinationBar
-          bQ={bQhelper()}
-          sort={sort}
-          searchQuery={searchQuery}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          maxPrice={maxPrice}
-          minPrice={minPrice}
-        />
+        {!!totalPages && (
+          <PageinationBar
+            bQ={bQhelper()}
+            sort={sort}
+            searchQuery={searchQuery}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
+          />
+        )}
       </main>
     </div>
   );

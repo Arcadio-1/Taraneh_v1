@@ -9,9 +9,7 @@ import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Loading from "../loading";
 import FiltersMobile from "@/components/Search_page/filters/FiltersMobile";
-import Image from "next/image";
-import Notfound_Svg from "@/assets/images/util/not-found.svg";
-import InfoIcon from "@/components/Util/icons/InfoIcon";
+import Not_found from "@/components/Search_page/Products/Not_found";
 interface SearchPageProps {
   searchParams: {
     searchQuery: string;
@@ -105,29 +103,7 @@ const All_products_page = async ({
           />
         </div>
         <Suspense fallback={<Loading />}>
-          {!!products.length ? (
-            <Products products={products} />
-          ) : (
-            <div className="flex flex-col justify-center items-center gap-6  w-full max-w-2xl mx-auto p-8">
-              <Image
-                src={Notfound_Svg}
-                width={200}
-                height={80}
-                alt="کالایی با این مشخصات پیدا نکردیم"
-              />
-              <div className="flex items-start gap-4 py-6 px-4 border rounded-lg grow w-full">
-                <InfoIcon classes="w-8 h-8 fill-orange-300" />
-                <div className="flex flex-col gap-3">
-                  <h1 className="font-iranyekan_bold text-xl">
-                    کالایی با این مشخصات پیدا نکردیم
-                  </h1>
-                  <h2 className="font-iranyekan_bold text-md">
-                    پیشنهاد می‌کنیم فیلترها را تغییر دهید
-                  </h2>
-                </div>
-              </div>
-            </div>
-          )}
+          {!!products.length ? <Products products={products} /> : <Not_found />}
         </Suspense>
         {!!totalPages && (
           <PageinationBar
