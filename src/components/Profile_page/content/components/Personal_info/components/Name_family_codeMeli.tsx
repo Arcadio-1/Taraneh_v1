@@ -27,9 +27,12 @@ import { z } from "zod";
 
 interface Props {
   userId: string;
+  name: string;
+  family: string;
+  code_meli: string;
 }
 
-const Name_family_codeMeli = ({ userId }: Props) => {
+const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
   const [mount, setMount] = useState(false);
 
   useEffect(() => {
@@ -41,9 +44,9 @@ const Name_family_codeMeli = ({ userId }: Props) => {
   const form = useForm<z.infer<typeof personalInfoFormSchame>>({
     resolver: zodResolver(personalInfoFormSchame),
     defaultValues: {
-      name: "",
-      family: "",
-      code_meli: "",
+      name: name,
+      family: family,
+      code_meli: code_meli,
     },
   });
 

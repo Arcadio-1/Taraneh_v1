@@ -1,47 +1,63 @@
 "use client";
-import { useGlobalContext } from "@/app/(provider)/Provider";
-import { resetCart } from "@/lib/actions/manageCart";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import ArrowIcon, { Arrow } from "../Util/icons/ArrowIcon";
 import { useRouter } from "next/navigation";
-
+import { PayMethod } from "@prisma/client";
+import Image from "next/image";
+import Success_payment_image from "@/assets/images/util/success_payment.png";
 interface Props {
   tracking_code: string;
+  payment_method: PayMethod | undefined;
 }
 
-const Success_payment = ({ tracking_code }: Props) => {
+const Success_payment = ({ tracking_code, payment_method }: Props) => {
   const router = useRouter();
   useEffect(() => {
     router.refresh();
   }, [router]);
 
   return (
-    <div className="flex p-5 border items-center justify-center h-[60vh] w-full">
-      <div className="w-full sm:w-[30rem] md:w-[35rem] lg:w-[40rem] xl:w-[45rem] border rounded-lg">
-        <div className="border-b text-center py-3 bg-success rounded-tl-lg rounded-tr-lg">
-          <h1 className="text-light_2 font-iranyekan_bold ">
-            سفارش شما با موفقیت ثبت شد
-          </h1>
+    <div className="border rounded-lg py-4 px-6 flex items-center justify-between w-full max-w-4xl my-5  mx-auto">
+      <div className="flex flex-col items-start gap-3 font-iranyekan_bold">
+        <h1 className="font-iranyekan_bold text-xl text-green-600 pb-2">
+          سفارش شما با موفقیت ثبت گردید.
+        </h1>
+        <div className="flex gap-2 items-center text-md">
+          <span className="text-dark_6">شماره سفارش</span>
+          <span>{tracking_code}</span>
         </div>
-        <div className="flex flex-col gap-2 py-4">
-          <div className="px-4 border-b py-2 font-iranyekan_bold">
-            <label>شماره پیگیری : </label>
-            <span className="font-iransansnum text-xl">{tracking_code}</span>
-          </div>
-          <div className="px-4">
-            <Link
-              href={"/profile"}
-              className="flex items-center gap-1 text-g1_7 group "
-            >
-              مشاهده لیست سفارشات
-              <ArrowIcon
-                direction={Arrow.left}
-                classes="h-4 w-4 fill-g1_7 group-hover:-translate-x-2"
-              />
-            </Link>
-          </div>
+        <div className="flex gap-2 items-center text-md">
+          <span className="text-dark_6">روش پرداخت</span>
+          <span>
+            {payment_method === PayMethod.BANK_CART ? "پرداخت آنلاین" : ""}
+            {payment_method === PayMethod.CRIDIT ? "پرداخت اعتباری" : ""}
+            {payment_method === PayMethod.ORGANAZATION_CRIDIT
+              ? "پرداخت سازمانی "
+              : ""}
+
+            {payment_method === PayMethod.POS ? "پرداخت در محل " : ""}
+          </span>
         </div>
+        <div className="flex gap-3 font-iransansbold pt-4 items-center">
+          <Link
+            href={`/profile/order/${tracking_code}`}
+            className="bg-g1_5 text-md text-white py-3 px-3 rounded-lg"
+          >
+            ویرایش و پیگیری سفارش
+          </Link>
+          <Link href={"/"} className="text-g1_5 text-md py-3 px-3 rounded-lg">
+            بازگشت به کافه ترانه
+          </Link>
+        </div>
+      </div>
+      <div>
+        <Image
+          src={Success_payment_image}
+          width={100}
+          height={100}
+          alt="success payment"
+        />
       </div>
     </div>
   );

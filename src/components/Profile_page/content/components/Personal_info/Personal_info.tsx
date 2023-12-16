@@ -49,7 +49,12 @@ const Personal_info = ({ session, address }: Props) => {
             )}
           </div>
           <div>
-            <Name_family_codeMeli userId={session.user.id} />
+            <Name_family_codeMeli
+              name={session.user.name}
+              family={session.user.family}
+              code_meli={session.user.code_meli}
+              userId={session.user.id}
+            />
           </div>
         </div>
         <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">
@@ -69,7 +74,7 @@ const Personal_info = ({ session, address }: Props) => {
             )}
           </div>
           <div>
-            <Phone userId={session.user.id} />
+            <Phone userId={session.user.id} phone={session.user.phone} />
           </div>
         </div>
         <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">
@@ -89,7 +94,7 @@ const Personal_info = ({ session, address }: Props) => {
             )}
           </div>
           <div>
-            <Email userId={session.user.id} />
+            <Email userId={session.user.id} email={session.user.email} />
           </div>
         </div>
         <div className="flex justify-between bg-dark_6 bg-opacity-5 rounded-lg py-2 px-4">

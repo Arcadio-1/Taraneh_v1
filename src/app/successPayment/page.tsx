@@ -5,8 +5,8 @@ import { authOptions } from "@/lib/auth/authOptions";
 import { getCart } from "@/lib/actions/getCart";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db/prisma";
-import { OrderStatus } from "@prisma/client";
-import { resetCart } from "@/lib/actions/manageCart";
+import { OrderStatus, PayMethod } from "@prisma/client";
+import Smilar_product_slider from "@/components/Product_page/smilar_products_slider/Smilar_product_slider";
 
 interface Props {
   searchParams: { tracking_code: string };
@@ -27,12 +27,22 @@ const page = async ({ searchParams: tracking_code }: Props) => {
       id: tracking_code.tracking_code,
     },
   });
+  if (!order?.payment_method && order?.payment_method === PayMethod.NOT_PAYED) {
+    redirect("/");
+  }
+  if (order?.status !== OrderStatus.NOT_CONFIRMED) {
+    redirect("/");
+  }
   if (order && cart) {
     await prisma.cart.delete({ where: { id: cart.id } });
   }
   return (
-    <div>
-      <Success_payment tracking_code={tracking_code.tracking_code} />
+    <div className="flec flex-col items-center justify-center">
+      <Success_payment
+        payment_method={order?.payment_method}
+        tracking_code={tracking_code.tracking_code}
+      />
+      <Smilar_product_slider />
     </div>
   );
 };

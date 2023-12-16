@@ -17,12 +17,7 @@ import Samandehi from "@/assets/images/footer/samandehi.jpg";
 import ScrollToTopBtn from "./ScrollToTopBtn";
 import { usePathname } from "next/navigation";
 
-const footerDiablerPaths: string[] = [
-  "/shipping",
-  "/payment",
-  "/successPayment",
-  "/profile",
-];
+const footerDiablerPaths: string[] = ["/shipping", "/payment", "/profile"];
 
 const Footer = () => {
   const pathname = usePathname();

@@ -73,6 +73,7 @@ const page = async ({ params: { product_id } }: Props) => {
   });
   const comments: CommentWithUser[] = await prisma.comments.findMany({
     include: { user: { select: { name: true, family: true, id: true } } },
+    orderBy: { date: "desc" },
   });
 
   const specifications: Specifications_select_specifications | null =

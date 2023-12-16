@@ -30,7 +30,7 @@ const getProduct = cache(async (id: string) => {
     where: { id: id },
   });
   if (!product) notFound();
-  return product;
+  return { product, description };
 });
 
 export async function generateMetadata({
@@ -38,22 +38,20 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const product = await getProduct(slug[0]);
   return {
-    title: "ترانه - " + product.title,
-    description: product.title,
+    title: "ترانه - " + product.product.title,
+    description: product.description?.description || product.product.title,
     openGraph: {
-      images: [{ url: product.image_url }],
+      images: [{ url: product.product.image_url }],
     },
   };
 }
 
 const page = async ({ params: { slug } }: Props) => {
   const product = await getProduct(slug[0]);
-  const introduction = await prisma.product_description.findUnique({
-    where: { product_id: slug[0] },
-    select: { description: true },
-  });
+
   const comments: CommentWithUser[] = await prisma.comments.findMany({
     include: { user: { select: { name: true, family: true, id: true } } },
+    orderBy: { date: "desc" },
   });
 
   const specifications: Specifications_select_specifications | null =
@@ -64,16 +62,16 @@ const page = async ({ params: { slug } }: Props) => {
 
   const breadcrumbs: BreadcrumbsType[] = [
     {
-      title: product.main_cat.title,
-      link: `/main/${product.main_cat.label}`,
+      title: product.product.main_cat.title,
+      link: `/main/${product.product.main_cat.label}`,
     },
     {
-      title: product.specific_cat.title,
-      link: `/search/${product.specific_cat.label}`,
+      title: product.product.specific_cat.title,
+      link: `/search/${product.product.specific_cat.label}`,
     },
     {
-      title: product.title,
-      link: `/product/${product.id}`,
+      title: product.product.title,
+      link: `/product/${product.product.id}`,
     },
   ];
   const session = await getServerSession(authOptions);
@@ -83,17 +81,17 @@ const page = async ({ params: { slug } }: Props) => {
     <div className="px-5 flex flex-col gap-5">
       <div>
         <Breadcrumbs list={breadcrumbs} />
-        <Main cart={cart} product={product} product_id={slug[0]} />
+        <Main cart={cart} product={product.product} product_id={slug[0]} />
       </div>
       <Smilar_product_slider />
       <Sub
         session={session}
         comments={comments}
-        introduction={introduction?.description}
+        introduction={product.description?.description}
         specifications={specifications}
         product_id={slug[0]}
         cart={cart}
-        product={product}
+        product={product.product}
       />
     </div>
   );

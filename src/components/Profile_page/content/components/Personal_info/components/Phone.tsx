@@ -29,9 +29,10 @@ import { z } from "zod";
 
 interface Props {
   userId: string;
+  phone: string;
 }
 
-const Phone = ({ userId }: Props) => {
+const Phone = ({ userId, phone }: Props) => {
   const [mount, setMount] = useState(false);
   const [submitError, setSubmitError] = useState<string>("");
 
@@ -44,7 +45,7 @@ const Phone = ({ userId }: Props) => {
   const form = useForm<z.infer<typeof phoneSchame>>({
     resolver: zodResolver(phoneSchame),
     defaultValues: {
-      phone: "",
+      phone: phone,
     },
   });
 
