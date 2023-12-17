@@ -18,8 +18,10 @@ const Specifications = ({ specifications }: Props) => {
         </div>
         <div>
           <div className="grid grid-cols-4">
-            <h2 className="font-iransansbold text-2xl text-dark_4">مشخصات</h2>
-            <div className="col-span-3">
+            <h2 className="hidden md:block font-iransansbold text-2xl text-dark_4">
+              مشخصات
+            </h2>
+            <div className="col-span-4 md:col-span-3">
               <div className=" flex flex-col gap-2">
                 {specifications.map((item, index) => {
                   return (

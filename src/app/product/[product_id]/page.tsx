@@ -91,10 +91,6 @@ const page = async ({ params: { product_id } }: Props) => {
       title: product.specific_cat.title,
       link: `/search/${product.specific_cat.label}`,
     },
-    {
-      title: product.title,
-      link: `/product/${product.id}`,
-    },
   ];
 
   const cart = await getCart();

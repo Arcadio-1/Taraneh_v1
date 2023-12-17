@@ -55,7 +55,7 @@ const Sub = ({
             />
           )}
         </div>
-        <div className="sticky top-10 z-20 px-5 py-[4rem] self-start shrink hidden lg:flex min-w-[20rem]">
+        <div className="sticky top-10 z-20 px-5 py-[4rem] self-start shrink hidden lg:flex min-w-[24rem]">
           <Prod_order
             status={product.status}
             price={product.price}

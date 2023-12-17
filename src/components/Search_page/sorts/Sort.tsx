@@ -135,11 +135,6 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
                 );
               })}
             </div>
-            {/* <SheetFooter>
-                <SheetClose asChild>
-                  <Button type="submit">Save changes</Button>
-                </SheetClose>
-              </SheetFooter> */}
           </SheetContent>
         </Sheet>
       </div>

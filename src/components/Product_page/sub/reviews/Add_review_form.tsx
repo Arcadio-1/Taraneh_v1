@@ -51,6 +51,7 @@ const Add_review_form = ({
   product_title,
   setOpen,
 }: Props) => {
+  const rateRange = [0, 1, 2, 3, 4, 5];
   const form = useForm<z.infer<typeof commentSchame>>({
     resolver: zodResolver(commentSchame),
     defaultValues: {
@@ -108,35 +109,42 @@ const Add_review_form = ({
             control={form.control}
             name="rate"
             render={({ field }) => (
-              <FormItem className="grow">
+              <FormItem className="grow pb-5">
                 <FormLabel className="text-lg font-iranyekan_bold">
                   امتیاز شما
                 </FormLabel>
                 <span className="text-g1_5 text-lg">*</span>
-                <div className="relative">
-                  <FormControl>
-                    <Slider
-                      // {...field}
-                      dir="rtl"
-                      defaultValue={[RateEnum.Empty]}
-                      max={RateEnum.Excellent}
-                      step={10}
-                      onValueChange={(e) => {
-                        console.log(e[0]);
-                        form.setValue("rate", e[0]);
-                      }}
-                      className={`bg-g1_7 rounded-lg z-40`}
-                    />
-                  </FormControl>
-                  <div className="flex items-center justify-between mt-4 absolute bottom-[-4px] w-full">
-                    <span className="bg-slate-300"></span>
-                    <DotIcon classes="h-6 w-6 fill-g1_7 mr-[11px]" />
-                    <DotIcon classes="h-6 w-6 fill-g1_7 " />
-                    <DotIcon classes="h-6 w-6 fill-g1_7 " />
-                    <DotIcon classes="h-6 w-6 fill-g1_7 " />
-                    <DotIcon classes="h-6 w-6 fill-g1_7 " />
+                <div className="flex gap-3 items-center">
+                  <div className="relative grow">
+                    <FormControl>
+                      <Slider
+                        // {...field}
+                        dir="rtl"
+                        defaultValue={[RateEnum.Empty]}
+                        max={RateEnum.Excellent}
+                        step={10}
+                        onValueChange={(e) => {
+                          console.log(e[0]);
+                          form.setValue("rate", e[0]);
+                        }}
+                        className={`bg-g1_7 rounded-lg z-10`}
+                      />
+                    </FormControl>
+                    <div className="flex items-center justify-between absolute bottom-[-19px] w-full">
+                      {rateRange.map((number) => {
+                        return (
+                          <div key={number} className="flex flex-col">
+                            <DotIcon classes="h-6 w-6 fill-g1_7" />
+                            <span className="text-center text-xl font-iransansnum w-full grow mx-auto">
+                              {number}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
+
                 <FormMessage className="pt-2 text-md text-red-800 font-iranyekan_bold" />
               </FormItem>
             )}

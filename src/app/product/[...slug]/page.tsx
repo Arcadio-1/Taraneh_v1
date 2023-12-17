@@ -69,10 +69,6 @@ const page = async ({ params: { slug } }: Props) => {
       title: product.product.specific_cat.title,
       link: `/search/${product.product.specific_cat.label}`,
     },
-    {
-      title: product.product.title,
-      link: `/product/${product.product.id}`,
-    },
   ];
   const session = await getServerSession(authOptions);
   const cart = await getCart();
