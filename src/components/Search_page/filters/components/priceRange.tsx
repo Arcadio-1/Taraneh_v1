@@ -194,13 +194,14 @@ export default function PriceRange({
         {/* <Box sx={{ width: 300 }}> */}
         <AirbnbSlider
           dir="ltr"
-          className="font-iransansbold text-xl"
+          className="font-iransansbold text-md text-red-400"
           getAriaLabel={() => "Minimum distance"}
           value={value}
           onChange={handleChange}
           valueLabelDisplay="auto"
           // getAriaValueText={valuetext}
           disableSwap
+          sx={{ ".MuiSlider-markLabel": { fontSize: "1rem" } }}
           min={minValue}
           max={maxValue}
           marks={marks}
