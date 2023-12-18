@@ -8,12 +8,12 @@ export interface Hero_slide_type {
 }
 interface Props {
   link_url: string;
-  bg_color: string;
+  bg_color?: string;
 }
-const LastSlide = ({ link_url, bg_color }: Props) => {
+const LastSlide = ({ link_url, bg_color = "bg-white" }: Props) => {
   return (
     <div
-      className={`relative bg-light_1 overflow-hidden p-2 shadow-md h-full w-[18rem] max-xl:w-[16rem] max-md:w-[15rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${bg_color} rounded-bl-xl rounded-tl-xl flex items-center justify-center `}
+      className={`relative  overflow-hidden p-2 shadow-md h-full w-[18rem] max-xl:w-[16rem] max-md:w-[15rem] transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${bg_color} rounded-bl-xl rounded-tl-xl flex items-center justify-center `}
     >
       <Link
         className="flex items-center flex-col justify-center gap-4"
@@ -25,7 +25,7 @@ const LastSlide = ({ link_url, bg_color }: Props) => {
             classes=" h-10 w-10 fill-g1_6"
           />
         </div>
-        <span className="font-iranyekan_bold text-xl">مشاهده همه</span>
+        <span className="font-iranyekan_bold text-lg">مشاهده همه</span>
       </Link>
     </div>
   );

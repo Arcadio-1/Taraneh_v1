@@ -23,8 +23,15 @@ interface Props {
   bg_color: string;
   classes?: string;
   heroSlide?: Hero_slide_type;
+  lastSlide_bg_color?: string;
 }
-const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
+const Products_Slider = ({
+  products,
+  heroSlide,
+  bg_color,
+  classes,
+  lastSlide_bg_color,
+}: Props) => {
   return (
     <section>
       <Swiper
@@ -55,7 +62,7 @@ const Products_Slider = ({ products, heroSlide, bg_color, classes }: Props) => {
           );
         })}
         <SwiperSlide className="py-5 !max-w-[16rem] md:!max-w-[18rem] !h-auto">
-          <LastSlide link_url="#" bg_color="bg-light_1" />
+          <LastSlide link_url="#" bg_color={lastSlide_bg_color} />
         </SwiperSlide>
       </Swiper>
     </section>

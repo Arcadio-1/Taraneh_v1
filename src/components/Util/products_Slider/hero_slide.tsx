@@ -21,7 +21,7 @@ const HeroSlide = ({
     >
       <div className="flex flex-col items-center justify-evenly h-full">
         {title && (
-          <h1 className="text-[1.5rem] text-gray-50 ml-auto font-iransansbold">
+          <h1 className="text-xl text-gray-50 ml-auto font-iransansbold">
             {title}
           </h1>
         )}

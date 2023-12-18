@@ -9,7 +9,7 @@ interface Props {
 
 const Item = ({ cat }: Props) => {
   return (
-    <div className="grow bg-g1_1 rounded-lg shadow-md shadow-slate-300 hover:scale-[1.01]">
+    <div className="grow bg-g1_7 rounded-lg shadow-md shadow-slate-300 hover:scale-[1.01]">
       <Link title={cat.title} href={`main/${cat.label}`}>
         <div className="flex justify-around items-center gap-2 ">
           <div className="flex items-center">

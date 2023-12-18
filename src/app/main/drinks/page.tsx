@@ -43,7 +43,7 @@ const DrinkPage = async () => {
         />
         <Brands drinks_id={drinks.id} title="برترین برند ها" />
         <Cat_by_statistics__drinks />
-        <Brand_top_sells brand_titleEn="Farmand" />
+        {/* <Brand_top_sells brand_titleEn="Farmand" /> */}
       </div>
     </div>
   );

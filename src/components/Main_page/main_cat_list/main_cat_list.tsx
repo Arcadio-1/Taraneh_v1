@@ -10,7 +10,7 @@ interface Props {
 const Main_cat_list = ({ main_cats }: Props) => {
   return (
     <section className=" p-2">
-      <Title />
+      {/* <Title /> */}
       <List main_cats={main_cats} />
     </section>
   );

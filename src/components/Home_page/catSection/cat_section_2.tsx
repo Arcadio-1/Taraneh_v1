@@ -23,7 +23,7 @@ const Cat_section_2 = async ({ cats }: Props) => {
               {mainCat.Specific_cat.map((specific) => {
                 return (
                   <div
-                    className="rounded-lg bg-white backdrop-blur-sm bg-opacity-40 border-dark_6 border-opacity-10 hover:border-transparent p-2 transition-all duration-150 hover:scale-[1.015] hover:shadow-lg flex items-center grow flex-col justify-between gap-4"
+                    className="rounded-lg bg-white backdrop-blur-sm bg-opacity-70 border-dark_6 border-opacity-10 hover:border-transparent py-2 px-4 transition-all duration-150 hover:scale-[1.015] hover:shadow-lg flex items-center grow flex-col justify-between gap-4"
                     key={specific.id}
                   >
                     <Link
@@ -36,7 +36,7 @@ const Cat_section_2 = async ({ cats }: Props) => {
                         height={100}
                         alt={specific.title}
                       />
-                      <h2 className="font-iranyekan_bold text-dark-1 text-xl">
+                      <h2 className="font-iranyekan_bold text-dark_1 text-xl">
                         {specific.title}
                       </h2>
                     </Link>

@@ -18,7 +18,7 @@ const Main_cat_slider = ({ lists_of_lists }: Props) => {
                 link_url: `main/${catProducts[0].main_cat.label}`,
                 title: `پرفروش ترین ${catProducts[0].main_cat.title}`,
               }}
-              bg_color={`bg-g1_1`}
+              bg_color={`bg-g1_7`}
               products={catProducts}
             />
           </div>

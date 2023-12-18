@@ -43,7 +43,7 @@ const ToolsPage = async () => {
         />
         <Brands drinks_id={tools.id} title="برترین برند ها" />
         <Cat_by_use />
-        <Brand_top_sells brand_titleEn="Farmand" />
+        {/* <Brand_top_sells brand_titleEn="Farmand" /> */}
       </div>
     </div>
   );
