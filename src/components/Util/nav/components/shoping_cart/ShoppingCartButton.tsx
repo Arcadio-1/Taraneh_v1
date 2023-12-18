@@ -32,7 +32,7 @@ const ShoppingCartButton = ({ cart }: Props) => {
                   <CartIcon classes="h-9 w-9 fill-dark_4" />
                 </div>
               </HoverCardTrigger>
-              <HoverCardContent className="w-[40rem] rounded-[5px] bg-white z-50">
+              <HoverCardContent className="w-[40rem] rounded-[5px] !bg-white z-50">
                 <Shopping_cart sheet={false} cart={cart} />
               </HoverCardContent>
             </HoverCard>
