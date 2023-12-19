@@ -108,7 +108,7 @@ export default function Filters({
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
-          <Typography className="!font-iranyekan_bold text-lg">
+          <Typography className="!text-dark_3 !font-iranyekan_bold !text-lg">
             دسته بندی ها
           </Typography>
         </AccordionSummary>
@@ -125,17 +125,23 @@ export default function Filters({
         onChange={expandHandler("panel2")}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography className="!font-iranyekan_bold text-lg" fontSize={11}>
+          <Typography
+            className="!text-dark_3 !font-iranyekan_bold  !text-lg"
+            fontSize={11}
+          >
             برند ها
           </Typography>
         </AccordionSummary>
         <AccordionDetails className="bg-slate-100 flex flex-col gap-2 h-96 overflow-auto">
           {brands.map((brand) => {
             return (
-              <div key={brand.id} className="flex justify-between">
-                <div className="flex">
+              <div
+                key={brand.id}
+                className="flex justify-between items-center pb-3"
+              >
+                <div className="flex items-center">
                   <input
-                    className=" cursor-pointer"
+                    className="w-6 h-6 cursor-pointer"
                     type="checkbox"
                     checked={
                       brandsList
@@ -148,14 +154,14 @@ export default function Filters({
                   />
                   <label
                     htmlFor={brand.title_en}
-                    className="text-lg cursor-pointer px-2"
+                    className="font-iranyekan_bold text-dark_3 !text-lg cursor-pointer px-2"
                   >
                     {brand.title_fr}
                   </label>
                 </div>
                 <label
                   htmlFor={brand.title_en}
-                  className="text-lg grow text-left cursor-pointer"
+                  className="font-iranyekan_bold text-dark_3 !text-lg grow text-left cursor-pointer"
                 >
                   {brand.title_en}
                 </label>
@@ -169,7 +175,7 @@ export default function Filters({
         onChange={expandHandler("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography className="text-lg !font-iranyekan_bold">
+          <Typography className="!text-dark_3  !text-lg !font-iranyekan_bold">
             محدوده قیمت
           </Typography>
         </AccordionSummary>

@@ -69,7 +69,6 @@ const All_products_page = async ({
   const mainCats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
     include: { Specific_cat: true },
   });
-  console.log(totalPages);
   return (
     <div className="flex items-stretch mt-3">
       <aside className="hidden md:block border-2 w-[28rem] text-dark_4 border-dark_6 border-opacity-40 rounded-xl py-3 px-5">

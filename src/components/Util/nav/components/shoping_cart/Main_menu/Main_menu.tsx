@@ -1,4 +1,5 @@
 "use client";
+import AllIcon from "@/components/Util/icons/AllIcon";
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import DrinksIcon from "@/components/Util/icons/DrinksIcon";
 import MenuIcon from "@/components/Util/icons/MenuIcon";
@@ -29,12 +30,13 @@ enum SelectedTab {
   Tools = "tools",
 }
 const Main_menu = ({ cats }: Props) => {
+  const [open, setOpen] = React.useState(false);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>(
     SelectedTab.Tools
   );
   return (
     <div className=" md:hidden">
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger
           onClick={() => {
             setSelectedTab(SelectedTab.Tools);
@@ -78,13 +80,26 @@ const Main_menu = ({ cats }: Props) => {
                       {mainCat.title === "ابزار تهیه نوشیدنی" && (
                         <ToolsIcon classes="h-8 w-8 fill-dark_4" />
                       )}
-                      <span className="text-lg font-iranyekan_bold">
+                      <span className="text-xl font-iranyekan_bold">
                         {mainCat.title}
                       </span>
                     </div>
                   </TabsTrigger>
                 );
               })}
+              <TabsTrigger
+                value={"show all"}
+                className={`pt-6 border-transparent w-full !bg-transparent duration-0 border-b-[3px]`}
+              >
+                <Link href={"/search"} onClick={() => setOpen(false)}>
+                  <div className="flex flex-col items-center gap-3">
+                    <AllIcon classes="h-8 w-8 fill-dark_4" />
+                    <span className=" font-iranyekan_bold text-xl">
+                      همه محصولات
+                    </span>
+                  </div>
+                </Link>
+              </TabsTrigger>
             </TabsList>
             {cats.map((mainCat) => {
               return (
@@ -108,7 +123,7 @@ const Main_menu = ({ cats }: Props) => {
                                 />
                               </div>
                               <div className="flex justify-center items-center text-sm">
-                                <span className="text-center font-iranyekan_bold text-dark_3 mb-auto">
+                                <span className="text-center font-iranyekan_bold text-dark_3 mb-auto text-lg">
                                   {specific.title}
                                 </span>
                               </div>
@@ -117,22 +132,21 @@ const Main_menu = ({ cats }: Props) => {
                         </SheetClose>
                       );
                     })}
+                    <SheetClose asChild>
+                      <Link href={`/search/${mainCat.label}`}>
+                        <div className="flex flex-col gap-2 items-center justify-center">
+                          <div className="bg-slate-200 w-24 h-24 md:w28 md:h-28 flex justify-center items-center rounded-full">
+                            <AllIcon classes="h-10 w-10 fill-dark_4" />
+                          </div>
+                          <div className="flex justify-center items-center text-sm">
+                            <span className="text-center font-iranyekan_bold text-dark_3 mb-auto text-lg">
+                              مشاهده همه
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    </SheetClose>
                   </div>
-                  <SheetClose asChild>
-                    <Link
-                      className="flex items-center justify-end gap-2 w-full ml-auto text-right py-2 "
-                      href={`/search/${mainCat.label}`}
-                    >
-                      <ArrowIcon
-                        classes="h-5 w-5 fill-g1_7"
-                        direction={Arrow.left}
-                      />
-                      <div className="text-g1_7 text-lg">
-                        <span>مشاهده همه</span>
-                        <span> {mainCat.title} </span>
-                      </div>
-                    </Link>
-                  </SheetClose>
                 </TabsContent>
               );
             })}

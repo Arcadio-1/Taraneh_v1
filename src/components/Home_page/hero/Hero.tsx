@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
         {hero_Images.map((hero_image, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="h-full min-h-[256px] bg-red-300">
+              <div className="h-full min-h-[256px]">
                 <Image
                   src={hero_image}
                   alt="hero "

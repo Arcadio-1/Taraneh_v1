@@ -2,13 +2,13 @@
 import * as React from "react";
 import { MainCatsWithSpecificCats } from "@/types/type";
 import Link from "next/link";
-import { PlusIcon } from "lucide-react";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
 } from "./AccordionStyled";
 import { Divider } from "@mui/material";
+import AllIcon from "@/components/Util/icons/AllIcon";
 
 interface Props {
   mainCats: MainCatsWithSpecificCats[];
@@ -35,7 +35,7 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
         return (
           <div key={index}>
             <Accordion
-              className={`text-md ${
+              className={`text-xl md:text-md md:font-iranyekan ${
                 expanded !== main.label && `!bg-transparent`
               }  `}
               expanded={expanded === `${main.label}`}
@@ -44,19 +44,19 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
               // className="!bg-transparent"
             >
               <AccordionSummary
-                className="!bg-transparent text-md"
+                className="!bg-transparent text-xl md:text-md md:font-iranyekan font-iransansbold !text-dark_3"
                 aria-controls={`${main.label}d-content`}
                 id={`${main.label}d-header`}
               >
                 {main.title}
               </AccordionSummary>
-              <AccordionDetails className="flex flex-col gap-6 !bg-transparent !pt-0">
+              <AccordionDetails className="flex flex-col gap-2 !bg-transparent !pr-8 !pt-0">
                 {main.Specific_cat.map((specific) => {
                   return (
                     <Link
                       href={`/search/${specific.label}${url}`}
                       key={specific.id}
-                      className="font-iranyekan_bold text-dark_4 text-md"
+                      className="font-iranyekan_bold text-dark_4 text-lg md:text-md md:font-iranyekan border-b-[1px] pb-2 border-slate-200"
                     >
                       {specific.title}
                     </Link>
@@ -65,9 +65,10 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
                 <Link
                   href={`/search/${main.label}${url}`}
                   key={main.id}
-                  className="font-iranyekan_bold border-b-2 border-transparent hover:border-b-slate-500 flex items-center gap-2 text-md"
+                  className="font-iranyekan_bold border-b-2 border-transparent hover:border-b-slate-500 flex items-center gap-2 text-lg md:text-md md:font-iranyekan pt-3"
                 >
-                  <PlusIcon className="stroke-g1_6" height={12} width={12} />
+                  <AllIcon classes="h-8 w-8 fill-dark_4" />
+
                   <span className="text-dark_4">{`همه ${main.title}`} </span>
                 </Link>
               </AccordionDetails>
