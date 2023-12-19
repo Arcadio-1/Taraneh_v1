@@ -7,10 +7,6 @@ import { CommentWithUser } from "@/types/type";
 import { Session } from "next-auth";
 import { Element } from "react-scroll";
 import ReviewItem_mobile from "./ReviewItem_mobile";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import {
   Navigation,
   Pagination,

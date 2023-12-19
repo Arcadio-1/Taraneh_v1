@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("swiper/css");
+@import url("swiper/css/navigation");
+@import url("swiper/css/pagination");
+@import url("swiper/css/scrollbar");
+@import url("swiper/css/autoplay");
 
 // /* width */
 // ::-webkit-scrollbar {

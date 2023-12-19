@@ -13,7 +13,7 @@ const ManeCats = ({ cats }: Props) => {
       {cats.map((mainCat) => {
         return (
           <Link
-            href={`/main/${mainCat.label}`}
+            href={`/${mainCat.label}`}
             className="grow w-full flex items-center justify-evenly p-5 max-w-2xl rounded-lg bg-white backdrop-blur-sm bg-opacity-10"
             key={mainCat.id}
           >

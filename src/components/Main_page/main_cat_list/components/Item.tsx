@@ -10,7 +10,7 @@ interface Props {
 const Item = ({ cat }: Props) => {
   return (
     <div className="grow bg-g1_7 rounded-lg shadow-md shadow-slate-300 hover:scale-[1.01]">
-      <Link title={cat.title} href={`main/${cat.label}`}>
+      <Link title={cat.title} href={`${cat.label}`}>
         <div className="flex justify-around items-center gap-2 ">
           <div className="flex items-center">
             <span className="text-[1.4rem] font-iranyekan_bold text-gray-50">

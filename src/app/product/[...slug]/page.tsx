@@ -63,7 +63,7 @@ const page = async ({ params: { slug } }: Props) => {
   const breadcrumbs: BreadcrumbsType[] = [
     {
       title: product.product.main_cat.title,
-      link: `/main/${product.product.main_cat.label}`,
+      link: `search/${product.product.main_cat.label}`,
     },
     {
       title: product.product.specific_cat.title,
