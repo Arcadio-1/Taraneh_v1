@@ -26,6 +26,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { phoneSchame } from "@/lib/util/validation";
 import { z } from "zod";
+import { convert_to_en_number } from "@/lib/util/translateNumbers";
 
 interface Props {
   userId: string;
@@ -50,14 +51,18 @@ const Phone = ({ userId, phone }: Props) => {
   });
 
   const onSubmit = async (values: z.infer<typeof phoneSchame>) => {
+    const isValid = phoneSchame.safeParse(values);
     if (values.phone === data?.user.phone) {
       setSubmitError("لطفا شماره جدید وارد کنید!");
       return;
     }
+    const phone_number: z.infer<typeof phoneSchame> = {
+      phone: convert_to_en_number(values.phone),
+    };
     const res = update({
       feild: "phone",
       id: userId,
-      data: { ...values },
+      data: { ...phone_number },
     });
     const res2 = await res;
     if (res2?.user.phone !== values.phone) {

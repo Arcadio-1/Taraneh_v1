@@ -5,6 +5,7 @@ import { prisma } from "../db/prisma";
 import { AddressSchame } from "../util/validation";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
+import { convert_to_en_number } from "../util/translateNumbers";
 
 export async function getAddress(userId: string): Promise<UserAddress | null> {
   const address = await prisma.userAddress.findFirst({
@@ -22,9 +23,18 @@ export async function setAddress(
   address_data: z.infer<typeof AddressSchame>
 ): Promise<Status> {
   try {
-    const isAddressValid = AddressSchame.parse(address_data);
-
-    const prismaAddresData = { ...address_data };
+    const isAddressValid = AddressSchame.safeParse(address_data);
+    if (isAddressValid) {
+      throw new Error("ادرس وارد شده صحیح نیست");
+    }
+    const prismaAddresData: z.infer<typeof AddressSchame> = {
+      address: address_data.address,
+      city_id: address_data.city_id,
+      state_id: address_data.state_id,
+      house_number: convert_to_en_number(address_data.house_number),
+      zip_code: convert_to_en_number(address_data.zip_code),
+    };
+    console.log(prismaAddresData);
 
     const checkFindAddress = await prisma.userAddress.upsert({
       where: { user_id: user_id },
@@ -41,7 +51,7 @@ export async function setAddress(
     return {
       status: "error",
       titile: "بروز خطا",
-      message: "خطا در ثبت اطلاعات آدرس رخ داد",
+      message: "خطا در ثبت اطلاعات آدرس",
     };
   }
 }

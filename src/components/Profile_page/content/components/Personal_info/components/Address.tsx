@@ -22,7 +22,7 @@ import { AddressSchame } from "@/lib/util/validation";
 import { Address_Full } from "@/types/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Autocomplete, Divider, TextField } from "@mui/material";
-import { City, UserAddress } from "@prisma/client";
+import { City } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -255,7 +255,7 @@ const Address = ({ userId, address }: Props) => {
     const isValid = AddressSchame.safeParse(values);
     const res = await setAddress(userId, values);
     if (res.status === "success") {
-      location.reload();
+      // location.reload();
     }
   };
 

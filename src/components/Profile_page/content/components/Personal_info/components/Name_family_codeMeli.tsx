@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from "@/components_shadcn/ui/form";
 import { Input } from "@/components_shadcn/ui/input";
+import { convert_to_en_number } from "@/lib/util/translateNumbers";
 import { personalInfoFormSchame } from "@/lib/util/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
@@ -51,10 +52,15 @@ const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
   });
 
   const onSubmit = async (values: z.infer<typeof personalInfoFormSchame>) => {
+    const personal_info: z.infer<typeof personalInfoFormSchame> = {
+      name: values.name,
+      family: values.family,
+      code_meli: convert_to_en_number(values.code_meli),
+    };
     const res = update({
       feild: "personal_info",
       id: userId,
-      data: { ...values },
+      data: { ...personal_info },
     });
     const res2 = await res;
     if (res2) {
@@ -149,22 +155,6 @@ const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
             </DialogFooter>
           </form>
         </Form>
-        {/* <Button
-          onClick={() => {
-            const res = update({
-              feild: "personal_info",
-              id: userId,
-              data: {
-                name: "تللللار مار",
-                family: "اسکندری",
-                code_meli: "3790352268",
-              },
-            });
-          }}
-          type="button"
-        > 
-          Save changes2
-        </Button> */}
       </DialogContent>
     </Dialog>
   );

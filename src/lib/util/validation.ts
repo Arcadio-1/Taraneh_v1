@@ -1,9 +1,15 @@
 import { z } from "zod";
-import { fixNumbers } from "./translateNumbers";
-import { OrderStatus, Recommendation } from "@prisma/client";
+import { convert_to_en_number } from "./translateNumbers";
+import { Recommendation } from "@prisma/client";
 
 export const phoneSchame = z.object({
   phone: z.union([
+    z.string().min(10, {
+      message: "لطفا شماره موبایل خود را وارد کنید مثال(09120001122)",
+    }),
+    z.string().regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$|[٠١٢٣٤٥٦٧٨٩]{10}$/, {
+      message: "لطفا شماره موبایل خود را با اعداد انگلیسی وارد کنید",
+    }),
     z.string().regex(/09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/, {
       message: "شماره موبایل وارد شده صحیح نمیباشد مثال (09120001122)",
     }),
@@ -32,12 +38,12 @@ export const personalInfoFormSchame = z.object({
   code_meli: z
     .string()
     .min(10, { message: "کد ملی وارد شده صحیح نیست" })
-    .regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$/, {
-      message: "کد ملی وارد شده صحیح نیست",
+    .regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$|[٠١٢٣٤٥٦٧٨٩]{10}$/, {
+      message: "لطفا از اعداد انگلیسی برای وارد کردن کد ملی استفاده کنید",
     })
     .refine(
       (value) => {
-        const fixedValue = fixNumbers(value);
+        const fixedValue = convert_to_en_number(value);
         const check = +fixedValue[9];
         const sum =
           fixedValue
@@ -47,7 +53,7 @@ export const personalInfoFormSchame = z.object({
         const isChecked = sum < 2 ? check === sum : check + sum === 11;
         return isChecked;
       },
-      { message: "کد ملی وارد شده صحیح نیست" }
+      { message: "کد ملی وارد شده با الگو کد ملی مغایرت دارد" }
     ),
 });
 
@@ -58,22 +64,25 @@ export const AddressSchame = z.object({
     .min(24, { message: "لطفا ابتدا استان و سپس شهر خود را انتخاب کنید." }),
   zip_code: z
     .string()
-    .min(10, { message: "کد پستی وارد شده صحیح نیست." })
-    .regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$/, {
-      message: "کد پستی وارد شده صحیح نیست.",
+    .min(10, { message: "لطفا کد ملی را وارد کنید" })
+    .regex(/^\d{10}$|[۰۱۲۳۴۵۶۷۸۹]{10}$|[٠١٢٣٤٥٦٧٨٩]{10}$/, {
+      message: "لطفا کد پستی را با اعداد انگلیسی وارد کنید",
     }),
   house_number: z
     .string()
-    .min(1, { message: "پلاک وارد شده صحیح نیست" })
-    .regex(/^\d*$|[۰۱۲۳۴۵۶۷۸۹]*$/, {
-      message: "پلاک وارد شده صحیح نیست",
+    .min(1, { message: "لطفا پلاک را وارد کنید" })
+    .regex(/^\d*$|[۰۱۲۳۴۵۶۷۸۹]*$|[٠١٢٣٤٥٦٧٨٩]{10}$/, {
+      message: "لطفا پلاک را با اعداد انگلیسی وارد کنید",
     }),
   address: z
     .string()
     .min(6, { message: "آدرس وارد شده صحیح نیست" })
-    .regex(/^[ آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰۱۲۳۴۵۶۷۸۹ 1234567890]+$/, {
-      message: "لطفا ادرس خود را به زبان فارسی وارد کنید",
-    }),
+    .regex(
+      /^[ آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰۱۲۳۴۵۶۷۸۹ 1234567890 ٠١٢٣٤٥٦٧٨٩]+$/,
+      {
+        message: "لطفا ادرس خود را به زبان فارسی وارد کنید",
+      }
+    ),
 });
 
 export const emailSchame = z.object({

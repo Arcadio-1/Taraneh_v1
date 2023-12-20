@@ -20,7 +20,7 @@ import axios from "axios";
 import { phoneSchame } from "@/lib/util/validation";
 
 const validationFormSchame = z.object({
-  validationNumber: z.string().regex(/[0-9]{5}$/, {
+  validationNumber: z.string().regex(/^\d{5}$|[۰۱۲۳۴۵۶۷۸۹]{5}$/, {
     message: "مثلا 12345",
   }),
 });
