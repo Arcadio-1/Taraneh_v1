@@ -18,7 +18,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components_shadcn/ui/sheet";
-import Link from "next/link";
 import FilterIcon from "@/components/Util/icons/FilterIcon";
 import { Divider } from "@mui/material";
 
@@ -61,7 +60,7 @@ export default function FiltersMobile({
         .replaceAll(",", "&")}`
     );
     // }
-  }, [brandsList, router, sort, searchQuery]);
+  }, [brandsList, sort, searchQuery]);
 
   const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;

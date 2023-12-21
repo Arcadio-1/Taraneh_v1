@@ -20,6 +20,8 @@ interface ContextProps {
   setDeliveryDate: Dispatch<SetStateAction<OrderSelectedDate | null>>;
   postingPrice: number;
   setPostingPric: Dispatch<SetStateAction<number>>;
+  brand_list_filter: string[];
+  set_brand_list_filter: Dispatch<SetStateAction<string[]>>;
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -29,15 +31,17 @@ const GlobalContext = createContext<ContextProps>({
   setDeliveryDate: (): OrderSelectedDate | null => null,
   postingPrice: 0,
   setPostingPric: (): number => 0,
+  brand_list_filter: [],
+  set_brand_list_filter: (): string[] => [],
 });
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   // const [order, setOrder] = useState<OrderType | null>(null);
   const [postingPrice, setPostingPric] = useState<number>(0);
+  const [brand_list_filter, set_brand_list_filter] = useState<string[]>([]);
   const [deliveryDate, setDeliveryDate] = useState<OrderSelectedDate | null>(
     null
   );
-
   const theme = createTheme(
     {
       palette: {
@@ -54,6 +58,8 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
         setDeliveryDate,
         postingPrice,
         setPostingPric,
+        brand_list_filter,
+        set_brand_list_filter,
       }}
     >
       <ThemeProvider theme={theme}>{children}</ThemeProvider>

@@ -84,7 +84,18 @@ const All_products_page = async ({
       </aside>
       <main className=" w-full px-2 sm:px-4 mb-10">
         <div className="flex gap-2 items-center">
-          <FiltersMobile
+          <div className="md:hidden">
+            <Filters
+              brands={allBrands}
+              mainCats={mainCats}
+              searchQuery={searchQuery}
+              sort={sort}
+              bQ={bQhelper()}
+              maxPrice={maxPrice}
+              minPrice={minPrice}
+            />
+          </div>
+          {/* <FiltersMobile
             brands={allBrands}
             mainCats={mainCats}
             searchQuery={searchQuery}
@@ -92,7 +103,7 @@ const All_products_page = async ({
             bQ={bQhelper()}
             maxPrice={maxPrice}
             minPrice={minPrice}
-          />
+          /> */}
           <Sort
             bQ={bQhelper()}
             maxPrice={maxPrice}
