@@ -72,7 +72,6 @@ const Add_review_form = ({
     const validation = commentSchame.safeParse(values);
     if (validation.success) {
       const request = await add_comment(validation.data, product_id);
-      console.log(request);
       if (request) {
         setOpen(false);
         toast({
@@ -85,7 +84,7 @@ const Add_review_form = ({
         toast({
           duration: 2500,
           title: "خطا در ثبت دیدگاه",
-          className: "bg-success text-light_1 text-xl",
+          className: "bg-g1_5 text-light_1 text-xl",
         });
       }
     }

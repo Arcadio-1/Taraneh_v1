@@ -95,6 +95,13 @@ const Addresses = ({ address, user }: Props) => {
         title: "آدرس شما ثبت شد",
         className: "bg-success text-light_1 text-xl",
       });
+      return;
+    } else {
+      toast({
+        duration: 2500,
+        title: "خطا در ثبت آدرس شما رخ داد",
+        className: "bg-g1_7 text-light_1 text-xl",
+      });
     }
   };
 

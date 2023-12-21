@@ -26,6 +26,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailSchame } from "@/lib/util/validation";
 import { z } from "zod";
+import { toast } from "@/components_shadcn/ui/use-toast";
 
 interface Props {
   userId: string;
@@ -63,15 +64,26 @@ const Email = ({ userId, email }: Props) => {
     if (res2?.user.email !== values.email) {
       setSubmitError("ایمیل وارد شده قبلا ثبت نام شده");
     } else {
-      location.reload();
+      setOpen(false);
+      toast({
+        duration: 2500,
+        title: "ایمیل شما با موفقیت ثبت شد",
+        className: "bg-success text-light_1 text-xl",
+      });
       setSubmitError("");
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+      return;
     }
   };
+  const [open, setOpen] = useState(false);
+
   if (!mount) {
     <></>;
   }
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <svg viewBox="0 0 24 24" className="h-6 w-6 cursor-pointer">
           <path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z" />

@@ -26,6 +26,7 @@ import { City } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { toast } from "@/components_shadcn/ui/use-toast";
 
 interface Props {
   userId: string;
@@ -253,14 +254,29 @@ const Address = ({ userId, address }: Props) => {
 
   const onSubmit = async (values: z.infer<typeof AddressSchame>) => {
     const isValid = AddressSchame.safeParse(values);
-    const res = await setAddress(userId, values);
-    if (res.status === "success") {
-      // location.reload();
+    if (isValid.success) {
+      const res = await setAddress(userId, values);
+      if (res.status === "success") {
+        setOpen(false);
+        toast({
+          duration: 2500,
+          title: "آدرس شما با موفقیت ثبت شد",
+          className: "bg-success text-light_1 text-xl",
+        });
+        return;
+      } else {
+        toast({
+          duration: 2500,
+          title: "خطا در ثبت آدرس شما رخ داد",
+          className: "bg-g1_5 text-light_1 text-xl",
+        });
+      }
     }
   };
 
+  const [open, setOpen] = useState(false);
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <svg viewBox="0 0 24 24" className="h-6 w-6 cursor-pointer">
           <path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z" />
