@@ -13,9 +13,41 @@ import { Toaster } from "@/components_shadcn/ui/toaster";
 import Footer from "@/components/Util/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "cyan" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  // Also supported by less commonly used
+  // interactiveWidget: 'resizes-visual',
+};
+
 export const metadata: Metadata = {
   title: "ترانه",
-  description: "Developed and Designed By Rkdo",
+  description: "Digikala clone | کلون فروشگاه اینترنتی دیجیکالا",
+  manifest: `/manifest.json`,
+  metadataBase: new URL("https://taraneh-v1.vercel.app/"),
+  openGraph: {
+    title: "ترانه",
+    description: "Digikala clone | کلون فروشگاه اینترنتی دیجیکالا",
+    images: [
+      {
+        url: "/image/thumbnail.png",
+      },
+    ],
+  },
+  twitter: {
+    title: "ترانه",
+    description: "Digikala clone | کلون فروشگاه اینترنتی دیجیکالا",
+    images: [
+      {
+        url: "/image/thumbnail.png",
+      },
+    ],
+  },
 };
 export default async function RootLayout({
   children,

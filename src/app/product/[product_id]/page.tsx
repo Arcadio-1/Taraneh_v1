@@ -38,10 +38,9 @@ export async function generateMetadata({
   return {
     title: "ترانه - " + product.title,
     description: product.title,
-    metadataBase: new URL("http://localhost:3000"),
+    metadataBase: new URL("https://taraneh-v1.vercel.app/"),
     openGraph: {
       title: "ترانه - " + product.title,
-
       description: product.title,
       images: [
         {
