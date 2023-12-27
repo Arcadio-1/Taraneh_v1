@@ -30,7 +30,7 @@ const Prod_status = () => {
             <span className="absolute bottom-0 left-1/2 w-[.6px] h-[calc(50%-2.5px)] bg-gray-400 translate-x-[-50%]"></span>
           </div>
           <div className="flex items-center gap-1">
-            <ShippingIcon classes="h-5 w-5 fill-red-600" />
+            <ShippingIcon className="h-5 w-5 fill-red-600" />
             <p className="text-sm">ارسال کافه ترانه</p>
           </div>
         </li>

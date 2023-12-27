@@ -13,7 +13,7 @@ const PostingData = ({ selectedDate, status }: Props) => {
     <div className="flex w-full gap-4 p-4 flex-wrap">
       <div className="grow flex flex-col gap-3">
         <div className="flex gap-2">
-          <ShippingIcon classes="h-6 w-6 fill-g1_5" />
+          <ShippingIcon className="h-6 w-6 fill-g1_5" />
           <span>ارسال عادی</span>
         </div>
         <div className="flex items-center gap-2">

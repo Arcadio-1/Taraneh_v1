@@ -58,7 +58,7 @@ const PostingDetials = ({
         {status !== OrderStatus.CANCELED && (
           <div className="flex grow flex-col gap-4">
             <div className="flex items-center gap-2">
-              <ShippingIcon classes="h-6 w-6 fill-g1_5" />
+              <ShippingIcon className="h-6 w-6 fill-g1_5" />
               <span className="font-iranyekan_bold text-dark_1 text-lg">
                 ارسال عادی
               </span>

@@ -45,7 +45,7 @@ const Checkout_header = ({ stage }: Props) => {
           }`}
         >
           <ShippingIcon
-            classes={`h-5 w-5 ${
+            className={`h-5 w-5 ${
               (stage === Stage.shipping || stage === Stage.payment) &&
               "fill-g1_5 h-8 w-8"
             }`}

@@ -73,7 +73,7 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
     <div>
       <div className="hidden md:flex items-center gap-3 py-4">
         <div className="flex items-center justify-center">
-          <SortIcon classes="w-6 h-6" />
+          <SortIcon className="h-7 w-7 stroke-dark_4" />
           <label className="font-iransansbold text-lg">مرتب سازی:</label>
         </div>
         <div className="flex gap-4">
@@ -97,7 +97,7 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
           <div>
             <SheetTrigger asChild>
               <div className="flex items-center justify-center">
-                <SortIcon classes="w-10 h-10 fill-red" />
+                <SortIcon className="w-10 h-10 fill-red" />
                 {sortItems.map((item) => {
                   return (
                     <button

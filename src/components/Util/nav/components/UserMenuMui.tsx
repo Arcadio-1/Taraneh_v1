@@ -125,7 +125,7 @@ export function UserMenuMui({ session }: Props) {
                 href={"/dashboard"}
               >
                 <div className="flex gap-2 items-start">
-                  <AdminDashboardIcon classess="h-6 w-6 fill-dark_4" />
+                  <AdminDashboardIcon className="h-6 w-6 fill-dark_4" />
                   <span className="text-md text-dark_4 font-iranyekan_bold">
                     پنل مدیریت
                   </span>

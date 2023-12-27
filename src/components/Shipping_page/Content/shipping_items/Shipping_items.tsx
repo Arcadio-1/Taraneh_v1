@@ -14,7 +14,7 @@ const Shipping_items = ({ cart }: Props) => {
   return (
     <div>
       <div className="flex items-center gap-4">
-        <ShippingIcon classes="h-10 w-10 fill-red-700" />
+        <ShippingIcon className="h-10 w-10 fill-red-700" />
         <div>
           <div className="flex gap-3 items-center">
             <h1 className="font-iranyekan_bold">ارسال عادی</h1>

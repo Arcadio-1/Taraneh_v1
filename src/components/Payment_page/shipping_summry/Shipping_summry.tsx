@@ -24,7 +24,7 @@ const Shipping_summry = ({ cart }: Props) => {
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-dark_2 font-iranyekan_bold text-md">
-              <ShippingIcon classes="fill-g1_5 h-8 w-8" />
+              <ShippingIcon className="fill-g1_5 h-8 w-8" />
               <div className="flex items-center gap-2">
                 <p>{deliveryDate!.weekday}</p>
                 <p>{deliveryDate!.day}</p>

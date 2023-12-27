@@ -1,23 +1,23 @@
 import React from "react";
 
-interface Props {
-  classes: string;
-}
+import { SVGProps } from "react";
 
-const SortIcon = ({ classes }: Props) => {
+type Props = SVGProps<SVGSVGElement>;
+
+const SortIcon = ({ className }: Props) => {
   return (
-    <svg viewBox="0 0 256 256" className={`${classes}`}>
+    <svg viewBox="0 0 256 256" className={className}>
       <polyline
         fill="none"
         points="144 168 184 208 224 168"
-        stroke="#000"
+        // stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="24"
       />
       <line
         fill="none"
-        stroke="#000"
+        // stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="24"
@@ -28,7 +28,7 @@ const SortIcon = ({ classes }: Props) => {
       />
       <line
         fill="none"
-        stroke="#000"
+        // stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="24"
@@ -39,7 +39,7 @@ const SortIcon = ({ classes }: Props) => {
       />
       <line
         fill="none"
-        stroke="#000"
+        // stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="24"
@@ -50,7 +50,7 @@ const SortIcon = ({ classes }: Props) => {
       />
       <line
         fill="none"
-        stroke="#000"
+        // stroke="#000"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="24"
