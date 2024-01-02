@@ -31,7 +31,7 @@ interface Props {
   minPrice: string;
 }
 
-export default function FiltersMobile({
+function FiltersMobile({
   brands,
   mainCats,
   searchQuery,

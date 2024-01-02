@@ -9,7 +9,6 @@ import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Loading from "../../loading";
 import CartItemSkeleton from "@/components/Profile_page/content/components/Orders/components/orderItem/components/CartItemSkeleton";
-import FiltersMobile from "@/components/Search_page/filters/FiltersMobile";
 import Not_found from "@/components/Search_page/Products/Not_found";
 
 interface SearchPageProps {
@@ -83,19 +82,23 @@ const All_products_page = async ({
           bQ={bQhelper()}
           maxPrice={maxPrice}
           minPrice={minPrice}
+          page={page}
         />
       </aside>
       <main className=" w-full px-4 mb-10">
         <div className="flex gap-2 items-center">
-          <FiltersMobile
-            brands={allBrands}
-            mainCats={mainCats}
-            searchQuery={searchQuery}
-            sort={sort}
-            bQ={bQhelper()}
-            maxPrice={maxPrice}
-            minPrice={minPrice}
-          />
+          <div className="md:hidden">
+            <Filters
+              brands={allBrands}
+              mainCats={mainCats}
+              searchQuery={searchQuery}
+              sort={sort}
+              bQ={bQhelper()}
+              maxPrice={maxPrice}
+              minPrice={minPrice}
+              page={page}
+            />
+          </div>
           <Sort
             bQ={bQhelper()}
             maxPrice={maxPrice}

@@ -11,7 +11,7 @@ import {
   useState,
 } from "react";
 // import { OrderType } from "@/types/type";
-import { OrderSelectedDate, OrderStatus } from "@prisma/client";
+import { OrderSelectedDate } from "@prisma/client";
 
 interface ContextProps {
   // order: OrderType | null;

@@ -30,6 +30,7 @@ interface Props {
   sort: SortValue;
   maxPrice: string;
   minPrice: string;
+  page: string;
 }
 
 export default function Filters({
@@ -40,6 +41,7 @@ export default function Filters({
   bQ,
   maxPrice,
   minPrice,
+  page,
 }: Props) {
   const [expanded, setExpanded] = React.useState<string | false>(false);
   // const [brand_list_filter, set_brand_list_filter] = React.useState<string[]>(bQ);
@@ -52,6 +54,7 @@ export default function Filters({
   const router = useRouter();
 
   React.useEffect(() => {
+    console.log("runing");
     router.push(
       `?${sort ? `sort=${sort}&` : ""}${
         !!searchQuery ? `searchQuery=${searchQuery}` : ""
@@ -64,14 +67,12 @@ export default function Filters({
           return `bQ=${item}`;
         })
         .toString()
-        .replaceAll(",", "&")}`
+        .replaceAll(",", "&")}${page && brand_list_filter.length ? "&" : ""}${
+        page ? `page=${page}` : ""
+      }`
     );
     // }
   }, [brand_list_filter, router, sort, searchQuery]);
-
-  React.useEffect(() => {
-    console.log(brand_list_filter);
-  }, [brand_list_filter]);
 
   const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
