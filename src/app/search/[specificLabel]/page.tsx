@@ -1,14 +1,12 @@
-import Products from "@/components/Search_page/Products/Products";
 import Filters from "@/components/Search_page/filters/Filters";
-import PageinationBar from "@/components/Search_page/paginationBar/pageinationBar";
 import Sort from "@/components/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
-import { GetProductsInterface, getProducts } from "@/lib/util/getPropducts";
+import { QueryParameters } from "@/lib/util/getPropducts";
 import { MainCatsWithSpecificCats, SortValue } from "@/types/type";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
-import Loading from "../../loading";
-import Not_found from "@/components/Search_page/Products/Not_found";
+import Content from "@/components/Search_page/content/Content";
+import Filters_Sheet from "@/components/Search_page/filters/Filters_Sheet";
 
 interface SearchPageProps {
   params: {
@@ -41,7 +39,7 @@ const All_products_page = async ({
   searchParams: { page, searchQuery, sort, cat, bQ, maxPrice, minPrice },
   params: { specificLabel },
 }: SearchPageProps) => {
-  const bQhelper = () => {
+  const brands_List = () => {
     if (typeof bQ === "string") {
       return [`${bQ}`];
     }
@@ -54,18 +52,17 @@ const All_products_page = async ({
     return [];
   };
 
-  const queryDetials: GetProductsInterface = {
+  const query_parameters: QueryParameters = {
     searchQuery: searchQuery,
     page: page,
     sort: sort,
     pageSize: 8,
-    bQ: bQhelper(),
+    bQ: brands_List(),
     maxPrice: maxPrice,
     minPrice: minPrice,
     main_cat: "",
     specific_cat: `${specificLabel}`,
   };
-  const { currentPage, totalPages, products } = await getProducts(queryDetials);
 
   const allBrands = await prisma.brand.findMany({
     orderBy: { title_fr: "asc" },
@@ -82,7 +79,7 @@ const All_products_page = async ({
           mainCats={mainCats}
           searchQuery={searchQuery}
           sort={sort}
-          bQ={bQhelper()}
+          bQ={brands_List()}
           maxPrice={maxPrice}
           minPrice={minPrice}
           page={page}
@@ -91,39 +88,30 @@ const All_products_page = async ({
       <main className=" w-full px-4 mb-10">
         <div className="flex gap-2 items-center">
           <div className="md:hidden">
-            <Filters
-              brands={allBrands}
-              mainCats={mainCats}
-              searchQuery={searchQuery}
-              sort={sort}
-              bQ={bQhelper()}
-              maxPrice={maxPrice}
-              minPrice={minPrice}
-              page={page}
-            />
+            <Filters_Sheet>
+              <Filters
+                brands={allBrands}
+                mainCats={mainCats}
+                searchQuery={searchQuery}
+                sort={sort}
+                bQ={brands_List()}
+                maxPrice={maxPrice}
+                minPrice={minPrice}
+                page={page}
+              />
+            </Filters_Sheet>
           </div>
           <Sort
-            bQ={bQhelper()}
+            bQ={brands_List()}
             maxPrice={maxPrice}
             minPrice={minPrice}
             searchQuery={searchQuery}
             sort={sort}
           />
         </div>
-        <Suspense fallback={<Loading />}>
-          {!!products.length ? <Products products={products} /> : <Not_found />}
+        <Suspense fallback={<p>Loading Products</p>}>
+          <Content query_parameters={query_parameters} />
         </Suspense>
-        {!!totalPages && (
-          <PageinationBar
-            bQ={bQhelper()}
-            sort={sort}
-            searchQuery={searchQuery}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            maxPrice={maxPrice}
-            minPrice={minPrice}
-          />
-        )}
       </main>
     </div>
   );

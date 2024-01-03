@@ -11,6 +11,7 @@ import { getCart } from "@/lib/actions/getCart";
 import Provider from "./(provider)/Provider";
 import { Toaster } from "@/components_shadcn/ui/toaster";
 import Footer from "@/components/Util/footer/Footer";
+import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport = {

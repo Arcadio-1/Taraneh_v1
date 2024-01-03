@@ -1,12 +1,29 @@
 import Slider from "@/components/Util/products_Slider/Products_Slider";
 import { AllCatsTopsViewProducts } from "@/types/type";
 import React from "react";
+import { prisma } from "@/lib/db/prisma";
+import { Main_cat } from "@prisma/client";
 
-interface Props {
-  lists_of_lists: AllCatsTopsViewProducts[];
-}
+interface Props {}
 
-const Main_cat_slider = ({ lists_of_lists }: Props) => {
+const Main_cat_slider = async ({}: Props) => {
+  const mainCats: Main_cat[] = await prisma.main_cat.findMany();
+
+  const topSellToolsProducts: Promise<AllCatsTopsViewProducts>[] = mainCats.map(
+    async (mainCatItem: Main_cat): Promise<AllCatsTopsViewProducts> => {
+      return await prisma.product.findMany({
+        take: 10,
+        where: { main_cat_id: mainCatItem.id, status: true },
+        orderBy: { statistics: { views: "asc" } },
+        include: { main_cat: true },
+      });
+    }
+  );
+
+  const lists_of_lists: AllCatsTopsViewProducts[] = await Promise.all(
+    topSellToolsProducts
+  );
+
   return (
     <section>
       {lists_of_lists.map((catProducts) => {

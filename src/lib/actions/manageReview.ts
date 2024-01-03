@@ -3,9 +3,22 @@ import { z } from "zod";
 import { commentSchame } from "../util/validation";
 import { prisma } from "../db/prisma";
 import { revalidatePath } from "next/cache";
-import { LikeMethod } from "@/types/type";
+import { CommentWithUser, LikeMethod } from "@/types/type";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/authOptions";
+
+export const get_comments = async () => {
+  try {
+    const comments: CommentWithUser[] = await prisma.comments.findMany({
+      include: { user: { select: { name: true, family: true, id: true } } },
+      orderBy: { date: "desc" },
+    });
+    return comments;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
 
 export const add_comment = async (
   comment: z.infer<typeof commentSchame>,

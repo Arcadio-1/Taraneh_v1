@@ -157,21 +157,6 @@ export default function PriceRange({
     }
   };
 
-  // const textChangeHandler = (
-  //   typer: Typer,
-  //   e: React.ChangeEvent<HTMLInputElement>
-  // ) => {
-  //   console.log(e.target.value);
-  //   const num = numberGenerator(e.target.value);
-  //   const newValue: number = num;
-
-  //   if (typer === Typer.min) {
-  //     setValue([Math.min(newValue, value[1] - minDistance), value[1]]);
-  //   } else {
-  //     setValue([value[0], Math.max(newValue, value[0] + minDistance)]);
-  //   }
-  // };
-
   return (
     <div className="">
       <div className="flex flex-col gap-3 items-center justify-center">

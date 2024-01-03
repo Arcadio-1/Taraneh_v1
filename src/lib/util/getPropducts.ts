@@ -14,7 +14,7 @@ enum SortValue {
   fav = "4",
   newst = "5",
 }
-export interface GetProductsInterface {
+export interface QueryParameters {
   page: string;
   sort: SortValue;
   searchQuery: string;
@@ -42,7 +42,7 @@ export const getProducts = async ({
   bQ,
   main_cat = "",
   specific_cat = "",
-}: GetProductsInterface): Promise<GetProductReturnType> => {
+}: QueryParameters): Promise<GetProductReturnType> => {
   const currentPage = parseInt(page);
   const totalPages = await getTtotalPages(
     searchQuery,
