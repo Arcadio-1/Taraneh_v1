@@ -51,7 +51,9 @@ const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof personalInfoFormSchame>) => {
+  const onSubmit = async (
+    values: z.infer<typeof personalInfoFormSchame>
+  ): Promise<void> => {
     const personal_info: z.infer<typeof personalInfoFormSchame> = {
       name: values.name,
       family: values.family,

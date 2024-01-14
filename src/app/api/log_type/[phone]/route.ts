@@ -1,3 +1,4 @@
+//deprecated******************************
 import { prisma } from "@/lib/db/prisma";
 import { phoneSchame } from "@/lib/util/validation";
 import { Sign } from "@/types/type";

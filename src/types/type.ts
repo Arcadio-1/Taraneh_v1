@@ -7,6 +7,7 @@ export enum IsValid {
 }
 
 export enum Sign {
+  undefined,
   signin,
   signUp,
   error,

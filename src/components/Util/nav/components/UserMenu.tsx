@@ -57,7 +57,7 @@ export default function UserMenu({ session }: Props) {
                 >
                   <div className="flex gap-2 items-start">
                     {!session.user.name && !session.user.family && (
-                      <span className="font-iransansnum">
+                      <span className="font-iransansnum text-xl">
                         {session.user.phone}
                       </span>
                     )}
@@ -143,7 +143,7 @@ export default function UserMenu({ session }: Props) {
               >
                 <div className="flex gap-2 items-start">
                   {!session.user.name && !session.user.family && (
-                    <span className="font-iransansnum">
+                    <span className="font-iransansnum text-xl">
                       {session.user.phone}
                     </span>
                   )}

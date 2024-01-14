@@ -106,7 +106,9 @@ export function UserMenuMui({ session }: Props) {
               <div className="flex gap-2 items-start">
                 <UserDashboardIcon classess="h-6 w-6 fill-dark_4" />
                 {!session.user.name && !session.user.family && (
-                  <span className="font-iransansnum">{session.user.phone}</span>
+                  <span className="font-iransansnum text-xl">
+                    {session.user.phone}
+                  </span>
                 )}
                 {session.user.name && session.user.family && (
                   <span className=" text-md text-dark_4 font-iranyekan_bold">
