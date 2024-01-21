@@ -24,11 +24,7 @@ export function generateMetadata({
   searchParams: { searchQuery },
 }: SearchPageProps): Metadata {
   return {
-    title: `${
-      searchQuery
-        ? `جستجو: ${searchQuery} - کافه ترانه`
-        : "لیست محصولات - کافه ترانه"
-    }`,
+    title: `${searchQuery ? `جستجو: ${searchQuery}` : "لیست محصولات"}`,
   };
 }
 

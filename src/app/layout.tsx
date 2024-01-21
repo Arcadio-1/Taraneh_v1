@@ -27,12 +27,12 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ترانه",
+  title: { default: "ترانه", template: "%s - ترانه" },
   description: "Digikala clone | کلون فروشگاه اینترنتی دیجیکالا",
   manifest: `/manifest.json`,
   metadataBase: new URL("https://taraneh-v1.vercel.app/"),
   openGraph: {
-    title: "ترانه",
+    title: { default: "ترانه", template: "%s - ترانه" },
     description: "Digikala clone | کلون فروشگاه اینترنتی دیجیکالا",
     images: [
       {
@@ -41,8 +41,9 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "ترانه",
+    title: { default: "ترانه", template: "%s - ترانه" },
     description: "Digikala clone | کلون فروشگاه اینترنتی دیجیکالا",
+    card: "summary_large_image",
     images: [
       {
         url: "/image/thumbnail.png",

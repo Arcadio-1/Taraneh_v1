@@ -23,7 +23,7 @@ const getCategories = cache(async () => {
 });
 
 export const metadata: Metadata = {
-  title: "ترانه - لوازم تهیه نوشیدنی",
+  title: "لوازم تهیه نوشیدنی",
   description:
     "انواع لوازم تهیه نوشیدنی ها از جمله آسیاب قهوه اسپرسو ساز قهوه ساز و قهوه جوش",
 };

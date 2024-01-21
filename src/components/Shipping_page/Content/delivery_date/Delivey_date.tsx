@@ -44,7 +44,7 @@ const Delivey_date = ({ sheeter }: Props) => {
         setDatesList((prevDays) => {
           const newDay = calendarArray[i];
           const gregorianDate = jalali_to_gregorian(
-            `${newDay.year}/${newDay.month}/${newDay.day}`
+            `${newDay.year}/${newDay.month}/${newDay.day}`,
           );
           // prevDays.push({
           //   ...newDay,
@@ -64,13 +64,13 @@ const Delivey_date = ({ sheeter }: Props) => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-2 mb-3 ml-auto">
-        <ClockIcon className="stroke-gray-400 w-6 h-6" />
+    <div className={`hidden flex-col gap-4 ${!sheeter && "md:flex"}`}>
+      <div className="mb-3 ml-auto flex items-center gap-2">
+        <ClockIcon className="h-6 w-6 stroke-gray-400" />
         <p>انتخاب زمان ارسال</p>
       </div>
       {!!datesList.length && (
-        <div className="border rounded-lg py-4 px-4">
+        <div className="rounded-lg border px-4 py-4">
           <Tabs
             className=" flex flex-col gap-6"
             defaultValue={datesList[0].dayOfyear.toString()}
@@ -81,7 +81,7 @@ const Delivey_date = ({ sheeter }: Props) => {
                   <TabsTrigger
                     key={date.dayOfyear}
                     value={date.dayOfyear.toString()}
-                    className="font-iranyekan_bold text-md flex-col items-center gap-3 pt-6"
+                    className="text-md flex-col items-center gap-3 pt-6 font-iranyekan_bold"
                   >
                     <span>{date.weekday}</span>
                     <span className="font-iransansnum text-2xl">
@@ -103,7 +103,7 @@ const Delivey_date = ({ sheeter }: Props) => {
               {datesList.map((date, index) => {
                 return (
                   <TabsContent
-                    className="mt-4 mx-6"
+                    className="mx-6 mt-4"
                     key={date.dayOfyear}
                     value={date.dayOfyear.toString()}
                   >
@@ -118,7 +118,7 @@ const Delivey_date = ({ sheeter }: Props) => {
                         <SheetClose asChild>
                           <Label
                             htmlFor={date.dayOfyear.toString()}
-                            className="flex gap-1 cursor-pointer text-md"
+                            className="text-md flex cursor-pointer gap-1"
                           >
                             <span>ساعت</span>
                             <span className="font-iransansnum">9</span>
@@ -130,7 +130,7 @@ const Delivey_date = ({ sheeter }: Props) => {
                       {!sheeter && (
                         <Label
                           htmlFor={date.dayOfyear.toString()}
-                          className="flex gap-1 cursor-pointer text-md"
+                          className="text-md flex cursor-pointer gap-1"
                         >
                           <span>ساعت</span>
                           <span className="font-iransansnum">9</span>

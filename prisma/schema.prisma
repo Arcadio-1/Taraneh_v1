@@ -67,6 +67,7 @@ model User {
   family        String        @default("")
   code_meli     String        @default("")
   image         String        @default("")
+  password      String        @default("")
   email         String?       @unique
   emailVerified DateTime?
   role          Role          @default(USER)

@@ -61,7 +61,6 @@ const Phone = ({ userId, phone }: Props) => {
     };
     const res = update({
       feild: "phone",
-      id: userId,
       data: { ...phone_number },
     });
     const res2 = await res;
@@ -82,11 +81,11 @@ const Phone = ({ userId, phone }: Props) => {
           <path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z" />
         </svg>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-opacity-100 bg-light_1">
+      <DialogContent className="bg-light_1 bg-opacity-100 sm:max-w-[425px]">
         <DialogHeader className=" flex flex-col gap-3">
           <DialogTitle className="text-xl">ویرایش شماره موبایل</DialogTitle>
           <Divider className="my-" />
-          <DialogDescription className="text-dark_2 text-lg">
+          <DialogDescription className="text-lg text-dark_2">
             لطفا شماره موبایل جدید خود را وارد کنید
           </DialogDescription>
         </DialogHeader>
@@ -101,7 +100,7 @@ const Phone = ({ userId, phone }: Props) => {
               render={({ field }) => (
                 <FormItem className="grow">
                   <FormLabel className="text-md">شماره موبایل </FormLabel>
-                  <span className="text-g1_5 text-lg">*</span>
+                  <span className="text-lg text-g1_5">*</span>
                   <FormControl>
                     <Input
                       className="rounded-[4px] border border-gray-400"
@@ -114,12 +113,12 @@ const Phone = ({ userId, phone }: Props) => {
             />
             <DialogFooter className="items-end">
               {submitError && (
-                <span className="text-g1_5 text-lg sm:ml-5 ml-auto">
+                <span className="ml-auto text-lg text-g1_5 sm:ml-5">
                   {submitError}
                 </span>
               )}
               <button
-                className="bg-g1_5 text-light_1 rounded-lg hover:scale-[1.01] px-6 py-2 text-lg font-iranyekan_bold"
+                className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
                 type="submit"
               >
                 ثبت شماره

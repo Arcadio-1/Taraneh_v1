@@ -6,6 +6,8 @@ import { AddressSchame } from "../util/validation";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { convert_to_en_number } from "../util/translateNumbers";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/authOptions";
 
 export async function getAddress(userId: string): Promise<UserAddress | null> {
   const address = await prisma.userAddress.findFirst({
@@ -19,14 +21,18 @@ interface Status {
   message: any;
 }
 export async function setAddress(
-  user_id: string,
-  address_data: z.infer<typeof AddressSchame>
+  address_data: z.infer<typeof AddressSchame>,
 ): Promise<Status> {
   try {
     const isAddressValid = AddressSchame.safeParse(address_data);
     if (!isAddressValid.success) {
-      throw new Error("ادرس وارد شده صحیح نیست");
+      throw new Error("آدرس وارد شده صحیح نیست");
     }
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      throw new Error("لطفا مجددا به حساب کاربری خود وارد شوید");
+    }
+    const { id: user_id } = session.user;
     const prismaAddresData: z.infer<typeof AddressSchame> = {
       address: address_data.address,
       city_id: address_data.city_id,
@@ -34,19 +40,28 @@ export async function setAddress(
       house_number: convert_to_en_number(address_data.house_number),
       zip_code: convert_to_en_number(address_data.zip_code),
     };
-
-    const checkFindAddress = await prisma.userAddress.upsert({
+    const addOrUpdateAddress = await prisma.userAddress.upsert({
       where: { user_id: user_id },
       create: { ...prismaAddresData, user_id: user_id },
       update: prismaAddresData,
     });
+    if (!addOrUpdateAddress) {
+      throw new Error("خطا در ثبت آدرس");
+    }
     revalidatePath(`/profile/addresses`);
     return {
       status: "success",
       titile: "ثبت شد.",
-      message: "اطلاعت آدرس با موفقیت ثبت شد",
+      message: "آدرس شما با موفقیت ثبت شد",
     };
   } catch (error) {
+    if (error instanceof Error) {
+      return {
+        status: "error",
+        titile: "بروز خطا",
+        message: error.message,
+      };
+    }
     return {
       status: "error",
       titile: "بروز خطا",

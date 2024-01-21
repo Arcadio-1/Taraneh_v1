@@ -25,12 +25,18 @@ export async function generateStaticParams() {
 }
 
 const getProduct = cache(async (id: string) => {
-  const product = await prisma.product.findUnique({
-    where: { id: id },
-    include: { main_cat: true, specific_cat: true, brand: true },
-  });
-  if (!product) notFound();
-  return product;
+  try {
+    const product = await prisma.product.findUnique({
+      where: { id: id },
+      include: { main_cat: true, specific_cat: true, brand: true },
+    });
+    if (!product) {
+      return notFound();
+    }
+    return product;
+  } catch (error) {
+    return notFound();
+  }
 });
 
 export async function generateMetadata({
@@ -38,11 +44,11 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const product = await getProduct(product_id);
   return {
-    title: "ترانه - " + product.title,
+    title: product.title,
     description: product.title,
     metadataBase: new URL("https://taraneh-v1.vercel.app/"),
     openGraph: {
-      title: "ترانه - " + product.title,
+      title: product.title,
       description: product.title,
       images: [
         {
@@ -53,7 +59,7 @@ export async function generateMetadata({
     twitter: {
       // card: "summary_large_image",
       // site: "@eMartiiin94",
-      title: "ترانه - " + product.title,
+      title: product.title,
       description: product.title,
       images: [
         {
@@ -82,7 +88,7 @@ const page = async ({ params: { product_id } }: Props) => {
   const cart = await getCart();
 
   return (
-    <main className="px-5 flex flex-col gap-5">
+    <main className="flex flex-col gap-5 px-5">
       <div>
         <Breadcrumbs list={breadcrumbs} />
         <Main cart={cart} product={product} product_id={product_id} />

@@ -11,18 +11,18 @@ export const phoneSchame = z.object({
       .string()
       .regex(
         /۰۹(۱[۰۱۲۳۴۵۶۷۸۹]|۳[۱۲۳۴۵۶۷۸۹]|۰[۱۲۳۴۵۶۷۸۹]|۲[۱۲۳۴۵۶۷۸۹])-?[۰۱۲۳۴۵۶۷۸۹]{3}-?[۰۱۲۳۴۵۶۷۸۹]{4}$/,
-        { message: "(شماره موبایل صحیح نمیباشد مثال (09120001122" }
+        { message: "(شماره موبایل صحیح نمیباشد مثال (09120001122" },
       ),
     z
       .string()
       .regex(
         /۰۹(١[٠١٢٣٤٥٦٧٨٩]|٣[١٢٣٤٥٦٧٨٩]|٠[١٢٣٤٥٦٧٨٩]|٢[١٢٣٤٥٦٧٨٩])-?[٠١٢٣٤٥٦٧٨٩]{3}-?[٠١٢٣٤٥٦٧٨٩]{4}$/,
-        { message: "(شماره موبایل صحیح نمیباشد مثال (09120001122" }
+        { message: "(شماره موبایل صحیح نمیباشد مثال (09120001122" },
       ),
     z.string().refine((value) => {
       const converted_phone_number = convert_to_en_number(value);
       const test = /09(1[0-9]|0[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/.test(
-        converted_phone_number
+        converted_phone_number,
       );
       return test;
     }, {}),
@@ -60,7 +60,7 @@ export const personalInfoFormSchame = z.object({
         const isChecked = sum < 2 ? check === sum : check + sum === 11;
         return isChecked;
       },
-      { message: "کد ملی وارد شده با الگو کد ملی مغایرت دارد" }
+      { message: "کد ملی وارد شده با الگو کد ملی مغایرت دارد" },
     ),
 });
 
@@ -88,7 +88,7 @@ export const AddressSchame = z.object({
       /^[ آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰۱۲۳۴۵۶۷۸۹ 1234567890 ٠١٢٣٤٥٦٧٨٩]+$/,
       {
         message: "لطفا ادرس خود را به زبان فارسی وارد کنید",
-      }
+      },
     ),
 });
 
@@ -101,7 +101,7 @@ export const emailSchame = z.object({
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       {
         message: "لطفا ایمیل خود را به شکل صحیح  (abc@gmail.com) وارد کنید",
-      }
+      },
     ),
 });
 export const commentSchame = z.object({
@@ -126,3 +126,84 @@ export const commentSchame = z.object({
     .min(10, { message: "لطفا امتیاز خود را وارد کنید" })
     .max(50, { message: "امتیاز وارد شده صحیح نیست" }),
 });
+
+export const otpFormSchame = z.object({
+  otpNumber: z.string().regex(/^\d{5}$|[۰۱۲۳۴۵۶۷۸۹]{5}|[٠١٢٣٤٥٦٧٨٩]{5}$/, {
+    message: "لطفا 12345 را وارد کنید",
+  }),
+});
+
+export const loginPasswordSchame = z.object({
+  password: z
+    .string()
+    .min(1, { message: "لطفا رمز عبور را وارد کنید" })
+    .max(32, { message: "رمز عبور وارد شده صحیح نیست" }),
+});
+
+export const comparePasswordWithOtpScham = z
+  .object({
+    password: z
+      .string()
+      .regex(
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
+        {
+          message:
+            "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
+        },
+      ),
+    confirmPassword: z.string(),
+    otpNumber: z.string().regex(/^\d{5}$|[۰۱۲۳۴۵۶۷۸۹]{5}|[٠١٢٣٤٥٦٧٨٩]{5}$/, {
+      message: "لطفا 12345 را وارد کنید",
+    }),
+  })
+  .refine(
+    (values) => {
+      return values.password === values.confirmPassword;
+    },
+    {
+      message: "رمز عبور ها مشابه نیستند",
+      path: ["confirmPassword"],
+    },
+  );
+
+export const comparePasswordWithCurrentPasswordScham = z
+  .object({
+    currentPassword: z.string(),
+    password: z
+      .string()
+      .regex(
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
+        {
+          message:
+            "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
+        },
+      ),
+    confirmPassword: z.string(),
+  })
+  .refine(
+    (values) => {
+      return values.password === values.confirmPassword;
+    },
+    {
+      message: "رمز عبور ها مشابه نیستند",
+      path: ["confirmPassword"],
+    },
+  );
+
+export const passwordScham = z
+  .string()
+  .regex(
+    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
+    {
+      message:
+        "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
+    },
+  );
+
+export const has6Length = z.string().min(6, { message: "شامل 6 حرف باشد" });
+export const hasUppercaseLetter = z.string().regex(/^(?=.*[A-Z]){1,}/);
+export const haslowercaseLetter = z.string().regex(/^(?=.*[a-z]){1,}/);
+export const hasNumber = z.string().regex(/^(?=.*\d){1,}/);
+export const hasSpecialCharacter = z
+  .string()
+  .regex(/^(?=.*[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]){1,}/);

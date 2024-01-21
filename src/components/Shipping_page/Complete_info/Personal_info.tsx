@@ -33,11 +33,10 @@ const Personal_info = ({ userId }: Props) => {
   });
 
   const onSubmitPresonalInfo = async (
-    values: z.infer<typeof personalInfoFormSchame>
+    values: z.infer<typeof personalInfoFormSchame>,
   ) => {
     const res = update({
       feild: "personal_info",
-      id: userId,
       data: { ...values },
     });
     const res2 = await res;
@@ -47,11 +46,11 @@ const Personal_info = ({ userId }: Props) => {
   };
 
   return (
-    <div className=" bg-opacity-100 bg-light_1">
+    <div className=" bg-light_1 bg-opacity-100">
       <div className=" flex flex-col gap-3">
         <h1 className="text-xl"> لطفا اطلاعات شناسایی خود را وارد نمایید </h1>
         <Divider className="my-" />
-        <p className="text-dark_2 text-lg">
+        <p className="text-lg text-dark_2">
           لطفا اطلاعات شناسایی خود را وارد کنید. نام و نام خانوادگی شما باید با
           اطلاعاتی که وارد می‌کنید همخوانی داشته باشند.
         </p>
@@ -68,7 +67,7 @@ const Personal_info = ({ userId }: Props) => {
               render={({ field }) => (
                 <FormItem className="grow">
                   <FormLabel className="text-md">نام</FormLabel>
-                  <span className="text-g1_5 text-lg">*</span>
+                  <span className="text-lg text-g1_5">*</span>
                   <FormControl>
                     <Input
                       className="rounded-[4px] border border-gray-400"
@@ -85,7 +84,7 @@ const Personal_info = ({ userId }: Props) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-md">نام خانوادگی</FormLabel>
-                  <span className="text-g1_5 text-lg">*</span>
+                  <span className="text-lg text-g1_5">*</span>
                   <FormControl>
                     <Input
                       className="rounded-[4px] border border-gray-400"
@@ -104,7 +103,7 @@ const Personal_info = ({ userId }: Props) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-md">کد ملی</FormLabel>
-                <span className="text-g1_5 text-lg">*</span>
+                <span className="text-lg text-g1_5">*</span>
                 <FormControl>
                   <Input
                     className="rounded-[4px] border border-gray-400"
@@ -117,7 +116,7 @@ const Personal_info = ({ userId }: Props) => {
           />
           <div>
             <button
-              className="bg-g1_5 text-light_1 rounded-lg hover:scale-[1.01] px-6 py-2 text-lg font-iranyekan_bold"
+              className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
               type="submit"
             >
               ثبت اطلاعات شناسایی

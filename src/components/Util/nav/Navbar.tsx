@@ -22,7 +22,7 @@ interface Props {
   cart: ShoppingCart | null;
 }
 
-const navDiablerPaths: string[] = ["/shipping", "/payment"];
+const navDiablerPaths: string[] = ["/shipping", "/payment", "/users/login"];
 
 const Navbar = ({ cats, session, cart }: Props) => {
   const [mount, setMount] = useState<boolean>(false);
@@ -50,7 +50,7 @@ const Navbar = ({ cats, session, cart }: Props) => {
                 </Link>
                 <HelpIcon classes="h-10 w-10 md:hidden" />
               </div>
-              <div className="flex justify-between items-center gap-4 md:grow">
+              <div className="flex items-center justify-between gap-4 md:grow">
                 <Search />
                 <div className="flex items-stretch gap-5">
                   {session && <UserMenu session={session} />}
@@ -61,7 +61,7 @@ const Navbar = ({ cats, session, cart }: Props) => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:flex md:gap-2 text-g1 border-b-g1_7">
+            <div className="text-g1 hidden border-b-g1_7 md:flex md:gap-2">
               <CatsMenu mainCats={cats} />
               <NavbarLinks />
             </div>

@@ -23,7 +23,7 @@ const getCategories = cache(async () => {
 });
 
 export const metadata: Metadata = {
-  title: "ترانه - نوشیدنی ها",
+  title: " نوشیدنی ها",
   description:
     "انواع نوشیدنی ها از جمله قهوه اسپرسو قهوه ترک و کاپوچینو و هات چاکلت و قهوه فوری",
 };

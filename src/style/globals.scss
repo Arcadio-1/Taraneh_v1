@@ -104,18 +104,18 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 70.5%;
   @include responsive(lg) {
-    font-size: 58%;
+    font-size: 64%;
   }
   @include responsive(md) {
-    font-size: 55%;
+    font-size: 60%;
   }
   @include responsive(sm) {
-    font-size: 53%;
+    font-size: 58%;
   }
   @include responsive(xs) {
-    font-size: 51%;
+    font-size: 58%;
   }
 }
 

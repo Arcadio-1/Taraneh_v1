@@ -9,20 +9,23 @@ import { convert_to_en_number } from "../util/translateNumbers";
 type TCheckPhone = Promise<
   | {
       phone: string;
+      password: false;
       type: Sign.signUp;
     }
   | {
       phone: string;
+      password: boolean;
       type: Sign.signin;
     }
   | {
       phone: null;
+      password: false;
       type: Sign.error;
     }
 >;
 
-export const checkPhone = async (
-  phone: z.infer<typeof phoneSchame>
+export const checkUser = async (
+  phone: z.infer<typeof phoneSchame>,
 ): TCheckPhone => {
   try {
     const checked_phone = phoneSchame.safeParse(phone);
@@ -32,24 +35,28 @@ export const checkPhone = async (
     }
 
     const conv_phone = convert_to_en_number(checked_phone.data.phone);
+
     const check = await prisma.user.findUnique({
       where: { phone: conv_phone },
     });
 
     if (check) {
       return {
+        password: check.password ? true : false,
         phone: conv_phone,
         type: Sign.signin,
       };
     }
     return {
       phone: conv_phone,
+      password: false,
       type: Sign.signUp,
     };
   } catch (error) {
     console.log(error);
     return {
       phone: null,
+      password: false,
       type: Sign.error,
     };
   }

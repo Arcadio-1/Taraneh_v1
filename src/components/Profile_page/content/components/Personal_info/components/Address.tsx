@@ -241,7 +241,7 @@ const Address = ({ userId, address }: Props) => {
               label: city.city_name,
               value: city.id,
             };
-          }
+          },
         );
         setCities((prev) => {
           return (prev = formatedCities);
@@ -255,19 +255,19 @@ const Address = ({ userId, address }: Props) => {
   const onSubmit = async (values: z.infer<typeof AddressSchame>) => {
     const isValid = AddressSchame.safeParse(values);
     if (isValid.success) {
-      const res = await setAddress(userId, values);
+      const res = await setAddress(values);
       if (res.status === "success") {
         setOpen(false);
         toast({
           duration: 2500,
-          title: "آدرس شما با موفقیت ثبت شد",
+          title: res.message,
           className: "bg-success text-light_1 text-xl",
         });
         return;
       } else {
         toast({
           duration: 2500,
-          title: "خطا در ثبت آدرس شما رخ داد",
+          title: res.message,
           className: "bg-g1_5 text-light_1 text-xl",
         });
       }
@@ -282,11 +282,11 @@ const Address = ({ userId, address }: Props) => {
           <path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z" />
         </svg>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-opacity-100 bg-light_1">
+      <DialogContent className="bg-light_1 bg-opacity-100 sm:max-w-[425px]">
         <DialogHeader className=" flex flex-col gap-3">
           <DialogTitle className="text-xl">ثبت اطلاعات آدرس</DialogTitle>
           <Divider className="my-" />
-          <DialogDescription className="text-dark_2 text-lg">
+          <DialogDescription className="text-lg text-dark_2">
             لطفا آدرس خود را جهت دریافت مرسوله پستی ثبت نمایید.
           </DialogDescription>
         </DialogHeader>
@@ -296,7 +296,7 @@ const Address = ({ userId, address }: Props) => {
             onSubmit={form.handleSubmit(onSubmit)}
           >
             <div className="flex items-stretch gap-4">
-              <div className="flex grow gap-4 flex-col">
+              <div className="flex grow flex-col gap-4">
                 <FormField
                   control={form.control}
                   name="state_id"
@@ -304,7 +304,7 @@ const Address = ({ userId, address }: Props) => {
                     <FormItem>
                       <div>
                         <FormLabel className="text-md">استان</FormLabel>
-                        <span className="text-g1_5 text-lg">*</span>
+                        <span className="text-lg text-g1_5">*</span>
                       </div>
                       <Autocomplete
                         disablePortal
@@ -313,7 +313,7 @@ const Address = ({ userId, address }: Props) => {
                         defaultValue={states[2]}
                         onChange={(
                           event: any,
-                          newValue: StateAndCityInterface | null
+                          newValue: StateAndCityInterface | null,
                         ) => {
                           setCities(null);
                           setCityValue(null);
@@ -353,7 +353,7 @@ const Address = ({ userId, address }: Props) => {
                             <li
                               {...props}
                               key={option.key}
-                              className="font-iranyekan_bold p-3 hover:bg-slate-100 cursor-pointer"
+                              className="cursor-pointer p-3 font-iranyekan_bold hover:bg-slate-100"
                             >
                               {option.label}
                             </li>
@@ -371,7 +371,7 @@ const Address = ({ userId, address }: Props) => {
                   )}
                 />
               </div>
-              <div className="flex  grow gap-4 flex-col">
+              <div className="flex  grow flex-col gap-4">
                 <FormField
                   control={form.control}
                   name="city_id"
@@ -379,9 +379,9 @@ const Address = ({ userId, address }: Props) => {
                     <FormItem>
                       <div>
                         <FormLabel className="text-md">شهر</FormLabel>
-                        <span className="text-g1_5 text-lg">*</span>
+                        <span className="text-lg text-g1_5">*</span>
                         {!!!stateValue && (
-                          <span className="text-gray-400 text-x,">
+                          <span className="text-x, text-gray-400">
                             (لطفا ابتدا استان خود را انتخاب کنید)
                           </span>
                         )}
@@ -395,7 +395,7 @@ const Address = ({ userId, address }: Props) => {
                           value={cityValue || null}
                           onChange={(
                             event: any,
-                            newValue: StateAndCityInterface | null
+                            newValue: StateAndCityInterface | null,
                           ) => {
                             if (newValue?.value) {
                               form.setValue("city_id", newValue.value);
@@ -430,7 +430,7 @@ const Address = ({ userId, address }: Props) => {
                               <li
                                 {...props}
                                 key={option.key}
-                                className="font-iranyekan_bold p-3 hover:bg-slate-100 cursor-pointer focus:bg-slate-100 selection:bg-red-500 "
+                                className="cursor-pointer p-3 font-iranyekan_bold selection:bg-red-500 hover:bg-slate-100 focus:bg-slate-100 "
                               >
                                 {option.label}
                               </li>
@@ -458,7 +458,7 @@ const Address = ({ userId, address }: Props) => {
               render={({ field }) => (
                 <FormItem className="grow">
                   <FormLabel className="text-md">آدرس</FormLabel>
-                  <span className="text-g1_5 text-lg">*</span>
+                  <span className="text-lg text-g1_5">*</span>
                   <FormControl>
                     <Input
                       // defaultValue={"00000000000000"}
@@ -477,7 +477,7 @@ const Address = ({ userId, address }: Props) => {
                 render={({ field }) => (
                   <FormItem className="grow">
                     <FormLabel className="text-md">پلاک</FormLabel>
-                    <span className="text-g1_5 text-lg">*</span>
+                    <span className="text-lg text-g1_5">*</span>
                     <FormControl>
                       <Input
                         className="rounded-[4px] border border-gray-400"
@@ -494,7 +494,7 @@ const Address = ({ userId, address }: Props) => {
                 render={({ field }) => (
                   <FormItem className="grow">
                     <FormLabel className="text-md">کد پستی</FormLabel>
-                    <span className="text-g1_5 text-lg">*</span>
+                    <span className="text-lg text-g1_5">*</span>
                     <FormControl>
                       <Input
                         className="rounded-[4px] border border-gray-400 font-iranyekan_bold"
@@ -509,7 +509,7 @@ const Address = ({ userId, address }: Props) => {
 
             <DialogFooter>
               <button
-                className="bg-g1_5 text-light_1 rounded-lg hover:scale-[1.01] px-6 py-2 text-lg font-iranyekan_bold"
+                className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
                 type="submit"
               >
                 ذخیره اطلاعات
