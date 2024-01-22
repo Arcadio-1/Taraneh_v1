@@ -1,16 +1,11 @@
 "use server";
-import { comparePasswordWithOtpScham } from "../util/validation";
+import { comparePasswordWithOtpScham } from "../types_validation/validation";
 import { z } from "zod";
-import { prisma } from "../db/prisma";
-import { getHashedPassword } from "../bcrypt/bcrypt";
+import { prisma } from "../lib/db/prisma";
+import { getHashedPassword } from "../lib/bcrypt/bcrypt";
 import { getUserId } from "./getUserId";
 import { signOut } from "next-auth/react";
-
-interface IResponse {
-  status: "Error" | "Success";
-  ok: boolean;
-  message: string;
-}
+import { IResponse } from "@/types_validation/type";
 
 const addPassword: (
   passwordAddingData: z.infer<typeof comparePasswordWithOtpScham>,

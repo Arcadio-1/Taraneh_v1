@@ -16,7 +16,7 @@ import {
 } from "@/components_shadcn/ui/form";
 import { Divider } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { commentSchame } from "@/lib/util/validation";
+import { commentSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Input } from "@/components_shadcn/ui/input";
@@ -25,7 +25,7 @@ import DotIcon from "@/components/Util/icons/DotIcon";
 import { Textarea } from "@/components_shadcn/ui/textarea";
 import { Session } from "next-auth";
 import { Recommendation } from "@prisma/client";
-import { add_comment } from "@/lib/actions/manageReview";
+import { add_comment } from "@/actions/manageReview";
 // import { toast } from "@/components_shadcn/ui/use-toast";
 // import { useToast } from "@/components_shadcn/ui/use-toast";
 import { toast } from "@/components_shadcn/ui/use-toast";
@@ -95,7 +95,7 @@ const Add_review_form = ({
       <DialogHeader className=" flex flex-col gap-3">
         <DialogTitle className="text-xl">دیدگاه شما</DialogTitle>
         <Divider className="my-" />
-        <DialogDescription className="text-dark_2 text-lg font-iranyekan_bold">
+        <DialogDescription className="font-iranyekan_bold text-lg text-dark_2">
           {product_title}
         </DialogDescription>
       </DialogHeader>
@@ -109,11 +109,11 @@ const Add_review_form = ({
             name="rate"
             render={({ field }) => (
               <FormItem className="grow pb-5">
-                <FormLabel className="text-lg font-iranyekan_bold">
+                <FormLabel className="font-iranyekan_bold text-lg">
                   امتیاز شما
                 </FormLabel>
-                <span className="text-g1_5 text-lg">*</span>
-                <div className="flex gap-3 items-center">
+                <span className="text-lg text-g1_5">*</span>
+                <div className="flex items-center gap-3">
                   <div className="relative grow">
                     <FormControl>
                       <Slider
@@ -126,15 +126,15 @@ const Add_review_form = ({
                           console.log(e[0]);
                           form.setValue("rate", e[0]);
                         }}
-                        className={`bg-g1_7 rounded-lg z-10`}
+                        className={`z-10 rounded-lg bg-g1_7`}
                       />
                     </FormControl>
-                    <div className="flex items-center justify-between absolute bottom-[-19px] w-full">
+                    <div className="absolute bottom-[-19px] flex w-full items-center justify-between">
                       {rateRange.map((number) => {
                         return (
                           <div key={number} className="flex flex-col">
                             <DotIcon classes="h-6 w-6 fill-g1_7" />
-                            <span className="text-center text-xl font-iransansnum w-full grow mx-auto">
+                            <span className="mx-auto w-full grow text-center font-iransansnum text-xl">
                               {number}
                             </span>
                           </div>
@@ -144,7 +144,7 @@ const Add_review_form = ({
                   </div>
                 </div>
 
-                <FormMessage className="pt-2 text-md text-red-800 font-iranyekan_bold" />
+                <FormMessage className="text-md pt-2 font-iranyekan_bold text-red-800" />
               </FormItem>
             )}
           />
@@ -153,17 +153,17 @@ const Add_review_form = ({
             name="title"
             render={({ field }) => (
               <FormItem className="grow">
-                <FormLabel className="text-lg font-iranyekan_bold">
+                <FormLabel className="font-iranyekan_bold text-lg">
                   عنوان
                 </FormLabel>
-                <span className="text-g1_5 text-lg">*</span>
+                <span className="text-lg text-g1_5">*</span>
                 <FormControl>
                   <Input
                     className="rounded-[4px] border border-gray-400"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-md text-red-800 font-iranyekan_bold" />
+                <FormMessage className="text-md font-iranyekan_bold text-red-800" />
               </FormItem>
             )}
           />
@@ -172,23 +172,23 @@ const Add_review_form = ({
             name="text"
             render={({ field }) => (
               <FormItem className="grow">
-                <FormLabel className="text-lg font-iranyekan_bold">
+                <FormLabel className="font-iranyekan_bold text-lg">
                   متن دیدگاه
                 </FormLabel>
-                <span className="text-g1_5 text-lg">*</span>
+                <span className="text-lg text-g1_5">*</span>
                 <FormControl>
                   <Textarea
                     className="rounded-[4px] border border-gray-400"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-md text-red-800 font-iranyekan_bold" />
+                <FormMessage className="text-md font-iranyekan_bold text-red-800" />
               </FormItem>
             )}
           />
           <DialogFooter className="items-end">
             <button
-              className="bg-g1_7 mt-8 text-light_1 rounded-lg hover:scale-[1.01] px-6 py-2 text-lg font-iranyekan_bold"
+              className="mt-8 rounded-lg bg-g1_7 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
               type="submit"
             >
               ثبت دیدگاه

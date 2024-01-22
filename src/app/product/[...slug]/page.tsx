@@ -5,7 +5,7 @@ import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import React, { Suspense, cache } from "react";
 import { Metadata } from "next";
-import { getCart } from "@/lib/actions/getCart";
+import { getCart } from "@/actions/getCart";
 import Main from "@/components/Product_page/main/Main";
 import Smilar_product_slider from "@/components/Product_page/smilar_products_slider/Smilar_product_slider";
 import { getServerSession } from "next-auth";
@@ -59,7 +59,7 @@ const page = async ({ params: { slug } }: Props) => {
   const cart = await getCart();
 
   return (
-    <main className="px-5 flex flex-col gap-5">
+    <main className="flex flex-col gap-5 px-5">
       <div>
         <Breadcrumbs list={breadcrumbs} />
         <Main cart={cart} product={product.product} product_id={slug[0]} />

@@ -1,7 +1,7 @@
 "use client";
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import LocationIcon from "@/components/Util/icons/LocationIcon";
-import { Address_Full } from "@/types/type";
+import { Address_Full } from "@/types_validation/type";
 import { Session } from "next-auth";
 import Link from "next/link";
 import React from "react";
@@ -14,15 +14,15 @@ interface Props {
 }
 const User_info = ({ address, user }: Props) => {
   return (
-    <div className="border rounded-lg  py-3 px-4">
+    <div className="rounded-lg border  px-4 py-3">
       {address && user.user.name && user.user.family && (
         <div>
           <div className="flex flex-col">
-            <div className="flex gap-3 items-center">
+            <div className="flex items-center gap-3">
               <LocationIcon classes="h-6 w-6 fill-gray-500" />
               <div className="flex flex-col gap-2">
-                <p className="text-dark_5 text-sm">آدرس تحویل سفارش</p>
-                <p className="font-iranyekan_bold text-md">
+                <p className="text-sm text-dark_5">آدرس تحویل سفارش</p>
+                <p className="text-md font-iranyekan_bold">
                   <span>{address.state.state_name}</span>
                   <span>,</span>
                   <span>{address.city.city_name}</span>
@@ -45,7 +45,7 @@ const User_info = ({ address, user }: Props) => {
           </div>
         </div>
       )}
-      <div className="flex items-stretch gap-4 flex-wrap">
+      <div className="flex flex-wrap items-stretch gap-4">
         {(!user.user.name || !user.user.family) && (
           <div>
             <Personal_info userId={user.user.id} />

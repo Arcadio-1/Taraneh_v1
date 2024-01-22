@@ -8,7 +8,7 @@ import {
   FormMessage,
 } from "@/components_shadcn/ui/form";
 import { Input } from "@/components_shadcn/ui/input";
-import { personalInfoFormSchame } from "@/lib/util/validation";
+import { personalInfoFormSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
 import { useSession } from "next-auth/react";

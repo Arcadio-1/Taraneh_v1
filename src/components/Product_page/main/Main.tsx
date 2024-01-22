@@ -3,7 +3,7 @@ import ProdImage from "./image/ProdImage";
 import Header from "./header/Header";
 import Prod_specification from "./specifications/Prod_specification";
 import Prod_order from "./order/Prod_order";
-import { Product_full, ShoppingCart } from "@/types/type";
+import { Product_full, ShoppingCart } from "@/types_validation/type";
 
 interface Props {
   product: Product_full;
@@ -13,7 +13,7 @@ interface Props {
 
 const Main = ({ product, product_id, cart }: Props) => {
   return (
-    <section className="lg:grid lg:grid-cols-3 flex flex-col">
+    <section className="flex flex-col lg:grid lg:grid-cols-3">
       <ProdImage
         product_image_url={product.image_url}
         product_title={product.title}
@@ -25,7 +25,7 @@ const Main = ({ product, product_id, cart }: Props) => {
           product_cat={product.specific_cat.title}
         />
 
-        <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 ">
           <Prod_specification product={product} />
           <Prod_order
             status={product.status}

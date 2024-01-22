@@ -5,7 +5,7 @@ import Tools_cats from "@/components/Main_page__DrinkAndTools/tools_cats/Tools_c
 import Show_all from "@/components/Main_page__DrinkAndTools/show_all/Show_all";
 import Hero from "@/components/Main_page__DrinkAndTools/tools_hero/Hero";
 import { prisma } from "@/lib/db/prisma";
-import { MainCat_with_Specific_cats } from "@/types/type";
+import { MainCat_with_Specific_cats } from "@/types_validation/type";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
@@ -34,7 +34,7 @@ const ToolsPage = async () => {
   return (
     <div>
       <Hero />
-      <div className="mt-2 p-4 max-w-[90rem] m-auto flex flex-col gap-5">
+      <div className="m-auto mt-2 flex max-w-[90rem] flex-col gap-5 p-4">
         <Tools_cats Main_cat={tools} />
         <Show_all
           alt={tools.label}

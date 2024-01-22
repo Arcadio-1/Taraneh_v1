@@ -3,7 +3,7 @@ import Red_under from "@/components/Util/ui/Red_under";
 import React from "react";
 import Add_review from "./Add_review";
 import ReviewItem from "./ReviewItem";
-import { CommentWithUser } from "@/types/type";
+import { CommentWithUser } from "@/types_validation/type";
 import { Session } from "next-auth";
 import { Element } from "react-scroll";
 import ReviewItem_mobile from "./ReviewItem_mobile";
@@ -47,9 +47,9 @@ const Reviews = ({
     <Element name="Reviews">
       <div className="flex flex-col gap-10">
         <div className="sticky top-0">
-          <div className="py-4 mb-8 flex justify-between items-center">
+          <div className="mb-8 flex items-center justify-between py-4">
             <div>
-              <h1 className="text-2xl font-iranyekan_bold">
+              <h1 className="font-iranyekan_bold text-2xl">
                 امتیاز ودیدگاه کاربران
               </h1>
               <Red_under />
@@ -65,8 +65,8 @@ const Reviews = ({
             </div>
           </div>
         </div>
-        <div className="flex gap-4 relative">
-          <div className="hidden sm:flex sticky top-10 px-5 py-[4rem] bg-white self-start shrink min-w-[22rem]">
+        <div className="relative flex gap-4">
+          <div className="sticky top-10 hidden min-w-[22rem] shrink self-start bg-white px-5 py-[4rem] sm:flex">
             <Add_review
               product_title={product_title}
               product_id={product_id}
@@ -75,7 +75,7 @@ const Reviews = ({
               short={false}
             />
           </div>
-          <div className="hidden sm:flex flex-col gap-4 grow">
+          <div className="hidden grow flex-col gap-4 sm:flex">
             {comments.map((item) => {
               return (
                 <ReviewItem
@@ -87,13 +87,13 @@ const Reviews = ({
               );
             })}
           </div>
-          <div className="sm:hidden flex gap-4 items-stretch grow overflow-hidden w-[calc(100vw-4rem)] ">
-            <div className=" flex gap-4 items-stretch overflow-hidden">
+          <div className="flex w-[calc(100vw-4rem)] grow items-stretch gap-4 overflow-hidden sm:hidden ">
+            <div className=" flex items-stretch gap-4 overflow-hidden">
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, Autoplay]}
                 spaceBetween={2}
                 slidesPerView={"auto"}
-                className={`sliderSection-swiper !px-4 items-stretch`}
+                className={`sliderSection-swiper items-stretch !px-4`}
                 // navigation
               >
                 {comments.map((item, index) => {
@@ -104,7 +104,7 @@ const Reviews = ({
                     <SwiperSlide
                       id={item.id}
                       key={item.id}
-                      className="py-5 !max-w-[25rem] !h-auto"
+                      className="!h-auto !max-w-[25rem] py-5"
                       onClick={() => {
                         setOpen(true);
                       }}
@@ -117,12 +117,12 @@ const Reviews = ({
                     </SwiperSlide>
                   );
                 })}
-                <SwiperSlide className="py-5 !max-w-[25rem] !h-auto">
+                <SwiperSlide className="!h-auto !max-w-[25rem] py-5">
                   <Sheet open={open} onOpenChange={setOpen}>
                     <div className="h-full">
                       <SheetTrigger asChild className="">
-                        <div className="h-full grid items-center">
-                          <span className="text-g1_7 text-center text-2xl flex items-center justify-center gap-2">
+                        <div className="grid h-full items-center">
+                          <span className="flex items-center justify-center gap-2 text-center text-2xl text-g1_7">
                             مشاهده همه نظارت
                             <ArrowIcon
                               classes="h-6 w-6 fill-g1_7"
@@ -133,8 +133,8 @@ const Reviews = ({
                       </SheetTrigger>
                     </div>
                     <SheetContent side={"bottom"} className="h-full">
-                      <SheetHeader className="flex justify-between items-start mb-5">
-                        <SheetTitle className="font-iranyekan_bold text-xl text-dark_4 flex gap-2 items-center justify-between w-full">
+                      <SheetHeader className="mb-5 flex items-start justify-between">
+                        <SheetTitle className="flex w-full items-center justify-between gap-2 font-iranyekan_bold text-xl text-dark_4">
                           <div className="flex items-center gap-2">
                             <div
                               onClick={() => {
@@ -162,7 +162,7 @@ const Reviews = ({
                           </div>
                         </SheetTitle>
                       </SheetHeader>
-                      <div className="flex flex-col gap-4 grow overflow-scroll h-full ">
+                      <div className="flex h-full grow flex-col gap-4 overflow-scroll ">
                         {comments.map((item) => {
                           return (
                             <ReviewItem

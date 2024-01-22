@@ -2,8 +2,8 @@ import { useGlobalContext } from "@/app/(provider)/Provider";
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import ShippingIcon from "@/components/Util/icons/ShippingIcon";
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator } from "@/lib/util/price_formt";
-import { OrderType, ShoppingCart } from "@/types/type";
+import { numberSeperator } from "@/util_functions/price_formt";
+import { OrderType, ShoppingCart } from "@/types_validation/type";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -16,15 +16,15 @@ const Shipping_summry = ({ cart }: Props) => {
 
   const [showOrderSummry, setShowOrderSummry] = useState(false);
   return (
-    <div className="border py-6 px-4 rounded-lg flex flex-col gap-3">
+    <div className="flex flex-col gap-3 rounded-lg border px-4 py-6">
       <div className="flex flex-col gap-4">
         <div className="flex justify-between">
-          <h1 className="text-lg font-iranyekan_bold">خلاصه سفارش</h1>
+          <h1 className="font-iranyekan_bold text-lg">خلاصه سفارش</h1>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3 text-dark_2 font-iranyekan_bold text-md">
-              <ShippingIcon className="fill-g1_5 h-8 w-8" />
+            <div className="text-md flex items-center gap-3 font-iranyekan_bold text-dark_2">
+              <ShippingIcon className="h-8 w-8 fill-g1_5" />
               <div className="flex items-center gap-2">
                 <p>{deliveryDate!.weekday}</p>
                 <p>{deliveryDate!.day}</p>
@@ -32,7 +32,7 @@ const Shipping_summry = ({ cart }: Props) => {
                 <p> - </p>
                 <p>بازده زمانی</p>
                 <p className="font-iransansnum"> 9 - 22</p>
-                <div className="bg-slate-300 py-1 px-2 text-sm rounded-full flex items-center justify-center gap-1">
+                <div className="flex items-center justify-center gap-1 rounded-full bg-slate-300 px-2 py-1 text-sm">
                   <p className="font-iransansnum">{cart.size}</p>
                   <p className="">کالا</p>
                 </div>
@@ -50,7 +50,7 @@ const Shipping_summry = ({ cart }: Props) => {
             </div>
           </div>
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex cursor-pointer items-center gap-2"
             onClick={() => {
               setShowOrderSummry((prev) => {
                 return (prev = !prev);
@@ -86,7 +86,7 @@ const Shipping_summry = ({ cart }: Props) => {
           </div>
           <div className="flex gap-2">
             <p>مبلغ مرسوله :</p>
-            <div className="flex gap-1 items-center">
+            <div className="flex items-center gap-1">
               <p className="font-iransansnum">
                 {numberSeperator(cart.subTotalWithDiscount)}
               </p>

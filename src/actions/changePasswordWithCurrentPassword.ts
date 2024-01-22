@@ -1,15 +1,11 @@
 "use server";
 import { z } from "zod";
-import { comparePasswordWithCurrentPasswordScham } from "../util/validation";
+import { comparePasswordWithCurrentPasswordScham } from "../types_validation/validation";
 import { getUserId } from "./getUserId";
-import { prisma } from "../db/prisma";
-import { getHashedPassword, varifiyPassword } from "../bcrypt/bcrypt";
+import { prisma } from "../lib/db/prisma";
+import { getHashedPassword, varifiyPassword } from "../lib/bcrypt/bcrypt";
+import { IResponse } from "@/types_validation/type";
 
-interface IResponse {
-  status: "Error" | "Success";
-  ok: boolean;
-  message: string;
-}
 const changePasswordWithCurrentPassword: (
   passwordChangingData: z.infer<typeof comparePasswordWithCurrentPasswordScham>,
 ) => Promise<IResponse> = async (passwordChangingData) => {

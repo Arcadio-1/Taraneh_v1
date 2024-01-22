@@ -24,9 +24,9 @@ import { Divider } from "@mui/material";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { phoneSchame } from "@/lib/util/validation";
+import { phoneSchame } from "@/types_validation/validation";
 import { z } from "zod";
-import { convert_to_en_number } from "@/lib/util/translateNumbers";
+import { convert_to_en_number } from "@/util_functions/translateNumbers";
 
 interface Props {
   userId: string;

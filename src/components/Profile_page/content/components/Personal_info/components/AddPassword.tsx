@@ -27,13 +27,13 @@ import { useForm } from "react-hook-form";
 import {
   comparePasswordWithOtpScham,
   otpFormSchame,
-} from "@/lib/util/validation";
+} from "@/types_validation/validation";
 import { z } from "zod";
 import { toast } from "@/components_shadcn/ui/use-toast";
 import OTPInput from "react-otp-input";
 import ShowIcon from "@/components/Util/icons/ShowIcon";
 import HideIcon from "@/components/Util/icons/HideIcon";
-import addPassword from "@/lib/actions/addPassword";
+import addPassword from "@/actions/addPassword";
 import SpinnerIcon from "@/components/Util/icons/SpinnerIcon";
 import PasswordPower from "./PasswordPower";
 import OtpButton from "@/components/Util/ui/OtpButton";
@@ -236,7 +236,7 @@ const AddPassword = ({ phone, hasPassword }: Props) => {
                     dir="ltr"
                     className="flex flex-col items-end justify-evenly gap-4"
                   >
-                    <OtpButton initialSeconds={100} />
+                    <OtpButton phone={phone} initialSeconds={100} />
                     <FormControl>
                       <OTPInput
                         shouldAutoFocus

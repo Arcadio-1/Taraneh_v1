@@ -1,7 +1,7 @@
 import DotIcon from "@/components/Util/icons/DotIcon";
 import ShippingIcon from "@/components/Util/icons/ShippingIcon";
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator } from "@/lib/util/price_formt";
+import { numberSeperator } from "@/util_functions/price_formt";
 import { OrderSelectedDate, OrderStatus } from "@prisma/client";
 import React, { useEffect, useState } from "react";
 import { Progress } from "@/components_shadcn/ui/progress";
@@ -47,38 +47,38 @@ const PostingDetials = ({
           }
           return (prev = 100);
         }),
-      500
+      500,
     );
     return () => clearTimeout(timer);
   }, [status]);
 
   return (
-    <div className="grow flex flex-col gap-6 border py-4 px-6 rounded-lg ">
-      <div className="flex items-stretch flex-col md:flex-row">
+    <div className="flex grow flex-col gap-6 rounded-lg border px-6 py-4 ">
+      <div className="flex flex-col items-stretch md:flex-row">
         {status !== OrderStatus.CANCELED && (
           <div className="flex grow flex-col gap-4">
             <div className="flex items-center gap-2">
               <ShippingIcon className="h-6 w-6 fill-g1_5" />
-              <span className="font-iranyekan_bold text-dark_1 text-lg">
+              <span className="font-iranyekan_bold text-lg text-dark_1">
                 ارسال عادی
               </span>
             </div>
-            <div className="flex flex-col grow gap-5">
-              <div className="flex gap-2 items-center">
-                <label className="text-dark_5 font-iranyekan_bold">
+            <div className="flex grow flex-col gap-5">
+              <div className="flex items-center gap-2">
+                <label className="font-iranyekan_bold text-dark_5">
                   زمان تحویل :
                 </label>
-                <div className="flex gap-1 items-center">
-                  <span className="text-dark_1 font-iranyekan_bold font-bold text-lg">
+                <div className="flex items-center gap-1">
+                  <span className="font-iranyekan_bold text-lg font-bold text-dark_1">
                     {selectedDate.weekday}
                   </span>
-                  <span className="text-dark_1 font-iransansnum text-xl font-bold">
+                  <span className="font-iransansnum text-xl font-bold text-dark_1">
                     {selectedDate.day}
                   </span>
-                  <span className="text-dark_1 font-iranyekan_bold text-xl font-bold">
+                  <span className="font-iranyekan_bold text-xl font-bold text-dark_1">
                     {selectedDate.month_name}
                   </span>
-                  <p className="text-dark_1 font-iranyekan_bold text-xl font-bold flex items-center gap-2">
+                  <p className="flex items-center gap-2 font-iranyekan_bold text-xl font-bold text-dark_1">
                     <span> - </span>
                     <span>ساعت</span>
                     <span className="font-iransansnum">9</span>
@@ -87,12 +87,12 @@ const PostingDetials = ({
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 items-center">
-                <div className="flex gap-2 items-center">
-                  <label className="text-dark_5 font-iranyekan_bold">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <label className="font-iranyekan_bold text-dark_5">
                     هزینه ارسال :
                   </label>
-                  <div className="text-dark_1 font-bold">
+                  <div className="font-bold text-dark_1">
                     {posting_price && (
                       <div className="flex items-center gap-2">
                         <span className="font-iransansnum text-xl text-dark_3">
@@ -105,12 +105,12 @@ const PostingDetials = ({
                   </div>
                 </div>
                 <DotIcon classes=" h-2 w-2 fill-dark_5" />
-                <div className="flex gap-2 items-center">
-                  <label className="text-dark_5 font-iranyekan_bold">
+                <div className="flex items-center gap-2">
+                  <label className="font-iranyekan_bold text-dark_5">
                     مبلغ مرسوله :
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="font-iransansnum text-xl text-dark_2 font-bold">
+                    <span className="font-iransansnum text-xl font-bold text-dark_2">
                       {numberSeperator(final_price)}
                     </span>
                     <TomanIcon classes="h-5 w-5 fill-dark_2" />
@@ -120,14 +120,14 @@ const PostingDetials = ({
             </div>
           </div>
         )}
-        <div className="flex flex-col justify-between grow gap-5 mt-5 md:m-0">
+        <div className="mt-5 flex grow flex-col justify-between gap-5 md:m-0">
           <ProgressOrdering status={status} />
           {status === OrderStatus.ON_DELIVERY && (
-            <div className="flex gap-2 items-center">
-              <label className="text-dark_5 font-iranyekan_bold">
+            <div className="flex items-center gap-2">
+              <label className="font-iranyekan_bold text-dark_5">
                 کد پیگیری مرسوله :
               </label>
-              <span className="font-iransansnum text-xl text-dark_2 font-bold">
+              <span className="font-iransansnum text-xl font-bold text-dark_2">
                 {order_id}
               </span>
             </div>

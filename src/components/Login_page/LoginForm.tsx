@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Sign } from "@/types/type";
+import { Sign } from "@/types_validation/type";
 import PasswordForm from "./PasswordForm";
 import OtpForm from "./OtpForm";
 import PhoneForm from "./PhoneForm";

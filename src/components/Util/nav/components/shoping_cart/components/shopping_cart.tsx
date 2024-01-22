@@ -1,4 +1,4 @@
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import React from "react";
 import Content from "./content";
 import Header from "./header";

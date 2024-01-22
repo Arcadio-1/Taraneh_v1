@@ -4,7 +4,7 @@ import {
   calendarArray,
   getdayOfYear,
   jalali_to_gregorian,
-} from "@/lib/util/calender";
+} from "@/util_functions/calender";
 import { ClockIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Label } from "@/components_shadcn/ui/label";

@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Tabs, TabsContent } from "@/components_shadcn/ui/tabs";
 import OrderTabs from "./components/OrderTabs";
 import EmptyOrder from "./components/EmptyOrder";
-import { getOrders } from "@/lib/actions/manageOrders";
+import { getOrders } from "@/actions/manageOrders";
 import { Session } from "next-auth";
 import CartItemSkeleton from "./components/orderItem/components/CartItemSkeleton";
 import ArrowLongIcon, { Arrow } from "@/components/Util/icons/ArrowLongIcon";
@@ -24,7 +24,7 @@ const Orders = ({ user }: Props) => {
   const [orders, setOrders] = useState<Order[] | null>(null);
   const [loading, setLoading] = useState(true);
   const OrderItem = React.lazy(
-    () => import("./components/orderItem/OrderItem")
+    () => import("./components/orderItem/OrderItem"),
   );
 
   useEffect(() => {
@@ -42,14 +42,14 @@ const Orders = ({ user }: Props) => {
 
   return (
     <div>
-      <div className="px-3 flex items-center justify-start gap-2">
+      <div className="flex items-center justify-start gap-2 px-3">
         <Link href={`/profile`}>
           <ArrowLongIcon
             classes="h-10 w-10 md:hidden fill-dark_3"
             direction={Arrow.right}
           />
         </Link>
-        <h1 className=" text-lg font-iranyekan_bold text-dark_3">
+        <h1 className=" font-iranyekan_bold text-lg text-dark_3">
           تاریخچه سفارشات
         </h1>
       </div>
@@ -61,7 +61,7 @@ const Orders = ({ user }: Props) => {
         >
           <OrderTabs orders={orders} />
           <TabsContent
-            className="mt-4 mx-6"
+            className="mx-6 mt-4"
             key={OrderStatus.IN_PROCESS}
             value={OrderStatus.IN_PROCESS}
           >
@@ -88,7 +88,7 @@ const Orders = ({ user }: Props) => {
           </TabsContent>
 
           <TabsContent
-            className="mt-4 mx-6"
+            className="mx-6 mt-4"
             key={OrderStatus.DELIVERED}
             value={OrderStatus.DELIVERED}
           >
@@ -110,7 +110,7 @@ const Orders = ({ user }: Props) => {
             }
           </TabsContent>
           <TabsContent
-            className="mt-4 mx-6 "
+            className="mx-6 mt-4 "
             key={OrderStatus.CANCELED}
             value={OrderStatus.CANCELED}
           >
@@ -132,7 +132,7 @@ const Orders = ({ user }: Props) => {
             }
           </TabsContent>
           <TabsContent
-            className="mt-4 mx-6 "
+            className="mx-6 mt-4 "
             key={OrderStatus.REJECTED}
             value={OrderStatus.REJECTED}
           >

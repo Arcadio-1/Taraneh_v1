@@ -1,5 +1,5 @@
 import Slider from "@/components/Util/products_Slider/Products_Slider";
-import { AllCatsTopsViewProducts } from "@/types/type";
+import { AllCatsTopsViewProducts } from "@/types_validation/type";
 import React from "react";
 import { prisma } from "@/lib/db/prisma";
 import { Main_cat } from "@prisma/client";
@@ -17,12 +17,11 @@ const Main_cat_slider = async ({}: Props) => {
         orderBy: { statistics: { views: "asc" } },
         include: { main_cat: true },
       });
-    }
+    },
   );
 
-  const lists_of_lists: AllCatsTopsViewProducts[] = await Promise.all(
-    topSellToolsProducts
-  );
+  const lists_of_lists: AllCatsTopsViewProducts[] =
+    await Promise.all(topSellToolsProducts);
 
   return (
     <section>

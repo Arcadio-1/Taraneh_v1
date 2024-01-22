@@ -1,10 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { phoneSchame } from "../util/validation";
+import { phoneSchame } from "../types_validation/validation";
 import { checkUser } from "./checkUser";
-import { Sign } from "@/types/type";
-import { prisma } from "../db/prisma";
+import { Sign } from "@/types_validation/type";
+import { prisma } from "../lib/db/prisma";
 
 export const userSignup: (
   phone: z.infer<typeof phoneSchame>,

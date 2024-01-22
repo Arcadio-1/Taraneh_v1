@@ -1,5 +1,8 @@
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator, price_calculator } from "@/lib/util/price_formt";
+import {
+  numberSeperator,
+  price_calculator,
+} from "@/util_functions/price_formt";
 import React from "react";
 
 interface Props {
@@ -13,16 +16,16 @@ const ShoppingListItemPrice = ({ price, off_percent, quantity }: Props) => {
   return (
     <div>
       {off_percent > 0 && (
-        <div className="text-g1_5 flex items-center gap-1">
-          <span className="font-iransansnum font-bold text-lg">
+        <div className="flex items-center gap-1 text-g1_5">
+          <span className="font-iransansnum text-lg font-bold">
             {numberSeperator(quantity * (price - calced_price))}
           </span>
           <TomanIcon classes="h-6 w-6 fill-g1_5" />
-          <span className="text-sm font-iranyekan_bold">تخفیف</span>
+          <span className="font-iranyekan_bold text-sm">تخفیف</span>
         </div>
       )}
-      <div className="text-dark_3 flex items-center gap-1">
-        <span className="font-iransansnum font-bold text-2xl">
+      <div className="flex items-center gap-1 text-dark_3">
+        <span className="font-iransansnum text-2xl font-bold">
           {numberSeperator(quantity * calced_price)}
         </span>
         <TomanIcon classes="h-7 w-7 fill-dark_3" />

@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import { AdWithProducts } from "@/types/type";
+import { AdWithProducts } from "@/types_validation/type";
 import React from "react";
 import Slider from "../products_Slider/Products_Slider";
 import { Product } from "@prisma/client";
@@ -23,7 +23,7 @@ const AdSlider = async () => {
     link_url: "#",
   };
   return (
-    <div className="overflow-auto z-0">
+    <div className="z-0 overflow-auto">
       <Slider products={products} bg_color="bg-g3_3" heroSlide={heroSlide} />
     </div>
   );

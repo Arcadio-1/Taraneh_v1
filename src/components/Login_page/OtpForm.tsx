@@ -7,9 +7,9 @@ import {
   FormMessage,
 } from "@/components_shadcn/ui/form";
 import { Button } from "@/components_shadcn/ui/button";
-import { userSignup } from "@/lib/actions/userSignup";
-import { otpFormSchame } from "@/lib/util/validation";
-import { Sign } from "@/types/type";
+import { userSignup } from "@/actions/userSignup";
+import { otpFormSchame } from "@/types_validation/validation";
+import { Sign } from "@/types_validation/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import React, { useEffect, useState } from "react";
@@ -137,7 +137,7 @@ const OtpForm = ({
                   </span>
                   <span>را وارد کنید</span>
                 </div>
-                <OtpButton autoStart={true} initialSeconds={20} />
+                <OtpButton phone={phone} autoStart={true} initialSeconds={20} />
 
                 {hasPassword && (
                   <div

@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components_shadcn/ui/sheet";
-import { SortItems } from "@/types/type";
+import { SortItems } from "@/types_validation/type";
 import CheckIcon from "@/components/Util/icons/CheckIcon";
 enum SortValue {
   grtPrice = "0",
@@ -71,7 +71,7 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
   }sort=`;
   return (
     <div>
-      <div className="hidden md:flex items-center gap-3 py-4">
+      <div className="hidden items-center gap-3 py-4 md:flex">
         <div className="flex items-center justify-center">
           <SortIcon className="h-7 w-7 stroke-dark_4" />
           <label className="font-iransansbold text-lg">مرتب سازی:</label>
@@ -82,8 +82,8 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
               <Link
                 key={item.id}
                 href={`${url}${item.value}`}
-                className={`text-lg font-iranyekan cursor-pointer text-dark_4 px-2 py-1 rounded-lg ${
-                  item.value === sort ? `text-dark_1 bg-slate-100` : ``
+                className={`cursor-pointer rounded-lg px-2 py-1 font-iranyekan text-lg text-dark_4 ${
+                  item.value === sort ? `bg-slate-100 text-dark_1` : ``
                 }`}
               >
                 {item.title}
@@ -92,18 +92,18 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
           })}
         </div>
       </div>
-      <div className="flex md:hidden items-center gap-3 py-4">
+      <div className="flex items-center gap-3 py-4 md:hidden">
         <Sheet>
           <div>
             <SheetTrigger asChild>
               <div className="flex items-center justify-center">
-                <SortIcon className="w-10 h-10 fill-red" />
+                <SortIcon className="fill-red h-10 w-10" />
                 {sortItems.map((item) => {
                   return (
                     <button
                       hidden={item.value !== sort}
                       key={item.id}
-                      className={`text-xl font-iranyekan_bold cursor-pointer text-dark_2 px-2 py-1 rounded-lg `}
+                      className={`cursor-pointer rounded-lg px-2 py-1 font-iranyekan_bold text-xl text-dark_2 `}
                     >
                       {item.title}
                     </button>
@@ -113,19 +113,19 @@ const Sort = ({ searchQuery, bQ, maxPrice, minPrice, sort = "2" }: Props) => {
             </SheetTrigger>
           </div>
           <SheetContent side={"bottom"}>
-            <SheetHeader className="flex justify-between items-start mb-5">
+            <SheetHeader className="mb-5 flex items-start justify-between">
               <SheetTitle className="font-iranyekan_bold text-xl text-dark_4">
                 مرتب سازی بر اساس
               </SheetTitle>
             </SheetHeader>
-            <div className="flex gap-4 flex-col">
+            <div className="flex flex-col gap-4">
               {sortItems.map((item) => {
                 return (
                   <SheetClose key={item.id} asChild>
                     <Link
                       href={`${url}${item.value}`}
-                      className={`flex justify-between items-center text-xl font-iranyekan_bold cursor-pointer text-dark_4 px-2 py-4 rounded-lg ${
-                        item.value === sort ? `text-dark_1 bg-slate-50` : ``
+                      className={`flex cursor-pointer items-center justify-between rounded-lg px-2 py-4 font-iranyekan_bold text-xl text-dark_4 ${
+                        item.value === sort ? `bg-slate-50 text-dark_1` : ``
                       }`}
                     >
                       {item.title}

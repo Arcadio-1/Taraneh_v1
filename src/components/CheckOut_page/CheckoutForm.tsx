@@ -1,4 +1,4 @@
-import { numberSeperator } from "@/lib/util/price_formt";
+import { numberSeperator } from "@/util_functions/price_formt";
 import React from "react";
 import TomanIcon from "../Util/icons/TomanIcon";
 import Link from "next/link";
@@ -16,11 +16,11 @@ const CheckoutForm = ({
   subtotalWithDiscount,
 }: Props) => {
   return (
-    <div className=" md:border rounded-lg min-w-[25rem] h-full py-6 px-4 flex flex-col items-stretch gap-4">
+    <div className=" flex h-full min-w-[25rem] flex-col items-stretch gap-4 rounded-lg px-4 py-6 md:border">
       <div className="flex flex-col gap-5">
         <div className="flex items-start justify-between text-dark_5">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-xl md:text-lg">
+            <label className="font-iranyekan_bold text-xl font-bold md:text-lg">
               قیمت کالا ها
             </label>
             <div>
@@ -40,7 +40,7 @@ const CheckoutForm = ({
         </div>
         <div className="flex items-start justify-between text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-xl md:text-lg text-dark-1">
+            <label className="text-dark-1 font-iranyekan_bold text-xl font-bold md:text-lg">
               جمع سبد خرید
             </label>
           </div>
@@ -54,7 +54,7 @@ const CheckoutForm = ({
         {!!subDiscount && subDiscount > 0 && (
           <div className="flex items-start justify-between text-g1_5">
             <div className="flex items-center gap-2">
-              <label className="font-iranyekan_bold font-bold text-xl md:text-lg">
+              <label className="font-iranyekan_bold text-xl font-bold md:text-lg">
                 سود شما از خرید
               </label>
             </div>
@@ -69,20 +69,20 @@ const CheckoutForm = ({
       </div>
       <Link
         href={"/shipping"}
-        className="hidden md:flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
+        className="hidden w-full items-center justify-center rounded-lg bg-g1_5 py-3 font-iransansbold text-light_1 md:flex"
       >
         ثبت سفارش
       </Link>
-      <div className="fixed bottom-0 right-0 left-0 p-8 w-full flex gap-2 items-center justify-between shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden bg-light_1">
+      <div className="fixed bottom-0 left-0 right-0 flex w-full items-center justify-between gap-2 bg-light_1 p-8 shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden">
         <Link
           href={"/shipping"}
-          className="flex grow items-center justify-center bg-g1_5 py-5 text-xl rounded-lg text-light_1 font-iransansbold"
+          className="flex grow items-center justify-center rounded-lg bg-g1_5 py-5 font-iransansbold text-xl text-light_1"
         >
           ثبت سفارش
         </Link>
-        <div className="flex flex-col items-end gap-3 grow justify-between text-dark_3">
+        <div className="flex grow flex-col items-end justify-between gap-3 text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-lg text-dark_4">
+            <label className="font-iranyekan_bold text-lg font-bold text-dark_4">
               جمع سبد خرید
             </label>
           </div>

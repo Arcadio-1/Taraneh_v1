@@ -1,14 +1,14 @@
 "use server";
 
 import { authOptions } from "@/lib/auth/authOptions";
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import { Cart } from "@prisma/client";
 import { getServerSession } from "next-auth";
-import { prisma } from "../db/prisma";
+import { prisma } from "../lib/db/prisma";
 import { cookies } from "next/headers";
 
 import { AES, enc } from "crypto-js";
-import { env } from "@/lib/env";
+import { env } from "@/types_validation/env";
 
 export async function createCart(): Promise<ShoppingCart> {
   const session = await getServerSession(authOptions);

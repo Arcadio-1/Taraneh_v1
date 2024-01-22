@@ -10,11 +10,11 @@ import {
 import { Input } from "@/components_shadcn/ui/input";
 import { Button } from "@/components_shadcn/ui/button";
 import * as z from "zod";
-import { phoneSchame } from "@/lib/util/validation";
+import { phoneSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { checkUser } from "@/lib/actions/checkUser";
-import { Sign } from "@/types/type";
+import { checkUser } from "@/actions/checkUser";
+import { Sign } from "@/types_validation/type";
 import SpinnerIcon from "../Util/icons/SpinnerIcon";
 
 interface Props {

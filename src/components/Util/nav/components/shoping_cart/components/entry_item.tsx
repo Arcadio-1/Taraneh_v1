@@ -2,7 +2,7 @@
 import Control_amount from "@/components/Product_page/main/order/Control_amount";
 import Prod_price from "@/components/Product_page/main/order/Prod_price";
 import { SheetClose } from "@/components_shadcn/ui/sheet";
-import { CartItemWithProduct } from "@/types/type";
+import { CartItemWithProduct } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,7 +16,7 @@ interface Props {
 const Entry_item = ({ cart_item, sheet, classess }: Props) => {
   return (
     <div
-      className={`grid grid-cols-3 border-b-2 py-2 px-2 last:border-b-0 ${classess}`}
+      className={`grid grid-cols-3 border-b-2 px-2 py-2 last:border-b-0 ${classess}`}
     >
       {sheet ? (
         <SheetClose asChild>
@@ -41,7 +41,7 @@ const Entry_item = ({ cart_item, sheet, classess }: Props) => {
       )}
 
       <div className="col-span-2 flex flex-col justify-between">
-        <span className="text-xl font-bold font-iranyekan_bold">
+        <span className="font-iranyekan_bold text-xl font-bold">
           {cart_item.product.title}
         </span>
         <div className="flex items-center justify-between">

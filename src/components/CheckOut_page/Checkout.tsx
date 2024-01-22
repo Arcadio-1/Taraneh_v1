@@ -1,4 +1,4 @@
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import React from "react";
 import ShoppingList from "./shoppingList/ShoppingList";
 import CheckoutForm from "./CheckoutForm";
@@ -9,7 +9,7 @@ interface Props {
 
 const Checkout = ({ cart }: Props) => {
   return (
-    <div className="pb-[10rem] md:p-0 flex flex-col md:flex-row gap-2 mt-2">
+    <div className="mt-2 flex flex-col gap-2 pb-[10rem] md:flex-row md:p-0">
       <ShoppingList cart={cart} />
       <CheckoutForm
         subtotal={cart.subtotal}

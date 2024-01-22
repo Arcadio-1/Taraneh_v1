@@ -1,8 +1,8 @@
 import Filters from "@/components/Search_page/filters/Filters";
 import Sort from "@/components/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
-import { QueryParameters } from "@/lib/util/getPropducts";
-import { MainCatsWithSpecificCats, SortValue } from "@/types/type";
+import { QueryParameters } from "@/util_functions/getPropducts";
+import { MainCatsWithSpecificCats, SortValue } from "@/types_validation/type";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Content from "@/components/Search_page/content/Content";
@@ -68,8 +68,8 @@ const All_products_page = async ({
   });
 
   return (
-    <div className="flex items-stretch mt-3">
-      <aside className="hidden md:block border-2 w-[28rem] text-dark_4 border-dark_6 border-opacity-40 rounded-xl py-3 px-5">
+    <div className="mt-3 flex items-stretch">
+      <aside className="hidden w-[28rem] rounded-xl border-2 border-dark_6 border-opacity-40 px-5 py-3 text-dark_4 md:block">
         <Filters
           brands={allBrands}
           mainCats={mainCats}
@@ -81,8 +81,8 @@ const All_products_page = async ({
           page={page}
         />
       </aside>
-      <main className=" w-full px-4 mb-10">
-        <div className="flex gap-2 items-center">
+      <main className=" mb-10 w-full px-4">
+        <div className="flex items-center gap-2">
           <div className="md:hidden">
             <Filters_Sheet>
               <Filters

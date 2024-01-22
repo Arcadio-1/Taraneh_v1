@@ -17,9 +17,9 @@ import {
   FormMessage,
 } from "@/components_shadcn/ui/form";
 import { Input } from "@/components_shadcn/ui/input";
-import { getCities, setAddress } from "@/lib/actions/manageAddress";
-import { AddressSchame } from "@/lib/util/validation";
-import { Address_Full } from "@/types/type";
+import { getCities, setAddress } from "@/actions/manageAddress";
+import { AddressSchame } from "@/types_validation/validation";
+import { Address_Full } from "@/types_validation/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Autocomplete, Divider, TextField } from "@mui/material";
 import { City } from "@prisma/client";

@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Image from "next/image";
 import React from "react";
 import Cat_section_list from "./cat_section_list";
@@ -9,11 +9,11 @@ const Cat_section = async () => {
     include: { Specific_cat: true },
   });
   return (
-    <div className="flex flex-col gap-3 p-4 bg-g3_3 ">
+    <div className="flex flex-col gap-3 bg-g3_3 p-4 ">
       {cats.map((mainCat) => {
         return (
           <div key={mainCat.id} className="flex">
-            <div className="p-8 rounded-full shrink">
+            <div className="shrink rounded-full p-8">
               <Image
                 src={mainCat.image}
                 alt={mainCat.label}

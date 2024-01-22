@@ -1,6 +1,6 @@
 import Control_amount from "@/components/Product_page/main/order/Control_amount";
 import Prod_status from "@/components/Product_page/main/order/Prod_status";
-import { CartItemWithProduct } from "@/types/type";
+import { CartItemWithProduct } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -12,8 +12,8 @@ interface Props {
 
 const ShoppingListItem = ({ cart_item }: Props) => {
   return (
-    <div className="flex gap-4 border-b py-4 px-4 last:border-b-0">
-      <div className="flex flex-col items-center shrink">
+    <div className="flex gap-4 border-b px-4 py-4 last:border-b-0">
+      <div className="flex shrink flex-col items-center">
         <Link href={`/product/${cart_item.productId}`}>
           <Image
             src={cart_item.product.image_url}
@@ -28,7 +28,7 @@ const ShoppingListItem = ({ cart_item }: Props) => {
           classess="max-w-[10rem]  shadow-none border"
         />
       </div>
-      <div className="grow flex justify-between">
+      <div className="flex grow justify-between">
         <div className="flex flex-col gap-4">
           <p className="font-iransans text-xl text-dark_3">
             {cart_item.product.title}

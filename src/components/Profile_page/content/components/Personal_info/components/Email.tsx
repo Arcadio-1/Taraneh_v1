@@ -24,7 +24,7 @@ import { Divider } from "@mui/material";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { emailSchame } from "@/lib/util/validation";
+import { emailSchame } from "@/types_validation/validation";
 import { z } from "zod";
 import { toast } from "@/components_shadcn/ui/use-toast";
 

@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 import Aside from "@/components/Profile_page/side_navaigation/Aside";
 import Content from "@/components/Profile_page/content/Content";
 import { prisma } from "@/lib/db/prisma";
-import { Address_Full } from "@/types/type";
-import { getOrders } from "@/lib/actions/manageOrders";
+import { Address_Full } from "@/types_validation/type";
+import { getOrders } from "@/actions/manageOrders";
 
 const page = async () => {
   const session = await getServerSession(authOptions);

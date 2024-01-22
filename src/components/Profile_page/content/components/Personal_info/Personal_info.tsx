@@ -6,7 +6,7 @@ import Phone from "./components/Phone";
 import Email from "./components/Email";
 import Address from "./components/Address";
 
-import { Address_Full } from "@/types/type";
+import { Address_Full } from "@/types_validation/type";
 import Link from "next/link";
 import ArrowLongIcon, { Arrow } from "@/components/Util/icons/ArrowLongIcon";
 import AddPassword from "./components/AddPassword";

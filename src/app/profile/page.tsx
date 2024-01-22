@@ -3,9 +3,9 @@ import { redirect } from "next/navigation";
 import React from "react";
 import Aside from "@/components/Profile_page/side_navaigation/Aside";
 import Content from "@/components/Profile_page/content/Content";
-import { Address_Full } from "@/types/type";
+import { Address_Full } from "@/types_validation/type";
 import { prisma } from "@/lib/db/prisma";
-import { getOrders } from "@/lib/actions/manageOrders";
+import { getOrders } from "@/actions/manageOrders";
 import { authOptions } from "@/lib/auth/authOptions";
 
 const page = async () => {
@@ -22,8 +22,8 @@ const page = async () => {
 
   // if(session.user.)
   return (
-    <div className="grid gap-4 grid-cols-[repeat(8,minmax(0,1fr))] max-w-[1124px] mx-auto mt-6">
-      <div className="hidden col-span-2 md:block">
+    <div className="mx-auto mt-6 grid max-w-[1124px] grid-cols-[repeat(8,minmax(0,1fr))] gap-4">
+      <div className="col-span-2 hidden md:block">
         <Aside session={session} />
       </div>
       <Content orders={order} session={session} address={address} />

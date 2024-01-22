@@ -1,14 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { prisma } from "../db/prisma";
+import { prisma } from "../lib/db/prisma";
 import { createCart } from "./createCart";
 import { getCart } from "./getCart";
-import { Operate } from "@/types/type";
+import { Operate } from "@/types_validation/type";
 
 export async function manageCart(
   productId: string,
-  operate: Operate
+  operate: Operate,
 ): Promise<void> {
   const cart = (await getCart()) ?? (await createCart());
   const productInCart = cart.items.find((item) => item.productId === productId);

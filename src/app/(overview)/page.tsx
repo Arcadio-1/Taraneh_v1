@@ -1,7 +1,7 @@
 import AdSlider from "@/components/Util/ad_slider/AdSlider";
 import Hero from "@/components/Home_page/hero/Hero";
 import Cat_section_2 from "@/components/Home_page/catSection/cat_section_2";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import { prisma } from "@/lib/db/prisma";
 import Main_cat_list from "@/components/Main_page/main_cat_list/main_cat_list";
 import Main_cat_slider from "@/components/Main_page/main_cats_slider/main_cat_slider";

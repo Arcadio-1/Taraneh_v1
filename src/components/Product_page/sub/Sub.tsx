@@ -8,7 +8,7 @@ import {
   Product_full,
   ShoppingCart,
   Specifications_select_specifications,
-} from "@/types/type";
+} from "@/types_validation/type";
 import Prod_order from "../main/order/Prod_order";
 import Nav from "./nav/Nav";
 import { Session } from "next-auth";
@@ -55,7 +55,7 @@ const Sub = ({
             />
           )}
         </div>
-        <div className="sticky top-10 z-20 px-5 py-[4rem] self-start shrink hidden lg:flex min-w-[24rem]">
+        <div className="sticky top-10 z-20 hidden min-w-[24rem] shrink self-start px-5 py-[4rem] lg:flex">
           <Prod_order
             status={product.status}
             price={product.price}

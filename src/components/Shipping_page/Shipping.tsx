@@ -4,7 +4,7 @@ import User_info from "./Address/User_info";
 import Shipping_items from "./Content/shipping_items/Shipping_items";
 import Delivey_date from "./Content/delivery_date/Delivey_date";
 import Shipping_form from "./shipping_form/Shipping_form";
-import { Address_Full, ShoppingCart } from "@/types/type";
+import { Address_Full, ShoppingCart } from "@/types_validation/type";
 import { Session } from "next-auth";
 
 interface Props {

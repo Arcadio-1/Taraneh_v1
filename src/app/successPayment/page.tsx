@@ -2,7 +2,7 @@ import Success_payment from "@/components/SuccessPayment_page/Success_payment";
 import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "@/lib/auth/authOptions";
-import { getCart } from "@/lib/actions/getCart";
+import { getCart } from "@/actions/getCart";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db/prisma";
 import { OrderStatus, PayMethod } from "@prisma/client";

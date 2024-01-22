@@ -1,7 +1,7 @@
 "use client";
 import React, { useTransition } from "react";
-import { manageCart } from "@/lib/actions/manageCart";
-import { Operate } from "@/types/type";
+import { manageCart } from "@/actions/manageCart";
+import { Operate } from "@/types_validation/type";
 import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useGlobalContext } from "@/app/(provider)/Provider";
 
@@ -16,7 +16,7 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
 
   return (
     <div
-      className={`w-full max-w-[35rem] mt-5 shadow-[0px_1px_5px_rgba(0,0,0,0.40)] rounded-xl flex items-center justify-between px-2 py-4 lg:px-1 lg:py-1 ${classess}`}
+      className={`mt-5 flex w-full max-w-[35rem] items-center justify-between rounded-xl px-2 py-4 shadow-[0px_1px_5px_rgba(0,0,0,0.40)] lg:px-1 lg:py-1 ${classess}`}
     >
       <button
         onClick={async () => {

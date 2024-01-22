@@ -1,6 +1,6 @@
 import GuaranteeIcon from "@/components/Util/icons/GuaranteeIcon";
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator } from "@/lib/util/price_formt";
+import { numberSeperator } from "@/util_functions/price_formt";
 import { OrderCartItems } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,12 +38,12 @@ const OrderItems = ({ order_items }: Props) => {
                 <div className="flex flex-col gap-2">
                   {!!orderItem.product.off_percent && (
                     <div className="flex items-center gap-1">
-                      <span className="font-iransansnum text-g1_5 font-bold">
+                      <span className="font-iransansnum font-bold text-g1_5">
                         {numberSeperator(
                           orderItem.product.price -
                             (orderItem.product.price -
                               (orderItem.product.price / 100) *
-                                orderItem.product.off_percent)
+                                orderItem.product.off_percent),
                         )}
                       </span>
                       <TomanIcon classes="h-5 w-5 fill-g1_5" />
@@ -51,11 +51,11 @@ const OrderItems = ({ order_items }: Props) => {
                     </div>
                   )}
                   <div className="flex items-center gap-1">
-                    <span className="font-iransansnum font-bold text-xl">
+                    <span className="font-iransansnum text-xl font-bold">
                       {numberSeperator(
                         orderItem.product.price -
                           (orderItem.product.price / 100) *
-                            orderItem.product.off_percent
+                            orderItem.product.off_percent,
                       )}
                     </span>
                     <TomanIcon classes="h-6 w-6" />

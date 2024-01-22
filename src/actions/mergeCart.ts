@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { prisma } from "../db/prisma";
+import { prisma } from "../lib/db/prisma";
 import { CartItem } from "@prisma/client";
 import { AES, enc } from "crypto-js";
-import { env } from "../env";
+import { env } from "../types_validation/env";
 
 export async function mergeCarts(userId: string): Promise<void> {
   const localCartIdCrypted = cookies().get("localCartId")?.value;

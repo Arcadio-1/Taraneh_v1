@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Link from "next/link";
 import {
   Accordion,
@@ -35,7 +35,7 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
         return (
           <div key={index}>
             <Accordion
-              className={`text-xl md:text-md md:font-iranyekan ${
+              className={`md:text-md text-xl md:font-iranyekan ${
                 expanded !== main.label && `!bg-transparent`
               }  `}
               expanded={expanded === `${main.label}`}
@@ -44,7 +44,7 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
               // className="!bg-transparent"
             >
               <AccordionSummary
-                className="!bg-transparent text-xl md:text-md md:font-iranyekan font-iransansbold !text-dark_3"
+                className="md:text-md !bg-transparent font-iransansbold text-xl !text-dark_3 md:font-iranyekan"
                 aria-controls={`${main.label}d-content`}
                 id={`${main.label}d-header`}
               >
@@ -56,7 +56,7 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
                     <Link
                       href={`/search/${specific.label}${url}`}
                       key={specific.id}
-                      className="font-iranyekan_bold text-dark_4 text-lg md:text-md md:font-iranyekan border-b-[1px] pb-2 border-slate-200"
+                      className="md:text-md border-b-[1px] border-slate-200 pb-2 font-iranyekan_bold text-lg text-dark_4 md:font-iranyekan"
                     >
                       {specific.title}
                     </Link>
@@ -65,7 +65,7 @@ export default function Categories({ mainCats, searchQuery, sort }: Props) {
                 <Link
                   href={`/search/${main.label}${url}`}
                   key={main.id}
-                  className="font-iranyekan_bold border-b-2 border-transparent hover:border-b-slate-500 flex items-center gap-2 text-lg md:text-md md:font-iranyekan pt-3"
+                  className="md:text-md flex items-center gap-2 border-b-2 border-transparent pt-3 font-iranyekan_bold text-lg hover:border-b-slate-500 md:font-iranyekan"
                 >
                   <AllIcon classes="h-8 w-8 fill-dark_4" />
 

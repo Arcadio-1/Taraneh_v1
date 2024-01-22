@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import MenuDotIcon from "@/components/Util/icons/MenuDotIcon";
 import { Trash2Icon } from "lucide-react";
-import { clear_cart } from "@/lib/actions/clearCart";
+import { clear_cart } from "@/actions/clearCart";
 
 interface Props {
   cart_id: string;
@@ -72,10 +72,10 @@ const ShoppingListMenu = ({ cart_id }: Props) => {
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
           <MenuItem
-            className="font-iransansnum text-lg flex justify-between"
+            className="flex justify-between font-iransansnum text-lg"
             onClick={handleClose}
           >
-            <div className="w-full flex gap-4 justify-between items-center">
+            <div className="flex w-full items-center justify-between gap-4">
               <Trash2Icon className="h-8 w-8 stroke-dark_3" />
               <span>حذف همه</span>
             </div>

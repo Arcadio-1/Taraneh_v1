@@ -8,10 +8,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components_shadcn/ui/form";
-import { Sign } from "@/types/type";
+import { Sign } from "@/types_validation/type";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginPasswordSchame } from "@/lib/util/validation";
+import { loginPasswordSchame } from "@/types_validation/validation";
 import { Input } from "@/components_shadcn/ui/input";
 import ArrowIcon, { Arrow } from "../Util/icons/ArrowIcon";
 import { Button } from "@/components_shadcn/ui/button";

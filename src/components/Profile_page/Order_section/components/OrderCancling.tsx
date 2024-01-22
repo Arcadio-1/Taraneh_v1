@@ -1,5 +1,5 @@
 "use client";
-import { cancelOrder } from "@/lib/actions/manageOrders";
+import { cancelOrder } from "@/actions/manageOrders";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -34,7 +34,7 @@ const OrderCancling = ({ order_id }: Props) => {
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <div className="flex items-center justify-end ">
-              <button className="bg-g1_5 text-light_1 px-10 py-2 rounded-lg">
+              <button className="rounded-lg bg-g1_5 px-10 py-2 text-light_1">
                 لغو مرسوله
               </button>
             </div>
@@ -51,7 +51,7 @@ const OrderCancling = ({ order_id }: Props) => {
             </AlertDialogHeader>
             <AlertDialogFooter className="flex gap-5">
               <AlertDialogAction
-                className="bg-g1_5 text-light_1 hover:bg-g1_5 text-lg"
+                className="bg-g1_5 text-lg text-light_1 hover:bg-g1_5"
                 onClick={async () => {
                   const canceling = await cancelOrder(order_id);
                   if (canceling) {

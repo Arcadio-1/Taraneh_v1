@@ -2,7 +2,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Brand } from "@prisma/client";
-import { MainCatsWithSpecificCats, SortValue } from "@/types/type";
+import { MainCatsWithSpecificCats, SortValue } from "@/types_validation/type";
 import Categories from "./components/categories";
 import PriceRange from "./components/priceRange";
 import {
@@ -70,7 +70,7 @@ export default function Filters({
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
-          <Typography className="!text-dark_3 !font-iranyekan_bold !text-lg ">
+          <Typography className="!font-iranyekan_bold !text-lg !text-dark_3 ">
             دسته بندی ها
           </Typography>
         </AccordionSummary>
@@ -92,13 +92,13 @@ export default function Filters({
           className="!bg-transparent"
         >
           <Typography
-            className="!text-dark_3 !font-iranyekan_bold  !text-lg"
+            className="!font-iranyekan_bold !text-lg  !text-dark_3"
             fontSize={11}
           >
             برند ها
           </Typography>
         </AccordionSummary>
-        <AccordionDetails className=" flex flex-col gap-2 h-96 overflow-auto">
+        <AccordionDetails className=" flex h-96 flex-col gap-2 overflow-auto">
           {brands.map((brand) => {
             return (
               <Brands
@@ -124,7 +124,7 @@ export default function Filters({
           id="panel3d-header"
           className="!bg-transparent"
         >
-          <Typography className="!text-dark_3  !text-lg !font-iranyekan_bold">
+          <Typography className="!font-iranyekan_bold  !text-lg !text-dark_3">
             محدوده قیمت
           </Typography>
         </AccordionSummary>

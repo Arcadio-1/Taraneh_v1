@@ -23,13 +23,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { comparePasswordWithCurrentPasswordScham } from "@/lib/util/validation";
+import { comparePasswordWithCurrentPasswordScham } from "@/types_validation/validation";
 import { z } from "zod";
 import { toast } from "@/components_shadcn/ui/use-toast";
 import ShowIcon from "@/components/Util/icons/ShowIcon";
 import HideIcon from "@/components/Util/icons/HideIcon";
 import PasswordPower from "./PasswordPower";
-import changePasswordWithCurrentPassword from "@/lib/actions/changePasswordWithCurrentPassword";
+import changePasswordWithCurrentPassword from "@/actions/changePasswordWithCurrentPassword";
 
 interface Props {
   phone: string;

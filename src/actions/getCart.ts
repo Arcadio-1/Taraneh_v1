@@ -1,12 +1,12 @@
 "use server";
 import { authOptions } from "@/lib/auth/authOptions";
 import { getServerSession } from "next-auth";
-import { prisma } from "../db/prisma";
-import { CartWithProducts, ShoppingCart } from "@/types/type";
+import { prisma } from "../lib/db/prisma";
+import { CartWithProducts, ShoppingCart } from "@/types_validation/type";
 import { cookies } from "next/headers";
 import { AES, enc } from "crypto-js";
-import { env } from "../env";
-import { price_calculator } from "../util/price_formt";
+import { env } from "../types_validation/env";
+import { price_calculator } from "../util_functions/price_formt";
 
 export async function getCart(): Promise<ShoppingCart | null> {
   const session = await getServerSession(authOptions);
@@ -43,17 +43,17 @@ export async function getCart(): Promise<ShoppingCart | null> {
         acc +
         item.quantity *
           price_calculator(item.product.price, item.product.off_percent),
-      0
+      0,
     ),
     subtotal: cart.items.reduce(
       (acc, item) => acc + item.quantity * item.product.price,
-      0
+      0,
     ),
     subDiscount: cart.items.reduce(
       (acc, item) =>
         acc +
         item.quantity * (item.product.price / 100) * item.product.off_percent,
-      0
+      0,
     ),
   };
 }

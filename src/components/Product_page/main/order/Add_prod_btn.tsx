@@ -1,6 +1,6 @@
 import React, { useTransition } from "react";
-import { manageCart } from "@/lib/actions/manageCart";
-import { Operate } from "@/types/type";
+import { manageCart } from "@/actions/manageCart";
+import { Operate } from "@/types_validation/type";
 
 interface Props {
   product_id: string;
@@ -12,7 +12,7 @@ const Add_prod_btn = ({ amount, product_id }: Props) => {
 
   return (
     <button
-      className="bg-g1_5 rounded-[6px] w py-2 w-full max-w-xl text-light_1 mt-5"
+      className="w mt-5 w-full max-w-xl rounded-[6px] bg-g1_5 py-2 text-light_1"
       onClick={async () => {
         startTransition(async () => {
           await manageCart(product_id, Operate.increment);

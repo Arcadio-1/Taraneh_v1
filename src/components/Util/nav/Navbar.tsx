@@ -6,7 +6,10 @@ import MenuIcon from "../icons/MenuIcon";
 import Search from "./components/Search";
 import { CatsMenu } from "./components/CatsMenu";
 import NavbarLinks from "./components/NavbarLinks";
-import { MainCatsWithSpecificCats, ShoppingCart } from "@/types/type";
+import {
+  MainCatsWithSpecificCats,
+  ShoppingCart,
+} from "@/types_validation/type";
 import Link from "next/link";
 import ShoppingCartButton from "./components/shoping_cart/ShoppingCartButton";
 import { Session } from "next-auth";

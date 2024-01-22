@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/lib/constants/constants";
+import { BASE_URL } from "@/constants/constants";
 import { prisma } from "@/lib/db/prisma";
 import { MetadataRoute } from "next";
 

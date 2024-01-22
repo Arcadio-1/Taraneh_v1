@@ -1,11 +1,11 @@
 "use server";
 import { z } from "zod";
-import { commentSchame } from "../util/validation";
-import { prisma } from "../db/prisma";
+import { commentSchame } from "../types_validation/validation";
+import { prisma } from "../lib/db/prisma";
 import { revalidatePath } from "next/cache";
-import { CommentWithUser, LikeMethod } from "@/types/type";
+import { CommentWithUser, LikeMethod } from "@/types_validation/type";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/authOptions";
+import { authOptions } from "../lib/auth/authOptions";
 
 export const get_comments = async () => {
   try {
@@ -22,7 +22,7 @@ export const get_comments = async () => {
 
 export const add_comment = async (
   comment: z.infer<typeof commentSchame>,
-  product_id: string
+  product_id: string,
 ) => {
   try {
     await prisma.comments.create({ data: comment });
@@ -38,7 +38,7 @@ export const like_manage = async (
   user_id: string,
   comment_id: string,
   product_id: string,
-  like_method: LikeMethod
+  like_method: LikeMethod,
 ) => {
   try {
     const session = await getServerSession(authOptions);

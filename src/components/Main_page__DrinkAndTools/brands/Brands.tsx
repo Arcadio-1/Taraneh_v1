@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import { DrinksBrands } from "@/types/type";
+import { DrinksBrands } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -21,16 +21,16 @@ const Brands = async ({ drinks_id, title }: Props) => {
 
   return (
     <div>
-      <h1 className="font-bold text text-dark_2 font-iranyekan_bold text-2xl mb-4">
+      <h1 className="text mb-4 font-iranyekan_bold text-2xl font-bold text-dark_2">
         {title}
       </h1>
-      <div className="bg-amber-500 grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-3 p-3 ">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-3 bg-amber-500 p-3 ">
         {arrayUniqueByKey.length > 0 &&
           arrayUniqueByKey.map(({ brand }) => {
             if (brand.image) {
               return (
                 <div
-                  className="rounded-xl border flex items-center overflow-hidden bg-white"
+                  className="flex items-center overflow-hidden rounded-xl border bg-white"
                   key={brand.id}
                 >
                   <Link href={"#"}>

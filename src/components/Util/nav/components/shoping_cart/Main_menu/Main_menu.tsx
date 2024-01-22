@@ -16,7 +16,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components_shadcn/ui/tabs";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -32,7 +32,7 @@ enum SelectedTab {
 const Main_menu = ({ cats }: Props) => {
   const [open, setOpen] = React.useState(false);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>(
-    SelectedTab.Tools
+    SelectedTab.Tools,
   );
   return (
     <div className=" md:hidden">
@@ -48,20 +48,20 @@ const Main_menu = ({ cats }: Props) => {
           </div>
         </SheetTrigger>
         <SheetContent
-          className="shadow-lg border rounded-lg flex flex-col gap-6 pt-[5rem]"
+          className="flex flex-col gap-6 rounded-lg border pt-[5rem] shadow-lg"
           side={"right"}
         >
           <Tabs
-            className=" flex flex-row-reverse items-stretch gap-6 h-full"
+            className=" flex h-full flex-row-reverse items-stretch gap-6"
             defaultValue={cats[0].label}
           >
-            <TabsList className="flex flex-col justify-start gap-2 p-0 bg-slate-200 h-full">
+            <TabsList className="flex h-full flex-col justify-start gap-2 bg-slate-200 p-0">
               {cats.map((mainCat) => {
                 return (
                   <TabsTrigger
                     key={mainCat.id}
                     value={mainCat.id}
-                    className={`pt-6 border-transparent w-full !bg-transparent duration-0 border-b-[3px] ${
+                    className={`w-full border-b-[3px] border-transparent !bg-transparent pt-6 duration-0 ${
                       selectedTab === mainCat.label ? "!bg-white" : ""
                     }`}
                     onClick={() => {
@@ -80,7 +80,7 @@ const Main_menu = ({ cats }: Props) => {
                       {mainCat.title === "ابزار تهیه نوشیدنی" && (
                         <ToolsIcon classes="h-8 w-8 fill-dark_4" />
                       )}
-                      <span className="text-xl font-iranyekan_bold">
+                      <span className="font-iranyekan_bold text-xl">
                         {mainCat.title}
                       </span>
                     </div>
@@ -89,7 +89,7 @@ const Main_menu = ({ cats }: Props) => {
               })}
               <TabsTrigger
                 value={"show all"}
-                className={`pt-6 border-transparent w-full !bg-transparent duration-0 border-b-[3px]`}
+                className={`w-full border-b-[3px] border-transparent !bg-transparent pt-6 duration-0`}
               >
                 <Link href={"/search"} onClick={() => setOpen(false)}>
                   <div className="flex flex-col items-center gap-3">
@@ -113,8 +113,8 @@ const Main_menu = ({ cats }: Props) => {
                       return (
                         <SheetClose key={specific.id} asChild>
                           <Link href={`/search/${specific.label}`}>
-                            <div className="flex flex-col gap-2 items-center justify-center">
-                              <div className="bg-slate-200 w-24 h-24 md:w28 md:h-28 flex justify-center items-center rounded-full">
+                            <div className="flex flex-col items-center justify-center gap-2">
+                              <div className="md:w28 flex h-24 w-24 items-center justify-center rounded-full bg-slate-200 md:h-28">
                                 <Image
                                   alt={specific.title}
                                   width={40}
@@ -122,8 +122,8 @@ const Main_menu = ({ cats }: Props) => {
                                   src={specific.single_image}
                                 />
                               </div>
-                              <div className="flex justify-center items-center text-sm">
-                                <span className="text-center font-iranyekan_bold text-dark_3 mb-auto text-lg">
+                              <div className="flex items-center justify-center text-sm">
+                                <span className="mb-auto text-center font-iranyekan_bold text-lg text-dark_3">
                                   {specific.title}
                                 </span>
                               </div>
@@ -134,12 +134,12 @@ const Main_menu = ({ cats }: Props) => {
                     })}
                     <SheetClose asChild>
                       <Link href={`/search/${mainCat.label}`}>
-                        <div className="flex flex-col gap-2 items-center justify-center">
-                          <div className="bg-slate-200 w-24 h-24 md:w28 md:h-28 flex justify-center items-center rounded-full">
+                        <div className="flex flex-col items-center justify-center gap-2">
+                          <div className="md:w28 flex h-24 w-24 items-center justify-center rounded-full bg-slate-200 md:h-28">
                             <AllIcon classes="h-10 w-10 fill-dark_4" />
                           </div>
-                          <div className="flex justify-center items-center text-sm">
-                            <span className="text-center font-iranyekan_bold text-dark_3 mb-auto text-lg">
+                          <div className="flex items-center justify-center text-sm">
+                            <span className="mb-auto text-center font-iranyekan_bold text-lg text-dark_3">
                               مشاهده همه
                             </span>
                           </div>

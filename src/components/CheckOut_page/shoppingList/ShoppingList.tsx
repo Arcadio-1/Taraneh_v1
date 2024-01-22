@@ -1,4 +1,4 @@
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import React from "react";
 import Header from "./components/Header";
 import ShoppingListItem from "./components/ShoppingListItem";
@@ -9,7 +9,7 @@ interface Props {
 
 const ShoppingList = ({ cart }: Props) => {
   return (
-    <div className="grow border rounded-lg py-6">
+    <div className="grow rounded-lg border py-6">
       <Header cart_size={cart.size} cart_id={cart.id} />
       <div className="flex flex-col items-stretch">
         {cart.items.map((item) => {

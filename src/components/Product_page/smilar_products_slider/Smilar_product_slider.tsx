@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "@/components/Util/products_Slider/Products_Slider";
-import { AdWithProducts } from "@/types/type";
+import { AdWithProducts } from "@/types_validation/type";
 import { prisma } from "@/lib/db/prisma";
 import { Product } from "@prisma/client";
 
@@ -14,10 +14,10 @@ const Smilar_product_slider = async () => {
     return product.product;
   });
   return (
-    <div className="border rounded-lg">
+    <div className="rounded-lg border">
       <div className="px-5 py-4">
-        <h1 className="text-2xl font-iranyekan_bold">کالاهای مشابه</h1>
-        <div className="w-[7rem] h-[2.5px] mt-2 bg-g1_5"></div>
+        <h1 className="font-iranyekan_bold text-2xl">کالاهای مشابه</h1>
+        <div className="mt-2 h-[2.5px] w-[7rem] bg-g1_5"></div>
       </div>
       <Slider products={products} bg_color="bg-white" />
     </div>

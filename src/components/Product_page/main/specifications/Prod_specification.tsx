@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import { Product_full } from "@/types/type";
+import { Product_full } from "@/types_validation/type";
 import Statistics from "./Statistics";
 import Suggestion from "./Suggestion";
 import Attributes from "./Attributes";

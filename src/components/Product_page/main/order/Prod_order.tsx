@@ -4,7 +4,7 @@ import { Divider } from "@mui/material";
 import React from "react";
 import Prod_status from "./Prod_status";
 import Prod_order_form from "./Prod_order_form";
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 
 interface Props {
   status: Boolean;
@@ -17,7 +17,7 @@ interface Props {
 const Prod_order = ({ status, offPercent, price, product_Id, cart }: Props) => {
   if (status) {
     return (
-      <div className="lg:bg-slate-100 p-4 lg:rounded-xl lg:border-2 lg:max-w-[220px] lg:min-w-[180px] lg:flex lg:flex-col lg:gap-4">
+      <div className="p-4 lg:flex lg:min-w-[180px] lg:max-w-[220px] lg:flex-col lg:gap-4 lg:rounded-xl lg:border-2 lg:bg-slate-100">
         <Prod_status />
         <Divider />
         <Prod_order_form

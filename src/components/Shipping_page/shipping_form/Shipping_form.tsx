@@ -1,10 +1,10 @@
 "use client";
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator } from "@/lib/util/price_formt";
+import { numberSeperator } from "@/util_functions/price_formt";
 import { Divider } from "@mui/material";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import { Session } from "next-auth";
 import { OrderAddress } from "@prisma/client";
 import { useGlobalContext } from "@/app/(provider)/Provider";
@@ -29,7 +29,7 @@ enum Submit_status_Enum {
 }
 const Shipping_form = ({ address, user, cart }: Props) => {
   const [submitStatus, setSubmitStatus] = useState<Submit_status_Enum>(
-    Submit_status_Enum.set_date
+    Submit_status_Enum.set_date,
   );
 
   const { deliveryDate, setPostingPric } = useGlobalContext();
@@ -62,11 +62,11 @@ const Shipping_form = ({ address, user, cart }: Props) => {
   }, [address, deliveryDate, user]);
 
   return (
-    <div className=" md:border rounded-lg min-w-[25rem] h-full py-6 px-4 flex flex-col items-stretch gap-4">
+    <div className=" flex h-full min-w-[25rem] flex-col items-stretch gap-4 rounded-lg px-4 py-6 md:border">
       <div className="flex flex-col gap-5">
         <div className="flex items-start justify-between text-dark_5">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-md text-lg">
+            <label className="text-md font-iranyekan_bold text-lg font-bold">
               قیمت کالا ها
             </label>
             <div>
@@ -87,14 +87,14 @@ const Shipping_form = ({ address, user, cart }: Props) => {
         <Divider />
         <div className="flex items-start justify-between text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-lg">
+            <label className="font-iranyekan_bold text-lg font-bold">
               هزینه ارسال
             </label>
-            <p className="flex gap-1 bg-g1_6 bg-opacity-10 p-2 rounded-full">
-              <span className="font-iransansnum text-md font-bold text-g1_6">
+            <p className="flex gap-1 rounded-full bg-g1_6 bg-opacity-10 p-2">
+              <span className="text-md font-iransansnum font-bold text-g1_6">
                 1
               </span>
-              <span className="font-iranyekan text-md font-bold text-g1_6">
+              <span className="text-md font-iranyekan font-bold text-g1_6">
                 مرسوله
               </span>
             </p>
@@ -111,13 +111,13 @@ const Shipping_form = ({ address, user, cart }: Props) => {
           <div className="flex items-start justify-between text-g1_5">
             <div className="flex items-center gap-2">
               <label>
-                <span className="font-iranyekan_bold font-bold text-lg">
+                <span className="font-iranyekan_bold text-lg font-bold">
                   سود شما از خرید
                 </span>
               </label>
             </div>
             <div className="flex items-center gap-1">
-              <p className="font-iransansnum text-xl font-bold flex gap-2">
+              <p className="flex gap-2 font-iransansnum text-xl font-bold">
                 <span>
                   ({Math.round(cart.subDiscount / (cart.subtotal / 100))}%)
                 </span>
@@ -129,7 +129,7 @@ const Shipping_form = ({ address, user, cart }: Props) => {
         )}
         <div className="flex items-start justify-between text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold  text-lg">
+            <label className="font-iranyekan_bold text-lg  font-bold">
               قابل پرداخت
             </label>
           </div>
@@ -143,7 +143,7 @@ const Shipping_form = ({ address, user, cart }: Props) => {
       </div>
       <div className="hidden md:flex">
         {submitStatus !== Submit_status_Enum.ready && (
-          <div className="flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold cursor-not-allowed select-none">
+          <div className="flex w-full cursor-not-allowed select-none items-center justify-center rounded-lg bg-g1_5 py-3 font-iransansbold text-light_1">
             {submitStatus === Submit_status_Enum.set_date &&
               "لطفا زمان دریافت را مشخص کنید"}
             {submitStatus === Submit_status_Enum.set_Addres &&
@@ -156,27 +156,27 @@ const Shipping_form = ({ address, user, cart }: Props) => {
           <Link
             onClick={() => submit_orders()}
             href={"payment"}
-            className="flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
+            className="flex w-full items-center justify-center rounded-lg bg-g1_5 py-3 font-iransansbold text-light_1"
           >
             ثبت سفارش
           </Link>
         )}
       </div>
-      <div className="fixed bottom-0 right-0 left-0 p-8 w-full flex gap-2 items-center justify-between shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden bg-light_1">
+      <div className="fixed bottom-0 left-0 right-0 flex w-full items-center justify-between gap-2 bg-light_1 p-8 shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden">
         <div className="grow">
           {mount && (
             <Sheet>
               {submitStatus === Submit_status_Enum.ready && (
                 <div>
                   <SheetTrigger asChild>
-                    <button className="flex items-center justify-center border border-g1_5 text-g1_5 w-full py-3 rounded-lg  font-iransansbold select-none">
+                    <button className="flex w-full select-none items-center justify-center rounded-lg border border-g1_5 py-3  font-iransansbold text-g1_5">
                       ویرایش زمان ارسال
                     </button>
                   </SheetTrigger>
                   <Link
                     onClick={() => submit_orders()}
                     href={"payment"}
-                    className="flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
+                    className="flex w-full items-center justify-center rounded-lg bg-g1_5 py-3 font-iransansbold text-light_1"
                   >
                     ثبت سفارش
                   </Link>
@@ -184,7 +184,7 @@ const Shipping_form = ({ address, user, cart }: Props) => {
               )}
               {submitStatus !== Submit_status_Enum.ready && (
                 <SheetTrigger asChild>
-                  <button className="flex items-center justify-center border border-g1_5 text-g1_5 w-full py-3 rounded-lg  font-iransansbold select-none">
+                  <button className="flex w-full select-none items-center justify-center rounded-lg border border-g1_5 py-3  font-iransansbold text-g1_5">
                     {submitStatus === Submit_status_Enum.set_date &&
                       "انتخاب زمان دریافت"}
                     {submitStatus === Submit_status_Enum.set_Addres &&
@@ -211,9 +211,9 @@ const Shipping_form = ({ address, user, cart }: Props) => {
             </Sheet>
           )}
         </div>
-        <div className="flex flex-col items-end gap-3 grow justify-between text-dark_3">
+        <div className="flex grow flex-col items-end justify-between gap-3 text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-lg text-dark_4">
+            <label className="font-iranyekan_bold text-lg font-bold text-dark_4">
               قابل پرداخت
             </label>
           </div>

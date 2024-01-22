@@ -6,8 +6,8 @@ import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "@/lib/auth/authOptions";
 import { redirect } from "next/navigation";
-import { Address_Full } from "@/types/type";
-import { getCart } from "@/lib/actions/getCart";
+import { Address_Full } from "@/types_validation/type";
+import { getCart } from "@/actions/getCart";
 import Shipping from "@/components/Shipping_page/Shipping";
 
 const page = async () => {
@@ -27,7 +27,7 @@ const page = async () => {
   }
 
   return (
-    <div className="max-w-[1024px] mx-auto mt-6 flex flex-col gap-2 px-4">
+    <div className="mx-auto mt-6 flex max-w-[1024px] flex-col gap-2 px-4">
       <Checkout_header stage={Stage.shipping} />
       <Shipping address={address} session={session} cart={cart} />
     </div>

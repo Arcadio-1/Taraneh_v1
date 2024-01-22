@@ -12,7 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components_shadcn/ui/navigation-menu";
 import Image from "next/image";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Link from "next/link";
 
 import ToolsIcon from "@/components/Util/icons/ToolsIcon";
@@ -35,7 +35,7 @@ export function CatsMenu({ mainCats }: Props) {
             {mainCats.map((cat) => {
               return (
                 <NavigationMenuItem key={cat.id}>
-                  <NavigationMenuTrigger className="text-xl flex items-center gap-1">
+                  <NavigationMenuTrigger className="flex items-center gap-1 text-xl">
                     {cat.title === "نوشیدنی ها" && (
                       <DrinksIcon classes="h-8 w-8 fill-dark_4" />
                     )}
@@ -44,12 +44,12 @@ export function CatsMenu({ mainCats }: Props) {
                     )}
                     {cat.title}
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-slate-100 rounded-xl border-transparent">
-                    <ul className="grid gap-3 p-4 md:w-[700px] md:grid-cols-5 md:grid-rows-2 items-stretch">
+                  <NavigationMenuContent className="rounded-xl border-transparent bg-slate-100">
+                    <ul className="grid items-stretch gap-3 p-4 md:w-[700px] md:grid-cols-5 md:grid-rows-2">
                       <li className="row-span-2">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-evenly items-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col items-center justify-evenly rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href={`/${cat.label}`}
                           >
                             <Image
@@ -58,7 +58,7 @@ export function CatsMenu({ mainCats }: Props) {
                               width={100}
                               height={100}
                             />
-                            <div className="mb-2 mt-4 text-lg font-iransansbold">
+                            <div className="mb-2 mt-4 font-iransansbold text-lg">
                               {cat.title}
                             </div>
                           </Link>
@@ -67,7 +67,7 @@ export function CatsMenu({ mainCats }: Props) {
                       {cat.Specific_cat.map((specific) => {
                         return (
                           <ListItem
-                            className="flex flex-col h-full justify-between border rounded-xl border-opacity-20 border-g1_7 items-stretch font-iransansbol hover:border-opacity-80"
+                            className="font-iransansbol flex h-full flex-col items-stretch justify-between rounded-xl border border-g1_7 border-opacity-20 hover:border-opacity-80"
                             key={specific.id}
                             href={`/search/${specific.label}`}
                             title={specific.title}
@@ -106,11 +106,11 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemType2>(
             ref={ref}
             className={cn(
               "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-              className
+              className,
             )}
             {...props}
           >
-            <div className="text-lg font-iranyekan font-medium leading-none">
+            <div className="font-iranyekan text-lg font-medium leading-none">
               {title}
             </div>
             <div className="">{children}</div>
@@ -118,6 +118,6 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemType2>(
         </NavigationMenuLink>
       </li>
     );
-  }
+  },
 );
 ListItem.displayName = "ListItem";

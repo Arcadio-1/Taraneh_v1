@@ -1,12 +1,12 @@
 //deprecated******************************
 import { prisma } from "@/lib/db/prisma";
-import { phoneSchame } from "@/lib/util/validation";
-import { Sign } from "@/types/type";
+import { phoneSchame } from "@/types_validation/validation";
+import { Sign } from "@/types_validation/type";
 import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { phone: string } }
+  { params }: { params: { phone: string } },
 ) {
   const phone = params.phone;
   try {

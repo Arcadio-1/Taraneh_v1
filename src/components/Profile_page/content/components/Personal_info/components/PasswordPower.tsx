@@ -1,6 +1,5 @@
-import usePasswordControler from "@/lib/hook/usePasswordControler";
+import usePasswordControler from "@/hook/usePasswordControler";
 import { cn } from "@/lib/utils";
-import clsx from "clsx";
 import React, { Dispatch, SetStateAction } from "react";
 
 interface Props {

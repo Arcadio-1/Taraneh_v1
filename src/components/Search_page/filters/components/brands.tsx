@@ -1,5 +1,5 @@
 import { useGlobalContext } from "@/app/(provider)/Provider";
-import { SortValue } from "@/types/type";
+import { SortValue } from "@/types_validation/type";
 import { Brand } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
@@ -41,7 +41,7 @@ const Brands = ({
         .toString()
         .replaceAll(",", "&")}${page && brand_list_filter.length ? "&" : ""}${
         page ? `page=${page}` : ""
-      }`
+      }`,
     );
   };
 
@@ -75,7 +75,7 @@ const Brands = ({
     >
       <div className="flex md:items-center">
         <input
-          className="w-6 h-6 cursor-pointer"
+          className="h-6 w-6 cursor-pointer"
           type="checkbox"
           checked={
             brand_list_filter
@@ -86,13 +86,13 @@ const Brands = ({
           value={brand.title_en}
           onChange={handleChanges}
         />
-        <label htmlFor={brand.title_en} className="text-lg cursor-pointer px-2">
+        <label htmlFor={brand.title_en} className="cursor-pointer px-2 text-lg">
           {brand.title_fr}
         </label>
       </div>
       <label
         htmlFor={brand.title_en}
-        className="text-lg grow text-left cursor-pointer"
+        className="grow cursor-pointer text-left text-lg"
       >
         {brand.title_en}
       </label>

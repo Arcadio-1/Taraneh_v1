@@ -1,7 +1,7 @@
 "use client";
 import Control_amount from "@/components/Product_page/main/order/Control_amount";
 import ShippingIcon from "@/components/Util/icons/ShippingIcon";
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,9 +16,9 @@ const Shipping_items = ({ cart }: Props) => {
       <div className="flex items-center gap-4">
         <ShippingIcon className="h-10 w-10 fill-red-700" />
         <div>
-          <div className="flex gap-3 items-center">
+          <div className="flex items-center gap-3">
             <h1 className="font-iranyekan_bold">ارسال عادی</h1>
-            <p className="flex gap-2 px-3 py-3 bg-slate-100 rounded-xl">
+            <p className="flex gap-2 rounded-xl bg-slate-100 px-3 py-3">
               <span className="font-iransansnum">{cart.size}</span>
               <span>کالا</span>
             </p>
@@ -34,7 +34,7 @@ const Shipping_items = ({ cart }: Props) => {
           return (
             <div
               key={item.id}
-              className="shadow-transparent border-l last:border-transparent p-4"
+              className="border-l p-4 shadow-transparent last:border-transparent"
             >
               <Link href={`/product/${item.productId}`}>
                 <Image

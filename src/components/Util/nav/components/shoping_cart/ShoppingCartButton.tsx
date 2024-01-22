@@ -1,6 +1,6 @@
 import React from "react";
 import CartIcon from "../../../icons/CartIcon";
-import { ShoppingCart } from "@/types/type";
+import { ShoppingCart } from "@/types_validation/type";
 import {
   HoverCard,
   HoverCardContent,
@@ -25,14 +25,14 @@ const ShoppingCartButton = ({ cart }: Props) => {
           <div>
             <HoverCard openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild className="">
-                <div className="relative p-1 mx-2 duration-0 data-[state=open]:bg-red-100 rounded-lg">
-                  <span className="absolute bottom-[-5px] right-[-7px] bg-g1_5 bg-opacity-90 text-light_2 py-[1px] px-2 flex items-center justify-center rounded-[5px] font-iransansnum text-xl">
+                <div className="relative mx-2 rounded-lg p-1 duration-0 data-[state=open]:bg-red-100">
+                  <span className="absolute bottom-[-5px] right-[-7px] flex items-center justify-center rounded-[5px] bg-g1_5 bg-opacity-90 px-2 py-[1px] font-iransansnum text-xl text-light_2">
                     {cart.size}
                   </span>
                   <CartIcon classes="h-9 w-9 fill-dark_4" />
                 </div>
               </HoverCardTrigger>
-              <HoverCardContent className="w-[40rem] rounded-[5px] !bg-white z-50">
+              <HoverCardContent className="z-50 w-[40rem] rounded-[5px] !bg-white">
                 <Shopping_cart sheet={false} cart={cart} />
               </HoverCardContent>
             </HoverCard>
@@ -40,9 +40,9 @@ const ShoppingCartButton = ({ cart }: Props) => {
         ) : (
           <Link
             href={"/checkout"}
-            className="relative p-1 mx-2 duration-0 data-[state=open]:bg-red-100 rounded-lg"
+            className="relative mx-2 rounded-lg p-1 duration-0 data-[state=open]:bg-red-100"
           >
-            <span className="absolute bottom-[0px] right-[-7px] bg-g1_5 bg-opacity-90 text-light_2 py-[1px] px-2 flex items-center justify-center rounded-[5px] font-iransansnum">
+            <span className="absolute bottom-[0px] right-[-7px] flex items-center justify-center rounded-[5px] bg-g1_5 bg-opacity-90 px-2 py-[1px] font-iransansnum text-light_2">
               0
             </span>
             <CartIcon classes="h-9 w-9 fill-dark_4" />
@@ -54,8 +54,8 @@ const ShoppingCartButton = ({ cart }: Props) => {
           <div>
             <Sheet>
               <SheetTrigger asChild>
-                <div className="relative p-1 mx-2 duration-0 data-[state=open]:bg-red-100 rounded-lg cursor-pointer">
-                  <span className="absolute bottom-[-5px] right-[-7px] bg-g1_5 bg-opacity-90 text-light_2 py-[1px] px-2 flex items-center justify-center rounded-[5px] font-iransansnum text-xl">
+                <div className="relative mx-2 cursor-pointer rounded-lg p-1 duration-0 data-[state=open]:bg-red-100">
+                  <span className="absolute bottom-[-5px] right-[-7px] flex items-center justify-center rounded-[5px] bg-g1_5 bg-opacity-90 px-2 py-[1px] font-iransansnum text-xl text-light_2">
                     {cart.size}
                   </span>
                   <CartIcon classes="h-9 w-9 fill-dark_4" />
@@ -69,9 +69,9 @@ const ShoppingCartButton = ({ cart }: Props) => {
         ) : (
           <Link
             href={"/chekout"}
-            className="relative p-1 mx-2 duration-0 data-[state=open]:bg-red-100 rounded-lg"
+            className="relative mx-2 rounded-lg p-1 duration-0 data-[state=open]:bg-red-100"
           >
-            <span className="absolute bottom-[0px] right-[-7px] bg-g1_5 bg-opacity-90 text-light_2 py-[1px] px-2 flex items-center justify-center rounded-[5px] font-iransansnum">
+            <span className="absolute bottom-[0px] right-[-7px] flex items-center justify-center rounded-[5px] bg-g1_5 bg-opacity-90 px-2 py-[1px] font-iransansnum text-light_2">
               0
             </span>
             <CartIcon classes="h-9 w-9 fill-dark_4" />

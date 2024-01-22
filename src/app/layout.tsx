@@ -3,16 +3,14 @@ import "../style/globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SessionProvider from "@/app/SessionProvider";
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import { prisma } from "@/lib/db/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/authOptions";
-import { getCart } from "@/lib/actions/getCart";
+import { getCart } from "@/actions/getCart";
 import Provider from "./(provider)/Provider";
 import { Toaster } from "@/components_shadcn/ui/toaster";
 import Footer from "@/components/Util/footer/Footer";
-import { Suspense } from "react";
-const inter = Inter({ subsets: ["latin"] });
 
 export const viewport = {
   themeColor: [
@@ -64,7 +62,7 @@ export default async function RootLayout({
 
   return (
     <html lang="fa" dir="rtl">
-      <body className="max-w-[1720px] m-auto font-iranyekan flex-col items-center justify-center">
+      <body className="m-auto max-w-[1720px] flex-col items-center justify-center font-iranyekan">
         <SessionProvider>
           <Provider>
             <Navbar cats={cats} cart={cart} session={session} />

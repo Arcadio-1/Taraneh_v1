@@ -1,18 +1,40 @@
 import { cn } from "@/lib/utils";
 import React, { useState, useEffect, SetStateAction, Dispatch } from "react";
+import axios from "axios";
+import sendOtp from "../../../actions/sendOtp";
+import { createOtp } from "@/actions/createOtp";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  phone: string;
   autoStart?: boolean;
   initialSeconds?: number;
 }
 
 const OtpButton = ({
-  initialSeconds = 60,
+  phone,
+  initialSeconds = 300,
   autoStart = false,
   className,
   ...props
 }: ButtonProps) => {
   const [countDown, setcountDown] = useState<boolean>(autoStart);
+
+  const otpClickHandler = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    console.log("run");
+    e.preventDefault();
+    // if (countDown) {
+    const req = await createOtp({
+      phoneObj: { phone: "09183704735" },
+      number: "12345",
+      type: "changePassword",
+    });
+    console.log(req);
+    // await sendOtp(phone);
+    // }
+    setcountDown(true);
+  };
 
   return (
     <button
@@ -25,11 +47,7 @@ const OtpButton = ({
       )}
       {...props}
       disabled={countDown}
-      onClick={(e) => {
-        e.preventDefault();
-        console.log("Enter 12345");
-        setcountDown(true);
-      }}
+      onClick={otpClickHandler}
     >
       {countDown ? (
         <CountdownTimer

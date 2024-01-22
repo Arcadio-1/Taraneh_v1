@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import Sub from "./Sub";
-import { get_product_interduction } from "@/lib/actions/getProductInterduction";
+import { get_product_interduction } from "@/actions/getProductInterduction";
 import {
   CommentWithUser,
   Product_full,
   ShoppingCart,
   Specifications_select_specifications,
-} from "@/types/type";
-import { get_comments } from "@/lib/actions/manageReview";
-import { get_propsduct_specifications } from "@/lib/actions/getProductSpecifications";
+} from "@/types_validation/type";
+import { get_comments } from "@/actions/manageReview";
+import { get_propsduct_specifications } from "@/actions/getProductSpecifications";
 import { Session } from "next-auth";
 
 interface Props {

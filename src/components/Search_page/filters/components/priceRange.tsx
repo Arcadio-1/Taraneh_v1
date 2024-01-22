@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator } from "@/lib/util/price_formt";
+import { numberSeperator } from "@/util_functions/price_formt";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SortValue } from "@/types/type";
+import { SortValue } from "@/types_validation/type";
 
 // enum Typer {
 //   min = "min",
@@ -139,7 +139,7 @@ export default function PriceRange({
   const handleChange = (
     event: Event,
     newValue: number | number[],
-    activeThumb: number
+    activeThumb: number,
   ) => {
     if (!Array.isArray(newValue)) {
       return;
@@ -159,17 +159,17 @@ export default function PriceRange({
 
   return (
     <div className="">
-      <div className="flex flex-col gap-3 items-center justify-center">
-        <div className="flex items-center gap-3 justify-evenly w-full">
+      <div className="flex flex-col items-center justify-center gap-3">
+        <div className="flex w-full items-center justify-evenly gap-3">
           <span className="text-lg">از</span>
-          <span className="border-b w-1/2 text-center text-[1.7rem] font-iransansnum bg-white bg-opacity-80 select-none">
+          <span className="w-1/2 select-none border-b bg-white bg-opacity-80 text-center font-iransansnum text-[1.7rem]">
             {numberSeperator(maxValue - value[1])}
           </span>
           <TomanIcon classes="h-[2rem] w-[2rem]" />
         </div>
-        <div className="flex items-center gap-3 justify-evenly w-full">
+        <div className="flex w-full items-center justify-evenly gap-3">
           <span className="text-lg">تا</span>
-          <span className="border-b w-1/2 text-center text-[1.7rem] font-iransansnum bg-white bg-opacity-80 select-none">
+          <span className="w-1/2 select-none border-b bg-white bg-opacity-80 text-center font-iransansnum text-[1.7rem]">
             {numberSeperator(maxValue - value[0])}
           </span>
           <TomanIcon classes="h-[2rem] w-[2rem]" />
@@ -179,7 +179,7 @@ export default function PriceRange({
         {/* <Box sx={{ width: 300 }}> */}
         <AirbnbSlider
           dir="ltr"
-          className="font-iransansbold text-md text-red-400"
+          className="text-md font-iransansbold text-red-400"
           getAriaLabel={() => "Minimum distance"}
           value={value}
           onChange={handleChange}

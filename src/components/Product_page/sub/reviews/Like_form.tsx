@@ -7,8 +7,8 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components_shadcn/ui/dialog";
-import { like_manage } from "@/lib/actions/manageReview";
-import { LikeMethod } from "@/types/type";
+import { like_manage } from "@/actions/manageReview";
+import { LikeMethod } from "@/types_validation/type";
 import { CircularProgress } from "@mui/material";
 import { User_id_type } from "@prisma/client";
 import { Session } from "next-auth";
@@ -61,11 +61,11 @@ const Like_form = ({
                     session.user.id,
                     comment_id,
                     product_id,
-                    LikeMethod.Like
+                    LikeMethod.Like,
                   );
                   set_like_status(false);
                 }}
-                className="flex items-center gap-1 cursor-pointer"
+                className="flex cursor-pointer items-center gap-1"
               >
                 <span className="font-iransansnum text-xl">{like}</span>
                 <LikeIcon
@@ -81,11 +81,11 @@ const Like_form = ({
                     session.user.id,
                     comment_id,
                     product_id,
-                    LikeMethod.Dislike
+                    LikeMethod.Dislike,
                   );
                   set_like_status(false);
                 }}
-                className="flex items-center gap-1 cursor-pointer"
+                className="flex cursor-pointer items-center gap-1"
               >
                 <span className="font-iransansnum text-xl">{dislike}</span>
                 <DisLikeIcon
@@ -101,19 +101,19 @@ const Like_form = ({
         <Dialog>
           <div className="flex items-center gap-3">
             <DialogTrigger asChild>
-              <button className="flex items-center gap-1 cursor-pointer">
+              <button className="flex cursor-pointer items-center gap-1">
                 <span className="font-iransansnum text-xl">{like}</span>
                 <LikeIcon classes="h-8 w-8 fill-dark_5" />
               </button>
             </DialogTrigger>
             <DialogTrigger asChild>
-              <button className="flex items-center gap-1 cursor-pointer">
+              <button className="flex cursor-pointer items-center gap-1">
                 <span className="font-iransansnum text-xl">{dislike}</span>
                 <DisLikeIcon classes="h-8 w-8 fill-dark_5" />
               </button>
             </DialogTrigger>
           </div>
-          <DialogContent className="sm:max-w-[425px] bg-opacity-100 bg-light_1">
+          <DialogContent className="bg-light_1 bg-opacity-100 sm:max-w-[425px]">
             <Login_dialog />
           </DialogContent>
         </Dialog>

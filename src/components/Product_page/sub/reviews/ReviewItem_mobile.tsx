@@ -1,6 +1,6 @@
 import DotIcon from "@/components/Util/icons/DotIcon";
-import { gregorian_to_jalali } from "@/lib/util/calender";
-import { CommentWithUser } from "@/types/type";
+import { gregorian_to_jalali } from "@/util_functions/calender";
+import { CommentWithUser } from "@/types_validation/type";
 import { Divider } from "@mui/material";
 import React from "react";
 import Like_form from "./Like_form";
@@ -14,10 +14,10 @@ interface Props {
 const ReviewItem_mobile = ({ review, session, product_id }: Props) => {
   const date = gregorian_to_jalali(review.date);
   return (
-    <div className="flex flex-col border p-4 h-full">
-      <div className="flex items-start flex-col ">
+    <div className="flex h-full flex-col border p-4">
+      <div className="flex flex-col items-start ">
         <p
-          className={`text-lg font-iransansnum px-3 rounded-[3px] text-light_2 ${
+          className={`rounded-[3px] px-3 font-iransansnum text-lg text-light_2 ${
             review.rate === 50 ? "bg-green-600" : ""
           } ${review.rate === 40 ? "bg-green-500" : ""} ${
             review.rate === 30 ? "bg-lime-700" : ""
@@ -29,15 +29,15 @@ const ReviewItem_mobile = ({ review, session, product_id }: Props) => {
           <span>.</span>
           <span>0</span>
         </p>
-        <h2 className="font-iranyekan_bold text-xl py-3">
+        <h2 className="py-3 font-iranyekan_bold text-xl">
           {review.title.substring(0, 30)}
           {review.title.length > 30 && <span>...</span>}
         </h2>
       </div>
-      <div className="px-4 flex flex-col justify-between items-stretch h-full">
-        <div className="pt-6 pb-4 grow">
+      <div className="flex h-full flex-col items-stretch justify-between px-4">
+        <div className="grow pb-4 pt-6">
           <p
-            className="text-xl font-iranyekan_bold leading-9 "
+            className="font-iranyekan_bold text-xl leading-9 "
             style={{ wordBreak: "break-word" }}
           >
             {review.text.substring(0, 100)}
@@ -45,7 +45,7 @@ const ReviewItem_mobile = ({ review, session, product_id }: Props) => {
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex items-center  text-dark_4 gap-1">
+          <div className="flex items-center  gap-1 text-dark_4">
             <span>{review.user.name}</span>
             <span>{review.user.family}</span>
           </div>

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { convert_to_en_number } from "./translateNumbers";
+import { convert_to_en_number } from "../util_functions/translateNumbers";
 import { Recommendation } from "@prisma/client";
 
 export const phoneSchame = z.object({

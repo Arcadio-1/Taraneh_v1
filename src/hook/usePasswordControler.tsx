@@ -5,7 +5,7 @@ import {
   hasSpecialCharacter,
   hasUppercaseLetter,
   haslowercaseLetter,
-} from "../util/validation";
+} from "../types_validation/validation";
 
 interface IControler {
   lengthControl: number;

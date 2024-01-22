@@ -1,13 +1,13 @@
-import { Address_Full } from "@/types/type";
+import { Address_Full } from "@/types_validation/type";
 import { Session } from "next-auth";
 import React, { useEffect, useState } from "react";
 import {
   StateAndCityInterface,
   states,
 } from "../Personal_info/components/Address";
-import { getCities, setAddress } from "@/lib/actions/manageAddress";
+import { getCities, setAddress } from "@/actions/manageAddress";
 import { useForm } from "react-hook-form";
-import { AddressSchame } from "@/lib/util/validation";
+import { AddressSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { City } from "@prisma/client";

@@ -1,4 +1,4 @@
-import { MainCat_with_Specific_cats } from "@/types/type";
+import { MainCat_with_Specific_cats } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,7 +10,7 @@ interface Props {
 const Drinks_cat = ({ Main_cat }: Props) => {
   return (
     <div>
-      <h1 className="font-bold text text-dark_2 font-iranyekan_bold text-2xl mb-4">
+      <h1 className="text mb-4 font-iranyekan_bold text-2xl font-bold text-dark_2">
         {Main_cat.title}
       </h1>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3 p-3 ">
@@ -20,7 +20,7 @@ const Drinks_cat = ({ Main_cat }: Props) => {
               <Link href={`/search/${spcfic.label}`} title={spcfic.title}>
                 <div className="bg-red-200">
                   <Image
-                    className="rounded-lg w-full"
+                    className="w-full rounded-lg"
                     src={spcfic.hero_image}
                     width={300}
                     height={300}

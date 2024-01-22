@@ -1,5 +1,5 @@
 import DotIcon from "@/components/Util/icons/DotIcon";
-import { Address_Full } from "@/types/type";
+import { Address_Full } from "@/types_validation/type";
 import React from "react";
 
 interface Props {
@@ -17,14 +17,14 @@ const PersonalInfo = ({ address, family, name, phone }: Props) => {
           <div className="flex gap-2">
             <label className="text-dark_5"> تحویل گیرنده</label>
             <p className="flex gap-1">
-              <span className="text-dark_1 font-bold">{name}</span>
-              <span className="text-dark_1 font-bold">{family}</span>
+              <span className="font-bold text-dark_1">{name}</span>
+              <span className="font-bold text-dark_1">{family}</span>
             </p>
           </div>
           <DotIcon classes=" h-2 w-2 fill-dark_5" />
           <div className="flex gap-2">
             <label className="text-dark_5"> شماره موبایل</label>
-            <span className="font-iransansnum text-lg text-dark_1 font-bold">
+            <span className="font-iransansnum text-lg font-bold text-dark_1">
               {phone}
             </span>
           </div>
@@ -35,13 +35,13 @@ const PersonalInfo = ({ address, family, name, phone }: Props) => {
           <div className="flex gap-2">
             <label className="text-dark_5"> آدرس</label>
             <p className="flex gap-1">
-              <span className="text-dark_1 font-bold">
+              <span className="font-bold text-dark_1">
                 {address.state.state_name}
               </span>
-              <span className="text-dark_1 font-bold">
+              <span className="font-bold text-dark_1">
                 {address.city.city_name}
               </span>
-              <span className="text-dark_1 font-bold">{address.address}</span>
+              <span className="font-bold text-dark_1">{address.address}</span>
             </p>
           </div>
         </div>

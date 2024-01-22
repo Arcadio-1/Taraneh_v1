@@ -108,3 +108,9 @@ export type Specifications_select_specifications =
   Prisma.SpecificationsGetPayload<{
     select: { specifications: true };
   }>;
+
+export interface IResponse {
+  status: "Error" | "Success";
+  ok: boolean;
+  message: string;
+}

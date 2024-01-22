@@ -1,7 +1,7 @@
 "use server";
 
-import { ProductsWithBrands } from "@/types/type";
-import { prisma } from "../db/prisma";
+import { ProductsWithBrands } from "@/types_validation/type";
+import { prisma } from "../lib/db/prisma";
 import { Main_cat, Specific_cat } from "@prisma/client";
 // import { SortValue } from "@/components/Search_page/sorts/Sort";
 // import { SortValue } from "@/components/Search_page/sorts/Sort";
@@ -51,7 +51,7 @@ export const getProducts = async ({
     minPrice,
     pageSize,
     main_cat,
-    specific_cat
+    specific_cat,
   );
 
   let products: ProductsWithBrands[] = [];
@@ -365,7 +365,7 @@ const getTtotalPages = async (
   minPrice: string,
   pageSize: number,
   main_cat = "",
-  specific_cat = ""
+  specific_cat = "",
 ): Promise<number> => {
   let totalItemCount = 0;
 

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 // import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
-import { Data } from "@/lib/util/Data_chart";
+import { Data } from "@/util_functions/Data_chart";
 import { Pie } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import { ArcElement } from "chart.js";

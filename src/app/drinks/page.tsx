@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import { MainCat_with_Specific_cats } from "@/types/type";
+import { MainCat_with_Specific_cats } from "@/types_validation/type";
 import { cache } from "react";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -34,7 +34,7 @@ const DrinkPage = async () => {
   return (
     <div>
       <Hero />
-      <div className="mt-2 p-4 max-w-[90rem] m-auto flex flex-col gap-5">
+      <div className="m-auto mt-2 flex max-w-[90rem] flex-col gap-5 p-4">
         <Drinks_cats Main_cat={drinks} />
         <Show_all
           alt={drinks.label}

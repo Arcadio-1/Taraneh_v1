@@ -1,10 +1,10 @@
 import TomanIcon from "@/components/Util/icons/TomanIcon";
-import { numberSeperator } from "@/lib/util/price_formt";
-import { Address_Full, OrderType, ShoppingCart } from "@/types/type";
+import { numberSeperator } from "@/util_functions/price_formt";
+import { Address_Full, OrderType, ShoppingCart } from "@/types_validation/type";
 import { Divider } from "@mui/material";
 import React from "react";
 import { OrderCart, OrderStatus, PayMethod } from "@prisma/client";
-import { addOrder } from "@/lib/actions/manageOrders";
+import { addOrder } from "@/actions/manageOrders";
 import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
 import { useGlobalContext } from "@/app/(provider)/Provider";
@@ -48,11 +48,11 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
   };
 
   return (
-    <div className=" md:border rounded-lg min-w-[25rem] h-full py-6 px-4 flex flex-col items-stretch gap-4">
+    <div className=" flex h-full min-w-[25rem] flex-col items-stretch gap-4 rounded-lg px-4 py-6 md:border">
       <div className="flex flex-col gap-5">
         <div className="flex items-start justify-between text-dark_5">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-md">
+            <label className="text-md font-iranyekan_bold font-bold">
               قیمت کالا ها
             </label>
             <div>
@@ -75,11 +75,11 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
         <div className="flex items-start justify-between text-dark_4">
           <div className="flex items-center gap-2">
             <label className="text-lg">هزینه ارسال</label>
-            <p className="flex gap-1 bg-g1_6 bg-opacity-10 p-2 rounded-full">
-              <span className="font-iransansnum text-md font-bold text-g1_6">
+            <p className="flex gap-1 rounded-full bg-g1_6 bg-opacity-10 p-2">
+              <span className="text-md font-iransansnum font-bold text-g1_6">
                 1
               </span>
-              <span className="font-iranyekan text-md font-bold text-g1_6">
+              <span className="text-md font-iranyekan font-bold text-g1_6">
                 مرسوله
               </span>
             </p>
@@ -96,7 +96,7 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
             <Divider />
             <div className="flex items-start justify-between text-dark_3">
               <div className="flex items-center gap-2">
-                <label className="font-iranyekan_bold font-bold text-md">
+                <label className="text-md font-iranyekan_bold font-bold">
                   تخفیف کالاها
                 </label>
               </div>
@@ -113,12 +113,12 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
         {!!cart.subDiscount && cart.subDiscount > 0 && (
           <div className="flex items-start justify-between text-g1_5">
             <div className="flex items-center gap-2">
-              <label className="font-iranyekan_bold font-bold text-md">
+              <label className="text-md font-iranyekan_bold font-bold">
                 سود شما از خرید
               </label>
             </div>
             <div className="flex items-center gap-1">
-              <p className="font-iransansnum text-xl font-bold flex gap-2">
+              <p className="flex gap-2 font-iransansnum text-xl font-bold">
                 <span>
                   ({Math.round(cart.subDiscount / (cart.subtotal / 100))}
                   %)
@@ -132,7 +132,7 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
         )}
         <div className="flex items-start justify-between text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-md">
+            <label className="text-md font-iranyekan_bold font-bold">
               قابل پرداخت
             </label>
           </div>
@@ -145,25 +145,25 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
         </div>
       </div>
       <button
-        className="hidden md:flex items-center justify-center bg-g1_5 w-full py-3 rounded-lg text-light_1 font-iransansbold"
+        className="hidden w-full items-center justify-center rounded-lg bg-g1_5 py-3 font-iransansbold text-light_1 md:flex"
         onClick={payHandler}
       >
         {paymentMethod === PayMethod.NOT_PAYED
           ? "نحوه پرداخت را مشخص کنید"
           : "پرداخت"}
       </button>
-      <div className="fixed bottom-0 right-0 left-0 p-8 w-full flex gap-2 items-center justify-between shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden bg-light_1">
+      <div className="fixed bottom-0 left-0 right-0 flex w-full items-center justify-between gap-2 bg-light_1 p-8 shadow-[0px_1px_5px_rgba(0,0,0,0.40)] md:hidden">
         <button
-          className="flex grow items-center justify-center bg-g1_5 py-5 text-xl rounded-lg text-light_1 font-iransansbold"
+          className="flex grow items-center justify-center rounded-lg bg-g1_5 py-5 font-iransansbold text-xl text-light_1"
           onClick={payHandler}
         >
           {paymentMethod === PayMethod.NOT_PAYED
             ? "نحوه پرداخت را مشخص کنید"
             : "پرداخت"}
         </button>
-        <div className="flex flex-col items-end gap-3 grow justify-between text-dark_3">
+        <div className="flex grow flex-col items-end justify-between gap-3 text-dark_3">
           <div className="flex items-center gap-2">
-            <label className="font-iranyekan_bold font-bold text-lg text-dark_4">
+            <label className="font-iranyekan_bold text-lg font-bold text-dark_4">
               قابل پرداخت
             </label>
           </div>

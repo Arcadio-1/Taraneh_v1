@@ -1,6 +1,6 @@
 import TomanIcon from "@/components/Util/icons/TomanIcon";
 import { SheetClose } from "@/components_shadcn/ui/sheet";
-import { numberSeperator } from "@/lib/util/price_formt";
+import { numberSeperator } from "@/util_functions/price_formt";
 import Link from "next/link";
 import React from "react";
 
@@ -13,11 +13,11 @@ const Footer = ({ cart_subtotal, sheet }: Props) => {
   const totalPrice = numberSeperator(cart_subtotal);
 
   return (
-    <div className="flex justify-between items-center border-t-2 p-2">
+    <div className="flex items-center justify-between border-t-2 p-2">
       <div className="flex flex-col gap-2">
         <span className="font-bold text-gray-500">مبلغ قابل پرداخت</span>
         <div className="flex gap-2">
-          <span className="font-iransansnum font-bold text-2xl tracking-[.05em]">
+          <span className="font-iransansnum text-2xl font-bold tracking-[.05em]">
             {totalPrice}
           </span>
           <TomanIcon classes="h-8 w-8" />
@@ -27,7 +27,7 @@ const Footer = ({ cart_subtotal, sheet }: Props) => {
         <SheetClose asChild>
           <Link
             href={"/checkout"}
-            className="bg-g1_5 text-light_1 p-4 rounded-lg"
+            className="rounded-lg bg-g1_5 p-4 text-light_1"
           >
             ثبت سفارش
           </Link>
@@ -35,7 +35,7 @@ const Footer = ({ cart_subtotal, sheet }: Props) => {
       ) : (
         <Link
           href={"/checkout"}
-          className="bg-g1_5 text-light_1 p-4 rounded-lg"
+          className="rounded-lg bg-g1_5 p-4 text-light_1"
         >
           ثبت سفارش
         </Link>

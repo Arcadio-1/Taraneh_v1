@@ -3,7 +3,7 @@ import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 import Link from "next/link";
 import React from "react";
 import { useSearchParams } from "next/navigation";
-import { SortValue } from "@/types/type";
+import { SortValue } from "@/types_validation/type";
 
 interface Props {
   currentPage: number;
@@ -42,17 +42,17 @@ const PageinationBar = ({
       <Link
         href={`${url}${page}`}
         key={page}
-        className={`font-iransansnum text-2xl h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 ${
+        className={`flex h-12 w-12 items-center justify-center rounded-full font-iransansnum text-2xl transition-all duration-300 hover:bg-slate-100 ${
           currentPage === page ? "bg-slate-200 hover:bg-slate-200" : ""
         }`}
       >
         {page}
-      </Link>
+      </Link>,
     );
   }
   return (
-    <div className="flex items-center justify-center mt-10">
-      <div className="hidden sm:flex items-center gap-3">
+    <div className="mt-10 flex items-center justify-center">
+      <div className="hidden items-center gap-3 sm:flex">
         {currentPage === 1 ? (
           <div>
             <ArrowIcon classes="h-4 w-4 fill-dark_6" direction={Arrow.right} />
@@ -60,7 +60,7 @@ const PageinationBar = ({
         ) : (
           <Link
             href={`${url}${currentPage - 1}`}
-            className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
+            className={`flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:bg-slate-100 `}
           >
             <ArrowIcon classes="h-4 w-4" direction={Arrow.right} />
           </Link>
@@ -70,7 +70,7 @@ const PageinationBar = ({
             <Link
               href={`${url}${1}`}
               key={1}
-              className={`font-iransansnum text-2xl h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 ${
+              className={`flex h-12 w-12 items-center justify-center rounded-full font-iransansnum text-2xl transition-all duration-300 hover:bg-slate-100 ${
                 currentPage === 1 ? "bg-slate-200 hover:bg-slate-200" : ""
               }`}
             >
@@ -86,7 +86,7 @@ const PageinationBar = ({
             <Link
               href={`${url}${totalPages}`}
               key={totalPages}
-              className={`font-iransansnum text-2xl h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 ${
+              className={`flex h-12 w-12 items-center justify-center rounded-full font-iransansnum text-2xl transition-all duration-300 hover:bg-slate-100 ${
                 currentPage === totalPages
                   ? "bg-slate-200 hover:bg-slate-200"
                   : ""
@@ -103,13 +103,13 @@ const PageinationBar = ({
         ) : (
           <Link
             href={`${url}${currentPage + 1}`}
-            className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
+            className={`flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:bg-slate-100 `}
           >
             <ArrowIcon classes="h-4 w-4" direction={Arrow.left} />
           </Link>
         )}
       </div>
-      <div className="items-center flex gap-4 justify-center sm:hidden">
+      <div className="flex items-center justify-center gap-4 sm:hidden">
         {currentPage === 1 ? (
           <div>
             <ArrowIcon classes="h-5 w-5 fill-dark_6" direction={Arrow.right} />
@@ -117,7 +117,7 @@ const PageinationBar = ({
         ) : (
           <Link
             href={`${url}${currentPage - 1}`}
-            className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
+            className={`flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:bg-slate-100 `}
           >
             <ArrowIcon classes="h-5 w-5" direction={Arrow.right} />
           </Link>
@@ -133,7 +133,7 @@ const PageinationBar = ({
         ) : (
           <Link
             href={`${url}${currentPage + 1}`}
-            className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all duration-300 `}
+            className={`flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:bg-slate-100 `}
           >
             <ArrowIcon classes="h-5 w-5" direction={Arrow.left} />
           </Link>

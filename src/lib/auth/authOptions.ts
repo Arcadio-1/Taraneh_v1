@@ -3,19 +3,19 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/db/prisma";
 import { Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { env } from "@/lib/env";
+import { env } from "@/types_validation/env";
 import { PrismaClient } from "@prisma/client";
 import {
   emailSchame,
   passwordScham,
   personalInfoFormSchame,
   phoneSchame,
-} from "@/lib/util/validation";
-import { mergeCarts } from "@/lib/actions/mergeCart";
+} from "@/types_validation/validation";
+import { mergeCarts } from "@/actions/mergeCart";
 import { z } from "zod";
 import { getServerSession } from "next-auth";
 import { varifiyPassword } from "../bcrypt/bcrypt";
-import { getCart } from "../actions/getCart";
+import { getCart } from "../../actions/getCart";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,

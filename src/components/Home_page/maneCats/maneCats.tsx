@@ -1,4 +1,4 @@
-import { MainCatsWithSpecificCats } from "@/types/type";
+import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,15 +9,15 @@ interface Props {
 
 const ManeCats = ({ cats }: Props) => {
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-3 px-4 justify-center py-4">
+    <div className="flex flex-col items-center justify-center gap-3 px-4 py-4 md:flex-row md:items-stretch">
       {cats.map((mainCat) => {
         return (
           <Link
             href={`/${mainCat.label}`}
-            className="grow w-full flex items-center justify-evenly p-5 max-w-2xl rounded-lg bg-white backdrop-blur-sm bg-opacity-10"
+            className="flex w-full max-w-2xl grow items-center justify-evenly rounded-lg bg-white bg-opacity-10 p-5 backdrop-blur-sm"
             key={mainCat.id}
           >
-            <h1 className="text-dark_1 text-4xl">{mainCat.title}</h1>
+            <h1 className="text-4xl text-dark_1">{mainCat.title}</h1>
             <Image
               src={mainCat.image}
               alt={mainCat.title}
