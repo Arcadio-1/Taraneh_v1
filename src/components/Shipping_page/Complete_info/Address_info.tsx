@@ -1,8 +1,5 @@
 "use client";
-import {
-  StateAndCityInterface,
-  states,
-} from "@/components/Profile_page/content/components/Personal_info/components/Address";
+import { StateAndCityInterface } from "@/components/Profile_page/content/components/Personal_info/components/Address";
 import {
   Form,
   FormControl,
@@ -24,6 +21,7 @@ import { City } from "@prisma/client";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { states } from "@/constants/states";
 
 interface Props {
   userId: string;

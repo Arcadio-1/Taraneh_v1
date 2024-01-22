@@ -1,10 +1,7 @@
 import { Address_Full } from "@/types_validation/type";
 import { Session } from "next-auth";
 import React, { useEffect, useState } from "react";
-import {
-  StateAndCityInterface,
-  states,
-} from "../Personal_info/components/Address";
+import { StateAndCityInterface } from "../Personal_info/components/Address";
 import { getCities, setAddress } from "@/actions/manageAddress";
 import { useForm } from "react-hook-form";
 import { AddressSchame } from "@/types_validation/validation";
@@ -24,6 +21,7 @@ import { Input } from "@/components_shadcn/ui/input";
 import { toast } from "@/components_shadcn/ui/use-toast";
 import Link from "next/link";
 import ArrowLongIcon, { Arrow } from "@/components/Util/icons/ArrowLongIcon";
+import { states } from "@/constants/states";
 
 interface Props {
   address: Address_Full | null;
