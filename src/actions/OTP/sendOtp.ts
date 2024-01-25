@@ -39,6 +39,16 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
         to: phone,
       },
     });
+    // const requestToMeliPayamak = await axios({
+    //   method: "post",
+    //   url: `https://console.melipayamak.com/api/send/shared/${env.MELI_KEY}`,
+    //   data: {
+    //     bodyId: 190008,
+    //     to: phone,
+    //     args: ["12345"],
+    //   },
+    // });
+    // console.log(requestToMeliPayamak);
     if (!requestToMeliPayamak) {
       throw new Error("خطا در برقراری ارتباط");
     }

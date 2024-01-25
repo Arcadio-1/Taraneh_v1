@@ -5,6 +5,7 @@ import CountdownTimer from "./CountdownTimer";
 import { OtpType } from "@/types_validation/type";
 import { toast } from "@/components_shadcn/ui/use-toast";
 import { getOtp } from "@/actions/OTP/redisActions/getOtp";
+import SpinnerIcon from "../../icons/SpinnerIcon";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   phone: string;
@@ -22,6 +23,7 @@ const OtpButton = ({
   ...props
 }: ButtonProps) => {
   const [countDown, setcountDown] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const geter = async () => {
@@ -35,7 +37,9 @@ const OtpButton = ({
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     e.preventDefault();
+    setLoading(true);
     const send = await sendOtp({ phone: phone, type: otpType });
+    setLoading(false);
     if (!send.ok) {
       toast({
         duration: 2500,
@@ -58,12 +62,12 @@ const OtpButton = ({
       dir="ltr"
       type="button"
       className={cn(
-        "text-md flex shrink flex-row-reverse items-center gap-2 rounded-lg bg-g1_7  px-2 py-2 text-light_1",
+        "text-md flex shrink flex-row-reverse items-center gap-2 rounded-lg bg-g1_7  px-2 py-1 text-light_1",
         className,
         { "text-gray-300": countDown },
       )}
       {...props}
-      disabled={countDown}
+      disabled={countDown || loading}
       onClick={otpClickHandler}
     >
       {countDown ? (
@@ -72,10 +76,18 @@ const OtpButton = ({
           initialSeconds={initialSeconds}
         />
       ) : (
-        <p className="flex items-center gap-2 text-light_1">
-          <span className="font-iransansnum text-xl">{phone}</span>
-          <span>ارسال کد تایید به</span>
-        </p>
+        <>
+          {loading ? (
+            <div className="px-14">
+              <SpinnerIcon />
+            </div>
+          ) : (
+            <p className="flex items-center gap-2 text-light_1">
+              <span className="font-iransansnum text-xl">{phone}</span>
+              <span>ارسال کد تایید به</span>
+            </p>
+          )}
+        </>
       )}
     </button>
   );
