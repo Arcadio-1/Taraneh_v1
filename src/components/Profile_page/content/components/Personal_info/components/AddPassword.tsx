@@ -36,7 +36,8 @@ import HideIcon from "@/components/Util/icons/HideIcon";
 import addPassword from "@/actions/addPassword";
 import SpinnerIcon from "@/components/Util/icons/SpinnerIcon";
 import PasswordPower from "./PasswordPower";
-import OtpButton from "@/components/Util/ui/OtpButton";
+import OtpButton from "@/components/Util/ui/OptControl/OtpButton";
+import { OtpType } from "@/types_validation/type";
 
 interface Props {
   phone: string;
@@ -225,18 +226,18 @@ const AddPassword = ({ phone, hasPassword }: Props) => {
               name="otpNumber"
               render={({ field }) => (
                 <FormItem className="grow">
-                  <FormLabel className="text-md">
+                  {/* <FormLabel className="text-md">
                     رمز یکبار مصرف
                     <span className="px-2 font-iransansnum font-bold">
                       ({phone})
                     </span>
                   </FormLabel>
-                  <span className="text-lg text-g1_5">*</span>
+                  <span className="text-lg text-g1_5">*</span> */}
                   <div
                     dir="ltr"
                     className="flex flex-col items-end justify-evenly gap-4"
                   >
-                    <OtpButton phone={phone} initialSeconds={100} />
+                    <OtpButton phone={phone} otpType={OtpType.changePassword} />
                     <FormControl>
                       <OTPInput
                         shouldAutoFocus

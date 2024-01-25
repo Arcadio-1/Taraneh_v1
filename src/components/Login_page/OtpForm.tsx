@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components_shadcn/ui/button";
 import { userSignup } from "@/actions/userSignup";
 import { otpFormSchame } from "@/types_validation/validation";
-import { Sign } from "@/types_validation/type";
+import { OtpType, Sign } from "@/types_validation/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import React, { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ import OtpInput from "react-otp-input";
 import ArrowLongIcon, { Arrow } from "../Util/icons/ArrowLongIcon";
 import ArrowIcon from "../Util/icons/ArrowIcon";
 import SpinnerIcon from "../Util/icons/SpinnerIcon";
-import OtpButton from "../Util/ui/OtpButton";
+import OtpButton from "../Util/ui/OptControl/OtpButton";
 
 interface Props {
   phone: string;
@@ -49,7 +49,6 @@ const OtpForm = ({
 
   useEffect(() => {
     otpform.setValue("otpNumber", otp);
-
     otpFormSchame.safeParse({
       otpNumber: otp,
     }).success && otpform.clearErrors();
@@ -58,29 +57,57 @@ const OtpForm = ({
   const onSignWithOtp = async (values: z.infer<typeof otpFormSchame>) => {
     setLogError("");
     setLoading(true);
-    values.otpNumber;
+
     if (sign === Sign.signUp) {
-      await userSignup({ phone: phone }, values.otpNumber);
-    }
-    try {
-      const req = await signIn("credentials", {
-        redirect: false,
-        callbackUrl: callbackParam,
-        phone: phone,
-        otpNum: values.otpNumber,
-        method: "otp",
-      });
-      setLoading(false);
-      if (!req?.ok && req?.error) {
-        setLogError(req.error);
-      }
-      console.log(req);
-      if (req?.ok) {
+      try {
+        const signupRequest = await userSignup(phone, values.otpNumber);
+        if (!signupRequest.ok) {
+          throw new Error(signupRequest.message);
+        }
+        const signinRequset = await signIn("credentials", {
+          redirect: false,
+          callbackUrl: callbackParam,
+          phone: phone,
+          otpNum: values.otpNumber,
+          method: "otp",
+        });
+        if (
+          !signinRequset?.ok ||
+          signinRequset?.status !== 200 ||
+          signinRequset.error
+        ) {
+          setLogError(signinRequset?.error!);
+          throw new Error(signinRequset?.error!);
+        }
         window.location.href = callbackParam;
+      } catch (error) {
+        setLoading(false);
+        if (error instanceof Error) {
+          console.log(error.message);
+        }
+        setLogError("خطا در ثبت نام");
+        return;
       }
-    } catch (error) {
+    }
+    if (sign === Sign.signin) {
+      try {
+        const req = await signIn("credentials", {
+          redirect: false,
+          callbackUrl: callbackParam,
+          phone: phone,
+          otpNum: values.otpNumber,
+          method: "otp",
+        });
+        if (!req?.ok && req?.error) {
+          setLogError(req.error);
+        }
+        if (req?.ok) {
+          window.location.href = callbackParam;
+        }
+      } catch (error) {
+        console.log(error);
+      }
       setLoading(false);
-      console.log(error);
     }
   };
 
@@ -94,8 +121,8 @@ const OtpForm = ({
       >
         <ArrowLongIcon classes="h-8 w-8 fill-dark_4" direction={Arrow.right} />
       </button>
-      {sign === Sign.signin && <h1 className="mb-5 text-xl">ورود</h1>}
-      {sign === Sign.signUp && <h1 className="mb-5 text-xl">ثبت نام</h1>}
+      {sign === Sign.signin && <h1 className="mb-5 text-2xl">ورود</h1>}
+      {sign === Sign.signUp && <h1 className="mb-5 text-2xl">ثبت نام</h1>}
       <Form {...otpform}>
         <form onSubmit={otpform.handleSubmit(onSignWithOtp)}>
           <FormField
@@ -130,14 +157,7 @@ const OtpForm = ({
                 </div>
                 {logError && <p className="text-xl text-g1_5">{logError}</p>}
                 <FormMessage className="text-lg text-red-700" />
-                <div className="flex gap-1 font-iranyekan_bold text-lg text-dark_5">
-                  <span>لطفا</span>
-                  <span className="text-xl tracking-wider text-g1_5">
-                    12345
-                  </span>
-                  <span>را وارد کنید</span>
-                </div>
-                <OtpButton phone={phone} autoStart={true} initialSeconds={20} />
+                <OtpButton phone={phone} otpType={OtpType.login} />
 
                 {hasPassword && (
                   <div

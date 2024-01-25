@@ -13,7 +13,6 @@ const PasswordPower = ({ password }: Props) => {
     specialCharacterControl,
     lowercaseLetterControl,
     UppercaseLetterControl,
-    power,
     status,
   } = usePasswordControler(password);
 

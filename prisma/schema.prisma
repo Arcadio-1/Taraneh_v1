@@ -84,21 +84,6 @@ model User {
   @@map("users")
 }
 
-enum OTPEnum {
-  login
-  changePassword
-}
-
-model Otp {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  phone     String
-  number    String
-  createdAt DateTime @default(now())
-  type      OTPEnum
-
-  @@map("otp")
-}
-
 model UserAddress {
   id           String    @id @default(auto()) @map("_id") @db.ObjectId
   user_id      String    @unique @db.ObjectId

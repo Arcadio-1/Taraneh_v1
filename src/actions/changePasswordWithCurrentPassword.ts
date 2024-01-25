@@ -1,25 +1,29 @@
 "use server";
 import { z } from "zod";
 import { comparePasswordWithCurrentPasswordScham } from "../types_validation/validation";
-import { getUserId } from "./getUserId";
+import { getUserPhone } from "./getUserPhone";
 import { prisma } from "../lib/db/prisma";
 import { getHashedPassword, varifiyPassword } from "../lib/bcrypt/bcrypt";
 import { IResponse } from "@/types_validation/type";
+import { signOut } from "next-auth/react";
 
 const changePasswordWithCurrentPassword: (
   passwordChangingData: z.infer<typeof comparePasswordWithCurrentPasswordScham>,
 ) => Promise<IResponse> = async (passwordChangingData) => {
   try {
-    const user_id = await getUserId();
     const checkInputs =
       comparePasswordWithCurrentPasswordScham.safeParse(passwordChangingData);
     if (!checkInputs.success) {
       throw new Error("اطلاعات وارد شده صحیح نمیباشد");
     }
-    if (!user_id) {
-      throw new Error("خطا در اعتبار سنجی");
+    const getPhone = await getUserPhone();
+    if (!getPhone.ok || !getPhone.phone) {
+      signOut({ callbackUrl: "/profile/personal-info" });
+      throw new Error(getPhone.message);
     }
-    const user = await prisma.user.findUnique({ where: { id: user_id } });
+    const user = await prisma.user.findUnique({
+      where: { phone: getPhone.phone },
+    });
     if (!user) {
       throw new Error("خطا در یافتن حساب کاربری");
     }
@@ -34,7 +38,7 @@ const changePasswordWithCurrentPassword: (
       passwordChangingData.password,
     );
     const requestChangePassword = await prisma.user.update({
-      where: { id: user_id },
+      where: { phone: getPhone.phone },
       data: { password: hasedPassword },
     });
     if (!requestChangePassword) {

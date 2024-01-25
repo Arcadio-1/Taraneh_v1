@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components_shadcn/ui/input";
 import { Button } from "@/components_shadcn/ui/button";
 import * as z from "zod";
-import { phoneSchame } from "@/types_validation/validation";
+import { LoginWithPhoneForm } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { checkUser } from "@/actions/checkUser";
@@ -28,17 +28,17 @@ const PhoneForm = ({ setSign, setHasPassword, setPhone, sign }: Props) => {
   const [logError, setLogError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const get_phone_form = useForm<z.infer<typeof phoneSchame>>({
-    resolver: zodResolver(phoneSchame),
+  const get_phone_form = useForm<z.infer<typeof LoginWithPhoneForm>>({
+    resolver: zodResolver(LoginWithPhoneForm),
     defaultValues: {
       phone: "",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof phoneSchame>) => {
+  const onSubmit = async (values: z.infer<typeof LoginWithPhoneForm>) => {
     try {
       setLoading(true);
-      const existing_phone_number_check = await checkUser(values);
+      const existing_phone_number_check = await checkUser(values.phone);
       setSign(existing_phone_number_check.type);
       setHasPassword(existing_phone_number_check.password);
       setPhone((prev) => {

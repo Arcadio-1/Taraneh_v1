@@ -1,7 +1,6 @@
 import Checkout from "@/components/CheckOut_page/Checkout";
 import Navbar from "@/components/CheckOut_page/Navbar";
 import EmptyCart from "@/components/CheckOut_page/emptyCart/EmptyCart";
-import AdSlider from "@/components/Util/ad_slider/AdSlider";
 import { getCart } from "@/actions/getCart";
 import React from "react";
 

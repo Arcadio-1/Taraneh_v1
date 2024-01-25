@@ -68,7 +68,7 @@ const ShoppingCartButton = ({ cart }: Props) => {
           </div>
         ) : (
           <Link
-            href={"/chekout"}
+            href={"/checkout"}
             className="relative mx-2 rounded-lg p-1 duration-0 data-[state=open]:bg-red-100"
           >
             <span className="absolute bottom-[0px] right-[-7px] flex items-center justify-center rounded-[5px] bg-g1_5 bg-opacity-90 px-2 py-[1px] font-iransansnum text-light_2">

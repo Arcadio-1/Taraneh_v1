@@ -2,7 +2,7 @@
 import { Session } from "next-auth";
 import React from "react";
 import Name_family_codeMeli from "./components/Name_family_codeMeli";
-import Phone from "./components/Phone";
+import Phone from "./components/changePhone/Phone";
 import Email from "./components/Email";
 import Address from "./components/Address";
 
@@ -76,7 +76,7 @@ const Personal_info = ({ session, address }: Props) => {
             )}
           </div>
           <div>
-            <Phone userId={session.user.id} phone={session.user.phone} />
+            <Phone phone={session.user.phone} />
           </div>
         </div>
         <div className="flex justify-between rounded-lg bg-dark_6 bg-opacity-5 px-4 py-2">

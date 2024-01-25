@@ -6,8 +6,8 @@ import Link from "next/link";
 import ArrowIcon, { Arrow } from "@/components/Util/icons/ArrowIcon";
 const EmptyCart = () => {
   return (
-    <div className="grid items-center justify-center w-full">
-      <div className="mx-auto w-full flex flex-col gap-2 items-center justify-center py-10 border rounded-xl my-2">
+    <div className="grid w-full items-center justify-center">
+      <div className="mx-auto my-2 flex w-full flex-col items-center justify-center gap-2 rounded-xl border py-10">
         <Image
           src={emptyCartSvg}
           width={200}
@@ -16,8 +16,8 @@ const EmptyCart = () => {
         />
         <p className="font-iranyekan_bold text-2xl">سبد خرید شما خالی است!</p>
         <Link
-          className="text-g1_7 text-lg flex gap-1 items-center justify-center"
-          href={"/main"}
+          className="flex items-center justify-center gap-1 text-lg text-g1_7"
+          href={"/search"}
         >
           مشاهده محصولات
           <ArrowIcon classes="h-5 w-5 fill-g1_7" direction={Arrow.left} />

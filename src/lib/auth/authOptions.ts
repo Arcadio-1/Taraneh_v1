@@ -6,6 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/types_validation/env";
 import { PrismaClient } from "@prisma/client";
 import {
+  ChangePhoneFormScheme,
   emailSchame,
   passwordScham,
   personalInfoFormSchame,
@@ -16,6 +17,8 @@ import { z } from "zod";
 import { getServerSession } from "next-auth";
 import { varifiyPassword } from "../bcrypt/bcrypt";
 import { getCart } from "../../actions/getCart";
+import { getOtp } from "@/actions/OTP/redisActions/getOtp";
+import { expireOtp } from "@/actions/OTP/redisActions/removeOtp";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,
@@ -35,13 +38,11 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         try {
-          const phone = phoneSchame.safeParse(credentials);
-          if (
-            !phone.success ||
-            !credentials ||
-            !credentials.phone ||
-            !credentials.method
-          ) {
+          if (!credentials) {
+            throw new Error("مشخصات ورود را وارد کنید");
+          }
+          const phone = phoneSchame.safeParse(credentials.phone);
+          if (!phone.success) {
             throw new Error("مشخصات وارد شده صحیح نیست");
           }
           if (
@@ -50,8 +51,15 @@ export const authOptions: NextAuthOptions = {
           ) {
             throw new Error("از روش استاندارد برای ورود اقدام نمایید!");
           }
-          if (credentials.method === "otp" && credentials.otpNum !== "12345") {
-            throw new Error("رمز وارد شده صحیح نمیباشد");
+          if (credentials.method === "otp") {
+            const orgOtp = await getOtp(credentials.phone);
+            // const quiter = await redis.quit();
+            if (!orgOtp.ok) {
+              throw new Error(orgOtp.message);
+            }
+            if (credentials.otpNum !== orgOtp.number) {
+              throw new Error("رمز وارد شده صحیح نمیباشد");
+            }
           }
           const user = await prisma.user.findUnique({
             where: { phone: credentials.phone },
@@ -85,9 +93,12 @@ export const authOptions: NextAuthOptions = {
               }
             }
           }
+          const remover = await expireOtp(credentials.phone);
           return user;
         } catch (error) {
-          if (error instanceof Error) throw new Error(error.message);
+          if (error instanceof Error) {
+            throw new Error(error.message);
+          }
           throw new Error("خطا در ورود");
         }
       },
@@ -107,7 +118,7 @@ export const authOptions: NextAuthOptions = {
           throw new Error("your not logged in");
         }
         const {
-          user: { id: userId },
+          user: { id: userId, phone },
         } = currentSession;
 
         const currentUser = await prisma.user.findUnique({
@@ -117,7 +128,9 @@ export const authOptions: NextAuthOptions = {
         if (!currentUser) {
           throw new Error("user not found");
         }
-
+        if (session.feild === "pone") {
+          // throw new Error("testttttttttttttttttt");
+        }
         if (session.feild === "personal_info") {
           try {
             const data = personalInfoFormSchame.safeParse(session.data);
@@ -143,29 +156,39 @@ export const authOptions: NextAuthOptions = {
             console.log(error || "somthing went wrong");
           }
         }
-        if (session.feild === "phone") {
+        if (session.feild === "email") {
           try {
-            const data = phoneSchame.safeParse(session.data);
+            const data = emailSchame.safeParse(session.data);
             if (!data.success) {
-              throw new Error("phone number is not correct code:1");
+              throw new Error("email is not crrect code:1");
             }
             const existenCheck = await prisma.user.findUnique({
-              where: { phone: session.data.phone },
+              where: { email: session.data.email },
             });
             const customSession: {
-              data: z.infer<typeof phoneSchame>;
+              data: z.infer<typeof emailSchame>;
             } = session;
             if (!existenCheck) {
-              token.phone = customSession.data.phone;
+              token.email = customSession.data.email;
               await prisma.user.update({
                 where: { id: userId },
                 data: {
-                  phone: customSession.data.phone,
+                  email: customSession.data.email,
                 },
               });
             }
           } catch (error) {
-            console.log(error || "phone number is not correct code:2");
+            console.log(error || "email is not corrext code:2");
+          }
+        }
+        if (session.feild === "phone") {
+          try {
+            token.phone = currentUser.phone;
+          } catch (error) {
+            if (error instanceof Error) {
+              console.log(error.message);
+            }
+            console.log("خطا در تغیر شماره کد X");
           }
         }
         if (session.feild === "addPasswordAndChangeWithOth") {
@@ -192,31 +215,6 @@ export const authOptions: NextAuthOptions = {
               console.log(error.message);
             }
             console.log("what the f*ck is going on");
-          }
-        }
-        if (session.feild === "email") {
-          try {
-            const data = emailSchame.safeParse(session.data);
-            if (!data.success) {
-              throw new Error("email is not crrect code:1");
-            }
-            const existenCheck = await prisma.user.findUnique({
-              where: { email: session.data.email },
-            });
-            const customSession: {
-              data: z.infer<typeof emailSchame>;
-            } = session;
-            if (!existenCheck) {
-              token.email = customSession.data.email;
-              await prisma.user.update({
-                where: { id: userId },
-                data: {
-                  email: customSession.data.email,
-                },
-              });
-            }
-          } catch (error) {
-            console.log(error || "email is not corrext code:2");
           }
         }
       }

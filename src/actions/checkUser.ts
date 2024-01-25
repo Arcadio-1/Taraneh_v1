@@ -34,7 +34,7 @@ export const checkUser = async (
       throw new Error(checked_phone.error.toString());
     }
 
-    const conv_phone = convert_to_en_number(checked_phone.data.phone);
+    const conv_phone = convert_to_en_number(checked_phone.data);
 
     const check = await prisma.user.findUnique({
       where: { phone: conv_phone },

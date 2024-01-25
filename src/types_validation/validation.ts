@@ -2,32 +2,36 @@ import { z } from "zod";
 import { convert_to_en_number } from "../util_functions/translateNumbers";
 import { Recommendation } from "@prisma/client";
 
-export const phoneSchame = z.object({
-  phone: z.union([
-    z.string().regex(/09(1[0-9]|0[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/, {
-      message: "شماره موبایل صحیح نمیباشد مثال (09120001122)",
-    }),
-    z
-      .string()
-      .regex(
-        /۰۹(۱[۰۱۲۳۴۵۶۷۸۹]|۳[۱۲۳۴۵۶۷۸۹]|۰[۱۲۳۴۵۶۷۸۹]|۲[۱۲۳۴۵۶۷۸۹])-?[۰۱۲۳۴۵۶۷۸۹]{3}-?[۰۱۲۳۴۵۶۷۸۹]{4}$/,
-        { message: "(شماره موبایل صحیح نمیباشد مثال (09120001122" },
-      ),
-    z
-      .string()
-      .regex(
-        /۰۹(١[٠١٢٣٤٥٦٧٨٩]|٣[١٢٣٤٥٦٧٨٩]|٠[١٢٣٤٥٦٧٨٩]|٢[١٢٣٤٥٦٧٨٩])-?[٠١٢٣٤٥٦٧٨٩]{3}-?[٠١٢٣٤٥٦٧٨٩]{4}$/,
-        { message: "(شماره موبایل صحیح نمیباشد مثال (09120001122" },
-      ),
-    z.string().refine((value) => {
-      const converted_phone_number = convert_to_en_number(value);
-      const test = /09(1[0-9]|0[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/.test(
+export const phoneSchame = z.string().refine(
+  (value) => {
+    const converted_phone_number = convert_to_en_number(value);
+    const regexTest =
+      /09(1[0-9]|0[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/.test(
         converted_phone_number,
       );
-      return test;
-    }, {}),
-  ]),
-});
+    return regexTest;
+  },
+  { message: "شماره موبایل وارد شده صحیح نیست" },
+);
+
+export const passwordScham = z
+  .string()
+  .regex(
+    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
+    {
+      message:
+        "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
+    },
+  );
+
+export const OtpNumberScheme = z.string().refine(
+  (value) => {
+    const convertedOtpNumber = convert_to_en_number(value);
+    const regexTest = /^\d{5}$/.test(convertedOtpNumber);
+    return regexTest;
+  },
+  { message: "رمز یک بار مصرف وارد شده صحیح نیست" },
+);
 
 export const personalInfoFormSchame = z.object({
   name: z
@@ -128,9 +132,7 @@ export const commentSchame = z.object({
 });
 
 export const otpFormSchame = z.object({
-  otpNumber: z.string().regex(/^\d{5}$|[۰۱۲۳۴۵۶۷۸۹]{5}|[٠١٢٣٤٥٦٧٨٩]{5}$/, {
-    message: "لطفا 12345 را وارد کنید",
-  }),
+  otpNumber: OtpNumberScheme,
 });
 
 export const loginPasswordSchame = z.object({
@@ -142,19 +144,9 @@ export const loginPasswordSchame = z.object({
 
 export const comparePasswordWithOtpScham = z
   .object({
-    password: z
-      .string()
-      .regex(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
-        {
-          message:
-            "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
-        },
-      ),
+    password: passwordScham,
     confirmPassword: z.string(),
-    otpNumber: z.string().regex(/^\d{5}$|[۰۱۲۳۴۵۶۷۸۹]{5}|[٠١٢٣٤٥٦٧٨٩]{5}$/, {
-      message: "لطفا 12345 را وارد کنید",
-    }),
+    otpNumber: OtpNumberScheme,
   })
   .refine(
     (values) => {
@@ -169,15 +161,7 @@ export const comparePasswordWithOtpScham = z
 export const comparePasswordWithCurrentPasswordScham = z
   .object({
     currentPassword: z.string(),
-    password: z
-      .string()
-      .regex(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
-        {
-          message:
-            "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
-        },
-      ),
+    password: passwordScham,
     confirmPassword: z.string(),
   })
   .refine(
@@ -190,20 +174,11 @@ export const comparePasswordWithCurrentPasswordScham = z
     },
   );
 
-export const passwordScham = z
-  .string()
-  .regex(
-    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\w\s\d@$!%*#?&@+.-آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی1234567890٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹]{6,32}$/,
-    {
-      message:
-        "رمز عبور باید حداقل 6 رقم و حداقل یک حروف و یک عدد انگلیسی باشد",
-    },
-  );
+export const LoginWithPhoneForm = z.object({
+  phone: phoneSchame,
+});
 
-export const has6Length = z.string().min(6, { message: "شامل 6 حرف باشد" });
-export const hasUppercaseLetter = z.string().regex(/^(?=.*[A-Z]){1,}/);
-export const haslowercaseLetter = z.string().regex(/^(?=.*[a-z]){1,}/);
-export const hasNumber = z.string().regex(/^(?=.*\d){1,}/);
-export const hasSpecialCharacter = z
-  .string()
-  .regex(/^(?=.*[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]){1,}/);
+export const ChangePhoneFormScheme = z.object({
+  newPhone: phoneSchame,
+  otpNumber: OtpNumberScheme,
+});

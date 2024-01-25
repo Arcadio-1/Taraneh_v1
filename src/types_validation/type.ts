@@ -1,5 +1,6 @@
 import { Order, Prisma } from "@prisma/client";
 import { z } from "zod";
+import { OtpNumberScheme } from "./validation";
 
 export enum IsValid {
   true = "200",
@@ -113,4 +114,15 @@ export interface IResponse {
   status: "Error" | "Success";
   ok: boolean;
   message: string;
+}
+
+export enum OtpType {
+  changePassword = "changePassword",
+  changePhone = "changePhone",
+  login = "login",
+}
+
+export interface RedisOtpValue {
+  number: z.infer<typeof OtpNumberScheme>;
+  type: OtpType;
 }

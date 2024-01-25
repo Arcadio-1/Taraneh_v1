@@ -1,11 +1,13 @@
 import React, { useMemo } from "react";
-import {
-  has6Length,
-  hasNumber,
-  hasSpecialCharacter,
-  hasUppercaseLetter,
-  haslowercaseLetter,
-} from "../types_validation/validation";
+import { z } from "zod";
+
+const has6Length = z.string().min(6, { message: "شامل 6 حرف باشد" });
+const hasUppercaseLetter = z.string().regex(/^(?=.*[A-Z]){1,}/);
+const haslowercaseLetter = z.string().regex(/^(?=.*[a-z]){1,}/);
+const hasNumber = z.string().regex(/^(?=.*\d){1,}/);
+const hasSpecialCharacter = z
+  .string()
+  .regex(/^(?=.*[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]){1,}/);
 
 interface IControler {
   lengthControl: number;
@@ -13,7 +15,7 @@ interface IControler {
   lowercaseLetterControl: number;
   numberControl: number;
   specialCharacterControl: number;
-  power: number;
+  powerRate: number;
   status: "ضعیف" | "معمولی" | "عالی" | "";
 }
 export const usePasswordControler = (password: string): IControler => {
@@ -31,7 +33,7 @@ export const usePasswordControler = (password: string): IControler => {
         ? 1
         : 0,
     };
-    const power =
+    const powerRate =
       passwordControl.UppercaseLetterControl +
       passwordControl.lowercaseLetterControl +
       passwordControl.lengthControl +
@@ -39,13 +41,16 @@ export const usePasswordControler = (password: string): IControler => {
       passwordControl.specialCharacterControl;
 
     const status = (): "ضعیف" | "معمولی" | "عالی" | "" => {
-      if (power === 0) {
+      if (powerRate === 0) {
         return "";
       }
-      if (power <= 6) {
+      if (powerRate <= 6) {
         return "ضعیف";
       }
-      if (power < 9) {
+      if (powerRate < 9) {
+        return "معمولی";
+      }
+      if (powerRate >= 9) {
         return "معمولی";
       }
       return "عالی";
@@ -53,7 +58,7 @@ export const usePasswordControler = (password: string): IControler => {
 
     return {
       ...passwordControl,
-      power,
+      powerRate,
       status: status(),
     };
   }, [password]);

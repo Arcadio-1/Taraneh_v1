@@ -55,7 +55,6 @@ const ChangePassword = ({ phone }: Props) => {
   const onSubmitChangeWithCurrentPassword = async (
     values: z.infer<typeof comparePasswordWithCurrentPasswordScham>,
   ) => {
-    console.log("run");
     const changePassword = await changePasswordWithCurrentPassword(values);
 
     if (!changePassword.ok) {
