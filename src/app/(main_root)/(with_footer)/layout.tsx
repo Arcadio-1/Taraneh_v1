@@ -13,6 +13,7 @@ export default function MainLayout({
         <Header />
       </Suspense>
       <section>{children}</section>
+      <Footer />
     </>
   );
 }
