@@ -7,6 +7,7 @@ import Link from "next/link";
 import Status from "./components/Status";
 import ImageComponent from "./components/ImageComponent";
 import Title from "./components/Title";
+import { urlMaker } from "@/util_functions/urlMaker";
 interface Props {
   product: Product;
   index: number;
@@ -27,20 +28,23 @@ const Product_slid_card = ({
 }: Props) => {
   return (
     <div
-      className={`relative bg-light_1 overflow-hidden shadow-md h-full transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${
-        index === 0 && "rounded-tr-xl rounded-br-xl"
+      className={`relative h-full overflow-hidden bg-light_1 shadow-md transition-all duration-150 hover:scale-[1.015] hover:shadow-lg ${
+        index === 0 && "rounded-br-xl rounded-tr-xl"
       }`}
     >
-      <Link href={`/product/${id}`} className=" h-full grid grid-rows-3 p-3">
+      <Link
+        href={`/product/${id}/${urlMaker(title)}`}
+        className=" grid h-full grid-rows-3 p-3"
+      >
         <ImageComponent image_url={image_url} title={title} />
-        <div className="h-full flex flex-col justify-between py-2">
+        <div className="flex h-full flex-col justify-between py-2">
           <Title title={title} />
           <Status type={selling_type} />
           {/* <Rate rateNum={statistics.totalRate} /> */}
           {status ? (
             <Price price={price} off_percent={off_percent} />
           ) : (
-            <p className="font-iranyekan_bold text-xl text-red-400 mt-auto mb-3">
+            <p className="mb-3 mt-auto font-iranyekan_bold text-xl text-red-400">
               اتمام موجودی
             </p>
           )}

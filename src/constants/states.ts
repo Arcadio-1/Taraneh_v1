@@ -1,4 +1,4 @@
-import { StateAndCityInterface } from "@/components/Profile_page/content/components/Personal_info/components/Address";
+import { StateAndCityInterface } from "@/components/Pages/Profile_page/content/components/Personal_info/components/Address";
 
 export const states: StateAndCityInterface[] = [
   {

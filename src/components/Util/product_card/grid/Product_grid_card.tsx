@@ -7,6 +7,7 @@ import Link from "next/link";
 import Status from "./components/Status";
 import ImageComponent from "./components/ImageComponent";
 import Title from "./components/Title";
+import { urlMaker } from "@/util_functions/urlMaker";
 interface Props {
   product: Product;
 }
@@ -24,15 +25,15 @@ const Product_grid_card = ({
   },
 }: Props) => {
   return (
-    <div className="relative bg-base-100 overflow-hidden h-full transition-all duration-150 hover:scale-[1.015] hover:shadow-lg p-1">
+    <div className="relative h-full overflow-hidden bg-base-100 p-1 transition-all duration-150 hover:scale-[1.015] hover:shadow-lg">
       <Link
-        href={`/product/${id}`}
-        className=" h-full grid grid-cols-2 grid-rows-2 items-stretch sm:grid-rows-3 sm:grid-cols-1 sm:grid sm:place-items-center "
+        href={`/product/${id}/${urlMaker(title)}`}
+        className=" grid h-full grid-cols-2 grid-rows-2 items-stretch sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:place-items-center "
       >
         <ImageComponent image_url={image_url} title={title} />
-        <div className="h-full w-full flex flex-col mt-auto row-span-2 justify-end ">
+        <div className="row-span-2 mt-auto flex h-full w-full flex-col justify-end ">
           <Status type={selling_type} />
-          <div className="grid grid-rows-2 my-auto h-2/3 px-2 gap-16">
+          <div className="my-auto grid h-2/3 grid-rows-2 gap-16 px-2">
             <div className="flx flex-col">
               <Title title={title} />
               <Rate rateNum={statistics.totalRate} />

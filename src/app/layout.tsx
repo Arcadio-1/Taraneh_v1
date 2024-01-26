@@ -1,16 +1,11 @@
-import Navbar from "@/components/Util/nav/Navbar";
 import "../style/globals.scss";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import SessionProvider from "@/app/SessionProvider";
-import { MainCatsWithSpecificCats } from "@/types_validation/type";
-import { prisma } from "@/lib/db/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth/authOptions";
-import { getCart } from "@/actions/getCart";
-import Provider from "./(provider)/Provider";
-import { Toaster } from "@/components_shadcn/ui/toaster";
-import Footer from "@/components/Util/footer/Footer";
+import { Toaster } from "@/components/Util/shadcn/ui/toaster";
+import Footer from "@/components/Util/layouts/footer/Footer";
+import Header from "@/components/Util/layouts/header/Header";
+import Provider from "./provider/Provider";
+import { Suspense } from "react";
 
 export const viewport = {
   themeColor: [
@@ -54,20 +49,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
-  const cats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
-    include: { Specific_cat: true },
-  });
-  const cart = await getCart();
-
   return (
     <html lang="fa" dir="rtl">
       <body className="m-auto max-w-[1720px] flex-col items-center justify-center font-iranyekan">
         <SessionProvider>
           <Provider>
-            <Navbar cats={cats} cart={cart} session={session} />
             <main className="">{children}</main>
-            <Footer />
             <Toaster />
           </Provider>
         </SessionProvider>

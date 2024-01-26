@@ -1,4 +1,4 @@
-import TomanIcon from "@/components/Util/icons/TomanIcon";
+import TomanIcon from "@/components/Util/ui/icons/TomanIcon";
 import { price_format } from "@/util_functions/price_formt";
 import React from "react";
 import Off_percent from "./component/Off_percent";
