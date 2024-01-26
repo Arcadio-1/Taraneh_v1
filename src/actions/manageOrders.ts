@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth/authOptions";
 
 export const addOrder = async (orderest: OrderType) => {
+  console.log(orderest);
   const orderAdder = await prisma.order.create({
     data: { ...orderest },
   });
