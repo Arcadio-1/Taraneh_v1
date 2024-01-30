@@ -19,6 +19,7 @@ import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useGlobalContext } from "@/app/provider/Provider";
 
 interface Props {
   cats: MainCatsWithSpecificCats[];
@@ -30,6 +31,8 @@ enum SelectedTab {
 }
 const Mobile_menu = ({ cats }: Props) => {
   const [open, setOpen] = React.useState(false);
+  const { beforeInstallPrompt, setBeforeInstallPrompt } = useGlobalContext();
+
   const [selectedTab, setSelectedTab] = useState<SelectedTab>(
     SelectedTab.Tools,
   );
@@ -38,6 +41,18 @@ const Mobile_menu = ({ cats }: Props) => {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger
           onClick={() => {
+            if (beforeInstallPrompt) {
+              beforeInstallPrompt.prompt();
+              beforeInstallPrompt.userChoice.then((choiceresolve) => {
+                console.log(choiceresolve);
+                if (choiceresolve.outcome === "dismissed") {
+                  console.log("use cancelled installatin");
+                } else {
+                  console.log("user added to home sccren");
+                }
+                setBeforeInstallPrompt(null);
+              });
+            }
             setSelectedTab(SelectedTab.Tools);
           }}
           asChild
@@ -47,7 +62,7 @@ const Mobile_menu = ({ cats }: Props) => {
           </div>
         </SheetTrigger>
         <SheetContent
-          className="flex flex-col gap-6 rounded-lg border pt-[5rem] shadow-lg"
+          className="flex w-full  max-w-xl flex-col gap-6 rounded-lg pt-[5rem] shadow-lg md:hidden"
           side={"right"}
         >
           <Tabs

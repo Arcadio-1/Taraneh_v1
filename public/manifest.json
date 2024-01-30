@@ -7,6 +7,8 @@
   "name": "فروشگاه کافه ترانه",
   "short_name": "کافه ترانه",
   "description": "کلون فروشگاه اینترنتی دیجی کالا | clone of digikala",
+  "lang": "fa",
+  "dir": "rtl",
   "icons": [
     {
       "src": "/pwa_icons/icon-192x192.png",

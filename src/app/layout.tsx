@@ -2,10 +2,7 @@ import "../style/globals.scss";
 import type { Metadata } from "next";
 import SessionProvider from "@/app/SessionProvider";
 import { Toaster } from "@/components/Util/shadcn/ui/toaster";
-import Footer from "@/components/Util/layouts/footer/Footer";
-import Header from "@/components/Util/layouts/header/Header";
 import Provider from "./provider/Provider";
-import { Suspense } from "react";
 
 export const viewport = {
   themeColor: [

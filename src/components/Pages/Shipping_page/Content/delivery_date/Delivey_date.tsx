@@ -21,6 +21,7 @@ import {
 import { SheetClose } from "@/components/Util/shadcn/ui/sheet";
 import { useGlobalContext } from "@/app/provider/Provider";
 import { OrderSelectedDate } from "@prisma/client";
+import { cn } from "@/lib/utils";
 
 interface Props {
   sheeter: boolean;
@@ -67,7 +68,12 @@ const Delivey_date = ({ sheeter }: Props) => {
   }, []);
 
   return (
-    <div className={`hidden flex-col gap-4 ${!sheeter && "md:flex"}`}>
+    <div
+      className={cn(`hidden flex-col gap-4 md:flex`, {
+        flex: sheeter,
+        "md:hidden": sheeter,
+      })}
+    >
       <div className="mb-3 ml-auto flex items-center gap-2">
         <ClockIcon className="h-6 w-6 stroke-gray-400" />
         <p>انتخاب زمان ارسال</p>
