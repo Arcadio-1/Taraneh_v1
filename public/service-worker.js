@@ -1,16 +1,16 @@
-const installEvent = () => {
-  self.addEventListener("install", (e) => {
-    // console.log("service worker installed", e);
-  });
-};
-installEvent();
+// const installEvent = () => {
+//   self.addEventListener("install", (e) => {
+//     // console.log("service worker installed", e);
+//   });
+// };
+// installEvent();
 
-const activateEvent = () => {
-  self.addEventListener("activate", (e) => {
-    // console.log("service worker activated", e);
-  });
-};
-activateEvent();
+// const activateEvent = () => {
+//   self.addEventListener("activate", (e) => {
+//     // console.log("service worker activated", e);
+//   });
+// };
+// activateEvent();
 
 // const cacheName = "v3";
 

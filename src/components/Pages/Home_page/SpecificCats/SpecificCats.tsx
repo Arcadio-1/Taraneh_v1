@@ -7,7 +7,7 @@ interface Props {
   cats: MainCatsWithSpecificCats[];
 }
 
-const Cat_section_2 = async ({ cats }: Props) => {
+const SpecificCats = async ({ cats }: Props) => {
   return (
     <div className="bg-[url('/image/coffee_background_2.jpg')] bg-cover bg-center bg-no-repeat">
       <h1 className="mb-5 w-full bg-g1_7 bg-opacity-60 py-4 text-center font-iranyekan_bold text-2xl text-white">
@@ -53,4 +53,4 @@ const Cat_section_2 = async ({ cats }: Props) => {
   );
 };
 
-export default Cat_section_2;
+export default SpecificCats;

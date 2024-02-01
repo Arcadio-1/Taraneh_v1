@@ -7,7 +7,7 @@ interface Props {
   main_cats: Main_cat[];
 }
 
-const Main_cat_list = ({ main_cats }: Props) => {
+const MainCatsBanner = ({ main_cats }: Props) => {
   return (
     <section className=" p-2">
       {/* <Title /> */}
@@ -16,4 +16,4 @@ const Main_cat_list = ({ main_cats }: Props) => {
   );
 };
 
-export default Main_cat_list;
+export default MainCatsBanner;

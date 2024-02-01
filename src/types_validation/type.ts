@@ -108,7 +108,7 @@ export enum LikeMethod {
 export type Specifications_select_specifications =
   Prisma.SpecificationsGetPayload<{
     select: { specifications: true };
-  }>;
+  }> | null;
 
 export interface IResponse {
   status: "Error" | "Success";

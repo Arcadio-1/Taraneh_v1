@@ -6,7 +6,7 @@ import { Main_cat } from "@prisma/client";
 
 interface Props {}
 
-const Main_cat_slider = async ({}: Props) => {
+const MainCatsSlider = async ({}: Props) => {
   const mainCats: Main_cat[] = await prisma.main_cat.findMany();
 
   const topSellToolsProducts: Promise<AllCatsTopsViewProducts>[] = mainCats.map(
@@ -44,4 +44,4 @@ const Main_cat_slider = async ({}: Props) => {
   );
 };
 
-export default Main_cat_slider;
+export default MainCatsSlider;

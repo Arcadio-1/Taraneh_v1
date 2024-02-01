@@ -69,36 +69,36 @@ const Provider = ({ children }: { children: ReactNode }) => {
     faIR,
   );
 
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/service-worker.js", { scope: "/" })
-        .then((registration) => {
-          //  registration.pushManager.subscribe({
-          //    userVisibleOnly: true,
-          //    applicationServerKey,
-          // //  });
-          // function sendNotification() {
-          //   let title = "Test";
-          //   let options = {
-          //     body: "Test body",
-          //     // Other options can go here
-          //   };
-          //   console.log("Creating new notification");
-          //   let notification = new Notification(title, options);
-          //   console.log(notification);
-          // }
-          // sendNotification();
-          // console.log("scope is: ", registration.scope);
-        });
-    }
-    self.addEventListener("beforeinstallprompt", (e) => {
-      // console.log("prompt");
-      e.preventDefault();
-      setBeforeInstallPrompt(e);
-      return false;
-    });
-  }, []);
+  // useEffect(() => {
+  //   if ("serviceWorker" in navigator) {
+  //     navigator.serviceWorker
+  //       .register("/service-worker.js", { scope: "/" })
+  //       .then((registration) => {
+  //         //  registration.pushManager.subscribe({
+  //         //    userVisibleOnly: true,
+  //         //    applicationServerKey,
+  //         // //  });
+  //         // function sendNotification() {
+  //         //   let title = "Test";
+  //         //   let options = {
+  //         //     body: "Test body",
+  //         //     // Other options can go here
+  //         //   };
+  //         //   console.log("Creating new notification");
+  //         //   let notification = new Notification(title, options);
+  //         //   console.log(notification);
+  //         // }
+  //         // sendNotification();
+  //         // console.log("scope is: ", registration.scope);
+  //       });
+  //   }
+  //   self.addEventListener("beforeinstallprompt", (e) => {
+  //     // console.log("prompt");
+  //     e.preventDefault();
+  //     setBeforeInstallPrompt(e);
+  //     return false;
+  //   });
+  // }, []);
 
   return (
     <ThemeProvider theme={theme}>

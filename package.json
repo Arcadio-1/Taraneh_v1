@@ -59,6 +59,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "crypto-js": "^4.1.1",
+    "embla-carousel-react": "^8.0.0-rc22",
     "eslint": "8.46.0",
     "eslint-config-next": "^14.0.2",
     "ioredis": "^5.3.2",

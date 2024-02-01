@@ -25,7 +25,7 @@ const Main = ({ product, product_id, cart }: Props) => {
           product_cat={product.specific_cat.title}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3">
           <Prod_specification product={product} />
           <Prod_order
             status={product.status}
