@@ -11,6 +11,7 @@ import Smilar_product_slider from "@/components/Pages/Product_page/smilar_produc
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/authOptions";
 import Sub from "@/components/Pages/Product_page/sub/Sub";
+import { revalidateTag, unstable_cache } from "next/cache";
 interface Props {
   params: {
     slug: string[];
@@ -26,7 +27,21 @@ export async function generateStaticParams() {
   });
 }
 
-const getProduct = cache(async (id: string) => {
+// const getProduct = cache(async (id: string) => {
+//   try {
+//     const product = await prisma.product.findUnique({
+//       where: { id: id },
+//       include: { main_cat: true, specific_cat: true, brand: true },
+//     });
+//     if (!product) {
+//       return notFound();
+//     }
+//     return product;
+//   } catch (error) {
+//     return notFound();
+//   }
+// });
+const getProduct = unstable_cache(async (id: string) => {
   try {
     const product = await prisma.product.findUnique({
       where: { id: id },

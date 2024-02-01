@@ -19,6 +19,11 @@ const withPWA = require("next-pwa")({
 //   },
 // };
 const nextConfig = withPWA({
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   images: {
     remotePatterns: [
       { hostname: "images.unsplash.com" },
