@@ -75,8 +75,6 @@ export enum Operate {
   increment,
   decrement,
   remove,
-  clearCart,
-  reset,
 }
 
 export type OrderType = Omit<Order, "id" | "createdAt">;

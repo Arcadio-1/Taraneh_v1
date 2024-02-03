@@ -10,7 +10,6 @@ const page = async () => {
     <div className="mx-auto mt-10 max-w-[1232px]">
       <Navbar cart_size={cart?.size || 0} />
       {cart && cart.size > 0 ? <Checkout cart={cart} /> : <EmptyCart />}
-      {/* <AdSlider /> */}
     </div>
   );
 };

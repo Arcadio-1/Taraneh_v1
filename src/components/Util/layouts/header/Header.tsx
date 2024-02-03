@@ -1,5 +1,4 @@
 "use server";
-import { getCart } from "@/actions/getCart";
 import { authOptions } from "@/lib/auth/authOptions";
 import { prisma } from "@/lib/db/prisma";
 import { MainCatsWithSpecificCats } from "@/types_validation/type";
@@ -13,7 +12,7 @@ import Mobile_menu from "./components/Mobile_menu/Mobile_menu";
 import Search from "./components/Search";
 import UserMenu from "./components/UserMenu";
 import Log from "./components/Log";
-import ShoppingCartButton from "./components/shoping_cart/ShoppingCartButton";
+import CartMenu from "./components/CartMenu/CartMenu";
 import { CatsMenu } from "./components/CatsMenu";
 import NavbarLinks from "./components/NavbarLinks";
 
@@ -52,7 +51,7 @@ const Header = async () => {
               {session && <UserMenu session={session} />}
               {!session && <Log />}
               <span className=" w-1 border-l"></span>
-              <ShoppingCartButton />
+              <CartMenu />
             </div>
           </div>
         </div>

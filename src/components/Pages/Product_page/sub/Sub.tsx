@@ -1,36 +1,31 @@
 import React, { Suspense } from "react";
 import Introduction from "./introduction/Introduction";
 import SpecificationsComponent from "./specifications/Specifications";
-import { Product_full, ShoppingCart } from "@/types_validation/type";
+import { Product_full } from "@/types_validation/type";
 import Prod_order from "../main/order/Prod_order";
 import Nav from "./nav/Nav";
-import { Session } from "next-auth";
 import ReviewsProvider from "./reviews/ReviewsProvider";
 
 interface Props {
-  session: Session | null;
-  product_id: string;
   product: Product_full;
-  cart: ShoppingCart | null;
 }
 
-const Sub = ({ product_id, cart, product, session }: Props) => {
+const Sub = ({ product }: Props) => {
   return (
     <div className="">
       <Nav />
       <div className="flex">
         <div className="flex flex-col gap-5">
           <Suspense fallback={<p>Introduction</p>}>
-            <Introduction product_id={product_id} />
+            <Introduction product_id={product.id} />
           </Suspense>
           <Suspense fallback={<p>SpecificationsComponent</p>}>
-            <SpecificationsComponent product_id={product_id} />
+            <SpecificationsComponent product_id={product.id} />
           </Suspense>
           <Suspense fallback={<p>ReviewsProvider</p>}>
             <ReviewsProvider
-              session={session}
               rate={product.statistics.buyerRate}
-              product_id={product_id}
+              product_id={product.id}
               product_title={product.title}
             />
           </Suspense>
@@ -40,8 +35,7 @@ const Sub = ({ product_id, cart, product, session }: Props) => {
             status={product.status}
             price={product.price}
             offPercent={product.off_percent}
-            product_Id={product_id}
-            cart={cart}
+            product_Id={product.id}
           />
         </div>
       </div>

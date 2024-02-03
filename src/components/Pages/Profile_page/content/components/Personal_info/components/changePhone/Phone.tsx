@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/Util/shadcn/ui/dialog";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import { useEffect, useState } from "react";
 import { phoneSchame } from "@/types_validation/validation";
 import { z } from "zod";

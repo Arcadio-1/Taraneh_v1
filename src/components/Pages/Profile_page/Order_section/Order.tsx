@@ -9,13 +9,13 @@ import PostingDetials from "./components/PostingDetials";
 import PostTracking from "./components/PostTracking";
 import OrderItems from "./components/OrderItems";
 import OrderCancling from "./components/OrderCancling";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 interface Props {
   order: Order;
 }
 const Order = ({ order }: Props) => {
   return (
-    <div className="col-span-8 md:col-span-6 border rounded-lg px-2 py-5">
+    <div className="col-span-8 rounded-lg border px-2 py-5 md:col-span-6">
       <Header />
       <Divider />
 
@@ -37,7 +37,7 @@ const Order = ({ order }: Props) => {
         subDiscount={order.cart.subDiscount}
       />
       <Divider />
-      <div className="flex flex-col gap-5 py-4 px-8">
+      <div className="flex flex-col gap-5 px-8 py-4">
         <PostingDetials
           final_price={order.final_price}
           order_id={order.id}

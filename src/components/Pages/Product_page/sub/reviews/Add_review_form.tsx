@@ -14,7 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/Util/shadcn/ui/form";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import { useForm } from "react-hook-form";
 import { commentSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";

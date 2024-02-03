@@ -9,14 +9,14 @@ interface Props {
   sheet: boolean;
 }
 
-const Shopping_cart = ({ cart, sheet }: Props) => {
+const CartMenuContent = ({ cart, sheet }: Props) => {
   return (
-    <>
+    <div className="flex max-h-full flex-col gap-4">
       <Header cart_size={cart.size} />
       <Content sheet={sheet} cart={cart} />
       <Footer sheet={sheet} cart_subtotal={cart.subTotalWithDiscount} />
-    </>
+    </div>
   );
 };
 
-export default Shopping_cart;
+export default CartMenuContent;

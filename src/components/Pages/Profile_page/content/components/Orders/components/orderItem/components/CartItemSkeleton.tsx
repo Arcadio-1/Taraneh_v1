@@ -1,6 +1,6 @@
 import DotIcon from "@/components/Util/ui/icons/DotIcon";
 import { Skeleton } from "@/components/Util/shadcn/ui/skeleton";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import React from "react";
 
 const CartItemSkeleton = () => {

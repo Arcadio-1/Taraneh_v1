@@ -1,4 +1,3 @@
-import MenuDotIcon from "@/components/Util/ui/icons/MenuDotIcon";
 import React from "react";
 import ShoppingListMenu from "./ShoppingListMenu";
 

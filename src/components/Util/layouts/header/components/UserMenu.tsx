@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/Util/shadcn/ui/popover";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import { Session } from "next-auth";
 import Link from "next/link";
 import Logout from "@mui/icons-material/Logout";
@@ -44,9 +44,13 @@ export default function UserMenu({ session }: Props) {
               </div>
             </div>
           </PopoverTrigger>
-          <PopoverContent className="ml-28 w-[200px] !bg-transparent p-0 !shadow-transparent">
-            <Command className="flec-col flex gap-6 rounded-lg border py-5 shadow-lg">
+          <PopoverContent
+            align="end"
+            className="w-[200px] !bg-transparent p-0 !shadow-transparent"
+          >
+            <Command className="flex flex-col rounded-lg border py-2 shadow-lg">
               <CommandItem
+                className="py-3 hover:!bg-gray-50"
                 onSelect={() => {
                   setOpen(false);
                 }}
@@ -75,6 +79,7 @@ export default function UserMenu({ session }: Props) {
               </CommandItem>
               <Divider />
               <CommandItem
+                className="py-3 hover:!bg-gray-50"
                 onSelect={() => {
                   setOpen(false);
                   signOut();
@@ -83,7 +88,7 @@ export default function UserMenu({ session }: Props) {
                 <div className="flex w-full cursor-pointer items-center justify-between px-2">
                   <div className="flex items-start gap-2">
                     <Logout
-                      className=" h-6 w-6 fill-dark_4"
+                      className="h-6 w-6 !fill-dark_4"
                       fontSize="medium"
                     />
                     <span className="text-md font-iranyekan_bold text-lg text-dark_4">
@@ -94,6 +99,7 @@ export default function UserMenu({ session }: Props) {
               </CommandItem>
               {session.user.role === Role.ADMIN && (
                 <CommandItem
+                  className="py-3 hover:!bg-gray-50"
                   onSelect={(currentValue) => {
                     setOpen(false);
                   }}
@@ -113,7 +119,6 @@ export default function UserMenu({ session }: Props) {
                       direction={Arrow.left}
                     />
                   </Link>
-                  <Divider className="my-2" />
                 </CommandItem>
               )}
             </Command>

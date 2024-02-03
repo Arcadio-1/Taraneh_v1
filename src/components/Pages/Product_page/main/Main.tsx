@@ -7,11 +7,9 @@ import { Product_full, ShoppingCart } from "@/types_validation/type";
 
 interface Props {
   product: Product_full;
-  cart: ShoppingCart | null;
-  product_id: string;
 }
 
-const Main = ({ product, product_id, cart }: Props) => {
+const Main = ({ product }: Props) => {
   return (
     <section className="flex flex-col lg:grid lg:grid-cols-3">
       <ProdImage
@@ -31,8 +29,7 @@ const Main = ({ product, product_id, cart }: Props) => {
             status={product.status}
             price={product.price}
             offPercent={product.off_percent}
-            product_Id={product_id}
-            cart={cart}
+            product_Id={product.id}
           />
         </div>
       </div>

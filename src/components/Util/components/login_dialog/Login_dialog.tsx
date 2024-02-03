@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { DialogHeader, DialogTitle } from "@/components/Util/shadcn/ui/dialog";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DialogClose } from "@radix-ui/react-dialog";

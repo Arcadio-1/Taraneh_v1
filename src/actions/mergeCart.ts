@@ -4,7 +4,7 @@ import { CartItem } from "@prisma/client";
 import { AES, enc } from "crypto-js";
 import { env } from "../types_validation/env";
 
-export async function mergeCarts(userId: string): Promise<void> {
+const getTempCart = async () => {
   const localCartIdCrypted = cookies().get("localCartId")?.value;
   const localCartId =
     localCartIdCrypted &&
@@ -17,7 +17,12 @@ export async function mergeCarts(userId: string): Promise<void> {
       })
     : null;
 
-  if (!localCart) return;
+  return localCart;
+};
+
+export async function mergeCarts(userId: string): Promise<void> {
+  const tempCart = await getTempCart();
+  if (!tempCart) return;
 
   const userCart = await prisma.cart.findFirst({
     where: { userId: userId },
@@ -26,7 +31,7 @@ export async function mergeCarts(userId: string): Promise<void> {
 
   await prisma.$transaction(async (tx) => {
     if (userCart) {
-      const mergedCartItems = mergeCartItems(userCart.items, localCart.items);
+      const mergedCartItems = mergeCartItems(userCart.items, tempCart.items);
 
       await tx.cartItem.deleteMany({
         where: { cartId: userCart.id },
@@ -50,7 +55,7 @@ export async function mergeCarts(userId: string): Promise<void> {
           userId,
           items: {
             createMany: {
-              data: localCart.items.map((item) => ({
+              data: tempCart.items.map((item) => ({
                 productId: item.productId,
                 quantity: item.quantity,
               })),
@@ -60,7 +65,7 @@ export async function mergeCarts(userId: string): Promise<void> {
       });
     }
 
-    await tx.cart.delete({ where: { id: localCart.id } });
+    await tx.cart.delete({ where: { id: tempCart.id } });
     cookies().set("localCartId", "");
   });
 }

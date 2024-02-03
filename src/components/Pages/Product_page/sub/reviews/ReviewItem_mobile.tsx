@@ -1,7 +1,7 @@
 import DotIcon from "@/components/Util/ui/icons/DotIcon";
 import { gregorian_to_jalali } from "@/util_functions/calender";
 import { CommentWithUser } from "@/types_validation/type";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import React from "react";
 import Like_form from "./Like_form";
 import { Session } from "next-auth";

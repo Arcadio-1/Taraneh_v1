@@ -1,87 +1,84 @@
 "use client";
-import React from "react";
-import Box from "@mui/material/Box";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import IconButton from "@mui/material/IconButton";
+import React, { useState } from "react";
 import MenuDotIcon from "@/components/Util/ui/icons/MenuDotIcon";
 import { Trash2Icon } from "lucide-react";
 import { clear_cart } from "@/actions/clearCart";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/Util/shadcn/ui/popover";
+import { Command, CommandItem } from "@/components/Util/shadcn/ui/command";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/Util/shadcn/ui/sheet";
 
 interface Props {
   cart_id: string;
 }
 
 const ShoppingListMenu = ({ cart_id }: Props) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = async () => {
-    setAnchorEl(null);
-    await clear_cart(cart_id);
-  };
+  const [open, setOpen] = useState(false);
   return (
     <div>
-      <React.Fragment>
-        <Box
-          sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
-        >
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 1 }}
-            aria-controls={open ? "shopping-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+      <div className="hidden md:block">
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger>
+            <MenuDotIcon />
+          </PopoverTrigger>
+          <PopoverContent
+            align="end"
+            className="!bg-transparent p-0 !shadow-transparent"
           >
-            <MenuDotIcon classess="h-6 w-6 fill-dark_5" />
-          </IconButton>
-        </Box>
-        <Menu
-          dir="rtl"
-          anchorEl={anchorEl}
-          id="shopping-menu"
-          open={open}
-          onClose={handleClose}
-          onClick={handleClose}
-          style={{ left: "84px" }}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.10))",
-              mt: 0.3,
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                left: 2,
-                width: 10,
-                height: 10,
-                bgcolor: "background.paper",
-                transform: "translateY(-50%) rotate(45deg)",
-                zIndex: 0,
-              },
-            },
-          }}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        >
-          <MenuItem
-            className="flex justify-between font-iransansnum text-lg"
-            onClick={handleClose}
+            <Command className=" rounded-lg py-2 shadow-lg">
+              <CommandItem
+                className="flex flex-col items-start justify-start"
+                onSelect={async () => {
+                  setOpen(false);
+                  await clear_cart(cart_id);
+                }}
+              >
+                <div className="flex cursor-pointer  items-start gap-2 px-2">
+                  <Trash2Icon className=" h-6 w-6" />
+                  <span className="text-md font-iranyekan_bold text-lg text-dark_4">
+                    پاکسازی سبد خرید
+                  </span>
+                </div>
+              </CommandItem>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
+      <div className="block md:hidden">
+        <Sheet>
+          <SheetTrigger>
+            <MenuDotIcon />
+          </SheetTrigger>
+          <SheetContent
+            className="flex flex-col gap-6 rounded-lg border pt-[5rem] shadow-lg"
+            side={"bottom"}
           >
-            <div className="flex w-full items-center justify-between gap-4">
-              <Trash2Icon className="h-8 w-8 stroke-dark_3" />
-              <span>حذف همه</span>
-            </div>
-          </MenuItem>
-        </Menu>
-      </React.Fragment>
+            <SheetClose asChild>
+              <div
+                onClick={async () => {
+                  await clear_cart(cart_id);
+                }}
+                className="flex w-full cursor-pointer items-center justify-between px-2"
+              >
+                <div className="flex items-start gap-2">
+                  <Trash2Icon className=" h-6 w-6" />
+                  <span className="text-md font-iranyekan_bold text-lg text-dark_4">
+                    پاکسازی سبد خرید
+                  </span>
+                </div>
+              </div>
+            </SheetClose>
+          </SheetContent>
+        </Sheet>
+      </div>
     </div>
   );
 };

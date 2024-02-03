@@ -1,11 +1,7 @@
-import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import ArrowLongIcon, { Arrow } from "../../ui/icons/ArrowLongIcon";
 
-export interface Hero_slide_type {
-  link_url: string;
-}
 interface Props {
   link_url: string;
   bg_color?: string;

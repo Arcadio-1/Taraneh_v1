@@ -7,7 +7,7 @@ import {
   AccordionDetails,
   AccordionSummary,
 } from "./AccordionStyled";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import AllIcon from "@/components/Util/ui/icons/AllIcon";
 
 interface Props {

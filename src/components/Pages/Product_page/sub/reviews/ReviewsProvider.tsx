@@ -1,23 +1,19 @@
 import { get_comments } from "@/actions/manageReview";
 import { CommentWithUser } from "@/types_validation/type";
-import { Session } from "next-auth";
+import { Session, getServerSession } from "next-auth";
 import React from "react";
 import Reviews from "./Reviews";
 import ReactScrollElement from "../ui/ReactScrollElement";
+import { authOptions } from "@/lib/auth/authOptions";
 
 interface Props {
   product_id: string;
   product_title: string;
   rate: number;
-  session: Session | null;
 }
 
-const ReviewsProvider = async ({
-  product_id,
-  product_title,
-  rate,
-  session,
-}: Props) => {
+const ReviewsProvider = async ({ product_id, product_title, rate }: Props) => {
+  const session = await getServerSession(authOptions);
   const comments: CommentWithUser[] = await get_comments();
   return (
     <ReactScrollElement name="Reviews">

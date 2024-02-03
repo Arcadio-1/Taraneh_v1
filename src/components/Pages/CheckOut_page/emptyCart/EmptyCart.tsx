@@ -1,9 +1,9 @@
-"use client";
 import Image from "next/image";
 import React from "react";
 import emptyCartSvg from "@/assets/images/util/empty-cart.svg";
 import Link from "next/link";
 import ArrowIcon, { Arrow } from "@/components/Util/ui/icons/ArrowIcon";
+import AdSlider from "@/components/Util/components/ad_slider/AdSlider";
 const EmptyCart = () => {
   return (
     <div className="grid w-full items-center justify-center">
@@ -23,6 +23,7 @@ const EmptyCart = () => {
           <ArrowIcon classes="h-5 w-5 fill-g1_7" direction={Arrow.left} />
         </Link>
       </div>
+      <AdSlider />
     </div>
   );
 };

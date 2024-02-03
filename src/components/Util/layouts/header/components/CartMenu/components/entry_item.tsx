@@ -1,5 +1,5 @@
 "use Client";
-import Control_amount from "@/components/Util/components/Control_amount";
+import Control_amount from "@/components/Util/components/orderControl/Control_amount";
 import Prod_price from "@/components/Util/components/Prod_price";
 import { SheetClose } from "@/components/Util/shadcn/ui/sheet";
 import { CartItemWithProduct } from "@/types_validation/type";

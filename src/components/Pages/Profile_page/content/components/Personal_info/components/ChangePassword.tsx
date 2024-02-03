@@ -20,7 +20,7 @@ import {
 } from "@/components/Util/shadcn/ui/form";
 import { Input } from "@/components/Util/shadcn/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { comparePasswordWithCurrentPasswordScham } from "@/types_validation/validation";

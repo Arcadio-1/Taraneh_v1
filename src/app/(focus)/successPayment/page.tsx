@@ -42,7 +42,7 @@ const page = async ({ searchParams: tracking_code }: Props) => {
         payment_method={order?.payment_method}
         tracking_code={tracking_code.tracking_code}
       />
-      <Smilar_product_slider />
+      <Smilar_product_slider title="پیشنهاد ویژه" />
     </div>
   );
 };

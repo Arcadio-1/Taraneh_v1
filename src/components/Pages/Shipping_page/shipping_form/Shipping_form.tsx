@@ -1,7 +1,7 @@
 "use client";
 import TomanIcon from "@/components/Util/ui/icons/TomanIcon";
 import { numberSeperator } from "@/util_functions/price_formt";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { ShoppingCart } from "@/types_validation/type";

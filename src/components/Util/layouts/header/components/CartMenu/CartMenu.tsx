@@ -4,7 +4,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/Util/shadcn/ui/hover-card";
-import Shopping_cart from "./components/shopping_cart";
+import Shopping_cart from "./components/CartMenuContent";
 import Link from "next/link";
 import {
   Sheet,
@@ -14,7 +14,7 @@ import {
 import { getCart } from "@/actions/getCart";
 import CartIcon from "@/components/Util/ui/icons/CartIcon";
 
-const ShoppingCartButton = async () => {
+const CartMenu = async () => {
   const cart = await getCart();
   return (
     <>
@@ -80,4 +80,4 @@ const ShoppingCartButton = async () => {
   );
 };
 
-export default ShoppingCartButton;
+export default CartMenu;

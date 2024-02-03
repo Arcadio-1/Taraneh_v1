@@ -9,6 +9,7 @@ import { env } from "../types_validation/env";
 import { price_calculator } from "../util_functions/price_formt";
 
 export async function getCart(): Promise<ShoppingCart | null> {
+  // console.log("run");
   const session = await getServerSession(authOptions);
 
   let cart: CartWithProducts | null = null;
@@ -34,7 +35,14 @@ export async function getCart(): Promise<ShoppingCart | null> {
   if (!cart) {
     return null;
   }
-
+  // console.log(cart.items);
+  console.log(cart.items.length);
+  if (!!!cart.items.length) {
+    console.log(cart.items);
+    console.log(cart.id);
+    await deleteCart(cart.id);
+    return null;
+  }
   return {
     ...cart,
     size: cart.items.reduce((acc, item) => acc + item.quantity, 0),
@@ -57,3 +65,17 @@ export async function getCart(): Promise<ShoppingCart | null> {
     ),
   };
 }
+const deleteCart = async (cart_id: string) => {
+  console.log("run");
+  try {
+    const request = await prisma.cart.delete({
+      where: { id: cart_id },
+    });
+    console.log(request);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    }
+    console.log(error);
+  }
+};

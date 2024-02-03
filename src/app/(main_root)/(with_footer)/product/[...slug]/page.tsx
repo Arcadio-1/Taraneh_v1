@@ -5,13 +5,12 @@ import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import React, { Suspense, cache } from "react";
 import { Metadata } from "next";
-import { getCart } from "@/actions/getCart";
 import Main from "@/components/Pages/Product_page/main/Main";
 import Smilar_product_slider from "@/components/Pages/Product_page/smilar_products_slider/Smilar_product_slider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/authOptions";
 import Sub from "@/components/Pages/Product_page/sub/Sub";
-import { revalidateTag, unstable_cache } from "next/cache";
+// import { revalidateTag, unstable_cache } from "next/cache";
 interface Props {
   params: {
     slug: string[];
@@ -27,21 +26,7 @@ export async function generateStaticParams() {
   });
 }
 
-// const getProduct = cache(async (id: string) => {
-//   try {
-//     const product = await prisma.product.findUnique({
-//       where: { id: id },
-//       include: { main_cat: true, specific_cat: true, brand: true },
-//     });
-//     if (!product) {
-//       return notFound();
-//     }
-//     return product;
-//   } catch (error) {
-//     return notFound();
-//   }
-// });
-const getProduct = unstable_cache(async (id: string) => {
+const getProduct = cache(async (id: string) => {
   try {
     const product = await prisma.product.findUnique({
       where: { id: id },
@@ -55,6 +40,20 @@ const getProduct = unstable_cache(async (id: string) => {
     return notFound();
   }
 });
+// const getProduct = unstable_cache(async (id: string) => {
+//   try {
+//     const product = await prisma.product.findUnique({
+//       where: { id: id },
+//       include: { main_cat: true, specific_cat: true, brand: true },
+//     });
+//     if (!product) {
+//       return notFound();
+//     }
+//     return product;
+//   } catch (error) {
+//     return notFound();
+//   }
+// });
 
 export async function generateMetadata({
   params: { slug },
@@ -88,7 +87,6 @@ export async function generateMetadata({
 }
 
 const page = async ({ params: { slug } }: Props) => {
-  const session = await getServerSession(authOptions);
   const product = await getProduct(slug[0]);
 
   const breadcrumbs: BreadcrumbsType[] = [
@@ -101,24 +99,18 @@ const page = async ({ params: { slug } }: Props) => {
       link: `/search/${product.specific_cat.label}`,
     },
   ];
-  const cart = await getCart();
 
   return (
     <main className="flex flex-col gap-5 px-5">
       <div>
         <Breadcrumbs list={breadcrumbs} />
-        <Main cart={cart} product={product} product_id={slug[0]} />
+        <Main product={product} />
       </div>
       <Suspense fallback={<p>loading smilar products...</p>}>
-        <Smilar_product_slider />
+        <Smilar_product_slider title="کالا های مشابه" />
       </Suspense>
 
-      <Sub
-        cart={cart}
-        product={product}
-        product_id={slug[0]}
-        session={session}
-      />
+      <Sub product={product} />
     </main>
   );
 };

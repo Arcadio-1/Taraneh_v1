@@ -1,13 +1,13 @@
 import TomanIcon from "@/components/Util/ui/icons/TomanIcon";
 import { numberSeperator } from "@/util_functions/price_formt";
 import { Address_Full, OrderType, ShoppingCart } from "@/types_validation/type";
-import { Divider } from "@mui/material";
 import React from "react";
 import { OrderCart, OrderStatus, PayMethod } from "@prisma/client";
 import { addOrder } from "@/actions/manageOrders";
 import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
 import { useGlobalContext } from "@/app/provider/Provider";
+import Divider from "@/components/Util/ui/Divider";
 interface Props {
   cart: ShoppingCart;
   address: Address_Full;

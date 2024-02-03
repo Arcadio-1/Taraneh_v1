@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import ShoppingListItemPrice from "./ShoppingListItemPrice";
 import { urlMaker } from "@/util_functions/urlMaker";
-import Control_amount from "@/components/Util/components/Control_amount";
+import Control_amount from "@/components/Util/components/orderControl/Control_amount";
 import Prod_status from "@/components/Pages/Product_page/main/order/Prod_status";
 
 interface Props {

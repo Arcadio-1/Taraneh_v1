@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/Util/shadcn/ui/input";
 import { personalInfoFormSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import { useSession } from "next-auth/react";
 import React from "react";
 import { useForm } from "react-hook-form";

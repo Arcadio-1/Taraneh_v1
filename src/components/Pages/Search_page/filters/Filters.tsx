@@ -20,7 +20,7 @@ import {
   SheetTrigger,
 } from "@/components/Util/shadcn/ui/sheet";
 import FilterIcon from "@/components/Util/ui/icons/FilterIcon";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import { useGlobalContext } from "@/app/provider/Provider";
 import Brands from "./components/brands";
 interface Props {

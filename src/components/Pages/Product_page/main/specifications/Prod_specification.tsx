@@ -5,7 +5,7 @@ import { Product_full } from "@/types_validation/type";
 import Statistics from "./Statistics";
 import Suggestion from "./Suggestion";
 import Attributes from "./Attributes";
-import { Divider } from "@mui/material";
+import Divider from "@/components/Util/ui/Divider";
 import Notice from "./Notice";
 
 interface Props {

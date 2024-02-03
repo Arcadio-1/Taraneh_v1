@@ -1,5 +1,5 @@
 "use client";
-import Control_amount from "@/components/Util/components/Control_amount";
+import Control_amount from "@/components/Util/components/orderControl/Control_amount";
 import ShippingIcon from "@/components/Util/ui/icons/ShippingIcon";
 import { ShoppingCart } from "@/types_validation/type";
 import { urlMaker } from "@/util_functions/urlMaker";

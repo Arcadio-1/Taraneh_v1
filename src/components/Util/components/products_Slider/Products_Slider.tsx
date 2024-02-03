@@ -29,7 +29,7 @@ const Products_Slider = ({
   lastSlide_bg_color,
 }: Props) => {
   return (
-    <section>
+    <section className="z-0 overflow-auto">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
         spaceBetween={2}
