@@ -41,7 +41,7 @@ const Header = async () => {
           <div className="flex items-center justify-between">
             <Mobile_menu cats={cats} />
             <Link href={"/"}>
-              <LogoIcon classes="h-[6rem] w-[12rem] fill-g1_7" />
+              <LogoIcon className="h-[6rem] w-[12rem]" />
             </Link>
             <HelpIcon classes="h-10 w-10 md:hidden" />
           </div>

@@ -7,10 +7,7 @@ import React, { Suspense, cache } from "react";
 import { Metadata } from "next";
 import Main from "@/components/Pages/Product_page/main/Main";
 import Smilar_product_slider from "@/components/Pages/Product_page/smilar_products_slider/Smilar_product_slider";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth/authOptions";
 import Sub from "@/components/Pages/Product_page/sub/Sub";
-// import { revalidateTag, unstable_cache } from "next/cache";
 interface Props {
   params: {
     slug: string[];

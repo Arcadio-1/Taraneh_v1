@@ -51,7 +51,6 @@
     "@types/react-scroll": "^1.8.10",
     "@uidotdev/usehooks": "^2.2.0",
     "argon2": "^0.31.0",
-    "autoprefixer": "10.4.14",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.1",
@@ -71,7 +70,6 @@
     "next-pwa": "^5.6.0",
     "node-sass": "^9.0.0",
     "photoswipe": "^5.4.0",
-    "postcss": "8.4.27",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -83,16 +81,18 @@
     "styled-jsx": "^5.1.2",
     "swiper": "^11.0.5",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
     "zod": "^3.22.2"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.29.5-appdir.0",
+    "autoprefixer": "^10.4.17",
     "daisyui": "^3.5.0",
+    "postcss": "^8.4.33",
     "prettier": "^3.2.2",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "prisma": "^5.8.1"
+    "prisma": "^5.8.1",
+    "tailwindcss": "^3.4.1"
   }
 }

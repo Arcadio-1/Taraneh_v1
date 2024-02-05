@@ -3,7 +3,7 @@ import ProdImage from "./image/ProdImage";
 import Header from "./header/Header";
 import Prod_specification from "./specifications/Prod_specification";
 import Prod_order from "./order/Prod_order";
-import { Product_full, ShoppingCart } from "@/types_validation/type";
+import { Product_full } from "@/types_validation/type";
 
 interface Props {
   product: Product_full;

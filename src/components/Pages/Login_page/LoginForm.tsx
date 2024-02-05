@@ -19,7 +19,7 @@ const LoginForm = () => {
   return (
     <div className="m-4 rounded-lg  p-4 md:min-w-[35rem] md:p-6 md:shadow-[0px_1px_5px_rgba(0,0,0,0.20)]">
       <Link className="flex items-center justify-center" href={"/"}>
-        <LogoIcon classes="h-[8rem] w-[15rem] fill-g1_7" />
+        <LogoIcon className="h-[8rem] w-[15rem]" />
       </Link>
       {(sign === Sign.undefined || sign === Sign.error) && (
         <PhoneForm
