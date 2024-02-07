@@ -5,7 +5,7 @@ import Aside from "@/components/Pages/Profile_page/side_navaigation/Aside";
 import Content from "@/components/Pages/Profile_page/content/Content";
 import { Address_Full } from "@/types_validation/type";
 import { prisma } from "@/lib/db/prisma";
-import { getOrders } from "@/actions/manageOrders";
+import { getOrders } from "@/actions/ordering/cart/manageOrders";
 import { authOptions } from "@/lib/auth/authOptions";
 
 const page = async () => {
@@ -21,14 +21,7 @@ const page = async () => {
   const order = await getOrders();
 
   // if(session.user.)
-  return (
-    <div className="mx-auto mt-6 grid max-w-[1124px] grid-cols-[repeat(8,minmax(0,1fr))] gap-4">
-      <div className="col-span-2 hidden md:block">
-        <Aside session={session} />
-      </div>
-      <Content orders={order} session={session} address={address} />
-    </div>
-  );
+  return <Content orders={order} session={session} address={address} />;
 };
 
 export default page;

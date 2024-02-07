@@ -1,10 +1,14 @@
 "use client";
-import React, { useTransition } from "react";
-import { manageCartItem } from "@/actions/manageCartItem";
+import React, {
+  //@ts-ignore
+  useOptimistic,
+} from "react";
+import { manageCartItem } from "@/actions/ordering/cart_item/manageCartItem";
 import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { Operate } from "@/types_validation/type";
+import { toast } from "@/hook/use-toast";
 interface Props {
   product_id: string;
   amount: number;
@@ -12,38 +16,68 @@ interface Props {
 }
 
 const Control_amount = ({ amount, product_id, classess }: Props) => {
-  const [isPending, startTransition] = useTransition();
+  const [optimisticAmount, addOptimisticAmount] = useOptimistic<number>(
+    amount,
+    (state: number, operate: Operate) => {
+      switch (operate) {
+        case Operate.decrement: {
+          return state - 1;
+        }
+        case Operate.remove: {
+          return 0;
+        }
+        case Operate.increment: {
+          return state + 1;
+        }
+      }
+    },
+  );
 
-  const orderHandler = async (operation: Operate) => {
-    startTransition(async () => {
-      await manageCartItem(product_id, operation);
-    });
+  const actionHandler = async (operation: Operate) => {
+    addOptimisticAmount(operation);
+    const request = await manageCartItem(product_id, operation);
+    if (request.ok) {
+      toast({
+        duration: 2000,
+        title: request.message,
+        className: "bg-success text-light_1 text-xl",
+      });
+    } else {
+      toast({
+        duration: 2000,
+        title: request.message,
+        className: "bg-error text-light_1 text-xl",
+      });
+    }
   };
-
   return (
     <>
-      {amount ? (
+      {optimisticAmount ? (
         <div
           className={cn(
-            `mt-5 flex w-full max-w-[35rem] items-center justify-between rounded-xl px-2 py-4 shadow-[0px_1px_5px_rgba(0,0,0,0.40)] lg:px-1 lg:py-1`,
+            `mt-5 flex w-full max-w-[35rem] items-center justify-between rounded-xl px-2 py-2 font-iransansnum shadow-[0px_1px_5px_rgba(0,0,0,0.40)] lg:px-1 lg:py-1`,
             classess,
           )}
         >
-          <form action={orderHandler.bind(null, Operate.increment)}>
-            <button type="submit" disabled={isPending}>
+          <form action={async () => actionHandler(Operate.increment)}>
+            <button
+              type="submit"
+              // onClick={orderHandler.bind(null, Operate.increment)}
+              // disabled={isPending}
+            >
               <PlusIcon stroke="#ef4056" className="h-10 w-10 p-2" />
             </button>
           </form>
+
           <div className="text-2xl text-[#ef4056]">
-            {isPending ? (
-              <span className="loading loading-dots loading-md"></span>
-            ) : (
-              <span className="font-iransansnum">{amount}</span>
-            )}
+            <span className="font-iransansnum">{optimisticAmount}</span>
           </div>
-          <form action={orderHandler.bind(null, Operate.decrement)}>
-            <button type="submit" disabled={isPending}>
-              {amount > 1 ? (
+          <form action={async () => actionHandler(Operate.decrement)}>
+            <button
+              type="submit"
+              // onClick={orderHandler.bind(null, Operate.decrement)}
+            >
+              {optimisticAmount > 1 ? (
                 <MinusIcon stroke="#ef4056" className="h-10 w-10 p-2" />
               ) : (
                 <Trash2Icon stroke="#ef4056" className="h-10 w-10 p-2" />
@@ -54,18 +88,14 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
       ) : (
         <form
           className="w-full"
-          action={orderHandler.bind(null, Operate.increment)}
+          action={async () => actionHandler(Operate.increment)}
         >
           <button
             type="submit"
+            // onClick={orderHandler.bind(null, Operate.increment)}
             className="mt-5 w-full max-w-xl rounded-[6px] bg-g1_5 py-2 text-light_1"
-            disabled={isPending}
           >
-            {isPending ? (
-              <span className="loading loading-dots loading-md"></span>
-            ) : (
-              "افزودن به سبد"
-            )}
+            افزودن به سبد
           </button>
         </form>
       )}

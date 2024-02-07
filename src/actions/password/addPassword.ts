@@ -1,13 +1,13 @@
 "use server";
-import { comparePasswordWithOtpScham } from "../types_validation/validation";
+import { comparePasswordWithOtpScham } from "../../types_validation/validation";
 import { z } from "zod";
-import { prisma } from "../lib/db/prisma";
-import { getHashedPassword } from "../lib/bcrypt/bcrypt";
-import { getUserPhone } from "./getUserPhone";
+import { prisma } from "../../lib/db/prisma";
+import { getHashedPassword } from "../../lib/bcrypt/bcrypt";
+import { getUserPhone } from "../util/getUserPhone";
 import { signOut } from "next-auth/react";
 import { IResponse } from "@/types_validation/type";
-import { getOtp } from "./OTP/redisActions/getOtp";
-import { expireOtp } from "./OTP/redisActions/removeOtp";
+import { getOtp } from "../OTP/redisActions/getOtp";
+import { expireOtp } from "../OTP/redisActions/removeOtp";
 
 const addPassword: (
   passwordAddingData: z.infer<typeof comparePasswordWithOtpScham>,

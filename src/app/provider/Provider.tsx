@@ -36,10 +36,10 @@ interface ContextProps {
   setPostingPric: Dispatch<SetStateAction<number>>;
   brand_list_filter: string[];
   set_brand_list_filter: Dispatch<SetStateAction<string[]>>;
-  beforeInstallPrompt: BeforeInstallPromptEvent | null;
-  setBeforeInstallPrompt: React.Dispatch<
-    React.SetStateAction<BeforeInstallPromptEvent | null>
-  >;
+  // beforeInstallPrompt: BeforeInstallPromptEvent | null;
+  // setBeforeInstallPrompt: React.Dispatch<
+  //   React.SetStateAction<BeforeInstallPromptEvent | null>
+  // >;
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -51,8 +51,8 @@ const GlobalContext = createContext<ContextProps>({
   setPostingPric: (): number => 0,
   brand_list_filter: [],
   set_brand_list_filter: (): string[] => [],
-  beforeInstallPrompt: null,
-  setBeforeInstallPrompt: (): BeforeInstallPromptEvent | null => null,
+  // beforeInstallPrompt: null,
+  // setBeforeInstallPrompt: (): BeforeInstallPromptEvent | null => null,
 });
 
 // export let deferredPrompt: BeforeInstallPromptEvent|null = null;
@@ -63,8 +63,8 @@ const Provider = ({ children }: { children: ReactNode }) => {
   const [deliveryDate, setDeliveryDate] = useState<OrderSelectedDate | null>(
     null,
   );
-  const [beforeInstallPrompt, setBeforeInstallPrompt] =
-    useState<BeforeInstallPromptEvent | null>(null);
+  // const [beforeInstallPrompt, setBeforeInstallPrompt] =
+  //   useState<BeforeInstallPromptEvent | null>(null);
 
   const theme = createTheme(
     {
@@ -118,8 +118,8 @@ const Provider = ({ children }: { children: ReactNode }) => {
           setPostingPric,
           brand_list_filter,
           set_brand_list_filter,
-          beforeInstallPrompt,
-          setBeforeInstallPrompt,
+          // beforeInstallPrompt,
+          // setBeforeInstallPrompt,
         }}
       >
         {children}

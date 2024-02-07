@@ -1,4 +1,4 @@
-import { prisma } from "../lib/db/prisma";
+import { prisma } from "../../lib/db/prisma";
 
 export const get_product_interduction = async (product_id: string) => {
   try {

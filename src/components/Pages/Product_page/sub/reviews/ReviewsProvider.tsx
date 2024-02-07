@@ -1,4 +1,4 @@
-import { get_comments } from "@/actions/manageReview";
+import { get_comments } from "@/actions/product/manageReview";
 import { CommentWithUser } from "@/types_validation/type";
 import { Session, getServerSession } from "next-auth";
 import React from "react";

@@ -1,5 +1,5 @@
 import changePhone from "@/actions/changePhone/changePhone";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import { otpFormSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";

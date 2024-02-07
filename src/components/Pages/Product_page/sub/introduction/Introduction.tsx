@@ -1,4 +1,4 @@
-import { get_product_interduction } from "@/actions/getProductInterduction";
+import { get_product_interduction } from "@/actions/product/getProductInterduction";
 import Red_under from "@/components/Util/ui/Red_under";
 import React from "react";
 import ReactScrollElement from "../ui/ReactScrollElement";

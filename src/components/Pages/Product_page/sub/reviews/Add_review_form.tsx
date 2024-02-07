@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   DialogDescription,
   DialogFooter,
@@ -25,10 +25,10 @@ import DotIcon from "@/components/Util/ui/icons/DotIcon";
 import { Textarea } from "@/components/Util/shadcn/ui/textarea";
 import { Session } from "next-auth";
 import { Recommendation } from "@prisma/client";
-import { add_comment } from "@/actions/manageReview";
+import { add_comment } from "@/actions/product/manageReview";
 // import { toast } from "@/components/Util/shadcn/ui/use-toast";
 // import { useToast } from "@/components/Util/shadcn/ui/use-toast";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 enum RateEnum {
   Empty = 0,
   Very_bad = 10,

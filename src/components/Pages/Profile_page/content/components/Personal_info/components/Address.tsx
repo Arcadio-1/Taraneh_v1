@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "@/components/Util/shadcn/ui/form";
 import { Input } from "@/components/Util/shadcn/ui/input";
-import { getCities, setAddress } from "@/actions/manageAddress";
+import { getCities, setAddress } from "@/actions/address/manageAddress";
 import { AddressSchame } from "@/types_validation/validation";
 import { Address_Full } from "@/types_validation/type";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +26,7 @@ import { City } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import { states } from "@/constants/states";
 
 interface Props {

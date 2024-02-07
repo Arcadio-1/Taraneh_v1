@@ -25,11 +25,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { comparePasswordWithCurrentPasswordScham } from "@/types_validation/validation";
 import { z } from "zod";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import ShowIcon from "@/components/Util/ui/icons/ShowIcon";
 import HideIcon from "@/components/Util/ui/icons/HideIcon";
 import PasswordPower from "./PasswordPower";
-import changePasswordWithCurrentPassword from "@/actions/changePasswordWithCurrentPassword";
+import changePasswordWithCurrentPassword from "@/actions/password/changePasswordWithCurrentPassword";
 
 interface Props {
   phone: string;

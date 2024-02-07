@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import MenuDotIcon from "@/components/Util/ui/icons/MenuDotIcon";
 import { Trash2Icon } from "lucide-react";
-import { clear_cart } from "@/actions/clearCart";
+import { clear_cart_items } from "@/actions/ordering/cart_item/clear_cart_items";
 import {
   Popover,
   PopoverContent,
@@ -15,6 +15,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/Util/shadcn/ui/sheet";
+import { toast } from "@/hook/use-toast";
 
 interface Props {
   cart_id: string;
@@ -22,6 +23,26 @@ interface Props {
 
 const ShoppingListMenu = ({ cart_id }: Props) => {
   const [open, setOpen] = useState(false);
+
+  const clearCartHandler = async () => {
+    const request = await clear_cart_items(cart_id);
+    if (request.ok) {
+      setOpen(false);
+      toast({
+        duration: 2500,
+        title: request.message,
+        className: "bg-success text-light_1 text-xl",
+      });
+    }
+    if (!request.ok) {
+      toast({
+        duration: 2500,
+        title: request.message,
+        className: "bg-g1_5 text-light_1 text-xl",
+      });
+    }
+    setOpen(false);
+  };
   return (
     <div>
       <div className="hidden md:block">
@@ -36,10 +57,7 @@ const ShoppingListMenu = ({ cart_id }: Props) => {
             <Command className=" rounded-lg py-2 shadow-lg">
               <CommandItem
                 className="flex flex-col items-start justify-start"
-                onSelect={async () => {
-                  setOpen(false);
-                  await clear_cart(cart_id);
-                }}
+                onSelect={clearCartHandler}
               >
                 <div className="flex cursor-pointer  items-start gap-2 px-2">
                   <Trash2Icon className=" h-6 w-6" />
@@ -63,9 +81,7 @@ const ShoppingListMenu = ({ cart_id }: Props) => {
           >
             <SheetClose asChild>
               <div
-                onClick={async () => {
-                  await clear_cart(cart_id);
-                }}
+                onClick={clearCartHandler}
                 className="flex w-full cursor-pointer items-center justify-between px-2"
               >
                 <div className="flex items-start gap-2">

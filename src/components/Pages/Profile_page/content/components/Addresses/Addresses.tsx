@@ -2,7 +2,7 @@ import { Address_Full } from "@/types_validation/type";
 import { Session } from "next-auth";
 import React, { useEffect, useState } from "react";
 import { StateAndCityInterface } from "../Personal_info/components/Address";
-import { getCities, setAddress } from "@/actions/manageAddress";
+import { getCities, setAddress } from "@/actions/address/manageAddress";
 import { useForm } from "react-hook-form";
 import { AddressSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,7 +18,7 @@ import {
 } from "@/components/Util/shadcn/ui/form";
 import { Autocomplete, TextField } from "@mui/material";
 import { Input } from "@/components/Util/shadcn/ui/input";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import Link from "next/link";
 import ArrowLongIcon, { Arrow } from "@/components/Util/ui/icons/ArrowLongIcon";
 import { states } from "@/constants/states";

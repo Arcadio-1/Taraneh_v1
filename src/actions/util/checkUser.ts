@@ -1,10 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { phoneSchame } from "../types_validation/validation";
-import { prisma } from "../lib/db/prisma";
+import { phoneSchame } from "../../types_validation/validation";
+import { prisma } from "../../lib/db/prisma";
 import { Sign } from "@/types_validation/type";
-import { convert_to_en_number } from "../util_functions/translateNumbers";
+import { convert_to_en_number } from "../../util_functions/translateNumbers";
 
 type TCheckPhone = Promise<
   | {

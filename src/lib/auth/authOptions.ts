@@ -6,17 +6,15 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/types_validation/env";
 import { PrismaClient } from "@prisma/client";
 import {
-  ChangePhoneFormScheme,
   emailSchame,
   passwordScham,
   personalInfoFormSchame,
   phoneSchame,
 } from "@/types_validation/validation";
-import { mergeCarts } from "@/actions/mergeCart";
+import { mergeCartsItems } from "@/actions/ordering/cart_item/mergeCartsItems";
 import { z } from "zod";
 import { getServerSession } from "next-auth";
 import { varifiyPassword } from "../bcrypt/bcrypt";
-import { getCart } from "../../actions/getCart";
 import { getOtp } from "@/actions/OTP/redisActions/getOtp";
 import { expireOtp } from "@/actions/OTP/redisActions/removeOtp";
 
@@ -255,8 +253,7 @@ export const authOptions: NextAuthOptions = {
   },
   events: {
     async signIn({ user, isNewUser, profile }) {
-      await getCart();
-      await mergeCarts(user.id);
+      await mergeCartsItems(user.id);
     },
   },
   secret: env.NEXTAUTH_SECRET,

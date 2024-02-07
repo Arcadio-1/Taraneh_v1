@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "../lib/db/prisma";
+import { prisma } from "../../lib/db/prisma";
 
 export const get_propsduct_specifications = async (product_id: string) => {
   try {

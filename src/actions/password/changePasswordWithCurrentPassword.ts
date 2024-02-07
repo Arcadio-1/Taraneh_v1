@@ -1,9 +1,9 @@
 "use server";
 import { z } from "zod";
-import { comparePasswordWithCurrentPasswordScham } from "../types_validation/validation";
-import { getUserPhone } from "./getUserPhone";
-import { prisma } from "../lib/db/prisma";
-import { getHashedPassword, varifiyPassword } from "../lib/bcrypt/bcrypt";
+import { comparePasswordWithCurrentPasswordScham } from "../../types_validation/validation";
+import { getUserPhone } from "../util/getUserPhone";
+import { prisma } from "../../lib/db/prisma";
+import { getHashedPassword, varifiyPassword } from "../../lib/bcrypt/bcrypt";
 import { IResponse } from "@/types_validation/type";
 import { signOut } from "next-auth/react";
 

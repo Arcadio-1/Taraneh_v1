@@ -19,7 +19,7 @@ import { MainCatsWithSpecificCats } from "@/types_validation/type";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { useGlobalContext } from "@/app/provider/Provider";
+// import { useGlobalContext } from "@/app/provider/Provider";
 
 interface Props {
   cats: MainCatsWithSpecificCats[];
@@ -31,7 +31,7 @@ enum SelectedTab {
 }
 const Mobile_menu = ({ cats }: Props) => {
   const [open, setOpen] = React.useState(false);
-  const { beforeInstallPrompt, setBeforeInstallPrompt } = useGlobalContext();
+  // const { beforeInstallPrompt, setBeforeInstallPrompt } = useGlobalContext();
 
   const [selectedTab, setSelectedTab] = useState<SelectedTab>(
     SelectedTab.Tools,
@@ -41,18 +41,18 @@ const Mobile_menu = ({ cats }: Props) => {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger
           onClick={() => {
-            if (beforeInstallPrompt) {
-              beforeInstallPrompt.prompt();
-              beforeInstallPrompt.userChoice.then((choiceresolve) => {
-                console.log(choiceresolve);
-                if (choiceresolve.outcome === "dismissed") {
-                  console.log("use cancelled installatin");
-                } else {
-                  console.log("user added to home sccren");
-                }
-                setBeforeInstallPrompt(null);
-              });
-            }
+            // if (beforeInstallPrompt) {
+            //   beforeInstallPrompt.prompt();
+            //   beforeInstallPrompt.userChoice.then((choiceresolve) => {
+            //     console.log(choiceresolve);
+            //     if (choiceresolve.outcome === "dismissed") {
+            //       console.log("use cancelled installatin");
+            //     } else {
+            //       console.log("user added to home sccren");
+            //     }
+            //     setBeforeInstallPrompt(null);
+            //   });
+            // }
             setSelectedTab(SelectedTab.Tools);
           }}
           asChild

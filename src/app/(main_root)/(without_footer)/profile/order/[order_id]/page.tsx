@@ -30,14 +30,7 @@ const page = async ({ params: { order_id } }: Props) => {
     }
   };
 
-  return (
-    <div className="mx-auto mt-6 grid max-w-[1124px] grid-cols-[repeat(8,minmax(0,1fr))] gap-4">
-      <div className="col-span-2 hidden md:block">
-        <Aside session={session} />
-      </div>
-      <Order order={await order()} />
-    </div>
-  );
+  return <Order order={await order()} />;
 };
 
 export default page;

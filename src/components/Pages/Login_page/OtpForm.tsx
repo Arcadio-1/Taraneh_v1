@@ -7,7 +7,7 @@ import {
   FormMessage,
 } from "@/components/Util/shadcn/ui/form";
 import { Button } from "@/components/Util/shadcn/ui/button";
-import { userSignup } from "@/actions/userSignup";
+import { userSignup } from "@/actions/auth/userSignup";
 import { otpFormSchame } from "@/types_validation/validation";
 import { OtpType, Sign } from "@/types_validation/type";
 import { zodResolver } from "@hookform/resolvers/zod";

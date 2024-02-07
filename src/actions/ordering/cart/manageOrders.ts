@@ -1,11 +1,11 @@
 "use server";
 
 import { Order, OrderStatus } from "@prisma/client";
-import { prisma } from "../lib/db/prisma";
+import { prisma } from "../../../lib/db/prisma";
 import { OrderType } from "@/types_validation/type";
 import { revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../lib/auth/authOptions";
+import { authOptions } from "../../../lib/auth/authOptions";
 
 export const addOrder = async (orderest: OrderType) => {
   const orderAdder = await prisma.order.create({

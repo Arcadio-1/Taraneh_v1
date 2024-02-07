@@ -1,5 +1,5 @@
 "use client";
-import { cancelOrder } from "@/actions/manageOrders";
+import { cancelOrder } from "@/actions/ordering/cart/manageOrders";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -15,7 +15,7 @@ import {
 } from "@/components/Util/shadcn/ui/alert-dialog";
 import { useRouter } from "next/navigation";
 
-import { useToast } from "@/components/Util/shadcn/ui/use-toast";
+import { useToast } from "@/hook/use-toast";
 interface Props {
   order_id: string;
 }

@@ -3,11 +3,8 @@ import React from "react";
 import ProdMenu from "./components/ProdMenu";
 import "photoswipe/style.css";
 import { getListOfImages } from "@/util_functions/getListOfImages";
-// import dynamic from "next/dynamic";
 import MainImage from "./components/MainImage";
 import ProdSubImages from "./components/ProdSubImages";
-// const ProdSubImages = dynamic(() => import("./components/ProdSubImages"));
-// const MainImage = dynamic(() => import("./components/MainImage"));
 interface Props {
   product_image_url: string;
   product_title: string;

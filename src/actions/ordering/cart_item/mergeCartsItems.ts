@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { prisma } from "../lib/db/prisma";
+import { prisma } from "../../../lib/db/prisma";
 import { CartItem } from "@prisma/client";
 import { AES, enc } from "crypto-js";
-import { env } from "../types_validation/env";
+import { env } from "../../../types_validation/env";
 
 const getTempCart = async () => {
   const localCartIdCrypted = cookies().get("localCartId")?.value;
@@ -20,7 +20,7 @@ const getTempCart = async () => {
   return localCart;
 };
 
-export async function mergeCarts(userId: string): Promise<void> {
+export async function mergeCartsItems(userId: string): Promise<void> {
   const tempCart = await getTempCart();
   if (!tempCart) return;
 

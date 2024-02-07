@@ -5,7 +5,7 @@ import {
 } from "../../../types_validation/validation";
 import { z } from "zod";
 import { prisma } from "../../../lib/db/prisma";
-import { getUserPhone } from "../../getUserPhone";
+import { getUserPhone } from "../../util/getUserPhone";
 import { signOut } from "next-auth/react";
 import { IResponse, OtpType } from "@/types_validation/type";
 import { getOtp } from "../../OTP/redisActions/getOtp";
@@ -14,9 +14,9 @@ import { expireOtp } from "../../OTP/redisActions/removeOtp";
 import { env } from "@/types_validation/env";
 import { Redis } from "ioredis";
 
-interface IResponseSetNewPhone extends IResponse {
+type IResponseSetNewPhone = IResponse & {
   newPhone: z.infer<typeof phoneSchame> | null;
-}
+};
 
 const setNewPhone: ({
   otpNumber,

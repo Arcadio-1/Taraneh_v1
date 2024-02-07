@@ -3,7 +3,7 @@ import { numberSeperator } from "@/util_functions/price_formt";
 import { Address_Full, OrderType, ShoppingCart } from "@/types_validation/type";
 import React from "react";
 import { OrderCart, OrderStatus, PayMethod } from "@prisma/client";
-import { addOrder } from "@/actions/manageOrders";
+import { addOrder } from "@/actions/ordering/cart/manageOrders";
 import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
 import { useGlobalContext } from "@/app/provider/Provider";

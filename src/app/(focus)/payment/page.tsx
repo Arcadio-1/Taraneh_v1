@@ -2,7 +2,7 @@ import Payment from "@/components/Pages/Payment_page/Payment";
 import Checkout_header, {
   Stage,
 } from "@/components/Util/components/checkout_header/Checkout_header";
-import { getCart } from "@/actions/getCart";
+import { getCart } from "@/actions/ordering/cart/getCart";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -25,15 +25,17 @@ const page = async () => {
   }
 
   const cart = await getCart();
-
-  if (!cart || cart.size < 1) {
+  if (!cart.ok) {
+    redirect("/checkout");
+  }
+  if (cart.status === "NotFound") {
     redirect("/checkout");
   }
 
   return (
     <div className="mx-auto mt-6 flex max-w-[1024px] flex-col gap-2 px-4">
       <Checkout_header stage={Stage.payment} />
-      <Payment cart={cart} address={address} session={session} />
+      <Payment cart={cart.shoppingCart} address={address} session={session} />
     </div>
   );
 };

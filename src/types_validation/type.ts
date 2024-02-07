@@ -52,7 +52,7 @@ export type Drinks_products = Prisma.Main_catGetPayload<{
   include: { Product: { include: { brand: true; specific_cat: true } } };
 }>;
 
-export type CartWithProducts = Prisma.CartGetPayload<{
+export type CartWithCartItemWithProducts = Prisma.CartGetPayload<{
   include: { items: { include: { product: true } } };
 }>;
 
@@ -60,7 +60,7 @@ export type CartItemWithProduct = Prisma.CartItemGetPayload<{
   include: { product: true };
 }>;
 
-export type ShoppingCart = CartWithProducts & {
+export type ShoppingCart = CartWithCartItemWithProducts & {
   size: number;
   subtotal: number;
   subTotalWithDiscount: number;
@@ -108,11 +108,17 @@ export type Specifications_select_specifications =
     select: { specifications: true };
   }> | null;
 
-export interface IResponse {
-  status: "Error" | "Success";
-  ok: boolean;
-  message: string;
-}
+export type IResponse =
+  | {
+      status: "Success";
+      ok: true;
+      message: string;
+    }
+  | {
+      status: "Error";
+      ok: false;
+      message: string;
+    };
 
 export enum OtpType {
   changePassword = "changePassword",

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import sendOtp from "../../../../actions/OTP/sendOtp";
 import CountdownTimer from "./CountdownTimer";
 import { OtpType } from "@/types_validation/type";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import { getOtp } from "@/actions/OTP/redisActions/getOtp";
 import SpinnerIcon from "../../ui/icons/SpinnerIcon";
 

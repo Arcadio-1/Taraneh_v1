@@ -5,10 +5,10 @@ import { IResponse, OtpType, RedisOtpValue } from "@/types_validation/type";
 import { OtpNumberScheme, phoneSchame } from "@/types_validation/validation";
 import { env } from "@/types_validation/env";
 import { Redis } from "ioredis";
-interface IResponseWithNumber extends IResponse {
+type IResponseWithNumber = IResponse & {
   number: z.infer<typeof OtpNumberScheme> | null;
   type: OtpType | null;
-}
+};
 
 export const getOtp: (
   phone: z.infer<typeof phoneSchame>,

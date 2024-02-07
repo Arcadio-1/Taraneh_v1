@@ -1,11 +1,11 @@
 "use server";
 import { z } from "zod";
-import { commentSchame } from "../types_validation/validation";
-import { prisma } from "../lib/db/prisma";
+import { commentSchame } from "../../types_validation/validation";
+import { prisma } from "../../lib/db/prisma";
 import { revalidatePath } from "next/cache";
 import { CommentWithUser, LikeMethod } from "@/types_validation/type";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../lib/auth/authOptions";
+import { authOptions } from "../../lib/auth/authOptions";
 
 export const get_comments = async () => {
   try {

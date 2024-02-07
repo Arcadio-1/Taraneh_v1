@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Tabs, TabsContent } from "@/components/Util/shadcn/ui/tabs";
 import OrderTabs from "./components/OrderTabs";
 import EmptyOrder from "./components/EmptyOrder";
-import { getOrders } from "@/actions/manageOrders";
+import { getOrders } from "@/actions/ordering/cart/manageOrders";
 import { Session } from "next-auth";
 import CartItemSkeleton from "./components/orderItem/components/CartItemSkeleton";
 import ArrowLongIcon, { Arrow } from "@/components/Util/ui/icons/ArrowLongIcon";

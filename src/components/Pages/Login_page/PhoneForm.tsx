@@ -13,7 +13,7 @@ import * as z from "zod";
 import { LoginWithPhoneForm } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { checkUser } from "@/actions/checkUser";
+import { checkUser } from "@/actions/util/checkUser";
 import { Sign } from "@/types_validation/type";
 import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 

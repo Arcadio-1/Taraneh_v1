@@ -7,7 +7,7 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/Util/shadcn/ui/dialog";
-import { like_manage } from "@/actions/manageReview";
+import { like_manage } from "@/actions/product/manageReview";
 import { LikeMethod } from "@/types_validation/type";
 import { CircularProgress } from "@mui/material";
 import { User_id_type } from "@prisma/client";

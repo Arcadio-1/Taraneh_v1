@@ -2,7 +2,7 @@
 import { otpFormSchame } from "../../types_validation/validation";
 import { z } from "zod";
 import { prisma } from "../../lib/db/prisma";
-import { getUserPhone } from "../getUserPhone";
+import { getUserPhone } from "../util/getUserPhone";
 import { signOut } from "next-auth/react";
 import { IResponse } from "@/types_validation/type";
 import { getOtp } from "../OTP/redisActions/getOtp";

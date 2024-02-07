@@ -5,12 +5,12 @@ import { Redis } from "ioredis";
 import { z } from "zod";
 import { IResponse, OtpType, RedisOtpValue } from "@/types_validation/type";
 import { phoneSchame } from "@/types_validation/validation";
-import { getUserPhone } from "../../getUserPhone";
+import { getUserPhone } from "../../util/getUserPhone";
 import { signOut } from "next-auth/react";
 
-interface IResponseWithNumber extends IResponse {
+type IResponseWithNumber = IResponse & {
   phone: z.infer<typeof phoneSchame> | null;
-}
+};
 
 export const getNewPhone: () => Promise<IResponseWithNumber> = async () => {
   try {

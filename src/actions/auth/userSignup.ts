@@ -1,11 +1,14 @@
 "use server";
 
 import { z } from "zod";
-import { OtpNumberScheme, phoneSchame } from "../types_validation/validation";
-import { checkUser } from "./checkUser";
+import {
+  OtpNumberScheme,
+  phoneSchame,
+} from "../../types_validation/validation";
+import { checkUser } from "../util/checkUser";
 import { IResponse, Sign } from "@/types_validation/type";
-import { prisma } from "../lib/db/prisma";
-import { getOtp } from "./OTP/redisActions/getOtp";
+import { prisma } from "../../lib/db/prisma";
+import { getOtp } from "../OTP/redisActions/getOtp";
 
 const signupValidatorScheme = z.object({
   phone: phoneSchame,

@@ -2,7 +2,7 @@ import Success_payment from "@/components/Pages/SuccessPayment_page/Success_paym
 import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "@/lib/auth/authOptions";
-import { getCart } from "@/actions/getCart";
+import { getCart } from "@/actions/ordering/cart/getCart";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db/prisma";
 import { OrderStatus, PayMethod } from "@prisma/client";
@@ -17,25 +17,31 @@ const page = async ({ searchParams: tracking_code }: Props) => {
     redirect("/");
   }
   const session = await getServerSession(authOptions);
-  const cart = await getCart();
+
   if (!session) {
-    redirect("/users/login?callback=/");
+    redirect("/users/login?callback=/successPayment");
   }
+  const cart = await getCart();
+  if (!cart.ok || cart.status === "NotFound") {
+    redirect("/");
+  }
+
   const order = await prisma.order.findFirst({
     where: {
       status: OrderStatus.NOT_CONFIRMED,
       id: tracking_code.tracking_code,
     },
   });
-  if (!order?.payment_method && order?.payment_method === PayMethod.NOT_PAYED) {
+  if (!order) {
     redirect("/");
   }
-  if (order?.status !== OrderStatus.NOT_CONFIRMED) {
+
+  if (!order.payment_method && order.payment_method === PayMethod.NOT_PAYED) {
     redirect("/");
   }
-  if (order && cart) {
-    await prisma.cart.delete({ where: { id: cart.id } });
-  }
+
+  await prisma.cart.delete({ where: { id: cart.shoppingCart.id } });
+
   return (
     <div className="flec flex-col items-center justify-center">
       <Success_payment

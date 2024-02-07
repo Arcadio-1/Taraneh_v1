@@ -1,4 +1,4 @@
-import { get_propsduct_specifications } from "@/actions/getProductSpecifications";
+import { get_propsduct_specifications } from "@/actions/product/getProductSpecifications";
 import Red_under from "@/components/Util/ui/Red_under";
 import { Specifications_select_specifications } from "@/types_validation/type";
 import React from "react";

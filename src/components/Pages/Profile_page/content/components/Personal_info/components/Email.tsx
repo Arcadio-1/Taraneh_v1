@@ -26,7 +26,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailSchame } from "@/types_validation/validation";
 import { z } from "zod";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 
 interface Props {
   userId: string;

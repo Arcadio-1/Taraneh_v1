@@ -29,11 +29,11 @@ import {
   otpFormSchame,
 } from "@/types_validation/validation";
 import { z } from "zod";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import OTPInput from "react-otp-input";
 import ShowIcon from "@/components/Util/ui/icons/ShowIcon";
 import HideIcon from "@/components/Util/ui/icons/HideIcon";
-import addPassword from "@/actions/addPassword";
+import addPassword from "@/actions/password/addPassword";
 import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 import PasswordPower from "./PasswordPower";
 import OtpButton from "@/components/Util/components/OptControl/OtpButton";

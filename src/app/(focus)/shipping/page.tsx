@@ -7,7 +7,7 @@ import React from "react";
 import { authOptions } from "@/lib/auth/authOptions";
 import { redirect } from "next/navigation";
 import { Address_Full } from "@/types_validation/type";
-import { getCart } from "@/actions/getCart";
+import { getCart } from "@/actions/ordering/cart/getCart";
 import Shipping from "@/components/Pages/Shipping_page/Shipping";
 
 const page = async () => {
@@ -21,15 +21,16 @@ const page = async () => {
   });
 
   const cart = await getCart();
-
-  if (!cart || cart.size < 1) {
+  if (!cart.ok) {
     redirect("/checkout");
   }
-
+  if (cart.status === "NotFound") {
+    redirect("/checkout");
+  }
   return (
     <div className="mx-auto mt-6 flex max-w-[1024px] flex-col gap-2 px-4">
       <Checkout_header stage={Stage.shipping} />
-      <Shipping address={address} session={session} cart={cart} />
+      <Shipping address={address} session={session} cart={cart.shoppingCart} />
     </div>
   );
 };

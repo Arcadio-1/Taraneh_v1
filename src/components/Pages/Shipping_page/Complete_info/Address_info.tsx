@@ -8,7 +8,7 @@ import {
   FormMessage,
 } from "@/components/Util/shadcn/ui/form";
 import { Input } from "@/components/Util/shadcn/ui/input";
-import { getCities, setAddress } from "@/actions/manageAddress";
+import { getCities, setAddress } from "@/actions/address/manageAddress";
 import {
   AddressSchame,
   personalInfoFormSchame,

@@ -1,5 +1,5 @@
 import setNewPhone from "@/actions/changePhone/redisActions/setNewPhone";
-import { toast } from "@/components/Util/shadcn/ui/use-toast";
+import { toast } from "@/hook/use-toast";
 import {
   ChangePhoneFormScheme,
   otpFormSchame,
