@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { IResponse, OtpType, RedisOtpValue } from "@/types_validation/type";
-import { OtpNumberScheme, phoneSchame } from "@/types_validation/validation";
+import { OtpNumberScheme, PhoneSchame } from "@/types_validation/validation";
 import { env } from "@/types_validation/env";
 import { Redis } from "ioredis";
 type IResponseWithNumber = IResponse & {
@@ -11,10 +11,10 @@ type IResponseWithNumber = IResponse & {
 };
 
 export const getOtp: (
-  phone: z.infer<typeof phoneSchame>,
+  phone: z.infer<typeof PhoneSchame>,
 ) => Promise<IResponseWithNumber> = async (phone) => {
   try {
-    const isKeyValid = phoneSchame.safeParse(phone);
+    const isKeyValid = PhoneSchame.safeParse(phone);
 
     if (!isKeyValid.success) {
       throw new Error(isKeyValid.error.message);

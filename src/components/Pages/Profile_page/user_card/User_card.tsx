@@ -13,7 +13,7 @@ interface Props {
 const User_card = ({ session }: Props) => {
   const { user } = session;
   return (
-    <div className="flex items-center justify-between py-4 px-3 border-b-[1.3px] m-2">
+    <div className="m-2 flex items-center justify-between border-b-[1.3px] px-3 py-4">
       <div className="flex items-center gap-3">
         {user.name && user.family && (
           <div className="flex flex-col gap-1">
@@ -31,8 +31,8 @@ const User_card = ({ session }: Props) => {
         )}
         {!user.name || (!user.family && <p>{user.phone}</p>)}
       </div>
-      <Link href={"/profile/personal-info"}>
-        <Edit3Icon className="stroke-g1_7 h-6 w-6" />
+      <Link href={"/profile/user-info"}>
+        <Edit3Icon className="h-6 w-6 stroke-g1_7" />
       </Link>
     </div>
   );

@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { phoneSchame } from "../../types_validation/validation";
+import { PhoneSchame } from "../../types_validation/validation";
 import { prisma } from "../../lib/db/prisma";
 import { Sign } from "@/types_validation/type";
 import { convert_to_en_number } from "../../util_functions/translateNumbers";
@@ -25,10 +25,10 @@ type TCheckPhone = Promise<
 >;
 
 export const checkUser = async (
-  phone: z.infer<typeof phoneSchame>,
+  phone: z.infer<typeof PhoneSchame>,
 ): TCheckPhone => {
   try {
-    const checked_phone = phoneSchame.safeParse(phone);
+    const checked_phone = PhoneSchame.safeParse(phone);
 
     if (!checked_phone.success) {
       throw new Error(checked_phone.error.toString());

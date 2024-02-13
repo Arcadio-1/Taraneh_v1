@@ -2,19 +2,19 @@
 
 import axios from "axios";
 import { z } from "zod";
-import { phoneSchame } from "@/types_validation/validation";
+import { PhoneSchame } from "@/types_validation/validation";
 import { IResponse, OtpType } from "@/types_validation/type";
 import { getOtp } from "./redisActions/getOtp";
 import setOtp from "./redisActions/setOtp";
 import { env } from "@/types_validation/env";
 
 interface SendOtpProps {
-  phone: z.infer<typeof phoneSchame>;
+  phone: z.infer<typeof PhoneSchame>;
   type: OtpType;
 }
 
 const sendOtpValidator = z.object({
-  phone: phoneSchame,
+  phone: PhoneSchame,
   type: z.nativeEnum(OtpType),
 });
 

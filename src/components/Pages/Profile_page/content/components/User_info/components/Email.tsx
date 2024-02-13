@@ -22,19 +22,22 @@ import { Input } from "@/components/Util/shadcn/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Divider from "@/components/Util/ui/Divider";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { emailSchame } from "@/types_validation/validation";
+import { emailFormSchame } from "@/types_validation/validation";
 import { z } from "zod";
 import { toast } from "@/hook/use-toast";
+import { addEmail } from "@/actions/userInfo/email/addEmail";
+import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 
 interface Props {
-  userId: string;
   email: string;
 }
 
-const Email = ({ userId, email }: Props) => {
+const Email = ({ email }: Props) => {
+  const [isPending, startTransition] = useTransition();
   const [mount, setMount] = useState(false);
+  const [open, setOpen] = useState(false);
   const [submitError, setSubmitError] = useState<string>("");
 
   useEffect(() => {
@@ -43,40 +46,48 @@ const Email = ({ userId, email }: Props) => {
 
   const { update, data } = useSession();
 
-  const form = useForm<z.infer<typeof emailSchame>>({
-    resolver: zodResolver(emailSchame),
+  const form = useForm<z.infer<typeof emailFormSchame>>({
+    resolver: zodResolver(emailFormSchame),
     defaultValues: {
       email: email,
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof emailSchame>) => {
+  const onSubmit = async (values: z.infer<typeof emailFormSchame>) => {
     if (values.email === data?.user.email) {
       setSubmitError("لطفا ایمیل جدید وارد کنید");
       return;
     }
-    const res = update({
-      feild: "email",
-      data: { ...values },
+    startTransition(async () => {
+      const addEmailRequest = await addEmail(values.email);
+
+      if (!addEmailRequest.ok) {
+        setSubmitError(addEmailRequest.message);
+      } else {
+        const updateSession = await update({
+          feild: "email",
+        });
+        setOpen(false);
+        setSubmitError("");
+        if (!updateSession) {
+          toast({
+            duration: 2500,
+            title: "لطفا مجددا به حساب کاربری خود وارد شوید",
+            className: "bg-error text-light_1 text-xl",
+          });
+        } else {
+          toast({
+            duration: 2500,
+            title: addEmailRequest.message,
+            className: "bg-success text-light_1 text-xl",
+          });
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+        }
+      }
     });
-    const res2 = await res;
-    if (res2?.user.email !== values.email) {
-      setSubmitError("ایمیل وارد شده قبلا ثبت نام شده");
-    } else {
-      setOpen(false);
-      toast({
-        duration: 2500,
-        title: "ایمیل شما با موفقیت ثبت شد",
-        className: "bg-success text-light_1 text-xl",
-      });
-      setSubmitError("");
-      setTimeout(() => {
-        location.reload();
-      }, 2000);
-      return;
-    }
   };
-  const [open, setOpen] = useState(false);
 
   if (!mount) {
     <></>;
@@ -125,10 +136,12 @@ const Email = ({ userId, email }: Props) => {
                 </span>
               )}
               <button
-                className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
+                disabled={isPending}
+                className="flex items-center justify-center gap-2 rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
                 type="submit"
               >
                 ثبت ایمیل
+                {isPending && <SpinnerIcon className="h-5 w-5 border-2" />}
               </button>
             </DialogFooter>
           </form>

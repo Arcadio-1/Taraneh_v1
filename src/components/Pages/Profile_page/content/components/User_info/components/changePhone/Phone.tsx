@@ -2,20 +2,19 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/Util/shadcn/ui/dialog";
 import Divider from "@/components/Util/ui/Divider";
 import { useEffect, useState } from "react";
-import { phoneSchame } from "@/types_validation/validation";
+import { PhoneSchame } from "@/types_validation/validation";
 import { z } from "zod";
 import AuthIconOne from "@/components/Util/ui/icons/AuthIconOne";
 import AuthIconTwo from "@/components/Util/ui/icons/AuthIconTwo";
-import { getNewPhone } from "@/actions/changePhone/redisActions/getNewPhone";
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
+import { getNewPhone } from "@/actions/userInfo/changePhone/redisActions/getNewPhone";
 
 interface Props {
   phone: string;
@@ -25,10 +24,10 @@ const Phone = ({ phone }: Props) => {
   const [mount, setMount] = useState(false);
   const [open, setOpen] = useState(false);
   const [newPhoneNumber, setNewPhoneNumber] = useState<z.infer<
-    typeof phoneSchame
+    typeof PhoneSchame
   > | null>(null);
   // const [newPhoneNumber, setNewPhoneNumber] = useState<z.infer<
-  //   typeof phoneSchame
+  //   typeof PhoneSchame
   // > | null>("09183704735");
 
   useEffect(() => {
@@ -62,20 +61,20 @@ const Phone = ({ phone }: Props) => {
           <ul className="flex items-center justify-between gap-2 px-20">
             <li className="flex flex-col items-center justify-center gap-2">
               <AuthIconOne isActive />
-              <span className="select-none whitespace-nowrap text-xl text-g1_7">
+              {/* <span className="select-none whitespace-nowrap text-xl text-g1_7">
                 احراز هویت
-              </span>
+              </span> */}
             </li>
             <li
               className={`h-[2px] w-full grow ${!!newPhoneNumber ? "bg-g1_7" : "bg-gray-300"} opacity-60`}
             ></li>
             <li className="flex flex-col items-center justify-center gap-2">
               <AuthIconTwo isActive={!!newPhoneNumber} />
-              <span
+              {/* <span
                 className={`select-none whitespace-nowrap text-xl  ${!!newPhoneNumber ? "text-g1_7" : "text-gray-300"}`}
               >
                 احراز هویت
-              </span>
+              </span> */}
             </li>
           </ul>
         </DialogHeader>

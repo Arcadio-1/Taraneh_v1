@@ -1,13 +1,13 @@
 "use server";
-import { otpFormSchame } from "../../types_validation/validation";
 import { z } from "zod";
-import { prisma } from "../../lib/db/prisma";
-import { getUserPhone } from "../util/getUserPhone";
 import { signOut } from "next-auth/react";
 import { IResponse } from "@/types_validation/type";
-import { getOtp } from "../OTP/redisActions/getOtp";
 import { convert_to_en_number } from "@/util_functions/translateNumbers";
 import { getNewPhone } from "./redisActions/getNewPhone";
+import { otpFormSchame } from "@/types_validation/validation";
+import { prisma } from "@/lib/db/prisma";
+import { getOtp } from "@/actions/OTP/redisActions/getOtp";
+import { getUserPhone } from "@/actions/util/getUserPhone";
 
 const changePhone: ({
   otpNumber,
@@ -28,7 +28,7 @@ const changePhone: ({
     const getPhone = await getUserPhone();
 
     if (!getPhone.ok || !getPhone.phone) {
-      signOut({ callbackUrl: "/profile/personal-info" });
+      signOut({ callbackUrl: "/profile/user-info" });
       throw new Error(getPhone.message);
     }
 

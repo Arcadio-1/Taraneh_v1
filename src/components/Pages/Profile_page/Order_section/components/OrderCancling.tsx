@@ -1,5 +1,4 @@
 "use client";
-import { cancelOrder } from "@/actions/ordering/cart/manageOrders";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -16,6 +15,7 @@ import {
 import { useRouter } from "next/navigation";
 
 import { useToast } from "@/hook/use-toast";
+import { cancelOrder } from "@/actions/ordering/order/cancelOrder";
 interface Props {
   order_id: string;
 }
@@ -54,11 +54,17 @@ const OrderCancling = ({ order_id }: Props) => {
                 className="bg-g1_5 text-lg text-light_1 hover:bg-g1_5"
                 onClick={async () => {
                   const canceling = await cancelOrder(order_id);
-                  if (canceling) {
+                  if (canceling.ok) {
                     toast({
                       duration: 2500,
-                      title: "لغو سفارش انجام شد !",
-                      className: "bg-g1_5 text-light_1 text-xl",
+                      title: canceling.message,
+                      className: "bg-success text-light_1 text-xl",
+                    });
+                  } else {
+                    toast({
+                      duration: 2500,
+                      title: canceling.message,
+                      className: "bg-error text-light_1 text-xl",
                     });
                   }
                 }}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import User_info from "./Address/User_info";
 import Shipping_items from "./Content/shipping_items/Shipping_items";
 import Delivey_date from "./Content/delivery_date/Delivey_date";

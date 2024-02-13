@@ -38,7 +38,7 @@ const Shipping_form = ({ address, user, cart }: Props) => {
   useEffect(() => {
     setMount(true);
   }, []);
-  const post_cost: number = 39000;
+  const post_cost = 39000;
 
   const submit_orders = async () => {
     if (address && cart && cart.userId && deliveryDate) {
@@ -195,18 +195,7 @@ const Shipping_form = ({ address, user, cart }: Props) => {
                 </SheetTrigger>
               )}
               <SheetContent dir="ltr" side={"bottom"}>
-                {/* <SheetHeader>
-                <SheetTitle>Edit profile</SheetTitle>
-                <SheetDescription>
-                  Make changes to your profile here. Click save when done.
-                </SheetDescription>
-              </SheetHeader> */}
                 <Delivey_date sheeter={true} />
-                {/* <SheetFooter>
-                <SheetClose asChild>
-                  <Button type="submit">Save changes</Button>
-                </SheetClose>
-              </SheetFooter> */}
               </SheetContent>
             </Sheet>
           )}

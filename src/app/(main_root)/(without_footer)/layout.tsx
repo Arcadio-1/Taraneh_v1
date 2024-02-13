@@ -1,4 +1,4 @@
-import Aside from "@/components/Pages/Profile_page/side_navaigation/Aside";
+import Aside from "@/components/Pages/Profile_page/aside/Aside";
 import Header from "@/components/Util/layouts/header/Header";
 import { authOptions } from "@/lib/auth/authOptions";
 import { getServerSession } from "next-auth";

@@ -8,10 +8,10 @@ import returnedImage from "@/assets/images/profile/status-returned.svg";
 import { Order, OrderStatus } from "@prisma/client";
 import { Session } from "next-auth";
 import User_card from "../../../user_card/User_card";
-import Aside from "../../../side_navaigation/Aside";
+import Aside from "../../../aside/Aside";
 
 interface Props {
-  orders: Order[] | null;
+  orders: Order[] | [];
   session: Session;
 }
 
@@ -21,7 +21,7 @@ const Root = ({ orders, session }: Props) => {
   const [rejected, setrejected] = useState<Order[] | []>([]);
 
   useEffect(() => {
-    if (orders) {
+    if (orders?.length) {
       setInProcess([]);
       setDelivered([]);
       setrejected([]);

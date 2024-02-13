@@ -60,11 +60,7 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
           )}
         >
           <form action={async () => actionHandler(Operate.increment)}>
-            <button
-              type="submit"
-              // onClick={orderHandler.bind(null, Operate.increment)}
-              // disabled={isPending}
-            >
+            <button type="submit">
               <PlusIcon stroke="#ef4056" className="h-10 w-10 p-2" />
             </button>
           </form>
@@ -73,10 +69,7 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
             <span className="font-iransansnum">{optimisticAmount}</span>
           </div>
           <form action={async () => actionHandler(Operate.decrement)}>
-            <button
-              type="submit"
-              // onClick={orderHandler.bind(null, Operate.decrement)}
-            >
+            <button type="submit">
               {optimisticAmount > 1 ? (
                 <MinusIcon stroke="#ef4056" className="h-10 w-10 p-2" />
               ) : (
@@ -92,7 +85,6 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
         >
           <button
             type="submit"
-            // onClick={orderHandler.bind(null, Operate.increment)}
             className="mt-5 w-full max-w-xl rounded-[6px] bg-g1_5 py-2 text-light_1"
           >
             افزودن به سبد

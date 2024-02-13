@@ -1,21 +1,21 @@
 "use server";
-import {
-  ChangePhoneFormScheme,
-  phoneSchame,
-} from "../../../types_validation/validation";
 import { z } from "zod";
-import { prisma } from "../../../lib/db/prisma";
-import { getUserPhone } from "../../util/getUserPhone";
 import { signOut } from "next-auth/react";
 import { IResponse, OtpType } from "@/types_validation/type";
-import { getOtp } from "../../OTP/redisActions/getOtp";
 import { convert_to_en_number } from "@/util_functions/translateNumbers";
-import { expireOtp } from "../../OTP/redisActions/removeOtp";
 import { env } from "@/types_validation/env";
 import { Redis } from "ioredis";
+import {
+  ChangePhoneFormScheme,
+  PhoneSchame,
+} from "@/types_validation/validation";
+import { getUserPhone } from "@/actions/util/getUserPhone";
+import { prisma } from "@/lib/db/prisma";
+import { getOtp } from "@/actions/OTP/redisActions/getOtp";
+import { expireOtp } from "@/actions/OTP/redisActions/removeOtp";
 
 type IResponseSetNewPhone = IResponse & {
-  newPhone: z.infer<typeof phoneSchame> | null;
+  newPhone: z.infer<typeof PhoneSchame> | null;
 };
 
 const setNewPhone: ({
@@ -40,7 +40,7 @@ const setNewPhone: ({
     const getPhone = await getUserPhone();
 
     if (!getPhone.ok || !getPhone.phone) {
-      signOut({ callbackUrl: "/profile/personal-info" });
+      signOut({ callbackUrl: "/profile/user-info" });
       throw new Error(getPhone.message);
     }
 

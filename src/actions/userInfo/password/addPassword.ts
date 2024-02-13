@@ -1,13 +1,13 @@
 "use server";
-import { comparePasswordWithOtpScham } from "../../types_validation/validation";
+import { comparePasswordWithOtpScham } from "../../../types_validation/validation";
 import { z } from "zod";
-import { prisma } from "../../lib/db/prisma";
-import { getHashedPassword } from "../../lib/bcrypt/bcrypt";
-import { getUserPhone } from "../util/getUserPhone";
+import { prisma } from "../../../lib/db/prisma";
+import { getHashedPassword } from "../../../lib/bcrypt/bcrypt";
+import { getUserPhone } from "../../util/getUserPhone";
 import { signOut } from "next-auth/react";
 import { IResponse } from "@/types_validation/type";
-import { getOtp } from "../OTP/redisActions/getOtp";
-import { expireOtp } from "../OTP/redisActions/removeOtp";
+import { getOtp } from "../../OTP/redisActions/getOtp";
+import { expireOtp } from "../../OTP/redisActions/removeOtp";
 
 const addPassword: (
   passwordAddingData: z.infer<typeof comparePasswordWithOtpScham>,
@@ -22,7 +22,7 @@ const addPassword: (
     const getPhone = await getUserPhone();
 
     if (!getPhone.ok || !getPhone.phone) {
-      signOut({ callbackUrl: "/profile/personal-info" });
+      signOut({ callbackUrl: "/profile/user-info" });
       throw new Error(getPhone.message);
     }
 
@@ -43,7 +43,7 @@ const addPassword: (
         password: hashedPass,
       },
     });
-    const expire = await expireOtp(getPhone.phone);
+    await expireOtp(getPhone.phone);
     if (!request) {
       throw new Error("خطا در ثبت کلمه عبور");
     }

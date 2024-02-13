@@ -52,14 +52,6 @@ enum Recommendation {
   RECOMMENDED
 }
 
-enum PayMethod {
-  NOT_PAYED
-  BANK_CART
-  POS
-  CRIDIT
-  ORGANAZATION_CRIDIT
-}
-
 model User {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
   phone         String        @unique
@@ -373,9 +365,9 @@ model Order {
   user_id        String
   posting_price  Int
   payment_status Boolean
-  payment_method PayMethod
   final_price    Int
   createdAt      DateTime          @default(now())
+  payment_method PayMethod
   status         OrderStatus
   address        OrderAddress
   cart           OrderCart
@@ -383,6 +375,14 @@ model Order {
   user           OrderUser
 
   @@map("orders")
+}
+
+enum PayMethod {
+  NOT_PAYED
+  BANK_CART
+  POS
+  CRIDIT
+  ORGANAZATION_CRIDIT
 }
 
 enum OrderStatus {

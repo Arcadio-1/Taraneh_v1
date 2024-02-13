@@ -8,40 +8,74 @@ import {
   FormMessage,
 } from "@/components/Util/shadcn/ui/form";
 import { Input } from "@/components/Util/shadcn/ui/input";
-import { personalInfoFormSchame } from "@/types_validation/validation";
+import { PersonalInfoSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Divider from "@/components/Util/ui/Divider";
 import { useSession } from "next-auth/react";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { convert_to_en_number } from "@/util_functions/translateNumbers";
+import { toast } from "@/hook/use-toast";
+import { addPersonalInfo } from "@/actions/userInfo/personalInfo/addPersonalInfo";
 
-interface Props {
-  userId: string;
-}
-
-const Personal_info = ({ userId }: Props) => {
+const Personal_info = () => {
   const { update } = useSession();
 
-  const form = useForm<z.infer<typeof personalInfoFormSchame>>({
-    resolver: zodResolver(personalInfoFormSchame),
+  const form = useForm<z.infer<typeof PersonalInfoSchame>>({
+    resolver: zodResolver(PersonalInfoSchame),
     defaultValues: {
       name: "",
       family: "",
       code_meli: "",
     },
   });
-
   const onSubmitPresonalInfo = async (
-    values: z.infer<typeof personalInfoFormSchame>,
-  ) => {
-    const res = update({
-      feild: "personal_info",
-      data: { ...values },
-    });
-    const res2 = await res;
-    if (res2) {
-      location.reload();
+    values: z.infer<typeof PersonalInfoSchame>,
+  ): Promise<void> => {
+    const personal_info: z.infer<typeof PersonalInfoSchame> = {
+      name: values.name,
+      family: values.family,
+      code_meli: convert_to_en_number(values.code_meli),
+    };
+    const isValid = PersonalInfoSchame.safeParse(personal_info);
+    if (!isValid.success) {
+      toast({
+        duration: 2500,
+        title: isValid.error.message,
+        className: "bg-g1_5 text-light_1 text-xl",
+      });
+      return;
+    }
+
+    const request = await addPersonalInfo(personal_info);
+
+    if (!request.ok) {
+      toast({
+        duration: 2500,
+        title: request.message,
+        className: "bg-g1_5 text-light_1 text-xl",
+      });
+    } else {
+      const updateSession = await update({
+        feild: "personal_info",
+      });
+      if (!updateSession) {
+        toast({
+          duration: 2500,
+          title: "لطفا مجددا به حساب کاربری خود وارد شوید",
+          className: "bg-error text-light_1 text-xl",
+        });
+      } else {
+        toast({
+          duration: 2500,
+          title: request.message,
+          className: "bg-success text-light_1 text-xl",
+        });
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      }
     }
   };
 

@@ -3,19 +3,19 @@
 import { z } from "zod";
 import { IResponse, OtpType } from "@/types_validation/type";
 import { convert_to_en_number } from "@/util_functions/translateNumbers";
-import { OtpNumberScheme, phoneSchame } from "@/types_validation/validation";
+import { OtpNumberScheme, PhoneSchame } from "@/types_validation/validation";
 import { getOtp } from "./getOtp";
 import { env } from "@/types_validation/env";
 import { Redis } from "ioredis";
 
 interface CreateOtpProps {
-  phone: z.infer<typeof phoneSchame>;
+  phone: z.infer<typeof PhoneSchame>;
   number: z.infer<typeof OtpNumberScheme>;
   type: OtpType;
 }
 
 const createOtpPropsScheme = z.object({
-  phone: phoneSchame,
+  phone: PhoneSchame,
   number: OtpNumberScheme,
   type: z.nativeEnum(OtpType),
 });

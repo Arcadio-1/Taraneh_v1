@@ -37,7 +37,7 @@ const User_info = ({ address, user }: Props) => {
             </div>
             <Link
               className="mr-auto flex items-center text-g3_4"
-              href={"/profile/personal-info"}
+              href={"/profile/user-info"}
             >
               تغیر یا ویرایش آدرس
               <ArrowIcon direction={Arrow.left} classes="h-3 w-3 fill-g3_4" />
@@ -48,12 +48,12 @@ const User_info = ({ address, user }: Props) => {
       <div className="flex flex-wrap items-stretch gap-4">
         {(!user.user.name || !user.user.family) && (
           <div>
-            <Personal_info userId={user.user.id} />
+            <Personal_info />
           </div>
         )}
         {!address && (
           <div className="grow">
-            <Address_info address={null} userId={user.user.id} />
+            <Address_info address={null} />
           </div>
         )}
       </div>

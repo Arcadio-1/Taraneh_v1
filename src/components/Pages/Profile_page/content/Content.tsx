@@ -1,29 +1,38 @@
 "use client";
-import React, { Suspense } from "react";
-import Root from "./components/Root/Root";
+import React from "react";
 import { usePathname } from "next/navigation";
-import Personal_info from "./components/Personal_info/Personal_info";
 import { Session } from "next-auth";
 import { Address_Full } from "@/types_validation/type";
-import Orders from "./components/Orders/Orders";
 import { Order } from "@prisma/client";
-import Addresses from "./components/Addresses/Addresses";
+import dynamic from "next/dynamic";
+
+const Addresses = dynamic(() => import("./components/Addresses/Addresses"), {
+  ssr: false,
+});
+const User_info = dynamic(() => import("./components/User_info/User_info"), {
+  ssr: false,
+});
+const Orders = dynamic(() => import("./components/Orders/Orders"), {
+  ssr: false,
+});
+const Root = dynamic(() => import("./components/Root/Root"), {
+  ssr: false,
+});
 
 interface Props {
   session: Session;
   address: Address_Full | null;
-  orders: Order[] | null;
+  orders: Order[] | [];
 }
 
 const Content = ({ session, address, orders }: Props) => {
   const path = usePathname();
-  // const Orders = React.lazy(() => import("./components/Orders/Orders"));
 
   return (
     <div className="col-span-8 rounded-lg border px-2 py-5 md:col-span-6">
       {path === "/profile" && <Root session={session} orders={orders} />}
-      {path === "/profile/personal-info" && (
-        <Personal_info session={session} address={address} />
+      {path === "/profile/user-info" && (
+        <User_info session={session} address={address} />
       )}
       {path === "/profile/addresses" && (
         <Addresses user={session} address={address} />

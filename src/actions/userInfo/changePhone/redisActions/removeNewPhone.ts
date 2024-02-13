@@ -2,15 +2,15 @@
 
 import { z } from "zod";
 import { IResponse } from "@/types_validation/type";
-import { phoneSchame } from "@/types_validation/validation";
+import { PhoneSchame } from "@/types_validation/validation";
 import { env } from "@/types_validation/env";
 import { Redis } from "ioredis";
 
 export const expireOtp: (
-  phone: z.infer<typeof phoneSchame>,
+  phone: z.infer<typeof PhoneSchame>,
 ) => Promise<IResponse> = async (phone) => {
   try {
-    const isKeyValid = phoneSchame.safeParse(phone);
+    const isKeyValid = PhoneSchame.safeParse(phone);
 
     if (!isKeyValid.success) {
       throw new Error(isKeyValid.error.message);

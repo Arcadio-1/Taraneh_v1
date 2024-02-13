@@ -3,7 +3,7 @@
 import { z } from "zod";
 import {
   OtpNumberScheme,
-  phoneSchame,
+  PhoneSchame,
 } from "../../types_validation/validation";
 import { checkUser } from "../util/checkUser";
 import { IResponse, Sign } from "@/types_validation/type";
@@ -11,12 +11,12 @@ import { prisma } from "../../lib/db/prisma";
 import { getOtp } from "../OTP/redisActions/getOtp";
 
 const signupValidatorScheme = z.object({
-  phone: phoneSchame,
+  phone: PhoneSchame,
   otpNumber: OtpNumberScheme,
 });
 
 export const userSignup: (
-  phone: z.infer<typeof phoneSchame>,
+  phone: z.infer<typeof PhoneSchame>,
   otpNumber: z.infer<typeof OtpNumberScheme>,
 ) => Promise<IResponse> = async (phone, otpNumber) => {
   try {

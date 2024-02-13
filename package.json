@@ -80,8 +80,10 @@
     "sass": "^1.64.2",
     "styled-jsx": "^5.1.2",
     "swiper": "^11.0.5",
+    "swr": "^2.2.4",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.6",
+    "tozod": "^3.0.0",
     "typescript": "5.1.6",
     "zod": "^3.22.2"
   },

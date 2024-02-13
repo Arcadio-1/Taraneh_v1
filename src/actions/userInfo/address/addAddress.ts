@@ -1,30 +1,19 @@
 "use server";
 
-import { City, UserAddress } from "@prisma/client";
-import { prisma } from "../../lib/db/prisma";
-import { AddressSchame } from "../../types_validation/validation";
+import { prisma } from "../../../lib/db/prisma";
+import { FullAddressSchame } from "../../../types_validation/validation";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
-import { convert_to_en_number } from "../../util_functions/translateNumbers";
+import { convert_to_en_number } from "../../../util_functions/translateNumbers";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../lib/auth/authOptions";
+import { authOptions } from "../../../lib/auth/authOptions";
+import { IResponse } from "@/types_validation/type";
 
-export async function getAddress(userId: string): Promise<UserAddress | null> {
-  const address = await prisma.userAddress.findFirst({
-    where: { user_id: userId },
-  });
-  return address ? address : null;
-}
-interface Status {
-  status: string;
-  titile: string;
-  message: any;
-}
-export async function setAddress(
-  address_data: z.infer<typeof AddressSchame>,
-): Promise<Status> {
+export async function addAddress(
+  address_data: z.infer<typeof FullAddressSchame>,
+): Promise<IResponse> {
   try {
-    const isAddressValid = AddressSchame.safeParse(address_data);
+    const isAddressValid = FullAddressSchame.safeParse(address_data);
     if (!isAddressValid.success) {
       throw new Error("آدرس وارد شده صحیح نیست");
     }
@@ -33,7 +22,7 @@ export async function setAddress(
       throw new Error("لطفا مجددا به حساب کاربری خود وارد شوید");
     }
     const { id: user_id } = session.user;
-    const prismaAddresData: z.infer<typeof AddressSchame> = {
+    const prismaAddresData: z.infer<typeof FullAddressSchame> = {
       address: address_data.address,
       city_id: address_data.city_id,
       state_id: address_data.state_id,
@@ -49,29 +38,24 @@ export async function setAddress(
       throw new Error("خطا در ثبت آدرس");
     }
     revalidatePath(`/profile/addresses`);
+    revalidatePath(`/profile/user-info`);
     return {
-      status: "success",
-      titile: "ثبت شد.",
+      status: "Success",
+      ok: true,
       message: "آدرس شما با موفقیت ثبت شد",
     };
   } catch (error) {
     if (error instanceof Error) {
       return {
-        status: "error",
-        titile: "بروز خطا",
+        status: "Error",
+        ok: false,
         message: error.message,
       };
     }
     return {
-      status: "error",
-      titile: "بروز خطا",
+      status: "Error",
+      ok: false,
       message: "خطا در ثبت اطلاعات آدرس",
     };
   }
 }
-
-export const getCities = async function (state_id: string): Promise<City[]> {
-  const cities = await prisma.city.findMany({ where: { state_id: state_id } });
-
-  return cities;
-};

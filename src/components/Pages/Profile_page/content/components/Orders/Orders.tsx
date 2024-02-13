@@ -1,13 +1,15 @@
-import { Order, OrderStatus } from "@prisma/client";
-import React, { Suspense, useEffect, useState } from "react";
+"use client";
+import useSWR from "swr";
+import { OrderStatus } from "@prisma/client";
+import React, { Suspense } from "react";
 import { Tabs, TabsContent } from "@/components/Util/shadcn/ui/tabs";
 import OrderTabs from "./components/OrderTabs";
 import EmptyOrder from "./components/EmptyOrder";
-import { getOrders } from "@/actions/ordering/cart/manageOrders";
 import { Session } from "next-auth";
 import CartItemSkeleton from "./components/orderItem/components/CartItemSkeleton";
 import ArrowLongIcon, { Arrow } from "@/components/Util/ui/icons/ArrowLongIcon";
 import Link from "next/link";
+import { getOrders } from "@/actions/ordering/order/getOrders";
 
 interface Props {
   // orders: Order[] | null;
@@ -21,24 +23,10 @@ export interface TabListInterface {
 }
 
 const Orders = ({ user }: Props) => {
-  const [orders, setOrders] = useState<Order[] | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { data, isLoading, error } = useSWR("getOrders", getOrders);
   const OrderItem = React.lazy(
     () => import("./components/orderItem/OrderItem"),
   );
-
-  useEffect(() => {
-    const geter = async () => {
-      const orderr = await getOrders();
-      setLoading(false);
-      if (orderr) {
-        setOrders((prev) => {
-          return (prev = orderr);
-        });
-      }
-    };
-    geter();
-  }, [user.user]);
 
   return (
     <div>
@@ -59,7 +47,7 @@ const Orders = ({ user }: Props) => {
           defaultValue={OrderStatus.IN_PROCESS}
           dir="rtl"
         >
-          <OrderTabs orders={orders} />
+          <OrderTabs orders={data} loading={isLoading} />
           <TabsContent
             className="mx-6 mt-4"
             key={OrderStatus.IN_PROCESS}
@@ -68,9 +56,9 @@ const Orders = ({ user }: Props) => {
             {
               <div className="flex flex-col gap-4">
                 <Suspense fallback={<CartItemSkeleton />}>
-                  {orders?.length ? (
+                  {data?.ok && data.orders.length > 0 ? (
                     <>
-                      {orders?.map((order) => {
+                      {data.orders.map((order) => {
                         if (
                           order.status === OrderStatus.IN_PROCESS ||
                           order.status === OrderStatus.ON_DELIVERY ||
@@ -80,13 +68,12 @@ const Orders = ({ user }: Props) => {
                       })}
                     </>
                   ) : (
-                    <>{!loading && <EmptyOrder />}</>
+                    <>{!isLoading && <EmptyOrder />}</>
                   )}
                 </Suspense>
               </div>
             }
           </TabsContent>
-
           <TabsContent
             className="mx-6 mt-4"
             key={OrderStatus.DELIVERED}
@@ -95,15 +82,15 @@ const Orders = ({ user }: Props) => {
             {
               <div className="flex flex-col gap-4">
                 <Suspense fallback={<CartItemSkeleton />}>
-                  {orders?.length ? (
+                  {data?.ok && data.orders.length > 0 ? (
                     <>
-                      {orders?.map((order) => {
+                      {data.orders?.map((order) => {
                         if (order.status === OrderStatus.DELIVERED)
                           return <OrderItem key={order.id} order={order} />;
                       })}
                     </>
                   ) : (
-                    <>{!loading && <EmptyOrder />}</>
+                    <>{!isLoading && <EmptyOrder />}</>
                   )}
                 </Suspense>
               </div>
@@ -117,15 +104,15 @@ const Orders = ({ user }: Props) => {
             {
               <div className="flex flex-col gap-4">
                 <Suspense fallback={<CartItemSkeleton />}>
-                  {orders?.length ? (
+                  {data?.ok && data.orders.length > 0 ? (
                     <>
-                      {orders?.map((order) => {
+                      {data.orders?.map((order) => {
                         if (order.status === OrderStatus.CANCELED)
                           return <OrderItem key={order.id} order={order} />;
                       })}
                     </>
                   ) : (
-                    <>{!loading && <EmptyOrder />}</>
+                    <>{!isLoading && <EmptyOrder />}</>
                   )}
                 </Suspense>
               </div>
@@ -139,15 +126,15 @@ const Orders = ({ user }: Props) => {
             {
               <div className="flex flex-col gap-4">
                 <Suspense fallback={<CartItemSkeleton />}>
-                  {orders?.length ? (
+                  {data?.ok && data.orders.length > 0 ? (
                     <>
-                      {orders?.map((order) => {
+                      {data.orders?.map((order) => {
                         if (order.status === OrderStatus.REJECTED)
                           return <OrderItem key={order.id} order={order} />;
                       })}
                     </>
                   ) : (
-                    <>{!loading && <EmptyOrder />}</>
+                    <>{!isLoading && <EmptyOrder />}</>
                   )}
                 </Suspense>
               </div>

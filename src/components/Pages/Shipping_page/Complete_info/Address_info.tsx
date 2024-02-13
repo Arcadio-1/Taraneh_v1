@@ -8,27 +8,27 @@ import {
   FormMessage,
 } from "@/components/Util/shadcn/ui/form";
 import { Input } from "@/components/Util/shadcn/ui/input";
-import { getCities, setAddress } from "@/actions/address/manageAddress";
-import {
-  AddressSchame,
-  personalInfoFormSchame,
-} from "@/types_validation/validation";
+import { addAddress } from "@/actions/userInfo/address/addAddress";
+import { FullAddressSchame } from "@/types_validation/validation";
 import { Address_Full } from "@/types_validation/type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Autocomplete, Divider, TextField } from "@mui/material";
 import { City } from "@prisma/client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { states } from "@/constants/states";
-import { StateAndCityInterface } from "../../Profile_page/content/components/Personal_info/components/Address";
+import { StateAndCityInterface } from "../../Profile_page/content/components/User_info/components/Address";
+import { getCities } from "@/actions/util/getCities";
+import { toast } from "@/hook/use-toast";
+import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 
 interface Props {
-  userId: string;
   address: Address_Full | null;
 }
 
-const Address_info = ({ userId, address }: Props) => {
+const Address_info = ({ address }: Props) => {
+  const [isPending, startTransition] = useTransition();
   const [cities, setCities] = useState<StateAndCityInterface[] | null>();
 
   const [stateValue, setStateValue] = useState<StateAndCityInterface | null>();
@@ -52,8 +52,8 @@ const Address_info = ({ userId, address }: Props) => {
     }
   }, [address]);
 
-  const address_form = useForm<z.infer<typeof AddressSchame>>({
-    resolver: zodResolver(AddressSchame),
+  const address_form = useForm<z.infer<typeof FullAddressSchame>>({
+    resolver: zodResolver(FullAddressSchame),
     defaultValues: {
       state_id: address?.state_id || "",
       city_id: address?.city_id || "",
@@ -65,31 +65,54 @@ const Address_info = ({ userId, address }: Props) => {
 
   useEffect(() => {
     const cityGeter = async () => {
-      if (stateValue?.value) {
-        const fetchCities = await getCities(stateValue.value);
-        const formatedCities = fetchCities.map(
-          (city: City): StateAndCityInterface => {
-            return {
-              key: city.id,
-              label: city.city_name,
-              value: city.id,
-            };
-          },
-        );
-        setCities((prev) => {
-          return (prev = formatedCities);
+      const fetchCities = await getCities(stateValue!.value);
+      if (!fetchCities.ok) {
+        toast({
+          duration: 2500,
+          title: fetchCities.message,
+          className: "bg-error text-light_1 text-xl",
         });
+        return;
       }
-    };
+      const formatedCities = fetchCities.cities.map(
+        (city: City): StateAndCityInterface => {
+          return {
+            key: city.id,
+            label: city.city_name,
+            value: city.id,
+          };
+        },
+      );
 
-    cityGeter();
+      setCities((prev) => {
+        return (prev = formatedCities);
+      });
+    };
+    if (stateValue?.value) {
+      cityGeter();
+    }
   }, [stateValue]);
 
-  const onSubmit = async (values: z.infer<typeof AddressSchame>) => {
-    const isValid = AddressSchame.parse(values);
-    const res = await setAddress(values);
-    if (res.status === "success") {
-      location.reload();
+  const onSubmit = async (values: z.infer<typeof FullAddressSchame>) => {
+    const isValid = FullAddressSchame.safeParse(values);
+    if (isValid.success) {
+      startTransition(async () => {
+        const res = await addAddress(values);
+        if (res.status === "Success") {
+          toast({
+            duration: 2500,
+            title: res.message,
+            className: "bg-success text-light_1 text-xl",
+          });
+          return;
+        } else {
+          toast({
+            duration: 2500,
+            title: res.message,
+            className: "bg-g1_5 text-light_1 text-xl",
+          });
+        }
+      });
     }
   };
 
@@ -130,10 +153,10 @@ const Address_info = ({ userId, address }: Props) => {
                         setCities(null);
                         setCityValue(null);
                         setCityInputValue("");
+                        address_form.setValue("city_id", "");
                         if (newValue?.value) {
                           address_form.setValue("state_id", newValue.value);
                         } else {
-                          address_form.setValue("city_id", "");
                           address_form.setValue("state_id", "");
                         }
                         setStateValue(newValue);
@@ -199,68 +222,73 @@ const Address_info = ({ userId, address }: Props) => {
                         </span>
                       )}
                     </div>
-                    <FormControl>
-                      <Autocomplete
-                        {...field}
-                        disabled={!!!cities}
-                        disablePortal
-                        id="city-item"
-                        value={cityValue || null}
-                        onChange={(
-                          event: any,
-                          newValue: StateAndCityInterface | null,
-                        ) => {
-                          if (newValue?.value) {
-                            address_form.setValue("city_id", newValue.value);
-                          } else {
-                            address_form.setValue("city_id", "");
-                          }
-                          setCityValue(newValue);
-                        }}
-                        inputMode="text"
-                        inputValue={cityInputValue}
-                        onInputChange={(event, newInputValue) => {
-                          setCityInputValue(newInputValue);
-                        }}
-                        options={cities || []}
-                        sx={{
-                          width: "100%",
-                          maxWidth: "25rem",
-                          height: 40,
-                          "& .MuiOutlinedInput-root": {
-                            padding: "0px 2px  !important",
-                          },
-                          "& .MuiAutocomplete-endAdornment": {
-                            display: "flex",
-                            right: "80%  !important",
-                            top: "calc(50% - 10px)",
-                          },
-                          "& .MuiAutocomplete-input": {
-                            fontFamily: "iranyekan_bold",
-                            height: "10px",
-                          },
-                        }}
-                        renderOption={(props, option) => {
-                          return (
-                            <li
-                              {...props}
-                              key={option.key}
-                              className="cursor-pointer p-3 font-iranyekan_bold selection:bg-red-500 hover:bg-slate-100 focus:bg-slate-100 "
-                            >
-                              {option.label}
-                            </li>
-                          );
-                        }}
-                        renderInput={(params) => (
-                          <TextField
-                            {...field}
-                            className="bg-light_1 "
-                            key={params.id}
-                            {...params}
-                          />
-                        )}
-                      />
-                    </FormControl>
+                    <div className="flex items-center gap-2">
+                      <FormControl>
+                        <Autocomplete
+                          {...field}
+                          disabled={!!!cities}
+                          disablePortal
+                          id="city-item"
+                          value={cityValue || null}
+                          onChange={(
+                            event: any,
+                            newValue: StateAndCityInterface | null,
+                          ) => {
+                            if (newValue?.value) {
+                              address_form.setValue("city_id", newValue.value);
+                            } else {
+                              address_form.setValue("city_id", "");
+                            }
+                            setCityValue(newValue);
+                          }}
+                          inputMode="text"
+                          inputValue={cityInputValue}
+                          onInputChange={(event, newInputValue) => {
+                            setCityInputValue(newInputValue);
+                          }}
+                          options={cities || []}
+                          sx={{
+                            width: "100%",
+                            maxWidth: "25rem",
+                            height: 40,
+                            "& .MuiOutlinedInput-root": {
+                              padding: "0px 2px  !important",
+                            },
+                            "& .MuiAutocomplete-endAdornment": {
+                              display: "flex",
+                              right: "80%  !important",
+                              top: "calc(50% - 10px)",
+                            },
+                            "& .MuiAutocomplete-input": {
+                              fontFamily: "iranyekan_bold",
+                              height: "10px",
+                            },
+                          }}
+                          renderOption={(props, option) => {
+                            return (
+                              <li
+                                {...props}
+                                key={option.key}
+                                className="cursor-pointer p-3 font-iranyekan_bold selection:bg-red-500 hover:bg-slate-100 focus:bg-slate-100 "
+                              >
+                                {option.label}
+                              </li>
+                            );
+                          }}
+                          renderInput={(params) => (
+                            <TextField
+                              {...field}
+                              className="bg-light_1 "
+                              key={params.id}
+                              {...params}
+                            />
+                          )}
+                        />
+                      </FormControl>
+                      {!!!cities && (
+                        <SpinnerIcon className="mb-4 h-5 w-5 border-2 border-g1_7 border-r-transparent" />
+                      )}
+                    </div>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -276,7 +304,6 @@ const Address_info = ({ userId, address }: Props) => {
                 <span className="text-lg text-g1_5">*</span>
                 <FormControl>
                   <Input
-                    // defaultValue={"00000000000000"}
                     className="rounded-[4px] border border-gray-400"
                     {...field}
                   />
@@ -323,10 +350,12 @@ const Address_info = ({ userId, address }: Props) => {
           </div>
           <div>
             <button
-              className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
+              disabled={isPending}
+              className="flex items-center justify-center gap-2 rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
               type="submit"
             >
-              ثبت آدرس
+              ذخیره اطلاعات
+              {isPending && <SpinnerIcon className="h-5 w-5 border-2" />}
             </button>
           </div>
         </form>

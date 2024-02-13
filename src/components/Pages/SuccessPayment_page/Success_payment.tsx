@@ -46,7 +46,7 @@ const Success_payment = ({ tracking_code, payment_method }: Props) => {
             ویرایش و پیگیری سفارش
           </Link>
           <Link href={"/"} className="text-md rounded-lg px-3 py-3 text-g1_5">
-            بازگشت به کافه ترانه
+            بازگشت به صفحه اصلی
           </Link>
         </div>
       </div>

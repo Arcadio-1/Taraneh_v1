@@ -8,7 +8,6 @@ import Personal_info from "./icons/Personal_info_icon";
 import { LogOutIcon } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { Role } from "@prisma/client";
-import { Session } from "next-auth";
 import ArrowIcon, { Arrow } from "@/components/Util/ui/icons/ArrowIcon";
 
 interface LinkType {
@@ -50,7 +49,7 @@ const Navigation = ({ root = false }: Props) => {
       id: "4",
       title: "اطلاعات حساب کاربری",
       role: Role.USER,
-      link: "/profile/personal-info",
+      link: "/profile/user-info",
       icon: <Personal_info className="h-8 w-8 fill-gray-600" />,
     },
   ];

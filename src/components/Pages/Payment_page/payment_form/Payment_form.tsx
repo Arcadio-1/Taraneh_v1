@@ -3,11 +3,11 @@ import { numberSeperator } from "@/util_functions/price_formt";
 import { Address_Full, OrderType, ShoppingCart } from "@/types_validation/type";
 import React from "react";
 import { OrderCart, OrderStatus, PayMethod } from "@prisma/client";
-import { addOrder } from "@/actions/ordering/cart/manageOrders";
 import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
 import { useGlobalContext } from "@/app/provider/Provider";
 import Divider from "@/components/Util/ui/Divider";
+import { createOrder } from "@/actions/ordering/order/createOrder";
 interface Props {
   cart: ShoppingCart;
   address: Address_Full;
@@ -19,38 +19,30 @@ const Payment_form = ({ paymentMethod, address, cart, session }: Props) => {
   const { postingPrice, deliveryDate } = useGlobalContext();
   const route = useRouter();
   const payHandler = async () => {
-    if (
-      session &&
-      session.user.name &&
-      session.user.family &&
-      deliveryDate &&
-      cart.userId
-    ) {
-      if (paymentMethod !== PayMethod.NOT_PAYED && cart.userId) {
-        const orderr: OrderType = {
-          user_id: session.user.id,
-          payment_status: true,
-          payment_method: paymentMethod,
-          posting_price: postingPrice,
-          user: {
-            id: session.user.id,
-            name: session.user.name,
-            family: session.user.family,
-            code_meli: session.user.code_meli,
-            email: session.user.email,
-            image: session.user.image,
-            phone: session.user.phone,
-          },
-          cart: cart as OrderCart,
-          final_price: cart.subTotalWithDiscount + postingPrice,
-          address: address,
-          selectedDate: deliveryDate,
-          status: OrderStatus.NOT_CONFIRMED,
-        };
-        const orderAdder = await addOrder(orderr);
-        if (orderAdder) {
-          route.push(`/successPayment?tracking_code=${orderAdder.id}`);
-        }
+    if (paymentMethod !== PayMethod.NOT_PAYED) {
+      const orderData: OrderType = {
+        user_id: session.user.id,
+        payment_status: true,
+        payment_method: paymentMethod,
+        posting_price: postingPrice,
+        user: {
+          id: session.user.id,
+          name: session.user.name,
+          family: session.user.family,
+          code_meli: session.user.code_meli,
+          email: session.user.email,
+          image: session.user.image,
+          phone: session.user.phone,
+        },
+        cart: cart as OrderCart,
+        final_price: cart.subTotalWithDiscount + postingPrice,
+        address: address,
+        selectedDate: deliveryDate!,
+        status: OrderStatus.NOT_CONFIRMED,
+      };
+      const orderAdder = await createOrder(orderData);
+      if (orderAdder.ok) {
+        route.push(`/successPayment?tracking_code=${orderAdder.orderId}`);
       }
     }
   };

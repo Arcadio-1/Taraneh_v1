@@ -7,35 +7,32 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
 import { authOptions } from "@/lib/auth/authOptions";
-import { Address_Full } from "@/types_validation/type";
-import { prisma } from "@/lib/db/prisma";
+import { getAddress } from "@/actions/userInfo/address/getAddress";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
   if (!session) {
     redirect("/users/login?callback=/shipping");
   }
-  const address: Address_Full | null = await prisma.userAddress.findFirst({
-    where: { user_id: session.user.id },
-    include: { state: true, city: true },
-  });
+  const address = await getAddress();
 
-  if (!address) {
+  if (address.status !== "Success") {
     redirect("/checkout");
   }
 
   const cart = await getCart();
-  if (!cart.ok) {
-    redirect("/checkout");
-  }
-  if (cart.status === "NotFound") {
+  if (!cart.ok || cart.status === "NotFound") {
     redirect("/checkout");
   }
 
   return (
     <div className="mx-auto mt-6 flex max-w-[1024px] flex-col gap-2 px-4">
       <Checkout_header stage={Stage.payment} />
-      <Payment cart={cart.shoppingCart} address={address} session={session} />
+      <Payment
+        cart={cart.shoppingCart}
+        address={address.address}
+        session={session}
+      />
     </div>
   );
 };

@@ -21,7 +21,7 @@ import {
 import { Input } from "@/components/Util/shadcn/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Divider from "@/components/Util/ui/Divider";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { comparePasswordWithCurrentPasswordScham } from "@/types_validation/validation";
 import { z } from "zod";
@@ -29,7 +29,8 @@ import { toast } from "@/hook/use-toast";
 import ShowIcon from "@/components/Util/ui/icons/ShowIcon";
 import HideIcon from "@/components/Util/ui/icons/HideIcon";
 import PasswordPower from "./PasswordPower";
-import changePasswordWithCurrentPassword from "@/actions/password/changePasswordWithCurrentPassword";
+import changePasswordWithCurrentPassword from "@/actions/userInfo/password/changePasswordWithCurrentPassword";
+import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 
 interface Props {
   phone: string;
@@ -39,6 +40,7 @@ interface Props {
 const ChangePassword = ({ phone }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const [submitError, setSubmitError] = useState<string>("");
 
   const form = useForm<z.infer<typeof comparePasswordWithCurrentPasswordScham>>(
@@ -55,21 +57,23 @@ const ChangePassword = ({ phone }: Props) => {
   const onSubmitChangeWithCurrentPassword = async (
     values: z.infer<typeof comparePasswordWithCurrentPasswordScham>,
   ) => {
-    const changePassword = await changePasswordWithCurrentPassword(values);
+    startTransition(async () => {
+      const changePassword = await changePasswordWithCurrentPassword(values);
 
-    if (!changePassword.ok) {
+      if (!changePassword.ok) {
+        toast({
+          duration: 5000,
+          title: changePassword.message,
+          className: "bg-error text-light_1 text-xl",
+        });
+        return;
+      }
+      setOpen(false);
       toast({
-        duration: 5000,
+        duration: 2500,
         title: changePassword.message,
-        className: "bg-error text-light_1 text-xl",
+        className: "bg-success text-light_1 text-xl",
       });
-      return;
-    }
-    setOpen(false);
-    toast({
-      duration: 2500,
-      title: changePassword.message,
-      className: "bg-success text-light_1 text-xl",
     });
   };
 
@@ -217,10 +221,11 @@ const ChangePassword = ({ phone }: Props) => {
             />
             <DialogFooter className="items-end">
               <button
-                className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
+                className="flex items-center justify-center rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
                 type="submit"
               >
                 ثبت کلمه عبور
+                {isPending && <SpinnerIcon className="h-5 w-5 border-2" />}
               </button>
             </DialogFooter>
           </form>

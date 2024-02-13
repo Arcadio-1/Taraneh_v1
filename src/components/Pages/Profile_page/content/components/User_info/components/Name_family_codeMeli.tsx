@@ -18,23 +18,27 @@ import {
 } from "@/components/Util/shadcn/ui/form";
 import { Input } from "@/components/Util/shadcn/ui/input";
 import { convert_to_en_number } from "@/util_functions/translateNumbers";
-import { personalInfoFormSchame } from "@/types_validation/validation";
+import { PersonalInfoSchame } from "@/types_validation/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Divider from "@/components/Util/ui/Divider";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { toast } from "@/hook/use-toast";
+import { addPersonalInfo } from "@/actions/userInfo/personalInfo/addPersonalInfo";
+import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 
 interface Props {
-  userId: string;
   name: string;
   family: string;
   code_meli: string;
 }
 
-const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
+const Name_family_codeMeli = ({ code_meli, family, name }: Props) => {
   const [mount, setMount] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setMount(true);
@@ -42,8 +46,8 @@ const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
 
   const { update } = useSession();
 
-  const form = useForm<z.infer<typeof personalInfoFormSchame>>({
-    resolver: zodResolver(personalInfoFormSchame),
+  const form = useForm<z.infer<typeof PersonalInfoSchame>>({
+    resolver: zodResolver(PersonalInfoSchame),
     defaultValues: {
       name: name,
       family: family,
@@ -52,27 +56,60 @@ const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
   });
 
   const onSubmit = async (
-    values: z.infer<typeof personalInfoFormSchame>,
+    values: z.infer<typeof PersonalInfoSchame>,
   ): Promise<void> => {
-    const personal_info: z.infer<typeof personalInfoFormSchame> = {
+    console.log("run");
+    const personal_info: z.infer<typeof PersonalInfoSchame> = {
       name: values.name,
       family: values.family,
       code_meli: convert_to_en_number(values.code_meli),
     };
-    const res = update({
-      feild: "personal_info",
-      data: { ...personal_info },
-    });
-    const res2 = await res;
-    if (res2) {
-      location.reload();
+    const isValid = PersonalInfoSchame.safeParse(personal_info);
+    if (!isValid.success) {
+      toast({
+        duration: 2500,
+        title: isValid.error.message,
+        className: "bg-g1_5 text-light_1 text-xl",
+      });
+      return;
     }
+    startTransition(async () => {
+      const request = await addPersonalInfo(personal_info);
+      if (!request.ok) {
+        toast({
+          duration: 2500,
+          title: request.message,
+          className: "bg-g1_5 text-light_1 text-xl",
+        });
+      } else {
+        const updateSession = await update({
+          feild: "personal_info",
+        });
+        setOpen(false);
+        if (!updateSession) {
+          toast({
+            duration: 2500,
+            title: "لطفا مجددا به حساب کاربری خود وارد شوید",
+            className: "bg-error text-light_1 text-xl",
+          });
+        } else {
+          toast({
+            duration: 2500,
+            title: request.message,
+            className: "bg-success text-light_1 text-xl",
+          });
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+        }
+      }
+    });
   };
   if (!mount) {
     <></>;
   }
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <svg viewBox="0 0 24 24" className="h-6 w-6 cursor-pointer">
           <path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z" />
@@ -148,10 +185,12 @@ const Name_family_codeMeli = ({ userId, code_meli, family, name }: Props) => {
             />
             <DialogFooter>
               <button
-                className="rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
+                disabled={isPending}
+                className="flex items-center justify-center gap-2 rounded-lg bg-g1_5 px-6 py-2 font-iranyekan_bold text-lg text-light_1 hover:scale-[1.01]"
                 type="submit"
               >
                 ذخیره اطلاعات
+                {isPending && <SpinnerIcon className="h-5 w-5 border-2" />}
               </button>
             </DialogFooter>
           </form>

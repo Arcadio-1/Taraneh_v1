@@ -22,7 +22,7 @@ import { Input } from "@/components/Util/shadcn/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Divider from "@/components/Util/ui/Divider";
 import { signOut, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import {
   comparePasswordWithOtpScham,
@@ -33,7 +33,7 @@ import { toast } from "@/hook/use-toast";
 import OTPInput from "react-otp-input";
 import ShowIcon from "@/components/Util/ui/icons/ShowIcon";
 import HideIcon from "@/components/Util/ui/icons/HideIcon";
-import addPassword from "@/actions/password/addPassword";
+import addPassword from "@/actions/userInfo/password/addPassword";
 import SpinnerIcon from "@/components/Util/ui/icons/SpinnerIcon";
 import PasswordPower from "./PasswordPower";
 import OtpButton from "@/components/Util/components/OptControl/OtpButton";
@@ -46,6 +46,7 @@ interface Props {
 
 const AddPassword = ({ phone, hasPassword }: Props) => {
   const [otp, setOtp] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
   const [submitError, setSubmitError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -82,8 +83,7 @@ const AddPassword = ({ phone, hasPassword }: Props) => {
     }
     if (!hasPassword) {
       const res = await update({
-        feild: "addPasswordAndChangeWithOth",
-        data: { password: values.password },
+        feild: "addPasswordAndChangeWithOtp",
       });
       if (!res || !res.user.password) {
         toast({
@@ -92,17 +92,18 @@ const AddPassword = ({ phone, hasPassword }: Props) => {
           className: "bg-error text-light_1 text-xl",
         });
         setLoading(false);
-        signOut({ callbackUrl: "/profile/personal-info" });
+        signOut({ callbackUrl: "/profile/user-info" });
         return;
       }
     }
-    setLoading(false);
-    setOpen(false);
     toast({
       duration: 2500,
       title: request.message,
       className: "bg-success text-light_1 text-xl",
     });
+    setLoading(false);
+    setOpen(false);
+
     setTimeout(() => {
       location.reload();
     }, 2000);

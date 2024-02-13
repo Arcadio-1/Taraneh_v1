@@ -1,10 +1,9 @@
 import { authOptions } from "@/lib/auth/authOptions";
 import Order from "@/components/Pages/Profile_page/Order_section/Order";
-import Aside from "@/components/Pages/Profile_page/side_navaigation/Aside";
-import { prisma } from "@/lib/db/prisma";
 import { getServerSession } from "next-auth";
 import { notFound, redirect } from "next/navigation";
 import React from "react";
+import { getOrder } from "@/actions/ordering/order/getOrder";
 
 interface Props {
   params: {
@@ -17,20 +16,13 @@ const page = async ({ params: { order_id } }: Props) => {
   if (!session) {
     redirect("/users/login?callback=/profile");
   }
+  const order = await getOrder(order_id);
 
-  const order = async () => {
-    try {
-      const ord = await prisma.order.findUnique({ where: { id: order_id } });
-      if (!ord) {
-        return notFound();
-      }
-      return ord;
-    } catch (error) {
-      return notFound();
-    }
-  };
+  if (!order.ok) {
+    return notFound();
+  }
 
-  return <Order order={await order()} />;
+  return <Order order={order.order} />;
 };
 
 export default page;

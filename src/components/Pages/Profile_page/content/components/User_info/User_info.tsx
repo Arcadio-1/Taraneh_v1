@@ -17,7 +17,8 @@ interface Props {
   session: Session;
 }
 
-const Personal_info = ({ session, address }: Props) => {
+const User_info = ({ session, address }: Props) => {
+  const { name, family, code_meli, id, password, phone, email } = session.user;
   return (
     <div>
       <div className="mb-5 flex items-center justify-start gap-2">
@@ -35,16 +36,16 @@ const Personal_info = ({ session, address }: Props) => {
         <div className="flex justify-between rounded-lg bg-dark_6 bg-opacity-5 px-4 py-2">
           <div className="flex flex-col gap-2">
             <p className="text-md text-dark_4">نام و نام خانوادگی</p>
-            {!!session.user.name && !!session.user.family && (
+            {!!name && !!family && (
               <div>
                 <p className="text xl pr-2 font-iranyekan_bold text-dark_2">
-                  <span>{session.user.name}</span>
+                  <span>{name}</span>
                   <span> </span>
-                  <span>{session.user.family}</span>
+                  <span>{family}</span>
                 </p>
               </div>
             )}
-            {(!session.user.name || !session.user.family) && (
+            {(!name || !family) && (
               <div>
                 <p className="text-red-600">تکمیل مشخصات!</p>
               </div>
@@ -52,80 +53,71 @@ const Personal_info = ({ session, address }: Props) => {
           </div>
           <div>
             <Name_family_codeMeli
-              name={session.user.name}
-              family={session.user.family}
-              code_meli={session.user.code_meli}
-              userId={session.user.id}
+              name={name}
+              family={family}
+              code_meli={code_meli}
             />
           </div>
         </div>
         <div className="flex justify-between rounded-lg bg-dark_6 bg-opacity-5 px-4 py-2">
           <div className="flex flex-col gap-2">
             <p className="text-md text-dark_4"> شماره موبایل </p>
-            {!!session.user.phone && (
+            {!!phone && (
               <div>
                 <p className="pr-2 font-iransansnum font-bold text-dark_2 ">
-                  <span>{session.user.phone}</span>
+                  <span>{phone}</span>
                 </p>
               </div>
             )}
-            {!session.user.phone && (
+            {!phone && (
               <div>
                 <p className="text-red-600">تکمیل مشخصات!</p>
               </div>
             )}
           </div>
           <div>
-            <Phone phone={session.user.phone} />
+            <Phone phone={phone} />
           </div>
         </div>
         <div className="flex justify-between rounded-lg bg-dark_6 bg-opacity-5 px-4 py-2">
           <div className="flex flex-col gap-2">
             <p className="text-md text-dark_4">ایمیل</p>
-            {!!session.user.email && (
+            {!!email && (
               <div>
                 <p className="pr-2 font-iransansnum font-bold text-dark_2 ">
-                  <span>{session.user.email}</span>
+                  <span>{email}</span>
                 </p>
               </div>
             )}
-            {!session.user.email && (
+            {!email && (
               <div>
                 <p className="text-red-600">تکمیل مشخصات!</p>
               </div>
             )}
           </div>
           <div>
-            <Email userId={session.user.id} email={session.user.email} />
+            <Email email={email} />
           </div>
         </div>
         <div className="flex justify-between rounded-lg bg-dark_6 bg-opacity-5 px-4 py-2">
           <div className="flex flex-col gap-2">
             <p className="text-md text-dark_4">رمز عبور</p>
-            {!!session.user.password && (
+            {!!password && (
               <div>
                 <p className="pr-2 font-iransansnum text-dark_2 ">
                   <span> ••••••••••• </span>
                 </p>
               </div>
             )}
-            {!session.user.password && (
+            {!password && (
               <div>
                 <p className="text-red-600">تکمیل مشخصات!</p>
               </div>
             )}
           </div>
           <div className="flex flex-col gap-2">
-            {session.user.password && (
-              <ChangePassword
-                userId={session.user.id}
-                phone={session.user.phone}
-              />
-            )}
-            <AddPassword
-              hasPassword={session.user.password}
-              phone={session.user.phone}
-            />
+            {password && <ChangePassword userId={id} phone={phone} />}
+            <AddPassword hasPassword={password} phone={phone} />
           </div>
         </div>
         <div className="flex justify-between rounded-lg bg-dark_6 bg-opacity-5 px-4 py-2">
@@ -156,7 +148,7 @@ const Personal_info = ({ session, address }: Props) => {
             )}
           </div>
           <div>
-            <Address userId={session.user.id} address={address} />
+            <Address address={address} />
           </div>
         </div>
       </div>
@@ -164,4 +156,4 @@ const Personal_info = ({ session, address }: Props) => {
   );
 };
 
-export default Personal_info;
+export default User_info;

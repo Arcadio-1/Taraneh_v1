@@ -6,10 +6,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/types_validation/env";
 import { PrismaClient } from "@prisma/client";
 import {
-  emailSchame,
-  passwordScham,
-  personalInfoFormSchame,
-  phoneSchame,
+  emailFormSchame,
+  PasswordScham,
+  PersonalInfoSchame,
+  PhoneSchame,
 } from "@/types_validation/validation";
 import { mergeCartsItems } from "@/actions/ordering/cart_item/mergeCartsItems";
 import { z } from "zod";
@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
           if (!credentials) {
             throw new Error("مشخصات ورود را وارد کنید");
           }
-          const phone = phoneSchame.safeParse(credentials.phone);
+          const phone = PhoneSchame.safeParse(credentials.phone);
           if (!phone.success) {
             throw new Error("مشخصات وارد شده صحیح نیست");
           }
@@ -51,7 +51,6 @@ export const authOptions: NextAuthOptions = {
           }
           if (credentials.method === "otp") {
             const orgOtp = await getOtp(credentials.phone);
-            // const quiter = await redis.quit();
             if (!orgOtp.ok) {
               throw new Error(orgOtp.message);
             }
@@ -69,17 +68,17 @@ export const authOptions: NextAuthOptions = {
             if (!credentials.password) {
               throw new Error("کلمه عبور را وارد کنید");
             }
-            const enteredPasswordIsSafe = passwordScham.safeParse(
+            const enteredPasswordIsSafe = PasswordScham.safeParse(
               credentials.password,
             );
             if (!enteredPasswordIsSafe.success) {
               throw new Error("کلمه عبور وارد شده صحیح نیست");
             }
             if (!user.password) {
-              throw new Error("1 از طریق رمز یکبار مصرف وارد شوید");
+              throw new Error(" از طریق رمز یکبار مصرف وارد شوید");
             }
             if (user.password.length < 50) {
-              throw new Error("3 از طریق رمز یکبار مصرف وارد شوید");
+              throw new Error(" از طریق رمز یکبار مصرف وارد شوید");
             }
             if (credentials.method === "password") {
               const isValid = await varifiyPassword(
@@ -91,7 +90,7 @@ export const authOptions: NextAuthOptions = {
               }
             }
           }
-          const remover = await expireOtp(credentials.phone);
+          await expireOtp(credentials.phone);
           return user;
         } catch (error) {
           if (error instanceof Error) {
@@ -112,11 +111,11 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user, session, trigger }) {
       if (trigger === "update") {
         const currentSession = await getServerSession(authOptions);
-        if (!currentSession || !currentSession?.user.id) {
-          throw new Error("your not logged in");
+        if (!currentSession) {
+          throw new Error("you should login");
         }
         const {
-          user: { id: userId, phone },
+          user: { id: userId },
         } = currentSession;
 
         const currentUser = await prisma.user.findUnique({
@@ -126,57 +125,14 @@ export const authOptions: NextAuthOptions = {
         if (!currentUser) {
           throw new Error("user not found");
         }
-        if (session.feild === "pone") {
-          // throw new Error("testttttttttttttttttt");
-        }
         if (session.feild === "personal_info") {
-          try {
-            const data = personalInfoFormSchame.safeParse(session.data);
-            if (!data.success) {
-              throw new Error("personal_info is not correct");
-            }
-            const customSession: {
-              data: z.infer<typeof personalInfoFormSchame>;
-            } = session;
-            // customSession
-            token.name = customSession.data.name;
-            token.family = customSession.data.family;
-            token.code_meli = customSession.data.code_meli;
-            await prisma.user.update({
-              where: { id: userId },
-              data: {
-                name: customSession.data.name,
-                family: customSession.data.family,
-                code_meli: customSession.data.code_meli,
-              },
-            });
-          } catch (error) {
-            console.log(error || "somthing went wrong");
-          }
+          token.name = currentUser.name;
+          token.family = currentUser.family;
+          token.code_meli = currentUser.code_meli;
         }
         if (session.feild === "email") {
-          try {
-            const data = emailSchame.safeParse(session.data);
-            if (!data.success) {
-              throw new Error("email is not crrect code:1");
-            }
-            const existenCheck = await prisma.user.findUnique({
-              where: { email: session.data.email },
-            });
-            const customSession: {
-              data: z.infer<typeof emailSchame>;
-            } = session;
-            if (!existenCheck) {
-              token.email = customSession.data.email;
-              await prisma.user.update({
-                where: { id: userId },
-                data: {
-                  email: customSession.data.email,
-                },
-              });
-            }
-          } catch (error) {
-            console.log(error || "email is not corrext code:2");
+          if (currentUser.email) {
+            token.email = currentUser.email;
           }
         }
         if (session.feild === "phone") {
@@ -186,25 +142,11 @@ export const authOptions: NextAuthOptions = {
             if (error instanceof Error) {
               console.log(error.message);
             }
-            console.log("خطا در تغیر شماره کد X");
           }
         }
-        if (session.feild === "addPasswordAndChangeWithOth") {
+        if (session.feild === "addPasswordAndChangeWithOtp") {
           try {
-            const safeDataWithZod = passwordScham.safeParse(
-              session.data.password,
-            );
-            if (!safeDataWithZod.success) {
-              throw new Error("missing data + add Password + code:1");
-            }
-
-            const { data: password } = safeDataWithZod;
-            const isValid = await varifiyPassword(
-              password,
-              currentUser.password,
-            );
-
-            if (!isValid) {
+            if (!currentUser.password) {
               throw new Error("somthing went wrong");
             }
             token.password = true;
@@ -212,7 +154,6 @@ export const authOptions: NextAuthOptions = {
             if (error instanceof Error) {
               console.log(error.message);
             }
-            console.log("what the f*ck is going on");
           }
         }
       }
@@ -248,7 +189,6 @@ export const authOptions: NextAuthOptions = {
           image: token.image,
         },
       };
-      return session;
     },
   },
   events: {

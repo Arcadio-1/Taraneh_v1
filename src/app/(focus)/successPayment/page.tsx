@@ -6,49 +6,46 @@ import { getCart } from "@/actions/ordering/cart/getCart";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db/prisma";
 import { OrderStatus, PayMethod } from "@prisma/client";
-import Smilar_product_slider from "@/components/Pages/Product_page/smilar_products_slider/Smilar_product_slider";
+import { deleteCart } from "@/actions/ordering/cart/deleteCart";
 
 interface Props {
   searchParams: { tracking_code: string };
 }
-
-const page = async ({ searchParams: tracking_code }: Props) => {
-  if (!tracking_code.tracking_code) {
+const page = async ({ searchParams: code }: Props) => {
+  if (!code.tracking_code) {
     redirect("/");
   }
-  const session = await getServerSession(authOptions);
 
+  const session = await getServerSession(authOptions);
   if (!session) {
     redirect("/users/login?callback=/successPayment");
-  }
-  const cart = await getCart();
-  if (!cart.ok || cart.status === "NotFound") {
-    redirect("/");
   }
 
   const order = await prisma.order.findFirst({
     where: {
-      status: OrderStatus.NOT_CONFIRMED,
-      id: tracking_code.tracking_code,
+      id: code.tracking_code,
     },
   });
-  if (!order) {
-    redirect("/");
-  }
+  // if (!order) {
+  //   redirect("/");
+  // }
 
-  if (!order.payment_method && order.payment_method === PayMethod.NOT_PAYED) {
-    redirect("/");
+  // if (!order.payment_method && order.payment_method === PayMethod.NOT_PAYED) {
+  //   redirect("/");
+  // }
+  console.log(order?.status);
+  const cart = await getCart();
+  if (cart.status === "Success") {
+    await deleteCart(cart.shoppingCart.id);
   }
-
-  await prisma.cart.delete({ where: { id: cart.shoppingCart.id } });
 
   return (
-    <div className="flec flex-col items-center justify-center">
+    <div className="grid h-dvh place-content-center">
       <Success_payment
         payment_method={order?.payment_method}
-        tracking_code={tracking_code.tracking_code}
+        tracking_code={code.tracking_code}
       />
-      <Smilar_product_slider title="پیشنهاد ویژه" />
+      {/* <Smilar_product_slider title="پیشنهاد ویژه" /> */}
     </div>
   );
 };

@@ -2,10 +2,10 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth/authOptions";
 import { IResponse } from "@/types_validation/type";
 import { z } from "zod";
-import { phoneSchame } from "@/types_validation/validation";
+import { PhoneSchame } from "@/types_validation/validation";
 
 type IResponseGetUserPhone = IResponse & {
-  phone: z.infer<typeof phoneSchame> | null;
+  phone: z.infer<typeof PhoneSchame> | null;
 };
 
 export const getUserPhone: () => Promise<IResponseGetUserPhone> = async () => {

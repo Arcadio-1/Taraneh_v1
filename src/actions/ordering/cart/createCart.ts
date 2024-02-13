@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 import { prisma } from "../../../lib/db/prisma";
 import setLocalCartId from "./functions/setLocalCartId";
 
-type IresponseCreateCart =
+type TresponseCreateShoppingCart =
   | {
       status: "Success";
       ok: true;
@@ -21,7 +21,7 @@ type IresponseCreateCart =
       shoppingCart: null;
     };
 
-export async function createCart(): Promise<IresponseCreateCart> {
+export async function createCart(): Promise<TresponseCreateShoppingCart> {
   try {
     const session = await getServerSession(authOptions);
     const requestCreateCart = session
@@ -62,7 +62,7 @@ export async function createCart(): Promise<IresponseCreateCart> {
   }
 }
 
-type IResponseCreateCart =
+type TCreateCart =
   | {
       status: "Success";
       ok: true;
@@ -76,7 +76,7 @@ type IResponseCreateCart =
       cart: null;
     };
 
-const createCart_temp = async (): Promise<IResponseCreateCart> => {
+const createCart_temp = async (): Promise<TCreateCart> => {
   try {
     const createCart = await prisma.cart.create({ data: {} });
     if (!createCart) {
@@ -110,9 +110,7 @@ const createCart_temp = async (): Promise<IResponseCreateCart> => {
   }
 };
 
-const createCart_permanent = async (
-  userId: string,
-): Promise<IResponseCreateCart> => {
+const createCart_permanent = async (userId: string): Promise<TCreateCart> => {
   try {
     const createCart = await prisma.cart.create({ data: { userId: userId } });
     if (!createCart) {

@@ -5,7 +5,7 @@ const layout = async ({ children }: { children: ReactNode }) => {
   const pathes = [
     { slug: "/profile" },
     { slug: "/profile/orders" },
-    { slug: "/profile/personal-info" },
+    { slug: "/profile/user-info" },
     { slug: "/profile/addresses" },
   ];
   return (
