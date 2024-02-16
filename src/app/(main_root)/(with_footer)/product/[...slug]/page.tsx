@@ -14,14 +14,14 @@ interface Props {
   };
 }
 
-// export async function generateStaticParams() {
-//   const products = await prisma.product.findMany({
-//     select: { id: true, title: true },
-//   });
-//   return products.map((item) => {
-//     return { slug: [item.id] };
-//   });
-// }
+export async function generateStaticParams() {
+  const products = await prisma.product.findMany({
+    select: { id: true, title: true },
+  });
+  return products.map((item) => {
+    return { slug: [item.id] };
+  });
+}
 
 const getProduct = cache(async (id: string) => {
   try {

@@ -3,13 +3,13 @@ import { prisma } from "@/lib/db/prisma";
 import { urlMaker } from "@/util_functions/urlMaker";
 import { MetadataRoute } from "next";
 
-// export async function generateSitemaps() {
-//   // Fetch the total number of products and calculate the number of sitemaps needed
-//   const products = await prisma.product.findMany({
-//     select: { id: true },
-//   });
-//   return products;
-// }
+export async function generateSitemaps() {
+  // Fetch the total number of products and calculate the number of sitemaps needed
+  const products = await prisma.product.findMany({
+    select: { id: true },
+  });
+  return products;
+}
 
 export default async function sitemap({
   id,
