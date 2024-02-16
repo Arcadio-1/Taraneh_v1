@@ -59,7 +59,7 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
             classess,
           )}
         >
-          <form action={async () => actionHandler(Operate.increment)}>
+          <form action={() => actionHandler(Operate.increment)}>
             <button type="submit">
               <PlusIcon stroke="#ef4056" className="h-10 w-10 p-2" />
             </button>
@@ -68,7 +68,7 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
           <div className="text-2xl text-[#ef4056]">
             <span className="font-iransansnum">{optimisticAmount}</span>
           </div>
-          <form action={async () => actionHandler(Operate.decrement)}>
+          <form action={() => actionHandler(Operate.decrement)}>
             <button type="submit">
               {optimisticAmount > 1 ? (
                 <MinusIcon stroke="#ef4056" className="h-10 w-10 p-2" />
@@ -81,7 +81,7 @@ const Control_amount = ({ amount, product_id, classess }: Props) => {
       ) : (
         <form
           className="w-full"
-          action={async () => actionHandler(Operate.increment)}
+          action={() => actionHandler(Operate.increment)}
         >
           <button
             type="submit"

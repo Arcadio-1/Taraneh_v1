@@ -7,6 +7,15 @@ import TestingEnvirment2 from "@/components/Util/testingEvirment/TestingEnvirmen
 
 const page = async () => {
   const session = await getServerSession(authOptions);
+  const test = null;
+  let test2: undefined;
+  if (test === undefined) {
+    console.log(typeof test2);
+    console.log("true");
+  } else {
+    console.log(typeof test2);
+    console.log("false");
+  }
 
   return (
     <div>

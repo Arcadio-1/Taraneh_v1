@@ -1,4 +1,4 @@
-import OrdersIcon from "@/components/Pages/Profile_page/navigation/icons/OrdersIcon";
+import OrdersIcon from "@/components/Pages/Profile_page/util/aside/navigation/icons/OrdersIcon";
 import GuaranteeIcon from "@/components/Util/ui/icons/GuaranteeIcon";
 import ShippingIcon from "@/components/Util/ui/icons/ShippingIcon";
 import { DotIcon } from "lucide-react";

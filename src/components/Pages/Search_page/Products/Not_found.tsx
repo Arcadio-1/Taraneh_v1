@@ -13,7 +13,7 @@ const Not_found = () => {
         alt="کالایی با این مشخصات پیدا نکردیم"
       />
       <div className="flex w-full grow items-start gap-4 rounded-lg border px-4 py-6">
-        <InfoIcon classes="w-8 h-8 fill-orange-300" />
+        <InfoIcon className="h-8 w-8 fill-orange-300" />
         <div className="flex flex-col gap-3">
           <h1 className="font-iranyekan_bold text-xl">
             کالایی با این مشخصات پیدا نکردیم
