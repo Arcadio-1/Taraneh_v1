@@ -1,6 +1,5 @@
 import Footer from "@/components/Util/layouts/footer/Footer";
 import Header from "@/components/Util/layouts/header/Header";
-import { Suspense } from "react";
 
 export default function MainLayout({
   children,
@@ -9,9 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Suspense fallback={<p>heather loading</p>}>
-        <Header />
-      </Suspense>
+      <Header />
       <section>{children}</section>
       <Footer />
     </>

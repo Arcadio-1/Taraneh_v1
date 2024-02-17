@@ -166,6 +166,7 @@ model Main_cat {
   title        String
   label        String
   image        String
+  icon         String
   Product      Product[]
   Specific_cat Specific_cat[]
 

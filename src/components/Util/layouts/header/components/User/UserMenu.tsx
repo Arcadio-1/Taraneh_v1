@@ -36,7 +36,7 @@ export default function UserMenu({ session }: Props) {
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <div className="flex cursor-pointer items-end">
-              <ProfileIcon classes="w-9 h-9 fill-dark_4" />
+              <ProfileIcon className="h-9 w-9 fill-dark_4" />
               <div>
                 <svg viewBox="0 0 24 24" className="h-8 w-8">
                   <path d="M7 10l5 5 5-5H7z"></path>
@@ -129,7 +129,7 @@ export default function UserMenu({ session }: Props) {
         <Sheet>
           <SheetTrigger asChild>
             <div className="flex cursor-pointer items-end">
-              <ProfileIcon classes="w-9 h-9 fill-dark_4" />
+              <ProfileIcon className="h-9 w-9 fill-dark_4" />
               <div>
                 <svg viewBox="0 0 24 24" className="h-8 w-8">
                   <path d="M7 10l5 5 5-5H7z"></path>
