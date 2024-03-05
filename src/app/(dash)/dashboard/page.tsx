@@ -1,9 +1,10 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth/authOptions";
+import Pageinated from "@/components/Pages/Admin_dash/root/Pageinated";
 
 const page = async () => {
-  const session = await getServerSession(authOptions);
-
-  return <div></div>;
+  return (
+    <div>
+      <Pageinated />
+    </div>
+  );
 };
 export default page;

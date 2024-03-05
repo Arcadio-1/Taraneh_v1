@@ -1,56 +1,15 @@
 import Link from "next/link";
-import React, { ReactNode } from "react";
-import HomeIcon from "./icons/HomeIcon";
-import OrdersIcon from "./icons/OrdersIcon";
-import AddressesIcon from "./icons/AddressesIcon";
-import Personal_info from "./icons/Personal_info_icon";
-import { Role } from "@prisma/client";
+import React from "react";
 import ArrowIcon, { Arrow } from "@/components/Util/ui/icons/ArrowIcon";
 import LogoutButton from "./LogoutButton";
+import { T_panelAsideLinks } from "@/types_validation/type";
 
-interface LinkType {
-  id: string;
-  title: string;
-  link: string;
-  role: Role;
-  icon?: ReactNode;
-}
 interface Props {
+  links: T_panelAsideLinks[];
   dashboard?: boolean;
 }
 
-const Navigation = ({ dashboard = false }: Props) => {
-  // const { data } = useSession();
-  const links: LinkType[] = [
-    {
-      id: "1",
-      title: "خلاصه فعالیت ها",
-      link: "/profile",
-      role: Role.USER,
-      icon: <HomeIcon className="h-8 w-8 fill-gray-600" />,
-    },
-    {
-      id: "2",
-      title: "سفارش ها",
-      link: "/profile/orders",
-      role: Role.USER,
-      icon: <OrdersIcon className="h-8 w-8 stroke-gray-600" />,
-    },
-    {
-      id: "3",
-      title: " آدرس ها",
-      link: "/profile/addresses",
-      role: Role.USER,
-      icon: <AddressesIcon className="h-8 w-8 fill-gray-600" />,
-    },
-    {
-      id: "4",
-      title: "اطلاعات حساب کاربری",
-      role: Role.USER,
-      link: "/profile/user-info",
-      icon: <Personal_info className="h-8 w-8 fill-gray-600" />,
-    },
-  ];
+const Navigation = ({ dashboard = false, links }: Props) => {
   return (
     <ul className="p-2 ">
       {links.map((item) => {

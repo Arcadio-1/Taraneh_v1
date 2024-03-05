@@ -4,7 +4,7 @@ interface StylingClasses {
   className?: string;
 }
 
-const Personal_info = ({ className }: StylingClasses) => {
+const Personal_info_icon = ({ className }: StylingClasses) => {
   return (
     <svg className={`${className}`} viewBox="0 0 24 24">
       <path
@@ -16,4 +16,4 @@ const Personal_info = ({ className }: StylingClasses) => {
   );
 };
 
-export default Personal_info;
+export default Personal_info_icon;

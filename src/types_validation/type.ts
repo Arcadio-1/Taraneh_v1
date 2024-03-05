@@ -1,6 +1,7 @@
-import { Order, Prisma } from "@prisma/client";
+import { Order, Prisma, Role } from "@prisma/client";
 import { z } from "zod";
 import { OtpNumberScheme } from "./validation";
+import { ReactNode } from "react";
 
 export enum IsValid {
   true = "200",
@@ -70,6 +71,15 @@ export type ShoppingCart = CartWithCartItemWithProducts & {
 export type Address_Full = Prisma.UserAddressGetPayload<{
   include: { city: true; state: true };
 }>;
+export type Product_Full = Prisma.ProductGetPayload<{
+  include: {
+    Product_description: true;
+    brand: true;
+    specific_cat: true;
+    Specifications: true;
+    main_cat: true;
+  };
+}>;
 
 export enum Operate {
   increment,
@@ -129,4 +139,12 @@ export enum OtpType {
 export interface RedisOtpValue {
   number: z.infer<typeof OtpNumberScheme>;
   type: OtpType;
+}
+
+export interface T_panelAsideLinks {
+  id: string;
+  title: string;
+  link: string;
+  role: Role;
+  icon?: ReactNode;
 }

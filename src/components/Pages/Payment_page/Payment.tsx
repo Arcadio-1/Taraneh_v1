@@ -19,9 +19,11 @@ interface Props {
 
 const Payment = ({ cart, address, session }: Props) => {
   const { deliveryDate, postingPrice } = useGlobalContext();
+
   const [paymentMethod, setPaymentMethod] = useState<PayMethod>(
     PayMethod.NOT_PAYED,
   );
+
   const paymentMethodHandler = (method: PayMethod) => {
     setPaymentMethod((prev) => {
       return (prev = method);

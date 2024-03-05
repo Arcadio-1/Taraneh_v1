@@ -21,7 +21,7 @@ const Header = async () => {
             <Link href={"/"}>
               <LogoIcon className="h-[6rem] w-[12rem]" />
             </Link>
-            <HelpIcon classes="h-10 w-10 md:hidden" />
+            <HelpIcon className="h-10 w-10 md:hidden" />
           </div>
           <div className="flex items-center justify-between gap-4 md:grow">
             <Search />
