@@ -2,9 +2,6 @@
 
 import { ProductsWithBrands } from "@/types_validation/type";
 import { prisma } from "../lib/db/prisma";
-import { Main_cat, Specific_cat } from "@prisma/client";
-// import { SortValue } from "@/components/Search_page/sorts/Sort";
-// import { SortValue } from "@/components/Search_page/sorts/Sort";
 
 enum SortValue {
   grtPrice = "0",
