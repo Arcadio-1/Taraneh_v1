@@ -1,12 +1,13 @@
 import Filters from "@/components/Pages/Search_page/filters/Filters";
 import Sort from "@/components/Pages/Search_page/sorts/Sort";
 import { prisma } from "@/lib/db/prisma";
-import { QueryParameters } from "@/util_functions/getPropducts";
+import { QueryParameters, getProducts } from "@/util_functions/getPropducts";
 import { MainCatsWithSpecificCats, SortValue } from "@/types_validation/type";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
 import Content from "@/components/Pages/Search_page/content/Content";
 import Filters_Sheet from "@/components/Pages/Search_page/filters/Filters_Sheet";
+import { Test } from "./test";
 interface SearchPageProps {
   searchParams: {
     searchQuery: string;
@@ -18,7 +19,17 @@ interface SearchPageProps {
     maxPrice: string;
   };
 }
-
+const getData = async ({
+  query_parameters,
+}: {
+  query_parameters: QueryParameters;
+}) => {
+  await getProducts(query_parameters);
+  // const response = await fetch("/api/products");
+  const data = await getProducts(query_parameters);
+  console.log(data);
+  // console.log(res);
+};
 export function generateMetadata({
   searchParams: { searchQuery },
 }: SearchPageProps): Metadata {
@@ -61,8 +72,13 @@ const All_products_page = async ({
   const mainCats: MainCatsWithSpecificCats[] = await prisma.main_cat.findMany({
     include: { Specific_cat: true },
   });
+  const d = await getData({ query_parameters });
+  console.log(d);
+
   return (
     <div className="mt-3 flex items-stretch">
+      {/* <button onClick={}>XXXXXXXXXXXXXXXX</button> */}
+      <Test query_parameters={query_parameters} />
       <aside className="hidden w-[28rem] rounded-xl border-2 border-dark_6 border-opacity-40 px-5 py-3 text-dark_4 md:block">
         <Filters
           brands={allBrands}

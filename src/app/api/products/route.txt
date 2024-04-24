@@ -1,0 +1,38 @@
+// import { prisma } from "@/lib/db/prisma";
+// import React from "react";
+
+// export const Get = async (request: Request) => {
+//   console.log(request);
+//   const products = await prisma.product.findMany();
+//   return Response.json({ data: products });
+// };
+// export { handler as GET, handler as POST };
+// import { type NextRequest } from "next/server";
+
+// export async function GET(request: NextRequest) {
+//   console.log("work");
+//   const requestHeaders = new Headers(request.headers);
+// }
+// import { NextRequest, NextResponse } from "next/server";
+// import { PrismaClient } from "@prisma/client";
+
+// const prisma = new PrismaClient();
+
+// export async function GET(request: NextRequest) {
+//   const bQ = request.nextUrl.searchParams.get("bQ");
+//   const main_cat = request.nextUrl.searchParams.get("main_cat");
+//   const maxPrice = request.nextUrl.searchParams.get("maxPrice");
+//   const minPrice = request.nextUrl.searchParams.get("minPrice");
+//   const page = request.nextUrl.searchParams.get("page");
+//   const pageSize = request.nextUrl.searchParams.get("pageSize");
+//   const searchQuery = request.nextUrl.searchParams.get("searchQuery");
+//   const sort = request.nextUrl.searchParams.get("sort");
+//   const specific_cat = request.nextUrl.searchParams.get("specific_cat");
+//   // const secret = request.nextUrl.searchParams.get("page");
+//   console.log(bQ);
+//   // Get all books from the database...
+//   const books = await prisma.product.findMany();
+//   // const data = await getProducts(query_parameters);
+
+//   return NextResponse.json(books, { status: 200 });
+// }

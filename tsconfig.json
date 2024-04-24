@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "types/**/*.ts"
+    "types/**/*.ts",
+    "src/app/api/products/route.txtt"
   ],
   "exclude": ["node_modules"]
 }
