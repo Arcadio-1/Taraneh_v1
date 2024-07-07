@@ -1,9 +1,7 @@
-// import { env } from "@/types_validation/env";
-// import { Redis } from "ioredis";
+import { env } from "@/types_validation/env";
+import { Redis } from "@upstash/redis";
 
-// export const redis = new Redis(env.REDIS_KEY, {
-//   connectTimeout: 10000,
-//   tls: {
-//     rejectUnauthorized: false,
-//   },
-// });
+export const redis = new Redis({
+  url: env.REDIS_URL,
+  token: env.REDIS_TOKEN,
+});

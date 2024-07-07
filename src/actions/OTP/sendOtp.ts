@@ -22,12 +22,14 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
   phone,
   type,
 }) => {
+  console.log(phone, type);
   try {
     const isInputValid = sendOtpValidator.safeParse({ phone, type });
     if (!isInputValid.success) {
       throw new Error("ورودی نا معتبر");
     }
     const existingCheck = await getOtp(phone);
+    console.log(existingCheck);
     if (existingCheck.ok) {
       throw new Error("لطفا تا پایان 3 دقیقه صبر کنید");
     }
@@ -48,7 +50,6 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
     //     args: ["12345"],
     //   },
     // });
-    // console.log(requestToMeliPayamak);
     if (!requestToMeliPayamak) {
       throw new Error("خطا در برقراری ارتباط");
     }
@@ -61,6 +62,7 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
       number: requestToMeliPayamak.data.code,
       type: type,
     });
+    console.log(seter);
 
     if (!seter.ok) {
       throw new Error(seter.message);

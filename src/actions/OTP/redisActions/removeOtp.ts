@@ -3,8 +3,7 @@
 import { z } from "zod";
 import { IResponse } from "@/types_validation/type";
 import { PhoneSchame } from "@/types_validation/validation";
-import { env } from "@/types_validation/env";
-import { Redis } from "ioredis";
+import { redis } from "@/lib/redis/redis";
 
 export const expireOtp: (
   phone: z.infer<typeof PhoneSchame>,
@@ -15,14 +14,7 @@ export const expireOtp: (
     if (!isKeyValid.success) {
       throw new Error(isKeyValid.error.message);
     }
-    const redis = new Redis(env.REDIS_KEY, {
-      connectTimeout: 10000,
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
     const removeRedis = await redis.expire(phone, -2);
-    await redis.quit();
 
     if (!removeRedis) {
       throw new Error("کلید مورد نظر یافت نشد");

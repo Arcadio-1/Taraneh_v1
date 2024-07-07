@@ -8,7 +8,8 @@ const envSchema = zod.object({
   NEXTAUTH_SECRET: zod.string().nonempty(),
   CRYPT_SECRET: zod.string().nonempty(),
   MELI_KEY: zod.string().nonempty(),
-  REDIS_KEY: zod.string().nonempty(),
+  REDIS_URL: zod.string().nonempty(),
+  REDIS_TOKEN: zod.string().nonempty(),
 });
 
 export const env = envSchema.parse(process.env);

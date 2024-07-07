@@ -1,12 +1,11 @@
 "use server";
 
-import { env } from "@/types_validation/env";
-import { Redis } from "ioredis";
 import { z } from "zod";
 import { IResponse, OtpType } from "@/types_validation/type";
 import { PhoneSchame } from "@/types_validation/validation";
 import { signOut } from "next-auth/react";
 import { getUserPhone } from "@/actions/util/getUserPhone";
+import { redis } from "@/lib/redis/redis";
 
 type IResponseWithNumber = IResponse & {
   phone: z.infer<typeof PhoneSchame> | null;
@@ -20,19 +19,13 @@ export const getNewPhone: () => Promise<IResponseWithNumber> = async () => {
       signOut({ callbackUrl: "/profile/user-info" });
       throw new Error(getPhone.message);
     }
-    const redis = new Redis(env.REDIS_KEY, {
-      connectTimeout: 10000,
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
 
-    const getRedis = await redis.get(`${getPhone.phone}${OtpType.changePhone}`);
-    await redis.quit();
+    const getRedis: { phone: z.infer<typeof PhoneSchame> } | null =
+      await redis.get(`${getPhone.phone}${OtpType.changePhone}`);
     if (!getRedis) {
       throw new Error("زمان مجاز به پایان رسیده مجددا اقدام نمایید");
     }
-    const values: { phone: z.infer<typeof PhoneSchame> } = JSON.parse(getRedis);
+    const values: { phone: z.infer<typeof PhoneSchame> } = getRedis;
     return {
       status: "Success",
       ok: true,

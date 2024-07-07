@@ -4,7 +4,6 @@ import { signOut } from "next-auth/react";
 import { IResponse, OtpType } from "@/types_validation/type";
 import { convert_to_en_number } from "@/util_functions/translateNumbers";
 import { env } from "@/types_validation/env";
-import { Redis } from "ioredis";
 import {
   ChangePhoneFormScheme,
   PhoneSchame,
@@ -13,6 +12,7 @@ import { getUserPhone } from "@/actions/util/getUserPhone";
 import { prisma } from "@/lib/db/prisma";
 import { getOtp } from "@/actions/OTP/redisActions/getOtp";
 import { expireOtp } from "@/actions/OTP/redisActions/removeOtp";
+import { redis } from "@/lib/redis/redis";
 
 type IResponseSetNewPhone = IResponse & {
   newPhone: z.infer<typeof PhoneSchame> | null;
@@ -65,19 +65,11 @@ const setNewPhone: ({
     await expireOtp(getPhone.phone);
 
     const jsonValue = JSON.stringify({ phone: inputValue.newPhone });
-    const redis = new Redis(env.REDIS_KEY, {
-      connectTimeout: 10000,
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
     const setNewPhoneOnRedis = await redis.set(
       `${getPhone.phone}${OtpType.changePhone}`,
       jsonValue,
-      "EX",
-      600,
+      { ex: 600 },
     );
-    await redis.quit();
 
     if (!setNewPhoneOnRedis) {
       throw new Error("خطا در ثبت شماره جدید در حافظه");

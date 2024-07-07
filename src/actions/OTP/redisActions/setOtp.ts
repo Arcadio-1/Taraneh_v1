@@ -4,9 +4,8 @@ import { z } from "zod";
 import { IResponse, OtpType } from "@/types_validation/type";
 import { convert_to_en_number } from "@/util_functions/translateNumbers";
 import { OtpNumberScheme, PhoneSchame } from "@/types_validation/validation";
+import { redis } from "@/lib/redis/redis";
 import { getOtp } from "./getOtp";
-import { env } from "@/types_validation/env";
-import { Redis } from "ioredis";
 
 interface CreateOtpProps {
   phone: z.infer<typeof PhoneSchame>;
@@ -44,14 +43,7 @@ const setOtp: ({
       throw new Error("لطفا سه دقیقه صبر کنید");
     }
     const value = JSON.stringify(redisSetObjext.value);
-    const redis = new Redis(env.REDIS_KEY, {
-      connectTimeout: 10000,
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-    const setOtp = await redis.set(phone, value, "EX", 180);
-    await redis.quit();
+    const setOtp = await redis.set(phone, value, { ex: 180 });
 
     if (!setOtp) {
       throw new Error("خطا در ایجاد رمز یکبار مصرف کد 1");

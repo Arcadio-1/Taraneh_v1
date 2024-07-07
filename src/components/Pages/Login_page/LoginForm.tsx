@@ -7,7 +7,6 @@ import OtpForm from "./OtpForm";
 import PhoneForm from "./PhoneForm";
 import Link from "next/link";
 import LogoIcon from "@/components/Util/ui/icons/LogoIcon";
-
 const LoginForm = () => {
   const callbackParam = useSearchParams().get("callback") || "/";
 

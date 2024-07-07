@@ -3,8 +3,7 @@
 import { z } from "zod";
 import { IResponse, OtpType, RedisOtpValue } from "@/types_validation/type";
 import { OtpNumberScheme, PhoneSchame } from "@/types_validation/validation";
-import { env } from "@/types_validation/env";
-import { Redis } from "ioredis";
+import { redis } from "@/lib/redis/redis";
 type IResponseWithNumber = IResponse & {
   number: z.infer<typeof OtpNumberScheme> | null;
   type: OtpType | null;
@@ -19,20 +18,13 @@ export const getOtp: (
     if (!isKeyValid.success) {
       throw new Error(isKeyValid.error.message);
     }
-    const redis = new Redis(env.REDIS_KEY, {
-      connectTimeout: 10000,
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-    const getRedis = await redis.get(phone);
-    await redis.quit();
+    const getRedis: RedisOtpValue | null = await redis.get(phone);
 
     if (!getRedis) {
       throw new Error("اقدام به ارسال رمز یکبار مصرف کنید");
     }
 
-    const values: RedisOtpValue = JSON.parse(getRedis);
+    const values: RedisOtpValue = getRedis;
 
     return {
       status: "Success",
