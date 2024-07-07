@@ -29,7 +29,6 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
       throw new Error("ورودی نا معتبر");
     }
     const existingCheck = await getOtp(phone);
-    console.log(existingCheck);
     if (existingCheck.ok) {
       throw new Error("لطفا تا پایان 3 دقیقه صبر کنید");
     }
@@ -62,8 +61,6 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
       number: requestToMeliPayamak.data.code,
       type: type,
     });
-    console.log(seter);
-
     if (!seter.ok) {
       throw new Error(seter.message);
     }
@@ -73,6 +70,7 @@ const sendOtp: ({ phone, type }: SendOtpProps) => Promise<IResponse> = async ({
       message: "رمز یک بار مصرف با موفقیت ارسال شد",
     };
   } catch (error) {
+    console.log(error);
     if (error instanceof Error) {
       return {
         status: "Error",
